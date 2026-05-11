@@ -1,0 +1,25 @@
+=== V1 decoder vs CV: multi-session, FR-controlled ===
+
+Sessions: 5, total V1 neurons: 564
+
+--- Per-session partial Spearman rho(CV_L, accuracy | FR) ---
+      105l001p16  n=159  raw rho(CV,acc)=+0.334  partial rho=+0.740  p=1.3e-28
+      106r001p26  n=109  raw rho(CV,acc)=+0.366  partial rho=+0.542  p=1.4e-09
+      106r002p70  n= 88  raw rho(CV,acc)=+0.398  partial rho=+0.573  p=6.6e-09
+      107l002p67  n= 97  raw rho(CV,acc)=+0.553  partial rho=+0.794  p=5.1e-22
+     107l003p143  n=111  raw rho(CV,acc)=+0.455  partial rho=+0.829  p=5.3e-29
+
+  Fisher-combined (meta) partial rho = +0.719  (p = 4.6e-100)
+
+--- Pooled across sessions (N = 564 neurons) ---
+  Raw     rho(CV_L, acc) = +0.294  (p = 9.8e-13)
+  Raw     rho(FR,   acc) = +0.128  (p = 0.0024)
+  Raw     rho(CV_L, FR)  = -0.810  (p = 3.6e-132)    [confound]
+  Partial rho(CV_L, acc | FR) = +0.683  (p = 1.2e-78)
+  Partial rho(FR,   acc | CV) = +0.653  (p = 1.4e-69)
+
+--- Pooled within-FR-quartile CV-vs-accuracy ---
+  FR Q1 (0.47-6.53 Hz, n=141):  rho=+0.326  p=7.9e-05   mean CV=1.024  mean acc=24.34%
+  FR Q2 (6.53-15.01 Hz, n=141):  rho=+0.685  p=7.9e-21   mean CV=0.633  mean acc=26.01%
+  FR Q3 (15.01-29.25 Hz, n=141):  rho=+0.683  p=1.2e-20   mean CV=0.464  mean acc=27.09%
+  FR Q4 (29.25-131.23 Hz, n=141):  rho=+0.676  p=3.6e-20   mean CV=0.317  mean acc=27.58%

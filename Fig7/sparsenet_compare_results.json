@@ -1,0 +1,296 @@
+{
+  "configs": [
+    "baseline",
+    "cauchy",
+    "cv"
+  ],
+  "labels": {
+    "baseline": "L1 (Olshausen)",
+    "cauchy": "Cauchy (NL)",
+    "cv": "CV (ours)"
+  },
+  "hists": {
+    "baseline": {
+      "epoch": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "ice": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "ice_std": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "cv_act": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "cv_act_std": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "recon": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "recon_std": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "n_valid_seeds": 0,
+      "_diagnostics": [
+        "sparsenet_0: missing data (events.out.tfevents.1774485153.MIA2.15872.0 or record_16_new_0.mat)",
+        "sparsenet_1: missing data (events.out.tfevents.1774485554.MIA2.15872.1 or record_16_new_1.mat)"
+      ]
+    },
+    "cauchy": {
+      "epoch": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "ice": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "ice_std": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "cv_act": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "cv_act_std": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "recon": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "recon_std": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "n_valid_seeds": 0,
+      "_diagnostics": [
+        "sparsenet_0: missing data (events.out.tfevents.1774485960.MIA2.28840.0 or record_cauchy_16_nl_new_0.mat)",
+        "sparsenet_1: missing data (events.out.tfevents.1774486276.MIA2.28840.1 or record_cauchy_16_nl_new_1.mat)"
+      ]
+    },
+    "cv": {
+      "epoch": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "ice": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "ice_std": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "cv_act": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "cv_act_std": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "recon": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "recon_std": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "n_valid_seeds": 0,
+      "_diagnostics": [
+        "sparsenet_0: no events file",
+        "sparsenet_1: no events file"
+      ]
+    }
+  },
+  "n_seeds": 2,
+  "_meta": {
+    "recon_tag": "E",
+    "cv_act_tag": "CV_pop",
+    "mean_a_source": "record<suffix>_<seed>.mat field \"mu\"",
+    "ice_formula": "-log2(E / E[0]) / mean|a|",
+    "ice_note": "mean|a| is read directly from the per-run training record (.mat file, \"mu\" field, one value per epoch).  E and CV are read from TB scalars.  An earlier sqrt(S/N) proxy systematically biased ICE downward for heavy-tailed activation distributions (cv_constrained_v2) where a few large coefficients inflate S = sum log(1+a^2).",
+    "epoch_axis_note": "TB step axis used directly as epoch index (each scalar logged once per epoch by the SparseNet training loop)."
+  }
+}

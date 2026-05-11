@@ -1,0 +1,263 @@
+%Version 3.1 December 2024
+% See section 11 of the User Manual for version history
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                                                 %%
+%% Please do not use \input{...} to include other tex files.       %%
+%% Submit your LaTeX manuscript as one .tex document.              %%
+%%                                                                 %%
+%% All additional figures and files should be attached             %%
+%% separately and not embedded in the \TeX\ document itself.       %%
+%%                                                                 %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%\documentclass[referee,sn-basic]{sn-jnl}% referee option is meant for double line spacing
+
+%%=======================================================%%
+%% to print line numbers in the margin use lineno option %%
+%%=======================================================%%
+
+% \documentclass[lineno,pdflatex,sn-basic]{sn-jnl}% Basic Springer Nature Reference Style/Chemistry Reference Style
+
+%%=========================================================================================%%
+%% the documentclass is set to pdflatex as default. You can delete it if not appropriate.  %%
+%%=========================================================================================%%
+
+\documentclass[sn-basic,Numbered]{sn-jnl}% Basic Springer Nature with Numbered citations (NC requires numerical refs)
+
+%%Note: the following reference styles support Namedate and Numbered referencing. By default the style follows the most common style. To switch between the options you can add or remove Numbered in the optional parenthesis. 
+%%The option is available for: sn-basic.bst, sn-chicago.bst%  
+ 
+%%\documentclass[pdflatex,sn-nature]{sn-jnl}% Style for submissions to Nature Portfolio journals
+%%\documentclass[pdflatex,sn-basic]{sn-jnl}% Basic Springer Nature Reference Style/Chemistry Reference Style
+% \documentclass[pdflatex,sn-mathphys-num]{sn-jnl}% Math and Physical Sciences Numbered Reference Style
+%%\documentclass[pdflatex,sn-mathphys-ay]{sn-jnl}% Math and Physical Sciences Author Year Reference Style
+%%\documentclass[pdflatex,sn-aps]{sn-jnl}% American Physical Society (APS) Reference Style
+%%\documentclass[pdflatex,sn-vancouver-num]{sn-jnl}% Vancouver Numbered Reference Style
+%%\documentclass[pdflatex,sn-vancouver-ay]{sn-jnl}% Vancouver Author Year Reference Style
+%%\documentclass[pdflatex,sn-apa]{sn-jnl}% APA Reference Style
+%%\documentclass[pdflatex,sn-chicago]{sn-jnl}% Chicago-based Humanities Reference Style
+
+%%%% Standard Packages
+%%<additional latex packages if required can be included here>
+
+\usepackage{graphicx}%
+\usepackage{multirow}%
+\usepackage{amsmath,amssymb,amsfonts}%
+\usepackage{amsthm}%
+\usepackage{mathrsfs}%
+\usepackage[title]{appendix}%
+\usepackage{xcolor}%
+\usepackage{textcomp}%
+\usepackage{manyfoot}%
+\usepackage{booktabs}%
+\usepackage{algorithm}%
+\usepackage{algorithmicx}%
+\usepackage{algpseudocode}%
+\usepackage{listings}%
+%%%%
+
+%%%%%=============================================================================%%%%
+%%%%  Remarks: This template is provided to aid authors with the preparation
+%%%%  of original research articles intended for submission to journals published 
+%%%%  by Springer Nature. The guidance has been prepared in partnership with 
+%%%%  production teams to conform to Springer Nature technical requirements. 
+%%%%  Editorial and presentation requirements differ among journal portfolios and 
+%%%%  research disciplines. You may find sections in this template are irrelevant 
+%%%%  to your work and are empowered to omit any such section if allowed by the 
+%%%%  journal you intend to submit to. The submission guidelines and policies 
+%%%%  of the journal take precedence. A detailed User Manual is available in the 
+%%%%  template package for technical guidance.
+%%%%%=============================================================================%%%%
+
+%% as per the requirement new theorem styles can be included as shown below
+\theoremstyle{thmstyleone}%
+\newtheorem{theorem}{Theorem}%  meant for continuous numbers
+%%\newtheorem{theorem}{Theorem}[section]% meant for sectionwise numbers
+%% optional argument [theorem] produces theorem numbering sequence instead of independent numbers for Proposition
+\newtheorem{proposition}[theorem]{Proposition}% 
+%%\newtheorem{proposition}{Proposition}% to get separate numbers for theorem and proposition etc.
+
+\theoremstyle{thmstyletwo}%
+\newtheorem{example}{Example}%
+\newtheorem{remark}{Remark}%
+
+\theoremstyle{thmstylethree}%
+\newtheorem{definition}{Definition}%
+
+\raggedbottom
+%%\unnumbered% uncomment this for unnumbered level heads
+
+\begin{document}
+
+\title[Article Title]{Gibbs Manifold Geometry Unifies Neural Variability, Sparseness, and Metabolic Efficiency}
+
+%%=============================================================%%
+%% GivenName	-> \fnm{Joergen W.}
+%% Particle	-> \spfx{van der} -> surname prefix
+%% FamilyName	-> \sur{Ploeg}
+%% Suffix	-> \sfx{IV}
+%% \author*[1,2]{\fnm{Joergen W.} \spfx{van der} \sur{Ploeg} 
+%%  \sfx{IV}}\email{iauthor@gmail.com}
+%%=============================================================%%
+
+
+\author[1,2]{\fnm{Mingyi} \sur{Huang}}\email{myhuang20@fudan.edu.cn}
+
+\author[1,2]{\fnm{Wei} \sur{Lin}}\email{wlin@fudan.edu.cn}
+% \equalcont{These authors contributed equally to this work.}
+
+\author[3]{\fnm{Anna Wang} \sur{Roe}}\email{annawang@zju.edu.cn}
+% \equalcont{These authors contributed equally to this work.}
+
+\author*[1,2]{\fnm{Yuguo} \sur{Yu}}\email{yuyuguo@fudan.edu.cn}
+% \equalcont{These authors contributed equally to this work.}
+
+\affil*[1]{\orgdiv{Research Institute of Intelligent and Complex Systems, State Key Laboratory of Medical Neurobiology and MOE Frontiers Center for Brain Science, and Institute of Science and Technology for Brain-Inspired Intelligence}, \orgname{Fudan University}, \orgaddress{\city{Shanghai}, \postcode{200433}, \country{China}}}
+
+\affil[2]{\orgname{Shanghai Artificial Intelligence Laboratory}, \orgaddress{\city{Shanghai}, \postcode{200232}, \country{China}}}
+
+\affil[3]{\orgdiv{MOE Frontier Science Center for Brain Science and Brain-machine Integration, School of Brain Science and Brain Medicine, Key Laboratory of Biomedical Engineering of Ministry of Education, College of Biomedical Engineering and Instrument Science}, \orgname{Zhejiang University}, \orgaddress{\city{Hangzhou}, \postcode{310012}, \country{China}}}
+
+%%==================================%%
+%% Sample for unstructured abstract %%
+%%==================================%%
+
+\abstract{Neural circuits process information under severe metabolic constraints, yet the statistical principles linking efficiency to neural variability remain unclear.  Here we construct, to our knowledge, the first Gibbs-manifold framework for energy-efficient neural coding: entropy maximization under a metabolic budget yields a one-dimensional family of Gibbs-optimal response distributions, with the coefficient of variation (CV) serving as an experimentally accessible macroscopic coordinate coupling sparseness and efficiency.  In evoked conditions, coding efficiency is mutual information per unit cost; under a deterministic-encoding approximation this reduces to entropy maximization.  In spontaneous conditions, response entropy is interpreted as coding readiness rather than stimulus information.  In macaque V1, spontaneous and evoked activity separate in the predicted direction along lifetime CV and sparseness, and firing-rate-controlled decoders show that CV predicts stimulus information beyond mean firing rate.  E--I plastic networks and CV-maximizing sparse coding further support high-CV regimes as energy-efficient operating states for neural and artificial computation.}
+
+%%================================%%
+%% Sample for structured abstract %%
+%%================================%%
+
+% \abstract{\textbf{Purpose:} The abstract serves both as a general introduction to the topic and as a brief, non-technical summary of the main results and their implications. The abstract must not include subheadings (unless expressly permitted in the journal's Instructions to Authors), equations or citations. As a guide the abstract should not exceed 200 words. Most journals do not set a hard limit however authors are advised to check the author instructions for the journal they are submitting to.
+% 
+% \textbf{Methods:} The abstract serves both as a general introduction to the topic and as a brief, non-technical summary of the main results and their implications. The abstract must not include subheadings (unless expressly permitted in the journal's Instructions to Authors), equations or citations. As a guide the abstract should not exceed 200 words. Most journals do not set a hard limit however authors are advised to check the author instructions for the journal they are submitting to.
+% 
+% \textbf{Results:} The abstract serves both as a general introduction to the topic and as a brief, non-technical summary of the main results and their implications. The abstract must not include subheadings (unless expressly permitted in the journal's Instructions to Authors), equations or citations. As a guide the abstract should not exceed 200 words. Most journals do not set a hard limit however authors are advised to check the author instructions for the journal they are submitting to.
+% 
+% \textbf{Conclusion:} The abstract serves both as a general introduction to the topic and as a brief, non-technical summary of the main results and their implications. The abstract must not include subheadings (unless expressly permitted in the journal's Instructions to Authors), equations or citations. As a guide the abstract should not exceed 200 words. Most journals do not set a hard limit however authors are advised to check the author instructions for the journal they are submitting to.}
+
+\keywords{Neural variability, Energy-efficient coding, Information--cost efficiency, Gibbs manifold, Excitatory--inhibitory balance}
+
+%%\pacs[JEL Classification]{D8, H51}
+
+%%\pacs[MSC Classification]{35A01, 65L10, 65L12, 65L20, 65L70}
+
+\maketitle
+
+\section{Introduction}\label{sec1}
+
+
+For more than half a century, neuroscience has faced a basic puzzle: how do neural circuits achieve high-throughput computation while operating under severe metabolic constraints? Despite consuming only about $20\%$ of the body's energy \cite{lennie2003cost,31,32}, the mammalian brain supports complex sensory processing and cognitive function at high efficiency. Understanding how neural systems organize their activity to maximize computational performance per unit energy remains a central challenge for theoretical neuroscience. Two influential theoretical perspectives have addressed this problem from different angles---one emphasizing response sparseness as a strategy to reduce redundancy and metabolic cost, and another focusing on the irregular variability of neural firing as a signature of flexible and efficient network dynamics. Despite considerable progress within each tradition, a unified account of how these two features relate to each other---and to the metabolic budget that constrains them both---has remained elusive.
+
+The first perspective centers on \textbf{sparseness}, the idea that neural representations minimize redundancy and energy expenditure by activating only a small subset of neurons at any given moment \cite{1,2,3,20}. Rooted in Barlow’s efficient coding hypothesis \cite{30} and formalized in sparse coding theory \cite{13,field_relations_1987}, this framework has successfully explained key properties of sensory representations, including the emergence of localized receptive fields \cite{hubel_receptive_1962,20} and structured population activity \cite{15,22,25}. Both lifetime and population variants of sparseness---here quantified uniformly using the Treves--Rolls measure---are widely observed across sensory systems, suggesting that sparse activity patterns may reflect a fundamental organizing principle of neural computation. However, most theoretical treatments regard sparseness as a static representational property, leaving its dynamical origins and its relationship to the temporal statistics of neural activity largely unexplained.
+
+A seemingly distinct line of research instead focuses on the \textbf{variability} of neural activity, typically quantified by the coefficient of variation (CV) of inter-spike intervals. Early studies interpreted variability primarily as a manifestation of neural noise \cite{6,4}, with single-neuron biophysics generating high CV through stochastic synaptic input and intrinsic mechanisms \cite{26,27,28,39}. More recent work, however, suggests that irregular firing can enhance representational flexibility, adaptability, and information capacity \cite{7,8,9,5,47}. Highly irregular spiking activity is observed across species, cortical areas, and behavioral conditions \cite{10,11,12,Buracas1998}, and theoretical studies have shown that such variability can naturally arise in recurrent networks operating in a dynamically balanced excitatory--inhibitory regime \cite{Renart2010,LitwinKumar2012,41}. Despite its ubiquity, however, firing variability has rarely been analyzed from the perspective of metabolic efficiency, and its relationship to sparse population activity remains poorly understood.
+
+These two traditions share a deeper conceptual gap. Classic information--theoretic analyses have characterized how the information rate carried by spike trains scales with firing rate, showing sublinear gains due to decreasing information per spike \cite{Rieke1997,Sterling2015}. Yet such approaches treat firing rate as the primary coding variable and do not address how metabolic constraints shape the statistical structure of neural responses---in particular, the joint organization of variability and sparseness. In this study, we ask a different question: rather than characterizing information as a function of firing rate, we ask how a fixed energy budget constrains the \emph{distribution} of neural responses. We define information--cost efficiency as $\mathrm{ICE} = I(s;r)/C$, where $I(s;r)$ is the mutual information and $C$ the metabolic cost. Following classical information-maximization approaches \cite{Laughlin1981,Bell1995Infomax,Yu2005VisionResearch}, we adopt a deterministic-encoding approximation ($I(s;r)\approx H(r)$) for analytical tractability; its empirical failure on V1 is folded into the scope caveats below.
+
+Maximum-entropy models \cite{45} fit the Gibbs form to observed pairwise correlations rather than deriving it from a metabolic-budget problem; efficient-coding theories \cite{Chalk2018} integrate efficient, predictive, and sparse coding objectives but do not organize the resulting energy-constrained codes as a one-dimensional manifold parameterized by neural variability.  To our knowledge, the present study is the first systematic construction and empirical test of a Gibbs-manifold framework linking variability, sparseness, and metabolic efficiency within a single geometric object.
+
+Within this framework, we show that sparseness and variability are tightly coupled descriptors of the same response state.  Specifically, moment-based sparseness and the rate coefficient of variation, when computed over the same non-negative response samples, are algebraically related, so the two quantities are largely redundant in this restricted sense (the relation does not extend automatically to inter-spike-interval CV, Fano factor, or noise correlations). To formalize this insight, we introduce a normative framework in which \emph{maximizing response entropy under a metabolic budget} yields an optimal firing-rate distribution of Gibbs form; information--cost efficiency $\mathrm{ICE}=I/C$ is then evaluated along the resulting manifold rather than being the direct optimization target.  The family of such distributions, parameterized by a single Lagrange multiplier, defines a one-dimensional \textbf{Gibbs manifold (GM)} along which all entropy-optimal codes are organized. The central prediction is that the coefficient of variation parametrizes the response-distribution shape along or near the Gibbs manifold, with sparseness and efficiency jointly enhanced as one moves toward higher CV under the framework's assumptions, and reliability following as a model-dependent consequence in Poisson-like count regimes.  Two scope caveats carry through.  The strictly-convex-cost theorem covers $\mathrm{CV}\in[1/\sqrt{3},1]$; the empirical $\mathrm{CV}>1$ regime requires a phenomenological sublinear-cost extension verified numerically rather than analytically (Supp.~Sect.~1.7).  And $I\approx H$ does not hold strictly on the V1 data ($\bar\rho\approx 0.85$), so the manifold is a within-dataset upper bound on $I/C$; cross-dataset comparisons require per-dataset rescaling.
+
+We evaluate these predictions across progressively richer levels of organization:
+(i) \emph{Empirical recordings}---in macaque V1, spontaneous activity occupies a higher-CV, higher-sparseness region than evoked activity, in the direction predicted by the framework, with spontaneous activity accounting for a large fraction of cortical metabolic expenditure \cite{Raichle2001,Tomasi2013};
+(ii) \emph{Single-neuron dynamics}---a biophysical neuron model with inhibitory synaptic plasticity reproduces the predicted monotonic ICE--CV dependence while progressively internalizing input structure and reducing its firing rate;
+(iii) \emph{Network self-organization}---recurrent spiking networks with E--I plasticity evolve toward a high-CV regime while simultaneously improving signal reconstruction fidelity, with trial-to-trial spike-count agreement rising under Poisson-like count statistics;
+(iv) \emph{Geometric comparison}---after system-specific rate calibration, the three systems trace concave trajectories whose shape is consistent with the Gibbs manifold on a common entropy--cost plane;
+(v) \emph{Engineering transfer}---a learning rule that directly maximizes CV recovers V1-like receptive fields with a more favourable efficiency--fidelity trade-off than a fixed-prior sparse-coding baseline under matched conditions.
+
+Taken together, these results support a normative reading in which elevated neural variability need not reflect noise alone but can be consistent with an energy-efficient operating regime. The coefficient of variation provides a macroscopic coordinate that ties sparseness to efficiency and a candidate descriptor for the response-distribution shape along the Gibbs manifold. Across the empirical sections information and cost are instantiated differently per context; the unifying object is not a single ICE metric but the shared monotonic organization of variability, sparseness, and efficiency under cost-constrained coding. Beyond neuroscience, the same principle suggests a design strategy for energy-aware artificial systems: directly targeting high CV, rather than imposing explicit sparsity, may give an effective route to efficient representations.
+
+\section{Results}
+\label{results}
+
+\input{sections/result1.tex}
+\input{sections/result2.tex}
+\input{sections/result3.tex}
+\input{sections/result4.tex}
+\input{sections/result5.tex}
+\input{sections/result6.tex}
+\input{sections/methods.tex}
+\input{sections/discussion.tex}
+
+
+
+\backmatter
+
+\bmhead{Supplementary information}(Theorems, Figures and Tables.)\\
+\textbf{Normative Principle:} \\Entropy and Information Maximization under Energy Constraints.\\
+\textbf{Supplementary Proof:}\\
+1. Equivalence of $\text{CV}_L$ of instantaneous firing rate and $\text{CV}_{L(ISI)}$ for Poisson processes.\\
+2. Monotonic relation between CV and ICE for Poisson, Uniform, and Gaussian distributions, including the Gaussian channel model for the theoretical curves in Fig.~4G.\\
+3. Monotonic relation between CV and trial-to-trial response agreement for Poisson, Uniform, and Gaussian distributions.\\
+\textbf{Supplementary Figures}\\
+Fig.S1. Complementary CV estimators on the V1 dataset (CV$_{ISI}$ and CV$_P$ alongside the main-text CV$_L$).\\
+Fig.S2. Monotonic relationship between CV$_{L(ISI)}$ and $S_L$ for Poisson processes with absolute refractory period.\\
+Fig.S3. Per-trial population CV (CV$_P$) and sparseness (S$_P$) on the V1 dataset (complementary projection to main-text Fig.~2).\\
+Fig.S4. Distributional robustness of the ICE--CV monotonicity across Poisson, Gaussian, and Uniform families under matched parameter sweeps.\\
+Fig.S5. ICE--CV relationship validated by additional experimental data on a population scale.\\
+Fig.S6. Boxplots of population CV (CV$_P$), lifetime CV (CV$_L$), and mean activation $\bar{a}$ for the three sparse-coding models (Null, SparseNet, CVM).\\
+Fig.S7. Sensitivity of the main-text Gibbs manifold (Fig.~5) to the $R_0$ anchor choice (min/median/max firing-rate anchors).\\
+Fig.S8. CV-max ICE--RE Pareto curves: per-cv\_ratio sub-curves of CVM compared with Null and SparseNet baselines (matched-baseline ablation).\\
+Fig.S9. Analytical verification of the monotonicity for the truncated-exponential optimal code under linear cost.\\
+Fig.S10. Numerical validations for supplementary proofs ($h(u)$, $g(u)$ positivity; $h(\lambda)<e^\lambda$).\\
+Fig.S11. FR-controlled per-neuron decoder validation of the CV--reliability link on macaque V1 ($N=564$ neurons across 5 v1v2-1 sessions).\\
+\textbf{Supplementary Tables}\\
+Table. S1. $\mathrm{CV}(\alpha)$ for the sublinear-cost extension: closed-form mapping between empirical CV and exponent $\alpha$.\\
+Table. S2. Bootstrap calibration of the sublinear-cost exponent $\hat\alpha$ for V1 spontaneous and evoked conditions.\\
+Table. S3. CV-dependence of trial-to-trial spike-count agreement $P_{\mathrm{agree}}$ across Poisson, Gaussian, and Uniform response families.\\
+Table. S4. Anchor-sensitivity of the Gibbs manifold: $R_0$ and data-to-manifold gap under min/median/max-rate anchors.\\
+Table. S5. Bookkeeping of information--cost quantities used across the study (theory / empirical evoked / empirical spontaneous).\\
+Table. S6. V1 spontaneous vs.\ evoked statistics for per-neuron $\mathrm{CV}_L$ and $S_L$ (paired Wilcoxon, Cliff's $\delta$, bootstrap 95\% CI).\\
+Table. S7. Summary of main symbols used in the manuscript.\\
+Table. S8. Detailed parameters for the single-neuron leaky integrate-and-fire simulations.\\
+Table. S9. Mathematical symbols and default values used in the recurrent network model.
+
+
+
+\bmhead{Acknowledgements}
+We thank Shanghai Institute for Mathematics and Interdisciplinary Sciences (SIMIS) for support (SIMIS-ID-2025-NC).  Language polishing of an earlier draft was assisted by a large language model (Claude, Anthropic); all scientific content, analyses, derivations, code, and conclusions are the authors' own and were verified by the authors.
+
+\bmhead{Funding}
+This work was supported by the Science and Technology Innovation 2030---Brain Science and Brain-Inspired Intelligence Project (2021ZD0201301), the National Natural Science Foundation of China (9257020), and Shanghai Municipal Science and Technology grants 24JS2810400 and 21XD1400400.
+
+\bmhead{Author contributions}
+
+Y. Y., W. L. and A. W. R. supervised the research, M. H. and Y. Y. designed the research, M. H. performed the research, M. H. wrote the proofs and analyzed the data, M. H. and Y. Y. wrote the paper.
+
+\bmhead{Competing interests}
+The authors declare no competing interest.
+
+\bmhead{Data availability}
+The datasets analyzed in this study are publicly available from the Collaborative Research in Computational Neuroscience (CRCNS) data sharing repository at https://crcns.org/data-sets/vc/v1v2-1. The specific dataset used is the V1/V2 dataset (v1v2-1).
+
+
+\bmhead{Code availability}
+Custom code for all analyses, simulations, and figure generation is provided to editors and reviewers at submission via a private GitHub repository (access link included in the cover letter).  The repository is organized by figure (\texttt{Fig1/}--\texttt{Fig6/}) with a top-level \texttt{README.md} documenting per-figure entry points, software dependencies (Python~$\geq$~3.10 with NumPy/SciPy/Matplotlib/scikit-learn; MATLAB~R2022a or later), and the public dataset locations used for the V1 analyses.  Upon acceptance the repository will be made public on GitHub and archived on Zenodo with a permanent DOI.
+
+% \begin{appendices}
+
+% \section{Section title of first appendix}\label{secA1}
+
+% An appendix contains supplementary information that is not an essential part of the text itself but which may be helpful in providing a more comprehensive understanding of the research problem or it is information that is too cumbersome to be included in the body of the paper.
+
+% %%=============================================%%
+% %% For submissions to Nature Portfolio Journals %%
+% %% please use the heading ``Extended Data''.   %%
+% %%=============================================%%
+
+% %%=============================================================%%
+% %% Sample for another appendix section			       %%
+% %%=============================================================%%
+
+% %% \section{Example of another appendix section}\label{secA2}%
+% %% Appendices may be used for helpful, supporting or essential material that would otherwise 
+% %% clutter, break up or be distracting to the text. Appendices can consist of sections, figures, 
+% %% tables and equations etc.
+
+% \end{appendices}
+
+\bibliography{sn-bibliography}
+
+\end{document}

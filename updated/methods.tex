@@ -1,0 +1,40 @@
+\section{Methods}
+
+\subsection{Metrics}
+\label{measures}
+
+\paragraph{CV and sparseness.}
+Both are computed from an activation vector $\mathbf{r}=\{r_1,\dots,r_N\}$.  For \emph{population} measures ($S_P$, $CV_P$), $r_i$ is the activation of unit $i$ for a given input; for \emph{lifetime} measures ($S_L$, $CV_L$), $r_i$ is the activation of a single unit across inputs.  $\mathrm{CV} = \sigma/\bar{r}$ and $S = (1-\bar{r}^2/\overline{r^2})/(1-1/N)$ (Vinje--Gallant bias-corrected Treves--Rolls sparseness; the factor $1/(1-1/N)$ normalizes the maximum attainable value to $1$ for a finite population of $N$ units), with $S \to \mathrm{CV}^2/(\mathrm{CV}^2+1)$ for large $N$.
+
+\paragraph{Information--Cost Efficiency (ICE).}
+Three operational definitions of information and cost are used, matched to context.  Units differ across pairings; the empirical claim is the within-pairing monotonic ICE--CV relationship, not cross-pairing collapse.
+
+\emph{Spike-based experiments and models (Figs.~\ref{fig:V1}, \ref{fig:single-neuron}, \ref{fig:network}).}  Mutual information rate via the direct method \cite{97bialek}: spike trains binned at $\Delta\tau=1$\,ms (single-neuron model: $10$\,ms in 600-bin windows; frozen-stimulus paradigm), words of length $T\in\{4,5,6,7,8,10,13,15,20,25,30,40\}$\,ms, entropy rate extrapolated as $H_\infty=\lim_{T\to\infty}H(T)/(T\Delta\tau)$ [bits/s] by linear regression of $H(T)/T$ vs.\ $1/T$, and $I=H_{\mathrm{total}}-H_{\mathrm{noise}}$.  Cost: $C(r) = 2.4 + 0.37\,r$\,[W] \cite{Yuguo2018Evaluating}.
+
+\emph{Distributional robustness check (Supp.~Fig.~S4).}  Firing-rate entropy $H(r)$ computed analytically for Poisson, Gaussian, and Uniform families under signal-energy cost $C=\mathbb{E}[r^2]$ (parameter sweeps as in Supp.~Sect.~2.2; Monte-Carlo validation with $10^5$ draws per CV point).  The Gaussian-channel reference in Fig.~\ref{fig:single-neuron}G is derived in Supp.~Sect.~2.2.4.
+
+\emph{CV-max engineering (Fig.~\ref{fig:CV-max}).}  $\mathrm{ICE}=-\log_2(\mathrm{RE})/\bar a$ [bits/activation], where $\mathrm{RE}=\|I-\hat I\|_2/\|I\|_2$ and $-\log_2(\mathrm{RE})$ approximates the input--reconstruction mutual information under a Gaussian additive-noise model in the high-SNR regime.
+
+\paragraph{Structural similarity (SSIM).}
+SSIM \cite{wang2004image} is used to quantify (i) trial-to-trial reliability of network spike rastergrams (Fig.~\ref{fig:network}K, averaged over pairs of trials), and (ii) reconstruction quality of image patches in the sparse-coding comparison (Fig.~\ref{fig:CV-max}D).  Standard parameters ($C_1=(0.01L)^2$, $C_2=(0.03L)^2$, $L$ the pixel dynamic range) are used throughout.
+
+
+\subsection{Extracellular recordings}
+The dataset \cite{23} comprises V1/V2 recordings via a 96-channel Utah array under sufentanil anesthesia; laminar labels are unavailable.  Drifting gratings (8 orientations, 1.28\,s each) were presented; spike times recorded at 1\,ms resolution.  Firing rates for CV/sparseness analyses were computed in 100\,ms windows (160\,ms post-stimulus).  The Fig.~2 analysis uses a single session (\texttt{105l001p16}, $N=159$ V1 neurons), with the spontaneous condition pooled over 3200 trials (1.5\,s each) and the evoked condition pooled over 3200 trials ($8$ orientations $\times 400$ repetitions, 1.28\,s each).
+
+\subsection{Per-neuron decoder analysis}
+\label{methods:decoder}
+For each V1 neuron in five \texttt{v1v2-1} sessions (total $N=564$), we computed per-trial spike counts over the $1.28$\,s drifting-grating window and trained a one-dimensional 8-class linear discriminant analysis (LDA, shrinkage-regularized) with stratified $10$-fold cross-validation (fixed random seed).  Per-neuron held-out accuracy and per-neuron $\mathrm{CV}_L = \sigma_{\mathrm{trials}}(r)/\langle r\rangle_{\mathrm{trials}}$ were related by Spearman correlation, both raw and partialled on mean firing rate via rank-residualization.  Per-session partial correlations were combined meta-analytically by Fisher's $z$ transform with weights $n-3$.  Within-FR-quartile correlations (Spearman $\rho$ within each FR quartile) provide a non-parametric FR control complementary to the partial-correlation analysis.  All significance tests are two-sided.
+
+\subsection{Spike sequence simulation}
+\label{sec:theory_cv}
+Spiking sequences with Poisson, Gaussian, and uniform ISI distributions were simulated (Fig.~\ref{fig:V1}D; Fig.~S2).  $S$ and CV were computed over 500\,ms windows for 50\,s sequences at firing rates 2--100\,Hz with 1\,ms refractory period.
+
+\subsection{Single-neuron model}
+A conductance-based leaky integrate-and-fire (LIF) neuron receives 8 input groups, each comprising 100 excitatory and 25 inhibitory presynaptic neurons.  Membrane dynamics follow $\tau\,dV/dt = (V_{\mathrm{rest}}-V) + (g^E(V_E-V)+g^I(V_I-V)+I_b)/g_{\mathrm{leak}}$, with $V_{\mathrm{rest}}=-60$\,mV, threshold $-50$\,mV, membrane time constant $\tau=20$\,ms, and absolute refractory period 5\,ms.  Inhibitory synapses undergo inhibitory STDP (iSTDP) \cite{17,18}: each pre- or post-synaptic spike increments an eligibility trace $\tau_{\mathrm{STDP}}\,dx/dt = -x + \delta(t-t^*)$, and weight updates are $\Delta W \propto \eta(x-\alpha)$ at presynaptic spikes and $\Delta W \propto \eta\,x$ at postsynaptic spikes, with learning rate $\eta=0.0012$ and target-rate parameter $\alpha=2\rho_0\tau_{\mathrm{STDP}}\eta$ ($\rho_0=5$\,Hz).  Mutual information is evaluated via a frozen-stimulus paradigm with 20 templates $\times$ 10 repeats (see Supplementary Table~S8 for all parameters).
+
+\subsection{Recurrent E-I network}
+We extended the spike-based efficient coding model of Brendel et al.\ \cite{brendel_learning_2020}.  The network comprises 300 excitatory and 75 inhibitory spiking neurons with membrane dynamics $\dot{V}_n = -\lambda V_n + \sum_j F_{nj}x_j + \sum_k \Omega_{nk}o_k + \xi_n$, where $F$ denotes feedforward weights, $\Omega$ recurrent weights, $x_j$ stimulus components, $o_k$ presynaptic spike trains, and $\xi_n$ independent noise.  Recurrent weights follow a voltage-based STDP rule ($\Delta\Omega \propto -2V_n + \Omega_{nk}$) that strengthens connections when postsynaptic voltage is high, promoting competition and sparse activation.  Feedforward weights update via a Hebbian rule with decay ($\Delta F \propto x_j - F_{nj}$) that aligns receptive fields with input statistics.  Mutual information is computed via a frozen-stimulus paradigm with 10 repeats of each stimulus.  See Supplementary Table~S9 for all parameters.
+
+\subsection{CV-maximization algorithm}
+We adapt the sparse-coding framework of \cite{37}.  Three models share the architecture $I(x,y)=\sum_i a_i\phi_i(x,y)$ with $N=144$ overcomplete basis functions learned on $16\times 16$ van Hateren patches: \emph{Null} (reconstruction error only); \emph{SparseNet} (reconstruction error plus a Cauchy prior $\sum_i\ln(1+a_i^2)$ \cite{38}); \emph{CV-max} (reconstruction error minus $\alpha\cdot\overline{\mathrm{CV}}_P$, where $\mathrm{CV}_P$ is computed over $\{|a_i|\}$ per patch).  The CV-max regularization weight is adaptively scaled as $\alpha=\rho\,E_{\mathrm{recon}}/|\mathrm{CV}_P|$ with target ratio $\rho=0.4$ so that the CV term remains a fixed fraction of the reconstruction loss.  An RE-gate applies the CV penalty only when the current $\mathrm{RE}=\|I-\hat I\|_2/\|I\|_2<\tau=0.6$ (chosen so that the converged RE matches Null within $0.02$); otherwise the gradient reduces to pure reconstruction, ensuring the dictionary recovers RE before being pulled back toward CV.  Coefficients are inferred by ISTA in a two-phase schedule (20-iteration $L_1$ warmup, then gated CV penalty).  Each condition was trained for $20$ random seeds $\times 10$ epochs (per-epoch loss stable by epochs $5$--$10$).  Pairwise comparisons (Welch's $t$-test on per-run statistics, two-sided) are reported uncorrected; all reported pairs differ at $p<0.0001$.  For Fig.~\ref{fig:network}I, K, significance was assessed by two-sample Welch's $t$-tests on pre- vs.\ post-learning distributions across 20 simulations.

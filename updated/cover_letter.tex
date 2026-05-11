@@ -1,0 +1,61 @@
+\documentclass[11pt]{letter}
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\setstretch{1.05}
+
+\signature{Yuguo Yu, on behalf of all authors\\
+Institute of Science and Technology for Brain-Inspired Intelligence\\
+Fudan University, Shanghai, China\\
+\texttt{yuyuguo@fudan.edu.cn}}
+
+\address{Mingyi Huang, Wei Lin, Anna Wang Roe, Yuguo Yu\\
+Fudan University \& Zhejiang University\\
+\\
+[DATE OF SUBMISSION]}
+
+\begin{document}
+
+\begin{letter}{The Editors\\Nature Communications}
+
+\opening{Dear Editor,}
+
+We are pleased to submit our manuscript \textit{``Gibbs Manifold Geometry Unifies Neural Variability, Sparseness, and Metabolic Efficiency''} for consideration as an Article in \textit{Nature Communications}.
+
+\textbf{Specific advance.}
+Cortical neurons fire variably, sparsely, and under a tight metabolic budget---three features long studied in isolation by sparse-coding, balanced-network, and efficient-coding theories.  We construct, to our knowledge for the first time, a \textit{Gibbs manifold}---the one-parameter family of optimal response distributions arising from entropy maximization under a metabolic budget---and show analytically that the coefficient of variation (CV) is the macroscopic coordinate along it that simultaneously controls sparseness, information--cost efficiency, and (under Poisson-like statistics) trial-to-trial reliability.  The framework distinguishes three logical statuses---algebraic identity, normative prediction, and model-dependent corollary---making each claim precise and falsifiable.
+
+\textbf{Headline results.}
+(i) An FR-controlled per-neuron decoder analysis on macaque V1 ($N=564$ neurons, 5 sessions) shows lifetime CV predicts decodable stimulus information beyond mean firing rate (partial Spearman $\rho_{|\,\mathrm{FR}}=+0.68$, $p=10^{-78}$; Fisher-combined $\rho=+0.72$, $p=10^{-100}$), converting the theoretical CV--reliability link into an empirical, FR-controlled relationship.
+(ii) Replacing hand-tuned sparsity priors with population-CV maximization recovers V1-like Gabor receptive fields and yields a more favourable efficiency--fidelity Pareto position than the Cauchy-prior SparseNet baseline---suggesting CV as a hardware-agnostic objective for neuromorphic representations.
+(iii) V1 data, single-neuron simulations, and recurrent E--I networks trace concave trajectories consistent with the Gibbs manifold on a common entropy--cost plane after system-specific rate calibration.
+
+\textbf{Broad readership.}
+The work bridges computational neuroscience (efficient coding, balanced networks, E--I plasticity), information theory (constrained entropy maximization, Pareto frontiers), statistical physics (the Gibbs/Helmholtz analogue), and machine learning (sparse coding, energy-aware representation learning).
+
+\textbf{Honest scope.}
+The strictly-convex-cost theorem covers $\mathrm{CV}\in[1/\sqrt{3},1]$; empirical $\mathrm{CV}>1$ in cortex is accommodated by a phenomenological sublinear-cost extension whose monotonicity we verify numerically rather than analytically.  The deterministic-encoding approximation $I\approx H$ does not hold strictly on our V1 dataset ($\bar\rho\approx 0.85$); the manifold then serves as a within-dataset upper bound on attainable $I/C$, discussed and cross-checked across datasets in the Supplement.
+
+\textbf{Code, data, reporting, LLM use.}
+Custom code for all analyses, simulations, and figures is available to editors and reviewers via a private GitHub repository (\textbf{[private review URL]}).  Source-data Excel files for every figure panel, the Nature Portfolio Reporting Summary, and the Supplementary Information are uploaded with this submission.  V1 data are publicly available via CRCNS (\texttt{v1v2-1}).  Language polishing of an earlier draft was assisted by an LLM (Claude, Anthropic), as declared in the Acknowledgements; all scientific content, derivations, code, and conclusions are the authors' own.
+
+\textbf{Suggested reviewers}, none with recent collaboration or perceived conflict:
+\begin{enumerate}
+\itemsep -3pt
+\item \textbf{[NAME]} ([Affiliation]) --- efficient coding / information theory in V1; \texttt{[email]}
+\item \textbf{[NAME]} ([Affiliation]) --- balanced E--I networks and AI cortical dynamics; \texttt{[email]}
+\item \textbf{[NAME]} ([Affiliation]) --- cortical metabolism and energy-efficient coding; \texttt{[email]}
+\item \textbf{[NAME]} ([Affiliation]) --- maximum-entropy models of neural populations; \texttt{[email]}
+\item \textbf{[NAME]} ([Affiliation]) --- neuromorphic / energy-efficient learning; \texttt{[email]}
+\end{enumerate}
+\textbf{Excluded reviewers:} \textbf{[NAME(S), with one-line reason --- or ``no exclusion requests'']}.
+
+\textbf{Prior discussion / submission history.}
+We have had no prior pre-submission discussion with a \textit{Nature Communications} editor about this work.  \textbf{[If applicable: ``An earlier version was evaluated at [JOURNAL] and not sent to review; we have substantially revised the framework, added the multi-session FR-controlled decoder analysis, tightened the convex- vs.\ sublinear-cost boundary, and narrowed the central claims.''  Delete if not applicable.]}
+
+The manuscript has not been published, and is not under consideration for publication, elsewhere.  All authors have read and approved the submitted version.
+
+\closing{Sincerely,}
+
+\end{letter}
+
+\end{document}

@@ -1,0 +1,27 @@
+=== V1 decoder vs CV (FR-controlled) ===
+
+n_neurons = 159
+
+--- Raw Spearman ---
+  rho(CV_L, accuracy) = +0.334   (p = 1.6e-05)
+  rho(FR,   accuracy) = +0.186   (p = 0.019)
+  rho(CV_L, FR)       = -0.757   (p = 8.1e-31)    [confound]
+
+--- Partial Spearman (controlling for the third variable) ---
+  rho(CV_L, accuracy | FR) = +0.740   (p = 1.3e-28)
+  rho(FR,   accuracy | CV) = +0.712   (p = 8.9e-26)
+
+--- Within-FR-bin CV-vs-accuracy correlation ---
+  FR bin 1 (0.49-4.71 Hz, n= 40):  rho=+0.309  p=0.052   mean CV=1.164  mean acc=25.07%
+  FR bin 2 (4.71-9.08 Hz, n= 39):  rho=+0.790  p=2.2e-09   mean CV=0.723  mean acc=27.40%
+  FR bin 3 (9.08-19.81 Hz, n= 40):  rho=+0.773  p=5.2e-09   mean CV=0.569  mean acc=27.93%
+  FR bin 4 (19.81-56.45 Hz, n= 40):  rho=+0.734  p=7.2e-08   mean CV=0.427  mean acc=30.31%
+
+--- Interpretation guide ---
+  If rho(CV_L, acc | FR) is still positive and significant: the CV effect is
+    not fully reducible to firing rate, supporting the framework's claim.
+  If rho(CV_L, acc | FR) drops to ~0 or becomes non-significant: the apparent
+    CV effect was a firing-rate artifact, and the reliability-CV link is
+    not empirically supported in this dataset.
+  Within-FR-bin correlations cross-check this: if positive in most bins,
+    the relationship is robust; if mixed/zero, FR is doing the work.

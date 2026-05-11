@@ -1,0 +1,53 @@
+{
+  "title": "Gibbs Manifold: analysis and simulation code for 'Variability as a Frontier of Metabolic Efficiency'",
+  "upload_type": "software",
+  "description": "<p>Code, analysis pipelines, and analytical scripts accompanying the manuscript <em>Variability as a Frontier of Metabolic Efficiency: How Neural Dynamics Converge to Thermodynamic Optimality</em> by Huang, Lin, Roe, and Yu.</p><p>The repository contains: (i) Python scripts that derive and plot the universal Gibbs frontier under linear and sublinear cost functions in the (CV, ICE) plane; (ii) MATLAB pipelines that apply the Direct-Method spike-train entropy estimator to the macaque V1/V2 dataset (CRCNS v1v2-1), including the noise-entropy fraction H(r|s)/H(r) check; (iii) a single-neuron leaky integrate-and-fire model with inhibitory plasticity; (iv) a recurrent spiking network with E/I plasticity that self-organises toward a high-CV regime; and (v) a CV-maximising sparse-coding learning rule (PyTorch) together with baseline comparisons and Pareto scans. The repository is organised by figure (Fig1/--Fig7/); the top-level README documents per-figure entry points, software dependencies, and dataset locations.</p>",
+  "creators": [
+    {
+      "name": "Huang, Mingyi",
+      "affiliation": "Fudan University, Shanghai, China"
+    },
+    {
+      "name": "Lin, Wei",
+      "affiliation": "Fudan University, Shanghai, China"
+    },
+    {
+      "name": "Roe, Anna Wang",
+      "affiliation": "Zhejiang University, Hangzhou, China"
+    },
+    {
+      "name": "Yu, Yuguo",
+      "affiliation": "Fudan University, Shanghai, China"
+    }
+  ],
+  "keywords": [
+    "computational neuroscience",
+    "neural variability",
+    "coefficient of variation",
+    "metabolic efficiency",
+    "efficient coding",
+    "Gibbs distribution",
+    "information theory",
+    "spike-train entropy",
+    "Direct Method",
+    "macaque V1",
+    "recurrent neural network",
+    "excitatory-inhibitory balance",
+    "sparse coding"
+  ],
+  "license": "MIT",
+  "access_right": "open",
+  "language": "eng",
+  "communities": [
+    {"identifier": "neuroscience"}
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://crcns.org/data-sets/vc/v1v2-1",
+      "relation": "isDerivedFrom",
+      "resource_type": "dataset",
+      "scheme": "url"
+    }
+  ],
+  "notes": "The 'Fig2/' directory redistributes five session files from the CRCNS v1v2-1 dataset under the CRCNS data-sharing terms. All other source code is released under the MIT License."
+}

@@ -1,0 +1,45 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite both the paper and the archived release."
+title: "Gibbs Manifold: analysis and simulation code for 'Variability as a Frontier of Metabolic Efficiency'"
+type: software
+authors:
+  - family-names: Huang
+    given-names: Mingyi
+    affiliation: "Fudan University"
+    email: myhuang20@fudan.edu.cn
+  - family-names: Lin
+    given-names: Wei
+    affiliation: "Fudan University"
+    email: wlin@fudan.edu.cn
+  - family-names: Roe
+    given-names: Anna Wang
+    affiliation: "Zhejiang University"
+    email: annawang@zju.edu.cn
+  - family-names: Yu
+    given-names: Yuguo
+    affiliation: "Fudan University"
+    email: yuyuguo@fudan.edu.cn
+license: MIT
+repository-code: "https://github.com/<USER>/GibbsManifold"
+keywords:
+  - computational neuroscience
+  - neural variability
+  - coefficient of variation
+  - metabolic efficiency
+  - efficient coding
+  - Gibbs distribution
+  - information theory
+  - spike-train entropy
+preferred-citation:
+  type: article
+  title: "Variability as a Frontier of Metabolic Efficiency: How Neural Dynamics Converge to Thermodynamic Optimality"
+  authors:
+    - family-names: Huang
+      given-names: Mingyi
+    - family-names: Lin
+      given-names: Wei
+    - family-names: Roe
+      given-names: Anna Wang
+    - family-names: Yu
+      given-names: Yuguo
+  year: 2026

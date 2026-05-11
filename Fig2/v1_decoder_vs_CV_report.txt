@@ -1,0 +1,30 @@
+=== V1 decoder-vs-CV report (session 105l001p16, n=159 V1 neurons) ===
+
+Chance accuracy (8-class):                      12.50%
+Per-neuron decoder accuracy (median across 159): 25.91%
+Per-neuron decoder MI (median across 159):       0.390 bits
+  (max possible = log2(8) = 3.000 bits)
+
+--- Test of the reliability-CV link ---
+Spearman rho(CV_L, accuracy) = +0.334  (p = 1.6e-05)
+Spearman rho(CV_L, MI)       = +0.347  (p = 7.6e-06)
+Spearman rho(CV_L, FR)       = -0.757  (p = 8.1e-31)  [confound to interpret]
+Spearman rho(FR,   accuracy) = +0.186  (p = 0.019)  [confound to interpret]
+
+--- CV_L quartile means (mean +/- SEM) ---
+  Q1 (CV_L in [0.205,0.450], n= 40):  acc = 23.48 +/- 0.96%   MI = 0.309 bits   FR = 24.92 Hz
+  Q2 (CV_L in [0.450,0.632], n= 39):  acc = 27.96 +/- 1.10%   MI = 0.502 bits   FR = 15.22 Hz
+  Q3 (CV_L in [0.632,0.850], n= 40):  acc = 29.06 +/- 1.41%   MI = 0.530 bits   FR = 8.52 Hz
+  Q4 (CV_L in [0.850,2.493], n= 40):  acc = 30.22 +/- 1.32%   MI = 0.609 bits   FR = 4.60 Hz
+
+--- Sub-population multivariate LDA ---
+  high-CV half (n= 79): acc=100.00%  MI=3.000 bits
+  low-CV half  (n= 80): acc=100.00%  MI=3.000 bits
+  full pool    (n=159): acc=100.00%  MI=3.000 bits
+
+--- Interpretation key ---
+  rho(CV_L, acc) > 0  ->  high-CV neurons more decodable (supports reliability-CV link).
+  rho(CV_L, acc) < 0  ->  high-CV neurons LESS decodable (count agreement is silence-induced).
+  rho(CV_L, acc) ~ 0  ->  agreement metric decoupled from decodable info; current caveat justified.
+  Note: CV_L typically correlates negatively with FR, so the FR-vs-accuracy correlation
+  must be considered as a confound when interpreting the CV-vs-accuracy correlation.
