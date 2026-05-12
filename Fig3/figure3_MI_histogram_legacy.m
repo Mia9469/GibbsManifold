@@ -1,4 +1,4 @@
-%% figure4_MI.m
+%% figure3_MI_histogram_legacy.m  (legacy histogram-MI, superseded by Direct Method)
 %  Modified simulation with Mutual Information (MI) computation.
 %
 %  Based on figure4_formatted.m, with the following additions:

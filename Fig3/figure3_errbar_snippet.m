@@ -1,5 +1,5 @@
 %% ====================================================================
-%% figure4_MI — 替换 line 618 到文件末尾
+%% figure3_errbar_snippet.m  (NOT standalone; splice into figure3_main.m at the indicated line) — 替换 line 618 到文件末尾
 %% 包含: jackknife error bar + 带 error bar 的画图
 %% ====================================================================
 

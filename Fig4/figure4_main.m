@@ -1,4 +1,4 @@
-% Figure5_new.m — Direct method (Strong et al. 1998) version of Figure5.m
+% figure4_main.m  (canonical Direct-Method MI on recurrent network) — Direct method (Strong et al. 1998) version of Figure5.m
 %
 % Key difference from Figure5.m:
 %   - Uses FROZEN stimulus paradigm: one stimulus per learning stage,

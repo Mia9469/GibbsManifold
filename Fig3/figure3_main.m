@@ -1,4 +1,4 @@
-%% figure4_MI_new.m
+%% figure3_main.m  (canonical Direct-Method MI entry point)
 %  Direct method (Strong et al. 1998) version of figure4_MI.m
 %
 %  Key difference from figure4_MI.m:
@@ -19,6 +19,12 @@ close all
 %% Simulation Structure Parameters
 NStim   = 20;       % Number of stimulus templates (outer loop)
 NReps   = 10;       % Number of repetitions per stimulus
+
+% Number of initial analysis windows to drop from MI/cost plots and
+% from the saved trajectory.  The first window(s) sample an unsettled
+% network state with anomalously high firing (and thus inflated cost),
+% which is a measurement artefact rather than a learning trajectory point.
+WIN_DROP_INIT = 1;
 
 %% Model Parameters
 % --- Learning rule ---
@@ -573,6 +579,13 @@ Hr_vec = zeros(1, NWindows);
 Hn_vec = zeros(1, NWindows);
 MI_vec = zeros(1, NWindows);
 
+% Keep per-window rate(1/T) curves and fit residuals so we can inspect
+% the linearity of the 1/T extrapolation post-hoc.
+rate_total_store = nan(NWindows, length(T_list_mi));
+rate_noise_store = nan(NWindows, length(T_list_mi));
+fit_total_R2     = nan(1, NWindows);
+fit_noise_R2     = nan(1, NWindows);
+
 for w = 1:NWindows
     fprintf('  Window %d / %d\n', w, NWindows);
 
@@ -622,7 +635,22 @@ for w = 1:NWindows
     Hr_vec(w) = p_t(2);
     Hn_vec(w) = p_n(2);
     MI_vec(w) = max(0, p_t(2) - p_n(2));
+
+    % --- store diagnostics ---
+    rate_total_store(w, :) = rate_total;
+    rate_noise_store(w, :) = rate_noise;
+    yhat_t = polyval(p_t, inv_T(fit_idx));
+    yhat_n = polyval(p_n, inv_T(fit_idx));
+    sse_t  = sum((rate_total(fit_idx) - yhat_t).^2);
+    sse_n  = sum((rate_noise(fit_idx) - yhat_n).^2);
+    sst_t  = sum((rate_total(fit_idx) - mean(rate_total(fit_idx))).^2);
+    sst_n  = sum((rate_noise(fit_idx) - mean(rate_noise(fit_idx))).^2);
+    fit_total_R2(w) = 1 - sse_t / max(sst_t, eps);
+    fit_noise_R2(w) = 1 - sse_n / max(sst_n, eps);
 end
+
+% (Diagnostic plot and init_drop moved below, AFTER cost1_grand etc. are
+% computed.)
 
 % Per-stim arrays kept (NaN-filled) for backwards-compatible save() below.
 Hr_per_stim = nan(NStim, NWindows);
@@ -651,6 +679,81 @@ ent1_sem  = squeeze(std(mean(ent1_store, 2), 0, 1))  / sqrt(NStim);
 ra1_sem   = squeeze(std(mean(ra1_store, 2), 0, 1))   / sqrt(NStim);
 cost1_sem = squeeze(std(mean(cost1_store, 2), 0, 1)) / sqrt(NStim);
 EI_sem    = squeeze(std(mean(EI_store, 2), 0, 1))    / sqrt(NStim);
+
+%% Diagnostic: 1/T extrapolation linearity for low / mid / high cost windows
+% Pick three windows representative of the cost trajectory and overlay
+% rate(1/T) data + linear fit (over fit_idx) to inspect whether the
+% small-T points lie on a straight line.  If they curve, the extrapolation
+% is biased and the asymptotic Hr/Hn estimates cannot be trusted.
+valid_w_for_diag = find(MI_vec > 0);
+if numel(valid_w_for_diag) >= 3
+    [~, ord] = sort(cost1_grand(valid_w_for_diag));
+    pick     = valid_w_for_diag(ord([1, ceil(end/2), end]));   % low / mid / high
+    figure('Color','w','Position',[60 60 1100 360]);
+    T_sec_dbg = T_list_mi * dt_sec;
+    inv_T_dbg = 1 ./ T_sec_dbg;
+    fit_idx_dbg = 1 : n_fit_mi;
+    for ip = 1:numel(pick)
+        w = pick(ip);
+        subplot(1, 3, ip); hold on;
+        plot(inv_T_dbg, rate_total_store(w, :), 'ko-', 'MarkerFaceColor', 'k', ...
+             'MarkerSize', 5, 'LineWidth', 1.0);
+        plot(inv_T_dbg, rate_noise_store(w, :), 'bs-', 'MarkerFaceColor', 'b', ...
+             'MarkerSize', 5, 'LineWidth', 1.0);
+        p_t_dbg = polyfit(inv_T_dbg(fit_idx_dbg), rate_total_store(w, fit_idx_dbg), 1);
+        p_n_dbg = polyfit(inv_T_dbg(fit_idx_dbg), rate_noise_store(w, fit_idx_dbg), 1);
+        x_ext = linspace(0, max(inv_T_dbg)*1.05, 100);
+        plot(x_ext, polyval(p_t_dbg, x_ext), 'k--', 'LineWidth', 1.2);
+        plot(x_ext, polyval(p_n_dbg, x_ext), 'b--', 'LineWidth', 1.2);
+        plot(0, p_t_dbg(2), 'ko', 'MarkerFaceColor', 'k', 'MarkerSize', 8);
+        plot(0, p_n_dbg(2), 'bs', 'MarkerFaceColor', 'b', 'MarkerSize', 8);
+        xlim([-max(inv_T_dbg)*0.05, max(inv_T_dbg)*1.05]);
+        xlabel('1/T  (Hz)'); ylabel('rate = H/T  (bits/s)');
+        title(sprintf('w=%d, C=%.2fW, MI=%.2f, R^2_{tot}=%.3f', ...
+              w, cost1_grand(w), MI_vec(w), fit_total_R2(w)));
+        legend({'H_{tot}/T (data)', 'H_{noise}/T (data)', ...
+                'tot fit', 'noise fit', 'tot intercept', 'noise intercept'}, ...
+                'Location', 'best', 'FontSize', 8);
+    end
+    sgtitle('1/T extrapolation diagnostic  (low / mid / high cost windows)', ...
+            'FontSize', 12, 'FontWeight', 'bold');
+    fprintf('\n--- 1/T extrapolation diagnostic ---\n');
+    fprintf('  fit R^2 (total):  min=%.3f  median=%.3f  max=%.3f\n', ...
+            min(fit_total_R2(valid_w_for_diag)), ...
+            median(fit_total_R2(valid_w_for_diag)), ...
+            max(fit_total_R2(valid_w_for_diag)));
+    fprintf('  fit R^2 (noise):  min=%.3f  median=%.3f  max=%.3f\n', ...
+            min(fit_noise_R2(valid_w_for_diag)), ...
+            median(fit_noise_R2(valid_w_for_diag)), ...
+            max(fit_noise_R2(valid_w_for_diag)));
+    fprintf('  R^2 < 0.95 in %d/%d windows (low R^2 -> extrapolation may be biased)\n', ...
+            sum(fit_total_R2(valid_w_for_diag) < 0.95), numel(valid_w_for_diag));
+end
+
+%% Drop the first WIN_DROP_INIT windows from the trajectory (initialisation)
+% These early windows sample an unsettled network with anomalously high
+% firing rates (and therefore inflated cost); they are an artefact of
+% network initialisation rather than a learning-trajectory point.
+init_drop = 1 : min(WIN_DROP_INIT, NWindows);
+if ~isempty(init_drop)
+    fprintf('\n--- Dropping initialisation windows ---\n');
+    fprintf('  excluding windows %s from all per-window outputs\n', mat2str(init_drop));
+    Hr_vec(init_drop) = NaN;
+    Hn_vec(init_drop) = NaN;
+    MI_vec(init_drop) = NaN;
+    cv1_grand(init_drop)   = NaN;
+    ss1_grand(init_drop)   = NaN;
+    ent1_grand(init_drop)  = NaN;
+    ra1_grand(init_drop)   = NaN;
+    cost1_grand(init_drop) = NaN;
+    EI_grand(init_drop)    = NaN;
+    cv1_sem(init_drop)   = NaN;
+    ss1_sem(init_drop)   = NaN;
+    ent1_sem(init_drop)  = NaN;
+    ra1_sem(init_drop)   = NaN;
+    cost1_sem(init_drop) = NaN;
+    EI_sem(init_drop)    = NaN;
+end
 
 %% ICE = MI / Cost  [bits/s / W = bits/J]
 % Use the per-window cross-stim MI (MI_vec) directly: MI_per_stim is no
@@ -825,7 +928,7 @@ title(sprintf('A=%.3f B=%.3f C=%.3f', fitRes2.A, fitRes2.B, fitRes2.C));
 legend('Data', 'Fit');
 
 %% Save MI Results
-save('MI_results_direct_1.mat', ...
+save('MI_results_direct.mat', ...
     'Hr_vec', 'Hn_vec', 'MI_vec', 'ICE_vec', 'timewindow', ...
     'MI_sem', 'Hr_sem', 'Hn_sem', 'ICE_sem', ...
     'MI_per_stim', 'Hr_per_stim', 'Hn_per_stim', 'ICE_per_stim', ...

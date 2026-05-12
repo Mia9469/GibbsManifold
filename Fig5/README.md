@@ -13,7 +13,7 @@ produced by the upstream figure folders:
 | --------------------- | ---------------- | ------------- | -------------------------------------------------- |
 | Single-neuron LIF     | Fig. 5A          | `Fig3/`       | `figure3_main.m` → `figure5_singleneuron.fig` (in this folder) |
 | Recurrent network     | Fig. 5B          | `Fig4/`       | `figure4_main.m` → `figure5_network.fig` (in this folder; spatiotemporal points only) |
-| Macaque V1            | Fig. 5C          | `Fig2/`       | `unified_v1_Hrho_ICE.m` (in `Fig2/`) writes V1 (C, I, H, ICE) for the cross-system overlay |
+| Macaque V1            | Fig. 5C          | `Fig2/`       | `unified_v1_Hrho_ICE.m` (in `Fig2/`) writes per-neuron `(H, C, ρ, ICE)` arrays for V1 from the v1v2-1 dataset (5 sessions pooled, 1.28-s driven window, no SNR/FR filter, T_list = 4..40, n_fit = 8, dt = 1 ms, refractory = 1).  These arrays feed the V1 column of the cross-system overlay. |
 
 The `.fig` files in this folder are the exported panels, kept here so
 the composite can be re-assembled without re-running every upstream

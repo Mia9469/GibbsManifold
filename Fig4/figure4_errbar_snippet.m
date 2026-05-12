@@ -1,5 +1,5 @@
 %% ====================================================================
-%% Figure5_new — Error bar patch
+%% figure4_errbar_snippet.m  (NOT standalone; splice into figure4_main.m at the indicated lines) — Error bar patch
 %%
 %% 这个文件包含两部分修改：
 %%   PART A: 计算循环内的小改动（保存 per-neuron MI 用于 error bar）

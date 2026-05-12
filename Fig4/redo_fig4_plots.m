@@ -1,4 +1,4 @@
-%% redo_fig5_plots.m
+%% redo_fig4_plots.m
 %  Apply the Cost-unit fix in-place and redraw Fig 2 (MI vs Cost +
 %  theoretical Gibbs frontier with auto-anchored R_0).  Assumes the
 %  Figure5_new.m workspace is still loaded (variables PcostE, PcostI,
