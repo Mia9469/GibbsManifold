@@ -1,50 +1,77 @@
-# Fig 6 — Cross-system overlay on the entropy–cost plane
+# Fig 6 — CV-maximising sparse-coding learning rule
 
-Generates **manuscript Fig. 5** (frontier-like organisation across
-the three systems on the entropy–cost plane) and **Supp Fig. S7**
-(R₀ anchor-sensitivity analysis for V1).
+Generates **manuscript Fig. 6** (CV-max recovers V1-like Gabor basis
+functions at a more favourable efficiency–fidelity Pareto position
+than Cauchy-prior SparseNet under matched conditions), **Supp Fig. S6**
+(population statistics across the three models), and **Supp Fig. S8**
+(CV-max ICE–RE Pareto sweep / matched-baseline ablation).
 
 ## Entry points
 
-| Script                          | Produces                                                |
-| ------------------------------- | ------------------------------------------------------- |
-| `fig6_dimensionless.py`         | Main Fig. 5: I–C and ICE–C panels for single neuron / recurrent network / V1, with per-system R₀ calibration and the Gibbs frontier overlay |
-| `figS8_anchor_sensitivity.py`   | Supp Fig. S7: V1 frontier under min / median / max-rate anchors |
+| Script                          | Role                                                          |
+| ------------------------------- | ------------------------------------------------------------- |
+| `train_new.py`                  | **Main training script** — trains Null / SparseNet / CV-max on van Hateren patches (GPU-accelerated PyTorch) |
+| `analyze_models.py`             | **Main analysis script** — per-method comparison, basis-function visualisation, ICE / RE / SSIM / `D̄_φ` (assembles Fig. 6 panels) |
+| `basis_analysis.py`             | Basis-function pairwise independence `D̄_φ`                   |
+| `compare_options.py`            | Sweep over regularisation weights and τ thresholds            |
+| `pareto_scan.py`                | Pareto-curve generation across `(RE, ICE, ā)`                 |
+| `build_sparsenet_compare_json.py` | Build comparison JSON for the three methods                 |
+| `result_new.py`                 | Result aggregation across seeds                               |
+| `check_records.py`              | Sanity-check on training-record files                         |
+
+Subfolder `p3_matched/` (matched-baseline ablation for Supp Fig. S8):
+
+| Script                | Role                                                       |
+| --------------------- | ---------------------------------------------------------- |
+| `p3_train.py`         | Training driver for the matched-baseline sweep             |
+| `p3_eval.py`          | Per-config evaluation (RE, ICE, ā)                         |
+| `p3_converge_check.py`| Convergence diagnostic                                     |
+| `p3_sweep.sh`         | Bash driver for parameter sweep                            |
+| `p3_sweep_v2.sh`      | Current version of the sweep                               |
+| `plot_figureS8.py`    | Generates **Supp Fig. S8** (matched-baseline Pareto)       |
 
 Typical workflow:
 
 ```bash
-python3 fig6_dimensionless.py        # writes Figure6A_dimensionless.{pdf,png}
-python3 figS8_anchor_sensitivity.py
+python3 train_new.py                  # train all three models (≈ 30 min, GPU)
+python3 analyze_models.py             # compare + plot panels
+bash    p3_matched/p3_sweep_v2.sh     # matched-baseline ablation
+python3 p3_matched/plot_figureS8.py
 ```
 
 ## Method
 
-Per-system summary statistics — `(C, I, H, ICE)` values along the
-learning trajectory (Fig. 3, Fig. 5) or per-neuron operating points
-(Fig. 2) — are read from JSON / `.mat` summaries written by the
-per-system pipelines.  Each system is calibrated by a single scalar
-**R₀** (rate of independent observations per second):
+Three models share the architecture `I(x,y) = Σᵢ aᵢ φᵢ(x,y)` with
+`N = 144` over-complete basis functions learned on `16 × 16`
+van Hateren natural-image patches:
 
-* Single neuron — `R₀ = 1.63` (min-rate anchor; tight trajectory)
-* Recurrent network — `R₀ = 1.0` (min-rate anchor)
-* V1 — `R₀ = 2.58` (**median-rate anchor**: scatter spans full cost
-  axis, min-rate point is dominated by low-FR outliers)
+1. **Null** — reconstruction error only, no regularisation
+2. **SparseNet** — Cauchy prior `Σᵢ ln(1 + aᵢ²)` (Olshausen & Field)
+3. **CV-max** — `L = RE² − α · CV(|a|)` with adaptive
+   `α = ρ · E_recon / |CV_P|`, RE-gated so the dictionary recovers
+   Null-comparable RE before sparsity-promoting pressure is applied.
 
-The Gibbs frontier overlay is
+20 random seeds × 10 epochs per condition; two-sample Welch *t*-tests
+on pre- vs. post-learning distributions.
 
-```
-H*(C) = (R₀ / ln 2) · [1 + ln((C − 2.4) / 0.37)]   [bits/s]
-```
+Code efficiency: `ICE = −log₂(RE) / ā` [bits / activation], where
+`RE = ‖I − Î‖₂ / ‖I‖₂` and `ā` is mean activation.
 
-with `C₀ = 2.4 W`, `C₁ = 0.37 W/Hz` from the metabolic cost function
-(Yu et al. 2018).
+## Required data
+
+`src/model/IMAGES.mat` — van Hateren patches, bundled with the
+original Olshausen & Field code.  **Not** tracked by git
+(≈ a few MB); see the SparseNet original distribution.
 
 ## Outputs
 
-* `Figure6A_dimensionless.pdf` / `.png`
-* Per-anchor sensitivity panels for Supp Fig. S7
+* `runs_*` directories — per-seed training records (**not** tracked
+  by git; regenerated by re-running training)
+* `sparsenet_compare_results.json` — final comparison table
+* Fig. 6 panels (assembled in `updated/figures/Figure6.pdf`)
 
 ## Dependencies
 
-Python ≥ 3.10 with `numpy`, `scipy`, `matplotlib`.
+* Python ≥ 3.10
+* `numpy`, `scipy`, `matplotlib`
+* `torch ≥ 2.0` (CUDA preferred; CPU works but is slower)
