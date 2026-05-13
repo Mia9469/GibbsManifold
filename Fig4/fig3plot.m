@@ -1,347 +1,224 @@
-%% CVL,SL
-clear;close all
-load('0_rec.mat')
+%% fig3plot.m  —  Bar-panel plotter for the recurrent E–I network (Fig. 4)
+%
+% Plots before-vs-after-learning bar panels for the recurrent network.
+% Despite the filename, this script generates panels of manuscript
+% **Fig. 4** (CV / sparseness / SNR / ICE / reliability / robustness).
+% The name `fig3plot` is preserved from earlier manuscript drafts when
+% the recurrent network was Fig. 3.
+%
+% Convention used throughout:
+%   stages_plot = [1 29]   — first and last learning stage saved by
+%                            train_network.m; interpreted as "before"
+%                            and "after" learning.
+%
+% Inputs (must be on path / in cwd):
+%   0_rec.mat                — CVl, Sl, CVp, Sp, ErrorE arrays at noise=0
+%   100_rec.mat ... 1000_rec.mat — same arrays at noise = 100..1000 pA
+%   10_rec.mat               — ErrorE at noise = 1000 pA (legacy filename)
+%   500_rec_long.mat         — MeanPrateE used to scale ICE = MI / cost
+%   Info_all_0.mat ... Info_all_1000.mat — Hr (response entropy)
+%                            and Hn (noise entropy) for SNR / ICE panels
+%   reliability_array_final.mat — ssim_sp1 from reliability.m
+%
+% Outputs: three figure windows
+%   Figure 1: 3x2 bar panel — Fig. 4 main bars
+%   Figure 2: 3x2 — Reliability + SNR as a function of noise std
+%   Figure 3: scatter of moments (1st-order vs 2nd-order cumulant)
+%
+% Reproduction:
+%   matlab -batch "fig3plot"  (run reliability.m first)
+% ----------------------------------------------------------------------
+
+clear; close all
+
+% ----- shared constants --------------------------------------------------
+stages_plot = [1 29];        % "before" vs "after" learning indices
+xtick_labels = ["before", "after"];
+
+% =====================================================================
+% FIGURE 1 — 3x2 bar panel for Fig. 4
+% =====================================================================
 figure;
-subplot(3,2,1)
 
-model_series =[mean(CVl(:,[1 29]),1);mean(Sl(:,[1 29]),1)]'; 
-model_error =[std(CVl(:,[1 29]),0,1);std(Sl(:,[1 29]),0,1)]'; 
-b = bar(model_series, 'grouped');
+%% --- Panel 1:  CV_L, S_L ---
+load('0_rec.mat')                                                           %#ok<LOAD>
+subplot(3, 2, 1)
+mu = [mean(CVl(:, stages_plot), 1); mean(Sl(:, stages_plot), 1)]';
+sd = [std (CVl(:, stages_plot), 0, 1); std (Sl(:, stages_plot), 0, 1)]';
+draw_grouped_bar(mu, sd, xtick_labels, ["CV_L", "S_L"], [], [])
 
-hold on
-% Calculate the number of groups and number of bars in each group
-[ngroups,nbars] = size(model_series);
+%% --- Panel 2:  CV_P, S_P ---
+subplot(3, 2, 2)
+mu = [mean(CVp(:, stages_plot), 1); mean(Sp(:, stages_plot), 1)]';
+sd = [std (CVp(:, stages_plot), 0, 1); std (Sp(:, stages_plot), 0, 1)]';
+draw_grouped_bar(mu, sd, xtick_labels, ["CV_P", "S_P"], [], [])
 
-% Get the x coordinate of the bars
-x = nan(nbars, ngroups);
-for i = 1:nbars
- x(i,:) = b(i).XEndPoints;
-end
-
-% Plot the errorbars
-errorbar(x',model_series,model_error,'k','linestyle','none');
-hold off
-xticklabels(["before","after",])
-legend(["CVl","Sl"])
-
-%% CVP,SP
-subplot(3,2,2)
-% Example data 
-model_series =[mean(CVp(:,[1 29]),1);mean(Sp(:,[1 29]),1)]'; 
-model_error =[std(CVp(:,[1 29]),0,1);std(Sp(:,[1 29]),0,1)]'; 
-b = bar(model_series, 'grouped');
-
-hold on
-% Calculate the number of groups and number of bars in each group
-[ngroups,nbars] = size(model_series);
-
-% Get the x coordinate of the bars
-x = nan(nbars, ngroups);
-for i = 1:nbars
- x(i,:) = b(i).XEndPoints;
-end
-
-% Plot the errorbars
-errorbar(x',model_series,model_error,'k','linestyle','none');
-hold off
-xticklabels(["before","after",])
-legend(["CVp","Sp"])
-
-% %% Hr,Hn
+% %% --- (Commented-out)  Hr, Hn  ----------------------------------------
 % load('Info_all_100.mat')
-% va1 = [Hr{1,1};Hr{2,1}];
+% va1  = [Hr{1,1}; Hr{2,1}];
 % va11 = [Hn{1,1}; Hn{2,1}];
-% 
 % subplot(3,2,3)
-% 
-% % Example data 
-% model_series =[mean(va1,2),mean(va11,2)]; 
-% model_error =[std(va1,0,2),std(va11,0,2)];
-% b = bar(model_series, 'grouped');
-% 
-% hold on
-% % Calculate the number of groups and number of bars in each group
-% [ngroups,nbars] = size(model_series);
-% 
-% % Get the x coordinate of the bars
-% x = nan(nbars, ngroups);
-% for i = 1:nbars
-%  x(i,:) = b(i).XEndPoints;
-% end
-% 
-% % Plot the errorbars
-% errorbar(x',model_series,model_error,'k','linestyle','none');
-% hold off
-% xticklabels(["before","after",])
-% legend(["Hr","Hn"])
+% mu = [mean(va1, 2), mean(va11, 2)];
+% sd = [std (va1, 0, 2), std (va11, 0, 2)];
+% draw_grouped_bar(mu, sd, xtick_labels, ["Hr","Hn"], [], [])
 
-%% SNR,ICE
-load('Info_all_500.mat')
-va1 = [Hr{1,1};Hr{2,1}];
-va11 = [Hn{1,1}; Hn{2,1}];
-v1 = va1(~isnan(va1));
+%% --- Panel 3:  SNR  (Hr / Hn at noise = 500 pA) ---
+load('Info_all_500.mat')                                                    %#ok<LOAD>
+va1  = [Hr{1, 1}; Hr{2, 1}];
+va11 = [Hn{1, 1}; Hn{2, 1}];
+load('500_rec_long.mat', 'MeanPrateE')                                      %#ok<LOAD>
+subplot(3, 2, 3)
+mu = mean(va1 ./ va11, 2);
+sd = std (va1 ./ va11, 0, 2);
+draw_grouped_bar(mu, sd, xtick_labels, [], 'SNR', [])
 
-load('500_rec_long.mat', 'MeanPrateE')
-subplot(3,2,3)
-% Example data
-model_series =mean(va1./va11,2);
-model_error =std(va1./va11,0,2);
-b = bar(model_series, 'grouped');
+%% --- Panel 4:  ICE = (Hr − Hn) / (C0 + C1·r)  at noise = 500 pA ---
+% Cost: C(r) = 4.03 W baseline + per-Hz scaling × MeanPrateE
+subplot(3, 2, 4)
+cost_before_after = 4.03 * ones(10, 1) + ones(10, 1) * MeanPrateE(stages_plot)';
+mu = mean((va1 - va11) ./ cost_before_after, 2);
+sd = std ((va1 - va11) ./ cost_before_after, 0, 2);
+draw_grouped_bar(mu, sd, xtick_labels, [], 'ICE', [])
 
-hold on
-% Calculate the number of groups and number of bars in each group
-[ngroups,nbars] = size(model_series);
+%% --- Panel 5:  Reproducibility (SSIM RAST at noise = 500 pA) ---
+load reliability_array_final.mat                                            %#ok<LOAD>
+subplot(3, 2, 5)
+mu = mean(ssim_sp1(stages_plot, 2, :), 3);    % noise index 2 = 500 pA
+sd = std (ssim_sp1(stages_plot, 2, :), 0, 3);
+draw_grouped_bar(mu, sd, xtick_labels, [], 'Reliability (SSIM RAST)', [0.3 0.5])
 
-% Get the x coordinate of the bars
-x = nan(nbars, ngroups);
-for i = 1:nbars
- x(i,:) = b(i).XEndPoints;
-end
+%% --- Panel 6:  Decoder error (ErrorE) at noise = 1000 pA ---
+load 10_rec.mat                                                             %#ok<LOAD>
+subplot(3, 2, 6)
+mu = mean(ErrorE(:, stages_plot), 1)';
+sd = std (ErrorE(:, stages_plot), 0, 1);
+draw_grouped_bar(mu, sd, xtick_labels, [], 'Robustness', [])
 
-% Plot the errorbars
-errorbar(x',model_series,model_error,'k','linestyle','none');
-hold off
-xticklabels(["before","after",])
-title("SNR")
-
-subplot(3,2,4)
-va1 = [Hr{1,1};Hr{2,1}];
-va11 = [Hn{1,1}; Hn{2,1}];
-v1 = va1(~isnan(va1));
-
-model_series =mean([va1-va11]./(ones(10,1)*4.03+ones(10,1)*MeanPrateE([1 29]))',2);
-
-model_error =std([va1-va11]./(4.03*ones(10,1)+ones(10,1)*MeanPrateE([1 29]))',0,2);
-b = bar(model_series, 'grouped');
-
-hold on
-% Calculate the number of groups and number of bars in each group
-[ngroups,nbars] = size(model_series);
-
-% Get the x coordinate of the bars
-x = nan(nbars, ngroups);
-for i = 1:nbars
- x(i,:) = b(i).XEndPoints;
-end
-
-% Plot the errorbars
-errorbar(x',model_series,model_error,'k','linestyle','none');
-hold off
-xticklabels(["before","after",])
-
-title("ICE")
-
-
-
-%% Reproducibility
-load  reliability_array_final.mat
-subplot(3,2,5)
-
-% Example data 
-model_series =mean(ssim_sp1([1 29],2,:),3); 
-model_error =std(ssim_sp1([1 29],2,:),0,3); 
-b = bar(model_series, 'grouped');
-
-hold on
-% Calculate the number of groups and number of bars in each group
-[ngroups,nbars] = size(model_series);
-
-% Get the x coordinate of the bars
-x = nan(nbars, ngroups);
-for i = 1:nbars
- x(i,:) = b(i).XEndPoints;
-end
-
-% Plot the errorbars
-errorbar(x',model_series,model_error,'k','linestyle','none');
-hold off
-ylabel("Reliability (SSIM RAST)")
-xticklabels(["before","after",])
-
-ylim([0.3 0.5])
-
-%% Error
-
-
-load 10_rec.mat
-subplot(3,2,6)
-
-% Example data 
-model_series =mean(ErrorE(:,[1 29]),1)'; 
-model_error =std(ErrorE(:,[1 29]),0,1); 
-b = bar(model_series);
-
-hold on
-% Calculate the number of groups and number of bars in each group
-[ngroups,nbars] = size(model_series);
-
-% Get the x coordinate of the bars
-x = nan(nbars, ngroups);
-for i = 1:nbars
- x(i,:) = b(i).XEndPoints;
-end
-
-% Plot the errorbars
-errorbar(x',model_series,model_error,'k','linestyle','none');
-hold off
-
-ylabel("Robustness")
-xticklabels(["before","after",])
-
+% =====================================================================
+% FIGURE 2 — Reliability and SNR vs noise std (shaded mean ± std curves)
+% =====================================================================
 figure
-%% Reproducibility
-load  reliability_array_final.mat
+load reliability_array_final.mat                                            %#ok<LOAD>
+mu_rel = mean(ssim_sp1(stages_plot, :, :), 3);
+sd_rel = std (ssim_sp1(stages_plot, :, :), 0, 3);
+xx     = 0:100:1000;                                                        % noise std (pA)
 
-model_series =mean(ssim_sp1([1 29],:,:),3); 
-model_error =std(ssim_sp1([1 29],:,:),0,3); 
+subplot(3, 2, 1)
+draw_shaded_curve(xx, mu_rel(1, :), sd_rel(1, :), 'noise std (pA)', 'Reliability (SSIM RAST)', 'Before', [0.3 0.5])
 
+subplot(3, 2, 2)
+draw_shaded_curve(xx, mu_rel(2, :), sd_rel(2, :), 'noise std (pA)', 'Reliability (SSIM RAST)', 'After',  [0.3 0.5])
 
-subplot(3,2,1)
-y =model_series(1,:); % your mean vector;
-x = 0:100:1000;
-std_dev = model_error(1,:);
-curve1 = y + std_dev;
-curve2 = y - std_dev;
-x2 = [x, fliplr(x)];
-inBetween = [curve1, fliplr(curve2)];
-fill(x2, inBetween, [0.5 0.5 0.5]);
-hold on;
-plot(x, y, 'k', 'LineWidth', 2);
-title("Before")
-ylabel("Reliability (SSIM RAST)")
-xlabel("noise std (pA)")
-ylim([0.3 0.5])
-
-subplot(3,2,2)
-y =model_series(2,:); % your mean vector;
-std_dev = model_error(2,:);
-curve1 = y + std_dev;
-curve2 = y - std_dev;
-x2 = [x, fliplr(x)];
-inBetween = [curve1, fliplr(curve2)];
-fill(x2, inBetween, [0.5 0.5 0.5]);
-hold on;
-plot(x, y, 'k', 'LineWidth', 2);
-title("After")
-ylabel("Reliability (SSIM RAST)")
-xlabel("noise std (pA)")
-ylim([0.3 0.5])
-
-%% SNR
-
-
-load('Info_all_0.mat')
-va1 = Hr{1,1};
-va2 = Hr{2,1};
-va11 = Hn{1,1};
-va22 = Hn{2,1};
-% figure;
-% bar([0 1],[mean(va1(va1>0),'all'),mean(va2(va2>0),'all');mean(va11(va11>0),'all'),mean(va22(va22>0),'all')]');
-
-
+% --- SNR vs noise std ---
+% Aggregate Hr/Hn across noise levels 0..1000 pA
+load('Info_all_0.mat')                                                      %#ok<LOAD>
+va1  = Hr{1, 1};    va2  = Hr{2, 1};
+va11 = Hn{1, 1};    va22 = Hn{2, 1};
 for i = 1:10
-load(['Info_all_' num2str(i) '00.mat'])
-va1 = [va1;Hr{1,1}];
-va2 = [va2;Hr{2,1}];
-va11 = [va11;Hn{1,1}];
-va22 = [va22;Hn{2,1}];
+    load(['Info_all_' num2str(i) '00.mat'])                                 %#ok<LOAD>
+    va1  = [va1;  Hr{1, 1}];                                                %#ok<AGROW>
+    va2  = [va2;  Hr{2, 1}];                                                %#ok<AGROW>
+    va11 = [va11; Hn{1, 1}];                                                %#ok<AGROW>
+    va22 = [va22; Hn{2, 1}];                                                %#ok<AGROW>
 end
 
+mu_snr = [mean(va1 ./ va11, 2), mean(va2 ./ va22, 2)]';                     % [before; after] × noise
+sd_snr = [std (va1 ./ va11, 0, 2), std (va2 ./ va22, 0, 2)]';
 
-% Example data 
-model_series =[mean(va1./va11,2),mean(va2./va22,2)]'; 
-model_error =[std(va1./va11,0,2),std(va2./va22,0,2)]';
+subplot(3, 2, 3)
+draw_shaded_curve(xx, mu_snr(1, :), sd_snr(1, :), 'noise std (pA)', 'SNR', 'Before', [0 10])
 
-subplot(3,2,3)
-y =model_series(1,:); % your mean vector;
-x = 0:100:1000;
-std_dev = model_error(1,:);
-curve1 = y + std_dev;
-curve2 = y - std_dev;
-x2 = [x, fliplr(x)];
-inBetween = [curve1, fliplr(curve2)];
-fill(x2, inBetween, [0.5 0.5 0.5]);
-hold on;
-plot(x, y, 'k', 'LineWidth', 2);
-title("Before")
-ylabel("SNR")
-xlabel("noise std (pA)")
-ylim([0 10])
+subplot(3, 2, 4)
+draw_shaded_curve(xx, mu_snr(2, :), sd_snr(2, :), 'noise std (pA)', 'SNR', 'After',  [0 10])
 
-subplot(3,2,4)
-y =model_series(2,:); % your mean vector;
-std_dev = model_error(2,:);
-curve1 = y + std_dev;
-curve2 = y - std_dev;
-x2 = [x, fliplr(x)];
-inBetween = [curve1, fliplr(curve2)];
-fill(x2, inBetween, [0.5 0.5 0.5]);
-hold on;
-plot(x, y, 'k', 'LineWidth', 2);
-title("After")
-ylabel("SNR")
-xlabel("noise std (pA)")
-ylim([0 10])
-
-%% Error
-
-subplot(1,3,3)
-
-
-load('0_rec.mat')
-va1 = ErrorE(:,1); 
-va2 = ErrorE(:,29); 
+% --- Decoder error vs noise std (single panel; bars before/after) ---
+subplot(1, 3, 3)
+load('0_rec.mat')                                                           %#ok<LOAD>
+va1 = ErrorE(:, 1);
+va2 = ErrorE(:, 29);
 for i = 1:10
-load([num2str(i) '00_rec.mat'])
-va1 = [va1,ErrorE(:,1)];
-va2 = [va2,ErrorE(:,29)];
+    load([num2str(i) '00_rec.mat'])                                         %#ok<LOAD>
+    va1 = [va1, ErrorE(:, 1)];                                              %#ok<AGROW>
+    va2 = [va2, ErrorE(:, 29)];                                             %#ok<AGROW>
 end
-
-
-
-% Example data 
-model_series =[mean(va1,1);mean(va2,1)]; 
-model_error =[std(va1,0,1);std(va2,0,1)];
-b = bar(model_series, 'grouped');
-
-hold on
-% Calculate the number of groups and number of bars in each group
-[ngroups,nbars] = size(model_series);
-
-% Get the x coordinate of the bars
-x = nan(nbars, ngroups);
-for i = 1:nbars
- x(i,:) = b(i).XEndPoints;
+mu_err = [mean(va1, 1); mean(va2, 1)];
+sd_err = [std (va1, 0, 1); std (va2, 0, 1)];
+b = bar(mu_err, 'grouped'); hold on
+[ngroups, nbars] = size(mu_err);
+xpos = nan(nbars, ngroups);
+for k = 1:nbars
+    xpos(k, :) = b(k).XEndPoints;
 end
-
-% Plot the errorbars
-errorbar(x',model_series,model_error,'k','linestyle','none');
+errorbar(xpos', mu_err, sd_err, 'k', 'linestyle', 'none');
 hold on
+ylabel('ERROR')
+xticklabels(xtick_labels)
+xlabel('noise std (pA)')
 
-ylabel("ERROR")
-xticklabels(["before","after",])
-xlabel("noise std (pA)")
-
+% =====================================================================
+% FIGURE 3 — Mean rate vs. second-order cumulant scatter
+% =====================================================================
 figure;
 xx = 0:0.1:1;
-plot(xx,model_series(1,:),'*');hold on;
-plot(xx,model_series(2,:),'*');hold on;
-c1 = polyfit(xx,model_series(1,:),1);
-c2 = polyfit(xx,model_series(2,:),1);
-plot(xx,c1(2)+c1(1)*xx);hold on;
-plot(xx,c2(2)+c2(1)*xx);hold on;
+plot(xx, mu_err(1, :), '*'); hold on
+plot(xx, mu_err(2, :), '*'); hold on
+c1 = polyfit(xx, mu_err(1, :), 1);
+c2 = polyfit(xx, mu_err(2, :), 1);
+plot(xx, c1(2) + c1(1) * xx);
+plot(xx, c2(2) + c2(1) * xx);
+xlabel('noise std (normalised)')
+ylabel('decoder error')
+legend('before (data)', 'after (data)', 'before (fit)', 'after (fit)', 'Location', 'best')
 
-%% l1 l2
-load 100_rec.mat
+%% --- Auxiliary panel:  moment-cumulant diagnostic --------------------
+load 100_rec.mat                                                            %#ok<LOAD>
 figure;
-subplot(3,4,[1 2])
-
+subplot(3, 4, [1 2]);
 plot(mean(MeanPrateE))
-subplot(3,4,[5 6]);
-plot(mean(sqrt(mmp-MeanPrateE.^2)));
-subplot(3,4,[9 10]);
-plot(mean(sqrt(mmp-MeanPrateE.^2))./MeanPrateE);
-subplot(3,4,[3 4 7 8 11 12])
-plot(MeanPrateE,mean(sqrt(mmp-MeanPrateE.^2)));
-xlabel("1st-order moment");
-ylabel("2nd-order cumulant");
+ylabel('mean firing rate')
+
+subplot(3, 4, [5 6]);
+plot(mean(sqrt(mmp - MeanPrateE.^2)))
+ylabel('std')
+
+subplot(3, 4, [9 10]);
+plot(mean(sqrt(mmp - MeanPrateE.^2)) ./ MeanPrateE)
+ylabel('CV (std / mean)')
+
+subplot(3, 4, [3 4 7 8 11 12])
+plot(MeanPrateE, mean(sqrt(mmp - MeanPrateE.^2)))
+xlabel('1st-order moment (mean rate)')
+ylabel('2nd-order cumulant (std)')
+
+
+% =====================================================================
+% Local helpers
+% =====================================================================
+
+function draw_grouped_bar(mu, sd, xticks_labels, legend_labels, title_str, ylim_range)
+% Bar plot with error bars; mu/sd are [groups × bars].
+b = bar(mu, 'grouped'); hold on
+[ngroups, nbars] = size(mu);
+xpos = nan(nbars, ngroups);
+for k = 1:nbars
+    xpos(k, :) = b(k).XEndPoints;
+end
+errorbar(xpos', mu, sd, 'k', 'linestyle', 'none');
+hold off
+if ~isempty(xticks_labels), xticklabels(xticks_labels); end
+if ~isempty(legend_labels),  legend(legend_labels, 'Location', 'best'); end
+if ~isempty(title_str),      title(title_str); end
+if ~isempty(ylim_range),     ylim(ylim_range);  end
+end
+
+function draw_shaded_curve(x, y, sd, xlab, ylab, ttl, ylim_range)
+% Shaded-band ±1 SD curve.
+curve1 = y + sd;
+curve2 = y - sd;
+x2     = [x, fliplr(x)];
+inB    = [curve1, fliplr(curve2)];
+fill(x2, inB, [0.5 0.5 0.5]); hold on
+plot(x, y, 'k', 'LineWidth', 2);
+xlabel(xlab); ylabel(ylab); title(ttl);
+if ~isempty(ylim_range), ylim(ylim_range); end
+end
