@@ -16,6 +16,8 @@ and consumed in `Fig5/`.
 |   ↳ uses        | `Learning.m`                    | Function: actual integrate-and-fire E/I network with iSTDP / Hebbian / voltage-STDP plasticity rules. |
 |   ↳ uses        | `runnet.m`                      | Function: forward-pass network simulation (no learning), called for evaluation phases. |
 | **ANALYSIS**    | `figure4_main.m`                | Canonical Direct-Method MI pipeline on the trained network (loads `checkpoint.mat`, frozen-stimulus paradigm, Trials × Stages outer loops).  Produces Fig. 4 panels. |
+| **RELIABILITY** | `reliability.m`                 | Trial-to-trial reliability for Fig. 4K bars.  Computes pairwise SSIM and `corr2` between spike rasters across repeated trials (`recorded_spikes_*_rec.mat`), and within-trial neuron-pair correlation similarity (`pattern_rep`).  This is the empirical analogue of the Poisson agreement metric Pₐgree in Fig. 4L. |
+| **BAR PLOTS**   | `fig3plot.m`                    | Plotter for the before-vs-after-learning bar panels of Fig. 4 (CV_L / S_L / CV_P / S_P / reliability / MI / ICE).  *Name retained from when the recurrent network appeared as Fig. 3 in earlier drafts.*  Reads `0_rec.mat`. |
 | Post-processing | `redo_fig4_plots.m`             | Apply Cost-unit fix in place and redraw Fig. 4 panels (skips simulation). |
 | Diagnostic      | `Learning_testentr.m`           | Entropy-rate evaluation along the learning trajectory (older companion to `figure4_main.m`). |
 | Snippet         | `figure4_errbar_snippet.m`      | **NOT standalone.**  PART A (per-neuron MI storage) + PART B (plot replacement) to splice into `figure4_main.m`. |
