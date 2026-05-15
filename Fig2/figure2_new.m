@@ -1227,28 +1227,76 @@ plot(x, y);  xlim([0 3])
 xlabel('CV'); ylabel('Sparseness');
 title('CV vs Sparseness');
 
-%% Figure 6: Entropy vs Cost scatter (population-level)
+%% Figure 6: Information vs Cost scatter (population-level, V1)
+%
+% Three traces per panel for a complete comparison:
+%   (1) Spontaneous H(r)    — blue  : coding readiness, no stimulus defined
+%   (2) Evoked    H(r)      — orange faded : entropy of evoked response
+%                                            (upper bound on attainable I/C
+%                                            under deterministic encoding)
+%   (3) Evoked    I(s; r)   — orange solid: deployed stimulus information
+%                                           = H(r) - H(r|s) per stimulus,
+%                                           pooled across stimuli for the
+%                                           population summary point.
+%
+% The H–I gap visualises the noise-entropy fraction rho ~ 0.85 reported
+% in the main text and in Supp Sect 3.2.
 x = 0:0.1:30;
-figure('Name', 'Entropy-Cost Tradeoff', 'NumberTitle', 'off');
+figure('Name', 'Information-Cost Tradeoff', 'NumberTitle', 'off');
 
+col_spon = [0.30 0.60 0.90];   % blue   — spontaneous
+col_evk  = [0.85 0.33 0.10];   % orange — evoked
+
+% --- per-stimulus evoked summaries (one point per stim) ---------------------
+% MI_v1_perStim_pop / Hr_v1_perStim_pop already exist (population-level Hr / MI
+% under the deterministic-encoding approximation); each entry = one stimulus.
+% Per-stimulus cost: average cost over trials of that stimulus.
+% (`stim_driven` and `cost1_p` are appended in lockstep in the per-trial loop,
+%  so they share length and indexing.)
+cost_v1_perStim = nan(1, n_stim_driven);
+for si = 1:n_stim_driven
+    s_id = unique_stim_driven(si);
+    mask = (stim_driven == s_id);
+    if any(mask)
+        cost_v1_perStim(si) = mean(cost1_p(mask));
+    end
+end
+
+% ---------- Subplot 1: Entropy / Information vs Cost ----------
 subplot(1, 2, 1)
-scatter(cost1_p,  entr1_p,  'ko'); hold on;
-scatter(cost1_ps, entr1_ps, 'bo'); hold on;
+% (1) Spontaneous H — blue
+scatter(cost1_ps, entr1_ps, 30, col_spon, 'o', 'filled', 'MarkerFaceAlpha', 1.0); hold on;
+% (2) Evoked H — orange faded
+scatter(cost1_p,  entr1_p,  30, col_evk,  'o', 'filled', 'MarkerFaceAlpha', 0.3);
+% (3) Evoked MI — orange solid (per-stimulus summary)
+scatter(cost_v1_perStim, MI_v1_perStim_pop, 80, col_evk, 'o', 'filled', ...
+        'MarkerFaceAlpha', 1.0, 'MarkerEdgeColor', 'k', 'LineWidth', 0.8);
 y = 1 + log(x);
 plot(x, y, 'k--', 'LineWidth', 1.5)
-xlabel('Metabolic Cost [W]'); ylabel('Entropy [nats]');
-title('V1: Entropy vs Cost');
-legend('Driven', 'Spon', 'Theory', 'Location', 'best');
+xlabel('Metabolic Cost [W]'); ylabel('Information [nats]');
+title('V1: Information vs Cost (H, MI)');
+legend('Spon H(r)', 'Evoked H(r)', 'Evoked MI(s;r)', 'Theory  1 + ln C', ...
+       'Location', 'best');
 xlim([0 30]); grid on
 
+% ---------- Subplot 2: ICE = Information / Cost vs Cost ----------
 subplot(1, 2, 2)
-scatter(cost1_p,  entr1_p  ./ (dur_driven * cost1_p), 'ko'); hold on;
-scatter(cost1_ps, entr1_ps ./ (dur_spon * cost1_ps), 'bo'); hold on;
+% (1) Spontaneous Hr/C — blue
+scatter(cost1_ps, entr1_ps ./ (dur_spon   * cost1_ps), 30, col_spon, 'o', ...
+        'filled', 'MarkerFaceAlpha', 1.0); hold on;
+% (2) Evoked Hr/C — orange faded
+scatter(cost1_p,  entr1_p  ./ (dur_driven * cost1_p),  30, col_evk,  'o', ...
+        'filled', 'MarkerFaceAlpha', 0.3);
+% (3) Evoked MI/C — orange solid (per-stimulus summary)
+scatter(cost_v1_perStim, MI_v1_perStim_pop ./ (dur_driven * cost_v1_perStim), ...
+        80, col_evk, 'o', 'filled', ...
+        'MarkerFaceAlpha', 1.0, 'MarkerEdgeColor', 'k', 'LineWidth', 0.8);
 y = 1 ./ x;
 plot(x, y, 'k--', 'LineWidth', 1.5)
 xlabel('Metabolic Cost [W]'); ylabel('ICE [nats/J]');
-title('V1: ICE vs Cost');
-legend('Driven', 'Spon', 'Theory', 'Location', 'best');
+title('V1: ICE vs Cost (H/C, MI/C)');
+legend('Spon H(r)/C', 'Evoked H(r)/C', 'Evoked MI(s;r)/C', 'Theory  1/C', ...
+       'Location', 'best');
 ylim([0 1]); grid on
 
 %% Figure 7: 1/T Extrapolation Diagnostic (V1 Population)
