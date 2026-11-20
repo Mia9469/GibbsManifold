@@ -3,7 +3,7 @@ Pareto scan: train CVM with different cv_ratio values, then plot
 the RE–CV and RE–ICE frontier to find a better operating point.
 
 Usage:
-    cd Fig7
+    cd Fig6
     python pareto_scan.py            # train + evaluate + plot
     python pareto_scan.py --eval-only # skip training, re-evaluate existing runs
 """
@@ -171,7 +171,7 @@ def plot_pareto(df, baselines=None):
     ax.set_title('Pareto frontier: RE vs CV', fontsize=13)
     ax.legend(fontsize=9, frameon=False)
 
-    # ── Panel 2: ICE vs cv_ratio ──
+    # Panel 2: RAE vs cv_ratio (internal arrays retain the legacy ICE key).
     ax = axes[1]
     ax.errorbar(df['cv_ratio'], df['ICE'], fmt='s-', color='steelblue',
                 markersize=8, linewidth=1.5)
@@ -179,8 +179,8 @@ def plot_pareto(df, baselines=None):
         for name, (re, cv, ice, cost) in baselines.items():
             ax.axhline(ice, ls='--', lw=1, alpha=0.6, label=f'{name} ICE={ice:.2f}')
     ax.set_xlabel('cv_ratio', fontsize=13)
-    ax.set_ylabel(r'ICE $= -\log_2(\mathrm{RE})/\bar{a}$  (bits/activation)', fontsize=11)
-    ax.set_title('ICE vs cv_ratio', fontsize=13)
+    ax.set_ylabel(r'RAE score $= -\log_2(\mathrm{RE})/\bar{a}$', fontsize=11)
+    ax.set_title('RAE vs cv_ratio', fontsize=13)
     if baselines:
         ax.legend(fontsize=9, frameon=False)
 

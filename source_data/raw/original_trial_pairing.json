@@ -1,0 +1,599 @@
+{
+  "seed": 20260907,
+  "pairings_zero_based": [
+    [
+      [
+        43,
+        3
+      ],
+      [
+        21,
+        31
+      ],
+      [
+        38,
+        27
+      ],
+      [
+        18,
+        37
+      ],
+      [
+        19,
+        10
+      ],
+      [
+        32,
+        20
+      ],
+      [
+        17,
+        14
+      ],
+      [
+        22,
+        30
+      ],
+      [
+        48,
+        4
+      ],
+      [
+        34,
+        33
+      ],
+      [
+        41,
+        7
+      ],
+      [
+        26,
+        25
+      ],
+      [
+        47,
+        46
+      ],
+      [
+        24,
+        2
+      ],
+      [
+        23,
+        16
+      ],
+      [
+        8,
+        5
+      ],
+      [
+        6,
+        28
+      ],
+      [
+        40,
+        39
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        11,
+        9
+      ],
+      [
+        36,
+        44
+      ],
+      [
+        45,
+        15
+      ],
+      [
+        42,
+        13
+      ],
+      [
+        35,
+        29
+      ],
+      [
+        12,
+        49
+      ]
+    ],
+    [
+      [
+        33,
+        38
+      ],
+      [
+        45,
+        28
+      ],
+      [
+        37,
+        4
+      ],
+      [
+        47,
+        2
+      ],
+      [
+        31,
+        7
+      ],
+      [
+        46,
+        0
+      ],
+      [
+        42,
+        22
+      ],
+      [
+        48,
+        23
+      ],
+      [
+        3,
+        15
+      ],
+      [
+        36,
+        12
+      ],
+      [
+        11,
+        19
+      ],
+      [
+        16,
+        44
+      ],
+      [
+        30,
+        13
+      ],
+      [
+        21,
+        6
+      ],
+      [
+        24,
+        20
+      ],
+      [
+        27,
+        29
+      ],
+      [
+        25,
+        43
+      ],
+      [
+        5,
+        9
+      ],
+      [
+        26,
+        8
+      ],
+      [
+        18,
+        17
+      ],
+      [
+        34,
+        41
+      ],
+      [
+        1,
+        10
+      ],
+      [
+        14,
+        40
+      ],
+      [
+        35,
+        49
+      ],
+      [
+        39,
+        32
+      ]
+    ]
+  ],
+  "n_trials_per_state": 50,
+  "n_disjoint_pairs_per_state": 25,
+  "experimental_unit": "A pair of two distinct noise trials; no trial appears in more than one primary pair",
+  "test": "Exact two-sided Mann-Whitney U (independent samples), on 25 disjoint-pair SSIM values per state",
+  "U": 0.0,
+  "p_value": 1.5821457204897228e-14,
+  "p_value_full_map_sensitivity": 1.5821457204897228e-14,
+  "partition_sensitivity": {
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63,
+      64,
+      65,
+      66,
+      67,
+      68,
+      69,
+      70,
+      71,
+      72,
+      73,
+      74,
+      75,
+      76,
+      77,
+      78,
+      79,
+      80,
+      81,
+      82,
+      83,
+      84,
+      85,
+      86,
+      87,
+      88,
+      89,
+      90,
+      91,
+      92,
+      93,
+      94,
+      95,
+      96,
+      97,
+      98,
+      99
+    ],
+    "p_values": [
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      6.328582881958891e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      6.328582881958891e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14,
+      1.5821457204897228e-14
+    ],
+    "p_range": [
+      1.5821457204897228e-14,
+      6.328582881958891e-14
+    ],
+    "scope": "Repartitions of the same trials, not new independent datasets; primary pairing and p unchanged"
+  },
+  "means": [
+    0.7245288727948597,
+    0.8684430336530958
+  ],
+  "sample_SD": [
+    0.0017131934698300984,
+    0.03746283954220386
+  ],
+  "mean_difference": 0.14391416085823616,
+  "difference_bootstrap_95_CI": [
+    0.1288541849297532,
+    0.15733181978689129
+  ],
+  "bootstrap_resamples": 20000,
+  "all_high_scores_above_all_low": true,
+  "protocol": {
+    "data_range": 1,
+    "Gaussian_sigma_pixels": 1.5,
+    "kernel_size": 11,
+    "covariance": "Gaussian-weighted population moments",
+    "primary_aggregation": "Valid-center SSIM mean, excluding five-pixel border, standard Wang/skimage definition",
+    "sensitivity": "Full reflected-boundary SSIM-map mean, computed for every pair",
+    "native_MATLAB_available": false
+  },
+  "raw_audit": [
+    {
+      "checkpoint": 1,
+      "input_sha256": "e0a3954017bfc35fbdcadc73eb9e9b1390bf7e01d44784fc60af60c4b7c65b3f",
+      "trial_dtype": "uint8",
+      "trial_hashes": [
+        "759b515b06829fe366ab5653bff248c8632567978330d5a41d9d79d9804809b7",
+        "e19e014684d6b756b16acbf03fb744b73e814a50a360d8645f46120c4f534be3",
+        "f6174261255c695b1d15d376ec53bd7c8f2d6b100c91ffdd95bf2038d77447ca",
+        "94e4dd66f8eb981d1f0249057a2a1e3a75f4ecbcd072e04f7c483bb7ef046be0",
+        "aa678324587c78a0fb011c625506fd8aaa7bc3f90a079c79b62d03d9ca3d0781",
+        "077a8ac7ae077b1bb6462c8d3b74e8b108f77481cd4464a39d81fdc38c4c80f0",
+        "7192863dd8f1a458da5f74b10dd10afe2fbfba612f91eda91426d2e1ea663b84",
+        "0fb91b2ab99bd8eed3a37943b280de01ac4b9d1edc2f2e5e671885adccf17f1b",
+        "a4138092e1efe7dab4273f27c9d9224a875e8f47f084675aeddda85d0a52dc00",
+        "99ae41c42f3d6fa5231e35af6263cffb53fb22f97c7f0325233a61dd09cbf264",
+        "bb6f81a3ed3b4266d0ee41e824eb821e10b43a29fd6922e28abfa004100e0218",
+        "e0176e6b4b86ad66c202ac5760bd90f8ee4f73734c650c11b93520fe2659c959",
+        "cfa3dda54eddf8741b91642661f680988da120e8681a255f85f305a2b537e318",
+        "c02888646d0e6f11a06529738cc12bcf61ee5369ef0435751cb23de5db2d941e",
+        "3e2ea6fb021447a615be10e48376ce0b27aaf7be776e76bfc4d477c28961a6f8",
+        "486c8518e3e8208688ad7083fbde2b260575d555fdde6112c31bf734b40aa5cf",
+        "44b81699f689811846a163935f7c54792de89f5a435524a3dab335c69e7dbc46",
+        "4bfe338d8041f9891850e39f7482bf4463574053199df436c2e036f65a803134",
+        "22668dd32741f472c6520badd583087ca3f552baf279e3a823fee3d976e26e87",
+        "ac2b58940d99112ecfbfadcc054aeef664dc73b52be50b582aec337c36aa1e21",
+        "f9a998d9ec14b6536f5620933f5dd9ccdc86ea4b4d0491c9f0ac47e492dead46",
+        "c7332173dc0fdeca03f2507377a1bd0baec562a110a7031eb59fec79cf989f2f",
+        "dbbcb835a0d8bf32c67deeb729940aa02bf0da74182782e5e58e236b41abf067",
+        "531cdffce1242ea9610c105b8cf364f82ed645880686c9d5a47b189a8897edff",
+        "5e8c6fa341ae1d1326b51fbd41d4750830622351d65848b982250f8e34fca7ea",
+        "d221b19fc82186a079bd5e2073e1d86922b5ee2c6fb816e6c0c3b1dc36d108fb",
+        "9616f2353e231425412272dfba88a113e9ecbfd285d78f72803dce0d7dd87549",
+        "81c56f7befd45dc157c0b3df835f8ec464488dbdf79f2b1309eafa2aaba5d21a",
+        "1e6dad0317422e734c803ffbb1f9c005b02cc7955d4de0504769f480e39d0059",
+        "d92ae1f6d19f8418b8caa4af85793bdd79e80b0f108055982e69ddcd9c601baf",
+        "1081ec1e8837ec3d614432a08612b1de272531a43f7ba7f2ff1cb5f07a11a455",
+        "9c5cc906e316912a18e85f9f4cbd23d323bdb60596ee6256f465c66940740d25",
+        "37544ac4489c917ef10fbb3bdbed3acb5a186cd050b7048642a0f8739385245a",
+        "611778defae819049b4dd17cc9b22c3afcc640952d18c6063c119a89c57e67bf",
+        "e2aaedfe96bb6dff4966fd245fb3542537d30a8c2084af37635a8335a4f35927",
+        "9451aec21b24cf3c027d015e567b6555b1173d1ee7ac6eefeba99a05af625827",
+        "a4bda9192f8591e49a4087ea7eb82210d47ab3fc4d4dce8e4f8abb4f2f23f0e1",
+        "7fc2110addaa072e3423496d9a5b2eeac879a22e72581c539fa0e5aa83a6109d",
+        "514e4c8ad91a70b4ab03a933785ac5cb9652694b20783acfcb4466536220a1ea",
+        "e25776eb4734b0cd1b479ccc1fb2660f5e629acb1c72f2303d161582b0325c66",
+        "d9ec6708ca2790ecb7d69c5eb124d1e06f82d24129c8221d847e4f51e59866a4",
+        "5d280472ec8a0f176d9e1b0722ba0bfeedea88ce3ddd5e85ae7a536002622591",
+        "7af9a3a9a4a3d52b4936f43f26e9a2c62dbe40c5953ded0fdaceaff246bb2c18",
+        "12542012d74a88a382f2895a24b9cbdd39c8d0b93e24fcdc0f75ae922499cbc0",
+        "0a133e811e4f57ced635f824a4a96a7ded8d4a75b14e266319440809b6c4f1cd",
+        "44f79a6d32347a51d884b0ff50668660d41dfef1852465a1e03416d4ad249f71",
+        "36acf290eca7ffffc0855fd9dc98e67c95c484e44895237c44bc74003b260c4b",
+        "2e290a064a23660a1828a335dc7946f6d4e7ad4dfd72f44c604dd427349296ae",
+        "a1943a2a9ffeeac6ce0b7296d18d283b533fb2cbf36c635c98958c340986a7e2",
+        "8f33e5184b97d5bc82ceeebef73b8cf3699259c2a02b5a7901af6ae243a1f7d4"
+      ],
+      "all_1225_pairs_valid": {
+        "mean": 0.7243922974735352,
+        "trial_jackknife_SE": 0.00023146848680997845
+      },
+      "all_1225_pairs_full_map_sensitivity": {
+        "mean": 0.72611023479401,
+        "trial_jackknife_SE": 0.00023113674324584828
+      },
+      "maximum_float64_library_check_error": 4.092165495350741e-09
+    },
+    {
+      "checkpoint": 29,
+      "input_sha256": "cc6cffe7c3a0786967fadcc6e8bb4bd3e76345ce0cd368e112c616a1a9b6ae00",
+      "trial_dtype": "uint8",
+      "trial_hashes": [
+        "e2598f106e9f9c2f55230d63645e1a17b2bbd64196175dd5ff404eeff69c677e",
+        "dc70e44a8b48bb64637b7e810c2bd036b5a1f65c6eb7a579603db72414663ce8",
+        "156cc2a1895840a0b5098d66a5bc00828f6cd57c062a29300667576b6fd5d465",
+        "90e9fe8fee02a7456e9db3a9b262aa27c8bc10909edddad2f69c91af3727af52",
+        "93db3694fd28e73792d73df1ede64b3f92e98a614a0132caeeb7f40f3fd2e1f1",
+        "0df77c3093ad1b8530ba933415b83061b7a9d25185b8fe170f1ec8aa7f079a91",
+        "eab5fb38251779a8031d93ec0e93df592c89d3985900b4e7779ee73bdf3c101f",
+        "d4814f5275ae5a672207a673730edab8728bc51fb4423f0532dd316fe26cc5cf",
+        "ca346901106c17b4bd89402e81d5a394872034636f7f9083b7d4658715483532",
+        "6f9349cc90473f2c4d9cd125af7b22c842e1d7e4fba41ba81851c7d3af771d17",
+        "958dbe3f2f152df3da83ca88f18b34b40882feec0896db49f8a70cfac8a9b335",
+        "ef255b301c2a8633921fc206f4d2732b51d124a911a98808ca16dcc04ee67677",
+        "24333807756b1ea74f509a09389d1f948fc25c814458209db3d9096c5bb3cb7d",
+        "ee492c35e8214a9fa0681e60988a06946a474b51055d73806d1fc54fca6573f7",
+        "5d3427a7ba86845cf5581520a1da02150ad5a70d4155e241b7756219ba160033",
+        "1ba36b11f09311a036e870532fa6faf56c442f8bdcc1b16d8a28a69cb8c7673f",
+        "c346103347d333a20ec2e3572101fca13e78b5965c60c9f326a7297e79516b21",
+        "f09413ea37695e80c051388f43581c9cfef68b56e3df89e4788415b0771d02a1",
+        "a2e38219535511aad4a76a1292861ad4d4be9e70ce2efbd0c42a63b4f44d7c98",
+        "bc3a4a7531ae9b066f227c624f742f688347c2646e9f79eb1ca8ce36f4348e8a",
+        "0b4a4f2f90be33cd0c07b7302ba53355e01537e8a676af0a21a2bfaf754f42e2",
+        "9cccdc29175f447245875a9c4aebbce25b0746be80c8fbf9043faf3a02a0fbdb",
+        "e3c2e78b611d5368a4bdf4aa5b817a4f6e0989132e1fb1fc6e0510bcfc94de0e",
+        "e5db0745a3564db054cc24e8288807893185cc84ce81dc5f90ad61228894d9fb",
+        "97e0723995673f756e22cf3381c87b24ebc7d79da5514db19edf63c97e7cc6cf",
+        "9d1db8b27581430b9494a2f7b3761ff47500892a001f77075a2b3448c44e1731",
+        "879a45abd6d8112c3406fa26c89d6b5f4be7e9271d52fb9a80c0b800fcf1ce6a",
+        "202a40c27b0b4ffe77b397933e665ecd0cdf50ea0d73bfbfae6c8b8dee515251",
+        "bcaf69ba1fd0dca728a068776c47cafe70566fde6216943b8a63560abafba972",
+        "562e5ba180b887f209c8b2c00f772d5ea60411df8d0f7ef35c436e58ce07383c",
+        "7dfa0fcb23f9edd8f0b7e72a3587d833a0e40515c72c8b3495ee63bf330ebda1",
+        "99bd7dd188189d45c74878fbe2f0dfd08ec6d87ffb37edc79d0f7a6c5fbad7e0",
+        "dc65b6e43f83a1d08ce92ae73d8e5ce30f3199bc05e9a8ecccf008c4414424e5",
+        "671575eb5b66a066142b68b0302b26fff7a3bf9c654312c0c99eb22a9e305c82",
+        "8557594ebecdc7693252396e12b5aad5f830c10ac0368d4c4b7e21414b0c4fbc",
+        "c26e2b78485a01a430b7002b0211f7a0fc5519dab551cb72719fc61f418dd0bb",
+        "546de384cb4d42d062911519c8778641665cd3972a7fdba1a608442af76d963c",
+        "0c0fcd11b1275dafdfab2169e31a745004dd3e069a6604cb8fbeb2c1c837607c",
+        "a34e9df435674b2265a4cbb4fb6ee1c35c7237b4837d7b73d03ed35e0c344d68",
+        "5c2a3f689eebdfd90d228ce0d8742d3d2f4902420eb6eb1feafbfaa04537e74e",
+        "7aaa37816ae2b90e0b6bfcec6f2e89cbd2a7d9c65e21519578737daadeadbb8c",
+        "fbd0980b159056cc5c41519b91432b2e5d9114797c8061605e8238a96cda0d02",
+        "a0f9702904b48cb349f997134a7f8066553c109651d22bcd72f97bbebe3f9339",
+        "57273f76d824a9f3f6a26d093b1edbb11e748c8b190bd0e71bf3b2bdd05e2cec",
+        "62d9cb8ad3970fb1976474b0e3b38c6d354278d10b2c68a48f4c65fbf46dbb72",
+        "698b48454f083169b90a04752f195accd35ba47878112d2f526b4f97c45c6f29",
+        "3081a82b73087c58644898c64773e5c7dccf983a3ffb83ff29f1b0e435f7a71f",
+        "47bbe37eb1844ae263bf2f8d45db65ea2061c02b546389a7b8b05e61eb318fca",
+        "4ca626181c6036d2278927e5296bb596fa4a1a531d314237a773ac47231671a1",
+        "20ae7b567878e76a41d766ea186a2abbce0be77e90bd9567b3c6b01b49bdd4cc"
+      ],
+      "all_1225_pairs_valid": {
+        "mean": 0.8681724811752825,
+        "trial_jackknife_SE": 0.0069340071082095965
+      },
+      "all_1225_pairs_full_map_sensitivity": {
+        "mean": 0.8689433088420728,
+        "trial_jackknife_SE": 0.006906117507234511
+      },
+      "maximum_float64_library_check_error": 2.704792168017889e-09
+    }
+  ],
+  "pdf": "output/pdf/Figure4_K_trial_level_20260907.pdf",
+  "pdf_sha256": "5396065c3560ded3e7edebb54869b5220303ebd31b6eae2149a0f1a7c12c2e7b",
+  "versions": {
+    "numpy": "2.0.2",
+    "scipy": "1.13.1",
+    "skimage": "0.24.0"
+  },
+  "scope": "Conditional comparison of responses at two fixed checkpoints. Trials are assumed independent noise realizations within each fixed input. Not independent training networks, not a trial-matched paired test, and not a test of MI.",
+  "legacy_panel": "Preserved. New p must accompany this raw-trial reanalysis and its new means/SD, not the ten overlapping legacy batch dots.",
+  "legacy_corrected_means": [
+    0.7272673942949395,
+    0.8460623707043157
+  ],
+  "legacy_reproduction": "The new full-pair and disjoint-pair means do not exactly reproduce the legacy aggregate cache. Original trial selections and native MATLAB settings are not fully documented; do not attribute the discrepancy to one factor or transplant the p onto legacy bars."
+}

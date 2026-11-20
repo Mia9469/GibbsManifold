@@ -1,12 +1,12 @@
 """
 v1_decoder_vs_CV_multi.py
 =========================
-Multi-session FR-controlled decoder analysis on the macaque V1 dataset.
+Multi-session decoder decomposition on the macaque V1 dataset.
 
 Extends v1_decoder_vs_CV_partial.py from 1 session (105l001p16) to all 5
-v1v2-1 sessions (564 V1 neurons total).  Tests the framework's reliability-CV
-link with FR control, both per session (within-session, no pooling artefact)
-and pooled (full statistical power).
+v1v2-1 sessions (564 V1 neurons total).  The analysis separates total lifetime
+CV across all trials into stimulus-tuning dispersion and within-stimulus noise
+dispersion because total CV contains the class structure used by the decoder.
 
 Pipeline (per session)
 ----------------------
@@ -23,17 +23,19 @@ Aggregate analysis
   5. Optional: meta-analytic aggregation of the per-session partial rho via
      Fisher r-to-z (so a positive overall finding is not driven by one
      session).
-  6. Save a JSON + a 3-panel summary PDF.
+  6. Save JSON/NPZ source data, a text report, and a summary PDF.
 
 Output
 ------
   v1_decoder_vs_CV_multi.json
+  v1_decoder_vs_CV_multi.npz
   v1_decoder_vs_CV_multi.txt
   v1_decoder_vs_CV_multi.pdf
 """
 from __future__ import annotations
 
 import json
+import os
 import sys
 import time
 import warnings
@@ -47,6 +49,11 @@ from sklearn.model_selection import StratifiedKFold, cross_val_predict
 
 
 HERE = Path(__file__).resolve().parent
+# Keep headless figure generation reproducible in restricted reviewer/CI
+# environments where user-level Matplotlib and fontconfig caches are read-only.
+os.environ.setdefault("MPLBACKEND", "Agg")
+os.environ.setdefault("MPLCONFIGDIR", "/tmp/gibbsmanifold-matplotlib")
+os.environ.setdefault("XDG_CACHE_HOME", "/tmp/gibbsmanifold-cache")
 SESSIONS = [
     "105l001p16.mat",
     "106r001p26.mat",
@@ -56,6 +63,7 @@ SESSIONS = [
 ]
 
 OUT_JSON = HERE / "v1_decoder_vs_CV_multi.json"
+OUT_NPZ  = HERE / "v1_decoder_vs_CV_multi.npz"
 OUT_TXT  = HERE / "v1_decoder_vs_CV_multi.txt"
 OUT_PDF  = HERE / "v1_decoder_vs_CV_multi.pdf"
 
@@ -89,6 +97,8 @@ def per_neuron_decode(X, y, k=KFOLDS, seed=RNG_SEED, label=""):
     skf = StratifiedKFold(n_splits=k, shuffle=True, random_state=seed)
     accs = np.full(n_neurons, np.nan)
     cv_l = np.full(n_neurons, np.nan)
+    noise_cv = np.full(n_neurons, np.nan)
+    tuning_cv = np.full(n_neurons, np.nan)
     fr   = np.full(n_neurons, np.nan)
     t0 = time.time()
     for j in range(n_neurons):
@@ -97,12 +107,19 @@ def per_neuron_decode(X, y, k=KFOLDS, seed=RNG_SEED, label=""):
         if m <= 0:
             continue
         cv_l[j] = x.std(ddof=1) / m
+        class_means = np.array([x[y == cls].mean() for cls in np.unique(y)])
+        within_vars = np.array([x[y == cls].var(ddof=1) for cls in np.unique(y)])
+        noise_cv[j] = np.sqrt(np.nanmean(within_vars)) / m
+        tuning_cv[j] = class_means.std(ddof=1) / max(class_means.mean(), 1e-12)
         fr[j]   = m / 1.28
         clf = LinearDiscriminantAnalysis(solver="lsqr", shrinkage="auto")
         with warnings.catch_warnings():
             warnings.simplefilter("ignore")
             try:
-                y_pred = cross_val_predict(clf, x, y, cv=skf, n_jobs=-1)
+                # Use a deterministic single-process path so the analysis also
+                # runs in restricted review/CI environments without joblib
+                # worker or shared-memory support.
+                y_pred = cross_val_predict(clf, x, y, cv=skf, n_jobs=1)
                 accs[j] = (y_pred == y).mean()
             except Exception:
                 pass
@@ -110,13 +127,17 @@ def per_neuron_decode(X, y, k=KFOLDS, seed=RNG_SEED, label=""):
             sys.stdout.write(f"\r    [{label}] neuron {j+1}/{n_neurons}, elapsed {time.time()-t0:.1f}s")
             sys.stdout.flush()
     print()
-    return accs, cv_l, fr
+    return accs, cv_l, noise_cv, tuning_cv, fr
 
 
 # --- statistics -----------------------------------------------------------
 
 def partial_spearman(x, y, z):
     """Partial Spearman rho(x,y | z) via rank-residualization."""
+    valid = np.isfinite(x) & np.isfinite(y) & np.isfinite(z)
+    x, y, z = np.asarray(x)[valid], np.asarray(y)[valid], np.asarray(z)[valid]
+    if len(x) < 4:
+        return float("nan"), float("nan")
     rx, ry, rz = rankdata(x), rankdata(y), rankdata(z)
     def residual(a, b):
         b1 = b - b.mean()
@@ -138,6 +159,23 @@ def partial_spearman(x, y, z):
     t_stat = rho * np.sqrt(df / (1 - rho**2))
     pval = 2 * student_t.sf(abs(t_stat), df)
     return rho, float(pval)
+
+
+def partial_spearman_multi(x, y, controls):
+    """Partial Spearman rho from the inverse rank-correlation matrix."""
+    variables = np.column_stack([x, y, *controls]).astype(float)
+    variables = variables[np.all(np.isfinite(variables), axis=1)]
+    if variables.shape[0] <= variables.shape[1]:
+        return float("nan"), float("nan")
+    corr = np.asarray(spearmanr(variables, axis=0).statistic, dtype=float)
+    if corr.ndim != 2:
+        return float("nan"), float("nan")
+    precision = np.linalg.pinv(corr)
+    rho = float(-precision[0, 1] / np.sqrt(precision[0, 0] * precision[1, 1]))
+    df = len(x) - len(controls) - 2
+    t_stat = rho * np.sqrt(df / (1 - rho**2))
+    p = 2 * student_t.sf(abs(t_stat), df)
+    return rho, float(p)
 
 
 def fr_binned_test(cv_l, accs, fr, n_bins=4):
@@ -191,15 +229,26 @@ def run_session(mat_name):
     print(f"\n[session] {mat_name}")
     X, y = load_v1_driven(p)
     print(f"  trials={X.shape[0]}, V1 neurons={X.shape[1]}, stims={sorted(set(y))}")
-    accs, cv_l, fr = per_neuron_decode(X, y, label=mat_name.split('.')[0])
-    valid = np.isfinite(accs) & np.isfinite(cv_l) & np.isfinite(fr)
-    cv_l, accs, fr = cv_l[valid], accs[valid], fr[valid]
+    accs, cv_l, noise_cv, tuning_cv, fr = per_neuron_decode(
+        X, y, label=mat_name.split('.')[0]
+    )
+    valid = (
+        np.isfinite(accs) & np.isfinite(cv_l) & np.isfinite(noise_cv)
+        & np.isfinite(tuning_cv) & np.isfinite(fr)
+    )
+    cv_l, noise_cv, tuning_cv, accs, fr = (
+        cv_l[valid], noise_cv[valid], tuning_cv[valid], accs[valid], fr[valid]
+    )
 
     rho_cv,  p_cv  = spearmanr(cv_l, accs)
     rho_fr,  p_fr  = spearmanr(fr,   accs)
     rho_cf,  p_cf  = spearmanr(cv_l, fr)
     pcv,     ppcv  = partial_spearman(cv_l, accs, fr)
     pfr,     ppfr  = partial_spearman(fr,   accs, cv_l)
+    ptotal_tuning, ptotal_tuning_p = partial_spearman_multi(
+        cv_l, accs, [fr, tuning_cv]
+    )
+    pnoise, pnoise_p = partial_spearman(noise_cv, accs, fr)
 
     return {
         "session": mat_name.split('.')[0],
@@ -215,8 +264,13 @@ def run_session(mat_name):
         "partial": {
             "cv_acc_given_fr": {"rho": pcv, "p": ppcv},
             "fr_acc_given_cv": {"rho": pfr, "p": ppfr},
+            "total_cv_acc_given_fr_and_tuning": {"rho": ptotal_tuning, "p": ptotal_tuning_p},
+            "within_stim_noise_cv_acc_given_fr": {"rho": pnoise, "p": pnoise_p},
         },
-        "_arrays": {"cv_l": cv_l.tolist(), "acc": accs.tolist(), "fr": fr.tolist()},
+        "_arrays": {
+            "cv_l": cv_l.tolist(), "noise_cv": noise_cv.tolist(),
+            "tuning_cv": tuning_cv.tolist(), "acc": accs.tolist(), "fr": fr.tolist(),
+        },
     }
 
 
@@ -229,6 +283,8 @@ def main():
     all_cv  = np.concatenate([np.asarray(r["_arrays"]["cv_l"]) for r in per_session])
     all_acc = np.concatenate([np.asarray(r["_arrays"]["acc"])  for r in per_session])
     all_fr  = np.concatenate([np.asarray(r["_arrays"]["fr"])   for r in per_session])
+    all_noise_cv = np.concatenate([np.asarray(r["_arrays"]["noise_cv"]) for r in per_session])
+    all_tuning_cv = np.concatenate([np.asarray(r["_arrays"]["tuning_cv"]) for r in per_session])
     print(f"\n[pooled] N = {len(all_cv)} neurons across {len(per_session)} sessions")
 
     rho_cv_p, p_cv_p = spearmanr(all_cv, all_acc)
@@ -236,6 +292,11 @@ def main():
     rho_cf_p, p_cf_p = spearmanr(all_cv, all_fr)
     pcv_p, ppcv_p   = partial_spearman(all_cv, all_acc, all_fr)
     pfr_p, ppfr_p   = partial_spearman(all_fr, all_acc, all_cv)
+    ptotal_tuning_p, pptotal_tuning_p = partial_spearman_multi(
+        all_cv, all_acc, [all_fr, all_tuning_cv]
+    )
+    pnoise_p, ppnoise_p = partial_spearman(all_noise_cv, all_acc, all_fr)
+    rho_tuning, p_tuning = spearmanr(all_tuning_cv, all_acc)
     bins_pooled = fr_binned_test(all_cv, all_acc, all_fr, n_bins=4)
 
     # --- meta-analytic aggregation of within-session partials ---
@@ -256,6 +317,15 @@ def main():
             "partial": {
                 "cv_acc_given_fr": {"rho": pcv_p, "p": ppcv_p},
                 "fr_acc_given_cv": {"rho": pfr_p, "p": ppfr_p},
+                "total_cv_acc_given_fr_and_tuning": {
+                    "rho": ptotal_tuning_p, "p": pptotal_tuning_p
+                },
+                "within_stim_noise_cv_acc_given_fr": {
+                    "rho": pnoise_p, "p": ppnoise_p
+                },
+                "tuning_cv_vs_acc_raw": {
+                    "rho": float(rho_tuning), "p": float(p_tuning)
+                },
             },
             "fr_quartile_bins": bins_pooled,
         },
@@ -268,6 +338,19 @@ def main():
     }
     OUT_JSON.write_text(json.dumps(summary, indent=2))
     print(f"\n[save] wrote {OUT_JSON}")
+    session_labels = np.concatenate([
+        np.repeat(r["session"], r["n_neurons"]) for r in per_session
+    ])
+    np.savez(
+        OUT_NPZ,
+        session=session_labels,
+        total_cv_l=all_cv,
+        tuning_cv=all_tuning_cv,
+        within_stim_noise_cv=all_noise_cv,
+        decoder_accuracy=all_acc,
+        mean_firing_rate_hz=all_fr,
+    )
+    print(f"[save] wrote {OUT_NPZ}")
 
     # --- text report ---
     lines = [
@@ -292,6 +375,9 @@ def main():
         f"  Raw     rho(CV_L, FR)  = {rho_cf_p:+.3f}  (p = {p_cf_p:.2g})    [confound]",
         f"  Partial rho(CV_L, acc | FR) = {pcv_p:+.3f}  (p = {ppcv_p:.2g})",
         f"  Partial rho(FR,   acc | CV) = {pfr_p:+.3f}  (p = {ppfr_p:.2g})",
+        f"  Partial rho(total CV_L, acc | FR, tuning CV) = {ptotal_tuning_p:+.3f}  (p = {pptotal_tuning_p:.2g})",
+        f"  Partial rho(within-stim noise CV, acc | FR) = {pnoise_p:+.3f}  (p = {ppnoise_p:.2g})",
+        f"  Raw rho(tuning CV, acc) = {rho_tuning:+.3f}  (p = {p_tuning:.2g})",
         "",
         "--- Pooled within-FR-quartile CV-vs-accuracy ---",
     ]
@@ -308,7 +394,9 @@ def main():
     print("\n".join(lines))
 
     # --- figure ---
-    make_figure(per_session, all_cv, all_acc, all_fr, summary)
+    make_decomposition_figure(
+        all_cv, all_tuning_cv, all_noise_cv, all_acc, all_fr, summary
+    )
 
 
 def make_figure(per_session, all_cv, all_acc, all_fr, summary):
@@ -430,6 +518,85 @@ def make_figure(per_session, all_cv, all_acc, all_fr, summary):
     fig.text(bbox.x0 + bbox.width / 2, bbox.y1 + 0.02,
              "C.  FR control made concrete: within each FR quartile, $\\mathrm{CV}_L$ still predicts accuracy",
              ha="center", va="bottom", fontsize=10)
+
+    fig.savefig(OUT_PDF, bbox_inches="tight")
+    print(f"[plot] wrote {OUT_PDF}")
+
+
+def make_decomposition_figure(
+    all_cv, all_tuning_cv, all_noise_cv, all_acc, all_fr, summary
+):
+    """Show why total lifetime CV cannot be interpreted as noise variability."""
+    import matplotlib.pyplot as plt
+
+    pooled = summary["pooled"]
+    total_raw = pooled["raw"]["cv_vs_acc"]
+    total_fr = pooled["partial"]["cv_acc_given_fr"]
+    tuning = pooled["partial"]["tuning_cv_vs_acc_raw"]
+    noise = pooled["partial"]["within_stim_noise_cv_acc_given_fr"]
+    total_tuning = pooled["partial"]["total_cv_acc_given_fr_and_tuning"]
+
+    fig, axes = plt.subplots(
+        1, 4, figsize=(15.2, 4.3), constrained_layout=True,
+        gridspec_kw={"width_ratios": [1.05, 1.0, 1.0, 0.9]},
+    )
+
+    sc = axes[0].scatter(
+        all_cv, all_acc * 100, c=all_fr, s=18, cmap="viridis",
+        edgecolor="white", linewidth=0.3, alpha=0.85,
+    )
+    axes[0].set_xlabel("Total lifetime $\\mathrm{CV}_L$")
+    axes[0].set_ylabel("8-stim decoder accuracy (%)")
+    axes[0].set_title(
+        "A. Total CV includes tuning\n"
+        f"$\\rho_{{raw}}={total_raw['rho']:+.2f}$; "
+        f"$\\rho_{{|FR}}={total_fr['rho']:+.2f}$",
+        fontsize=10,
+    )
+    cbar = fig.colorbar(sc, ax=axes[0], pad=0.02, shrink=0.92)
+    cbar.set_label("mean firing rate (Hz)", fontsize=8)
+    cbar.ax.tick_params(labelsize=7)
+
+    axes[1].scatter(
+        all_tuning_cv, all_acc * 100, color="#c75b39", s=18,
+        edgecolor="white", linewidth=0.3, alpha=0.75,
+    )
+    axes[1].set_xlabel("Tuning CV across stimulus means")
+    axes[1].set_ylabel("8-stim decoder accuracy (%)")
+    axes[1].set_title(
+        "B. Tuning dispersion drives accuracy\n"
+        f"$\\rho={tuning['rho']:+.2f}$ (p={tuning['p']:.0e})",
+        fontsize=10,
+    )
+
+    axes[2].scatter(
+        all_noise_cv, all_acc * 100, color="#4a6fa5", s=18,
+        edgecolor="white", linewidth=0.3, alpha=0.75,
+    )
+    axes[2].set_xlabel("Within-stimulus noise CV")
+    axes[2].set_ylabel("8-stim decoder accuracy (%)")
+    axes[2].set_title(
+        "C. Noise variability is detrimental\n"
+        f"$\\rho_{{|FR}}={noise['rho']:+.2f}$ (p={noise['p']:.0e})",
+        fontsize=10,
+    )
+
+    labels = ["Total CV\n| FR", "Total CV\n| FR,tuning", "Noise CV\n| FR"]
+    vals = [total_fr["rho"], total_tuning["rho"], noise["rho"]]
+    axes[3].bar(
+        np.arange(3), vals, color=["#6a9f58", "#c75b39", "#4a6fa5"],
+        edgecolor="black", linewidth=0.6,
+    )
+    axes[3].axhline(0, color="black", linewidth=0.8)
+    axes[3].set_xticks(np.arange(3), labels)
+    axes[3].set_ylabel("Partial Spearman $\\rho$ with accuracy")
+    axes[3].set_ylim(-0.7, 0.85)
+    axes[3].set_title("D. Decomposition changes inference", fontsize=10)
+    for i, value in enumerate(vals):
+        axes[3].text(
+            i, value + (0.04 if value >= 0 else -0.06), f"{value:+.2f}",
+            ha="center", va="bottom" if value >= 0 else "top", fontsize=9,
+        )
 
     fig.savefig(OUT_PDF, bbox_inches="tight")
     print(f"[plot] wrote {OUT_PDF}")

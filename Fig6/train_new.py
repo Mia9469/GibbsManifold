@@ -18,6 +18,7 @@ import os
 import sys
 import argparse
 import time
+import random
 
 sys.path.insert(0, os.path.abspath('.'))
 
@@ -61,6 +62,8 @@ def parse_args():
                    help="Number of independent runs (random seeds)")
     p.add_argument('--run_start', type=int, default=0,
                    help="Starting run index")
+    p.add_argument('--seed-base', type=int, default=20260630,
+                   help="Run n uses seed_base + n (default: %(default)s)")
     p.add_argument('--data_path', type=str,
                    default='./src/model/IMAGES.mat',
                    help="Path to IMAGES.mat")
@@ -69,6 +72,17 @@ def parse_args():
     p.add_argument('--tag', type=str, default='',
                    help="Optional tag appended to directory names (e.g. 'cv0.04')")
     return p.parse_args()
+
+
+def set_seed(seed: int) -> None:
+    """Seed every RNG used by model initialization and patch sampling."""
+    random.seed(seed)
+    np.random.seed(seed)
+    torch.manual_seed(seed)
+    if torch.cuda.is_available():
+        torch.cuda.manual_seed_all(seed)
+        torch.backends.cudnn.deterministic = True
+        torch.backends.cudnn.benchmark = False
 
 
 def main():
@@ -92,12 +106,16 @@ def main():
     os.makedirs(model_dir, exist_ok=True)
 
     for n in range(arg.run_start, arg.run_start + arg.n_runs):
+        run_seed = arg.seed_base + n
+        set_seed(run_seed)
         print(f"\n{'='*60}")
-        print(f"Run {n} | constraint={arg.cons}")
+        print(f"Run {n} | seed={run_seed} | constraint={arg.cons}")
         print(f"{'='*60}")
 
         # Tensorboard
-        board = SummaryWriter(f"./runs{suffix}/sparsenet_{n}")
+        board = SummaryWriter(
+            os.path.join(arg.output_dir, f"runs{suffix}", f"sparsenet_{n}")
+        )
 
         # Create model
         sparse_net = SparseNet(
@@ -204,7 +222,15 @@ def main():
             "mu": record_mu,
             "S": record_S,
             "sigma": record_sigma,
-            "time": [time2, time1]
+            "time": [time2, time1],
+            "seed": run_seed,
+            "run_index": n,
+            "constraint": arg.cons,
+            "cv_ratio": arg.cv_ratio,
+            "alpha_s": arg.alpha_s,
+            "recon_budget": arg.recon_budget,
+            "lmda": arg.reg,
+            "n_epochs": arg.epoch,
         })
         print(f"Saved record → {rec_path}")
 

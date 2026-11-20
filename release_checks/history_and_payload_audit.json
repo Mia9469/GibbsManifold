@@ -1,0 +1,19 @@
+{
+  "head": "00f4093a71e65d44225e4030cd2bec74700556bb",
+  "history_commits": 6,
+  "history_blobs_scanned": 158,
+  "current_files_scanned": 427,
+  "credential_patterns": [
+    "github_token",
+    "aws_access_key",
+    "private_key",
+    "credential_url",
+    "openai_key"
+  ],
+  "findings": [],
+  "scope": "Targeted credential/private-key/path scan, not a proof of absence of all sensitive information",
+  "history_cover_letter_paths": [
+    "updated/cover_letter.tex"
+  ],
+  "new_pdf_files": []
+}

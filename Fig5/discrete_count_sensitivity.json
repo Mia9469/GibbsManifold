@@ -1,0 +1,447 @@
+{
+  "seed": 20260629,
+  "n_splits": 4,
+  "count_support": [
+    0,
+    1280
+  ],
+  "models": [
+    "bounded power-cost MaxEnt",
+    "discretized lognormal",
+    "discretized gamma",
+    "negative binomial"
+  ],
+  "note": "All candidates have two fitted parameters and are scored on held-out integer counts without continuity jitter.",
+  "strict": {
+    "driven": {
+      "pooled": {
+        "n_neurons": 469,
+        "power_win_rate_vs_lognormal": 0.2601279317697228,
+        "median_dloglik_power_minus_lognormal": -1.185602631246466,
+        "mean_dloglik_power_minus_lognormal": -1.5563187041549191,
+        "power_win_rate_vs_gamma": 0.0767590618336887,
+        "median_dloglik_power_minus_gamma": -1.2101856793843369,
+        "mean_dloglik_power_minus_gamma": -1.5969127148907487,
+        "power_win_rate_vs_negative_binomial": 0.07462686567164178,
+        "median_dloglik_power_minus_negative_binomial": -1.2115865934980383,
+        "mean_dloglik_power_minus_negative_binomial": -1.600239853447354,
+        "effective_shape_median": 1.3966024007023827
+      },
+      "by_session": [
+        {
+          "session": "105l001p16",
+          "n_neurons": 123,
+          "power_win_rate_vs_lognormal": 0.37398373983739835,
+          "median_dloglik_power_minus_lognormal": -0.9180532109417818,
+          "mean_dloglik_power_minus_lognormal": -1.3892783377206166,
+          "power_win_rate_vs_gamma": 0.08943089430894309,
+          "median_dloglik_power_minus_gamma": -0.971484789216807,
+          "mean_dloglik_power_minus_gamma": -1.4392074473049816,
+          "power_win_rate_vs_negative_binomial": 0.08943089430894309,
+          "median_dloglik_power_minus_negative_binomial": -0.9672850978170235,
+          "mean_dloglik_power_minus_negative_binomial": -1.4428672108216427,
+          "effective_shape_median": 1.762509313782727
+        },
+        {
+          "session": "106r001p26",
+          "n_neurons": 90,
+          "power_win_rate_vs_lognormal": 0.32222222222222224,
+          "median_dloglik_power_minus_lognormal": -0.9887858821747836,
+          "mean_dloglik_power_minus_lognormal": -1.4274980106616122,
+          "power_win_rate_vs_gamma": 0.13333333333333333,
+          "median_dloglik_power_minus_gamma": -1.0019632026903027,
+          "mean_dloglik_power_minus_gamma": -1.4749734395847491,
+          "power_win_rate_vs_negative_binomial": 0.1111111111111111,
+          "median_dloglik_power_minus_negative_binomial": -1.0012113557285585,
+          "mean_dloglik_power_minus_negative_binomial": -1.4791006782721114,
+          "effective_shape_median": 1.3834651820066306
+        },
+        {
+          "session": "106r002p70",
+          "n_neurons": 63,
+          "power_win_rate_vs_lognormal": 0.36507936507936506,
+          "median_dloglik_power_minus_lognormal": -0.07665875938366629,
+          "mean_dloglik_power_minus_lognormal": -1.133296641828549,
+          "power_win_rate_vs_gamma": 0.09523809523809523,
+          "median_dloglik_power_minus_gamma": -0.11656196442308597,
+          "mean_dloglik_power_minus_gamma": -1.1844012979557343,
+          "power_win_rate_vs_negative_binomial": 0.09523809523809523,
+          "median_dloglik_power_minus_negative_binomial": -0.13229814896578274,
+          "mean_dloglik_power_minus_negative_binomial": -1.1883368727157533,
+          "effective_shape_median": 1.7277543620441862
+        },
+        {
+          "session": "107l002p67",
+          "n_neurons": 90,
+          "power_win_rate_vs_lognormal": 0.13333333333333333,
+          "median_dloglik_power_minus_lognormal": -2.7061960059850496,
+          "mean_dloglik_power_minus_lognormal": -1.9646380522526061,
+          "power_win_rate_vs_gamma": 0.03333333333333333,
+          "median_dloglik_power_minus_gamma": -2.7670735742319073,
+          "mean_dloglik_power_minus_gamma": -1.9975684913074772,
+          "power_win_rate_vs_negative_binomial": 0.03333333333333333,
+          "median_dloglik_power_minus_negative_binomial": -2.7758212848888038,
+          "mean_dloglik_power_minus_negative_binomial": -2.00123548444862,
+          "effective_shape_median": 0.20055924267537797
+        },
+        {
+          "session": "107l003p143",
+          "n_neurons": 103,
+          "power_win_rate_vs_lognormal": 0.11650485436893204,
+          "median_dloglik_power_minus_lognormal": -2.265967663409612,
+          "mean_dloglik_power_minus_lognormal": -1.7703136175877956,
+          "power_win_rate_vs_gamma": 0.038834951456310676,
+          "median_dloglik_power_minus_gamma": -2.2518596626741867,
+          "mean_dloglik_power_minus_gamma": -1.7940144826576379,
+          "power_win_rate_vs_negative_binomial": 0.04854368932038835,
+          "median_dloglik_power_minus_negative_binomial": -2.2461911408323165,
+          "mean_dloglik_power_minus_negative_binomial": -1.7955761816484335,
+          "effective_shape_median": 1.6778275779380647
+        }
+      ],
+      "session_level_inference": {
+        "lognormal": {
+          "sessions_with_positive_median": 0,
+          "n_sessions": 5,
+          "session_median_of_medians": -0.9887858821747836,
+          "session_wilcoxon_p_two_sided": 0.0625
+        },
+        "gamma": {
+          "sessions_with_positive_median": 0,
+          "n_sessions": 5,
+          "session_median_of_medians": -1.0019632026903027,
+          "session_wilcoxon_p_two_sided": 0.0625
+        },
+        "negative_binomial": {
+          "sessions_with_positive_median": 0,
+          "n_sessions": 5,
+          "session_median_of_medians": -1.0012113557285585,
+          "session_wilcoxon_p_two_sided": 0.0625
+        }
+      }
+    },
+    "spontaneous": {
+      "pooled": {
+        "n_neurons": 254,
+        "power_win_rate_vs_lognormal": 0.531496062992126,
+        "median_dloglik_power_minus_lognormal": 0.011864778111382701,
+        "mean_dloglik_power_minus_lognormal": -0.5634038143759073,
+        "power_win_rate_vs_gamma": 0.16929133858267717,
+        "median_dloglik_power_minus_gamma": -0.05131332818553419,
+        "mean_dloglik_power_minus_gamma": -0.6402892804852451,
+        "power_win_rate_vs_negative_binomial": 0.10236220472440945,
+        "median_dloglik_power_minus_negative_binomial": -0.05697714565131051,
+        "mean_dloglik_power_minus_negative_binomial": -0.6500039061294945,
+        "effective_shape_median": 1.917419513052375
+      },
+      "by_session": [
+        {
+          "session": "105l001p16",
+          "n_neurons": 94,
+          "power_win_rate_vs_lognormal": 0.6276595744680851,
+          "median_dloglik_power_minus_lognormal": 0.045717971494756815,
+          "mean_dloglik_power_minus_lognormal": -0.4871511988302265,
+          "power_win_rate_vs_gamma": 0.30851063829787234,
+          "median_dloglik_power_minus_gamma": -0.0280398114782357,
+          "mean_dloglik_power_minus_gamma": -0.5525777764411581,
+          "power_win_rate_vs_negative_binomial": 0.1702127659574468,
+          "median_dloglik_power_minus_negative_binomial": -0.03249580725314272,
+          "mean_dloglik_power_minus_negative_binomial": -0.5565411552290122,
+          "effective_shape_median": 1.8074457343721846
+        },
+        {
+          "session": "106r001p26",
+          "n_neurons": 53,
+          "power_win_rate_vs_lognormal": 0.5660377358490566,
+          "median_dloglik_power_minus_lognormal": 0.013570249347515273,
+          "mean_dloglik_power_minus_lognormal": -0.6891196425703044,
+          "power_win_rate_vs_gamma": 0.11320754716981132,
+          "median_dloglik_power_minus_gamma": -0.05477416602792906,
+          "mean_dloglik_power_minus_gamma": -0.7734859462585759,
+          "power_win_rate_vs_negative_binomial": 0.05660377358490566,
+          "median_dloglik_power_minus_negative_binomial": -0.07926416048152063,
+          "mean_dloglik_power_minus_negative_binomial": -0.7896285985930268,
+          "effective_shape_median": 2.187281333373015
+        },
+        {
+          "session": "106r002p70",
+          "n_neurons": 11,
+          "power_win_rate_vs_lognormal": 0.6363636363636364,
+          "median_dloglik_power_minus_lognormal": 0.02485711650295963,
+          "mean_dloglik_power_minus_lognormal": -0.4004835279237929,
+          "power_win_rate_vs_gamma": 0.36363636363636365,
+          "median_dloglik_power_minus_gamma": -0.029802816005023547,
+          "mean_dloglik_power_minus_gamma": -0.4714203131719071,
+          "power_win_rate_vs_negative_binomial": 0.09090909090909091,
+          "median_dloglik_power_minus_negative_binomial": -0.0347492777485906,
+          "mean_dloglik_power_minus_negative_binomial": -0.47558865855370447,
+          "effective_shape_median": 2.1258854061799872
+        },
+        {
+          "session": "107l002p67",
+          "n_neurons": 52,
+          "power_win_rate_vs_lognormal": 0.4230769230769231,
+          "median_dloglik_power_minus_lognormal": -0.017920599396812065,
+          "mean_dloglik_power_minus_lognormal": -0.6892013258121948,
+          "power_win_rate_vs_gamma": 0.019230769230769232,
+          "median_dloglik_power_minus_gamma": -0.061780101131724,
+          "mean_dloglik_power_minus_gamma": -0.7782851501737809,
+          "power_win_rate_vs_negative_binomial": 0.038461538461538464,
+          "median_dloglik_power_minus_negative_binomial": -0.06453291623053936,
+          "mean_dloglik_power_minus_negative_binomial": -0.7929248314140303,
+          "effective_shape_median": 1.7304743514688983
+        },
+        {
+          "session": "107l003p143",
+          "n_neurons": 44,
+          "power_win_rate_vs_lognormal": 0.38636363636363635,
+          "median_dloglik_power_minus_lognormal": -0.011783892703660759,
+          "mean_dloglik_power_minus_lognormal": -0.4669369853594812,
+          "power_win_rate_vs_gamma": 0.06818181818181818,
+          "median_dloglik_power_minus_gamma": -0.06902796801068067,
+          "mean_dloglik_power_minus_gamma": -0.5463627239125295,
+          "power_win_rate_vs_negative_binomial": 0.09090909090909091,
+          "median_dloglik_power_minus_negative_binomial": -0.06720139116224721,
+          "mean_dloglik_power_minus_negative_binomial": -0.556187303688948,
+          "effective_shape_median": 1.9619498123738284
+        }
+      ],
+      "session_level_inference": {
+        "lognormal": {
+          "sessions_with_positive_median": 3,
+          "n_sessions": 5,
+          "session_median_of_medians": 0.013570249347515273,
+          "session_wilcoxon_p_two_sided": 0.4375
+        },
+        "gamma": {
+          "sessions_with_positive_median": 0,
+          "n_sessions": 5,
+          "session_median_of_medians": -0.05477416602792906,
+          "session_wilcoxon_p_two_sided": 0.0625
+        },
+        "negative_binomial": {
+          "sessions_with_positive_median": 0,
+          "n_sessions": 5,
+          "session_median_of_medians": -0.06453291623053936,
+          "session_wilcoxon_p_two_sided": 0.0625
+        }
+      }
+    }
+  },
+  "broad": {
+    "driven": {
+      "pooled": {
+        "n_neurons": 564,
+        "power_win_rate_vs_lognormal": 0.37943262411347517,
+        "median_dloglik_power_minus_lognormal": -0.3190583140143995,
+        "mean_dloglik_power_minus_lognormal": -1.257672534979025,
+        "power_win_rate_vs_gamma": 0.1400709219858156,
+        "median_dloglik_power_minus_gamma": -0.3384956547965437,
+        "mean_dloglik_power_minus_gamma": -1.3010471490917186,
+        "power_win_rate_vs_negative_binomial": 0.1099290780141844,
+        "median_dloglik_power_minus_negative_binomial": -0.34288871242793945,
+        "mean_dloglik_power_minus_negative_binomial": -1.3046397728695662,
+        "effective_shape_median": 1.2492744229897421
+      },
+      "by_session": [
+        {
+          "session": "105l001p16",
+          "n_neurons": 159,
+          "power_win_rate_vs_lognormal": 0.5094339622641509,
+          "median_dloglik_power_minus_lognormal": 0.0010801637735257108,
+          "mean_dloglik_power_minus_lognormal": -1.0170879503023231,
+          "power_win_rate_vs_gamma": 0.1761006289308176,
+          "median_dloglik_power_minus_gamma": -0.05478357884157026,
+          "mean_dloglik_power_minus_gamma": -1.0679774829885742,
+          "power_win_rate_vs_negative_binomial": 0.1509433962264151,
+          "median_dloglik_power_minus_negative_binomial": -0.054794212939860754,
+          "mean_dloglik_power_minus_negative_binomial": -1.0720134136854829,
+          "effective_shape_median": 1.2574256782448057
+        },
+        {
+          "session": "106r001p26",
+          "n_neurons": 109,
+          "power_win_rate_vs_lognormal": 0.44036697247706424,
+          "median_dloglik_power_minus_lognormal": -0.15680686506762254,
+          "mean_dloglik_power_minus_lognormal": -1.1832317990881591,
+          "power_win_rate_vs_gamma": 0.2018348623853211,
+          "median_dloglik_power_minus_gamma": -0.20052879015984282,
+          "mean_dloglik_power_minus_gamma": -1.2314042525931657,
+          "power_win_rate_vs_negative_binomial": 0.1559633027522936,
+          "median_dloglik_power_minus_negative_binomial": -0.21063700192860024,
+          "mean_dloglik_power_minus_negative_binomial": -1.2354699952931099,
+          "effective_shape_median": 1.2409810131442196
+        },
+        {
+          "session": "106r002p70",
+          "n_neurons": 88,
+          "power_win_rate_vs_lognormal": 0.5340909090909091,
+          "median_dloglik_power_minus_lognormal": 0.013021349398616433,
+          "mean_dloglik_power_minus_lognormal": -0.7591570901408182,
+          "power_win_rate_vs_gamma": 0.18181818181818182,
+          "median_dloglik_power_minus_gamma": -0.03794415002238849,
+          "mean_dloglik_power_minus_gamma": -0.8125765080439458,
+          "power_win_rate_vs_negative_binomial": 0.09090909090909091,
+          "median_dloglik_power_minus_negative_binomial": -0.03525009097084292,
+          "mean_dloglik_power_minus_negative_binomial": -0.8162689937941952,
+          "effective_shape_median": 1.336286030594882
+        },
+        {
+          "session": "107l002p67",
+          "n_neurons": 97,
+          "power_win_rate_vs_lognormal": 0.1958762886597938,
+          "median_dloglik_power_minus_lognormal": -2.43449962760692,
+          "mean_dloglik_power_minus_lognormal": -1.9090146215857875,
+          "power_win_rate_vs_gamma": 0.061855670103092786,
+          "median_dloglik_power_minus_gamma": -2.4488634412509476,
+          "mean_dloglik_power_minus_gamma": -1.9440858592243062,
+          "power_win_rate_vs_negative_binomial": 0.05154639175257732,
+          "median_dloglik_power_minus_negative_binomial": -2.445691118766689,
+          "mean_dloglik_power_minus_negative_binomial": -1.9477736463234798,
+          "effective_shape_median": 0.9369913261222298
+        },
+        {
+          "session": "107l003p143",
+          "n_neurons": 111,
+          "power_win_rate_vs_lognormal": 0.17117117117117117,
+          "median_dloglik_power_minus_lognormal": -1.1091430449106165,
+          "mean_dloglik_power_minus_lognormal": -1.5014217775070104,
+          "power_win_rate_vs_gamma": 0.06306306306306306,
+          "median_dloglik_power_minus_gamma": -1.12446228573672,
+          "mean_dloglik_power_minus_gamma": -1.5286130424078013,
+          "power_win_rate_vs_negative_binomial": 0.07207207207207207,
+          "median_dloglik_power_minus_negative_binomial": -1.131449860698244,
+          "mean_dloglik_power_minus_negative_binomial": -1.530943734128179,
+          "effective_shape_median": 1.7544563312864105
+        }
+      ],
+      "session_level_inference": {
+        "lognormal": {
+          "sessions_with_positive_median": 2,
+          "n_sessions": 5,
+          "session_median_of_medians": -0.15680686506762254,
+          "session_wilcoxon_p_two_sided": 0.3125
+        },
+        "gamma": {
+          "sessions_with_positive_median": 0,
+          "n_sessions": 5,
+          "session_median_of_medians": -0.20052879015984282,
+          "session_wilcoxon_p_two_sided": 0.0625
+        },
+        "negative_binomial": {
+          "sessions_with_positive_median": 0,
+          "n_sessions": 5,
+          "session_median_of_medians": -0.21063700192860024,
+          "session_wilcoxon_p_two_sided": 0.0625
+        }
+      }
+    },
+    "spontaneous": {
+      "pooled": {
+        "n_neurons": 564,
+        "power_win_rate_vs_lognormal": 0.7659574468085106,
+        "median_dloglik_power_minus_lognormal": 0.032901688528994,
+        "mean_dloglik_power_minus_lognormal": -0.22586271695298032,
+        "power_win_rate_vs_gamma": 0.43617021276595747,
+        "median_dloglik_power_minus_gamma": -0.001156515894728205,
+        "mean_dloglik_power_minus_gamma": -0.28473052278324357,
+        "power_win_rate_vs_negative_binomial": 0.2978723404255319,
+        "median_dloglik_power_minus_negative_binomial": -0.003835518951235406,
+        "mean_dloglik_power_minus_negative_binomial": -0.2907766171394414,
+        "effective_shape_median": 1.3043920334686923
+      },
+      "by_session": [
+        {
+          "session": "105l001p16",
+          "n_neurons": 159,
+          "power_win_rate_vs_lognormal": 0.779874213836478,
+          "median_dloglik_power_minus_lognormal": 0.05395374567749145,
+          "mean_dloglik_power_minus_lognormal": -0.24761856660640744,
+          "power_win_rate_vs_gamma": 0.5094339622641509,
+          "median_dloglik_power_minus_gamma": 5.18282655115887e-05,
+          "mean_dloglik_power_minus_gamma": -0.30958178576660467,
+          "power_win_rate_vs_negative_binomial": 0.2830188679245283,
+          "median_dloglik_power_minus_negative_binomial": -0.004628879701920496,
+          "mean_dloglik_power_minus_negative_binomial": -0.3146041690163771,
+          "effective_shape_median": 1.4314561508275165
+        },
+        {
+          "session": "106r001p26",
+          "n_neurons": 109,
+          "power_win_rate_vs_lognormal": 0.7614678899082569,
+          "median_dloglik_power_minus_lognormal": 0.032056873685887,
+          "mean_dloglik_power_minus_lognormal": -0.29079128070881655,
+          "power_win_rate_vs_gamma": 0.3302752293577982,
+          "median_dloglik_power_minus_gamma": -0.004091118349983602,
+          "mean_dloglik_power_minus_gamma": -0.3540381205188099,
+          "power_win_rate_vs_negative_binomial": 0.25688073394495414,
+          "median_dloglik_power_minus_negative_binomial": -0.009059488286739414,
+          "mean_dloglik_power_minus_negative_binomial": -0.36284800429689307,
+          "effective_shape_median": 1.3148167941879234
+        },
+        {
+          "session": "106r002p70",
+          "n_neurons": 88,
+          "power_win_rate_vs_lognormal": 0.9204545454545454,
+          "median_dloglik_power_minus_lognormal": 0.030110337093726625,
+          "mean_dloglik_power_minus_lognormal": -0.04466002280813625,
+          "power_win_rate_vs_gamma": 0.75,
+          "median_dloglik_power_minus_gamma": 0.0014713177558546287,
+          "mean_dloglik_power_minus_gamma": -0.08581078647331912,
+          "power_win_rate_vs_negative_binomial": 0.4659090909090909,
+          "median_dloglik_power_minus_negative_binomial": -5.022463311446512e-05,
+          "mean_dloglik_power_minus_negative_binomial": -0.0885020346772777,
+          "effective_shape_median": 0.902048153280559
+        },
+        {
+          "session": "107l002p67",
+          "n_neurons": 97,
+          "power_win_rate_vs_lognormal": 0.6907216494845361,
+          "median_dloglik_power_minus_lognormal": 0.020392384887242376,
+          "mean_dloglik_power_minus_lognormal": -0.3284069955185045,
+          "power_win_rate_vs_gamma": 0.20618556701030927,
+          "median_dloglik_power_minus_gamma": -0.025457471593454573,
+          "mean_dloglik_power_minus_gamma": -0.3961952678013627,
+          "power_win_rate_vs_negative_binomial": 0.20618556701030927,
+          "median_dloglik_power_minus_negative_binomial": -0.026679905381426727,
+          "mean_dloglik_power_minus_negative_binomial": -0.4054111952917793,
+          "effective_shape_median": 1.4257640269881573
+        },
+        {
+          "session": "107l003p143",
+          "n_neurons": 111,
+          "power_win_rate_vs_lognormal": 0.6936936936936937,
+          "median_dloglik_power_minus_lognormal": 0.025808337089350708,
+          "mean_dloglik_power_minus_lognormal": -0.18498567658910073,
+          "power_win_rate_vs_gamma": 0.38738738738738737,
+          "median_dloglik_power_minus_gamma": -0.007782078669429038,
+          "mean_dloglik_power_minus_gamma": -0.24136996026959165,
+          "power_win_rate_vs_negative_binomial": 0.3063063063063063,
+          "median_dloglik_power_minus_negative_binomial": -0.0038065821261727972,
+          "mean_dloglik_power_minus_negative_binomial": -0.24605812369168106,
+          "effective_shape_median": 1.2779595218861957
+        }
+      ],
+      "session_level_inference": {
+        "lognormal": {
+          "sessions_with_positive_median": 5,
+          "n_sessions": 5,
+          "session_median_of_medians": 0.030110337093726625,
+          "session_wilcoxon_p_two_sided": 0.0625
+        },
+        "gamma": {
+          "sessions_with_positive_median": 2,
+          "n_sessions": 5,
+          "session_median_of_medians": -0.004091118349983602,
+          "session_wilcoxon_p_two_sided": 0.3125
+        },
+        "negative_binomial": {
+          "sessions_with_positive_median": 0,
+          "n_sessions": 5,
+          "session_median_of_medians": -0.004628879701920496,
+          "session_wilcoxon_p_two_sided": 0.0625
+        }
+      }
+    }
+  }
+}

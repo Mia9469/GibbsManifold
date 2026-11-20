@@ -2,8 +2,8 @@
 %
 % Computes pairwise trial-to-trial similarity of spike rasters for the
 % recurrent E–I network, before vs. after learning, at each tested
-% noise level.  Three reliability metrics are reported (all bounded
-% in [0, 1] for non-degenerate rasters):
+% noise level. Three similarity metrics are reported. Pearson correlation
+% and SSIM can be negative; they are not probabilities:
 %
 %   (1)  ssim_sp(kk, no, batch_i)   — SSIM between full spike rasters
 %                                      (image-similarity on the binary
@@ -32,10 +32,14 @@
 %   and all pairwise (sz × sz) similarities are computed.
 %
 % Notes:
-%   - Diagonal and lower-triangle entries are left as 0 (the upper
-%     triangle is filled); subsequent `mean(...,'all')` therefore divides
-%     by sz*sz, which is a constant scale factor and does not affect
-%     before-vs-after comparisons.
+%   - Only distinct unordered trial pairs are averaged. Zero placeholders
+%     in the diagonal/lower triangle are excluded, but valid zero-valued
+%     upper-triangle similarities are retained. For sz=30, the historical
+%     whole-matrix mean was 29/60 of the correct 435-pair mean.
+%   - Binary raster SSIM uses DynamicRange=1 for every pair and state.
+%   - The ten batches overlap in trials from one network trajectory. Their
+%     SD is descriptive resampling spread, not independent-run uncertainty.
+%     Batch IDs do not pair trial draws between stages or noise levels.
 %   - The two noise levels [50 500] (pA) bracket the empirical noise range
 %     used in Fig. 4 panel C–E.
 %
@@ -57,6 +61,10 @@ selfcorr  = zeros(T, length(noise), batch(2));
 ssim_sp   = cell(T, length(noise), batch(1));
 ssim_corr = cell(T, length(noise), batch(1));
 corr_sp   = cell(T, length(noise), batch(1));
+trial_indices = cell(T, length(noise), batch(1));
+metric_protocol = struct('raster_ssim_dynamic_range', 1, ...
+    'pair_aggregation', 'strict upper triangle, excluding diagonal', ...
+    'replication', 'overlapping trial-resampling batches; descriptive only');
 
 % ----- pairwise similarity loop -----------------------------------------
 for i = 1:batch(1)
@@ -66,6 +74,12 @@ for i = 1:batch(1)
             load(file.name)                                                 %#ok<LOAD>
             trials = randperm(n_trials, batch(2));
             sz     = length(trials);
+            trial_indices{kk, no, i} = trials;
+            for tr = 1:sz
+                raster = rec_raster{trials(tr)};
+                assert(all(isfinite(raster(:))) && all(raster(:) == 0 | raster(:) == 1), ...
+                    'Reliability SSIM requires finite binary rasters');
+            end
 
             ssim_spike  = zeros(sz, sz);
             corr2_spike = zeros(sz, sz);
@@ -74,7 +88,8 @@ for i = 1:batch(1)
 
             for tr = 1:sz
                 for trr = tr+1:sz
-                    ssim_spike(tr, trr)  = ssim(rec_raster{trials(tr)}, rec_raster{trials(trr)});
+                    ssim_spike(tr, trr)  = ssim(double(rec_raster{trials(tr)}), ...
+                        double(rec_raster{trials(trr)}), 'DynamicRange', 1);
                     corr2_spike(tr, trr) = corr2(rec_raster{trials(tr)}, rec_raster{trials(trr)});
                 end
                 cc = corr(rec_raster{trials(tr)}');
@@ -95,7 +110,7 @@ for i = 1:batch(1)
     end
 end
 
-save reliability_final.mat ssim_corr selfcorr ssim_sp corr_sp
+save reliability_final.mat ssim_corr selfcorr ssim_sp corr_sp trial_indices metric_protocol noise batch
 
 % ----- collapse to (T × noise × batch) scalar arrays --------------------
 ssim_sp1   = zeros(T, length(noise), batch(1));
@@ -105,19 +120,19 @@ corr_sp1   = zeros(T, length(noise), batch(1));
 for i = 1:batch(1)
     for kk = 1:T
         for no = 1:length(noise)
-            ssim_sp1(kk, no, i)   = mean(ssim_sp{kk, no, i},   'all');
-            ssim_corr1(kk, no, i) = mean(ssim_corr{kk, no, i}, 'all');
-            corr_sp1(kk, no, i)   = mean(corr_sp{kk, no, i},   'all');
+            ssim_sp1(kk, no, i)   = mean_unordered_pairs(ssim_sp{kk, no, i});
+            ssim_corr1(kk, no, i) = mean_unordered_pairs(ssim_corr{kk, no, i});
+            corr_sp1(kk, no, i)   = mean_unordered_pairs(corr_sp{kk, no, i});
         end
     end
 end
 
-save reliability_array_final.mat ssim_corr1 selfcorr ssim_sp1 corr_sp1
+save reliability_array_final.mat ssim_corr1 selfcorr ssim_sp1 corr_sp1 trial_indices metric_protocol noise batch
 
 % ----- quick before-vs-after bar plot at each noise level ---------------
 % (full bar panel for Fig. 4 is in fig3plot.m; this is a sanity check.)
 figure;
-stages_plot = [1 29];                                                       % before, after
+stages_plot = [1 29];   % first/final stored checkpoints, not independent runs
 mu          = mean(ssim_sp1(stages_plot, :, :), 3)';                        % [noise × stage]
 sd          = std (ssim_sp1(stages_plot, :, :), 0, 3)';
 b = bar(mu, 'grouped'); hold on
@@ -130,7 +145,7 @@ errorbar(xx', mu, sd, 'k', 'linestyle', 'none');
 hold off
 xticklabels(string(noise))
 xlabel('noise std (pA)')
-ylabel('Reliability (SSIM RAST)')
-legend(["before", "after"], 'Location', 'best')
-ylim([0.3 0.5])
-title('Reliability before vs after learning')
+ylabel('Raster similarity (SSIM)')
+legend(["first stored checkpoint", "final stored checkpoint"], 'Location', 'best')
+ylim([0 1])
+title('Raster SSIM: descriptive resampling mean and SD')

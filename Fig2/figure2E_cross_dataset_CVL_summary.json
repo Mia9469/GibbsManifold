@@ -1,0 +1,360 @@
+{
+  "figure": "Figure2E_cross_dataset_CVL",
+  "delta_definition": "spontaneous/pre-task CV_L - evoked/active-task CV_L",
+  "excluded_from_state_contrast": {
+    "cat_pvc8": "evoked-only; no spontaneous baseline",
+    "macaque_pvc11": "spontaneous and evoked recordings are unpaired sessions"
+  },
+  "rows": [
+    {
+      "label": "Macaque V1\nCRCNS",
+      "source": "Macaque V1",
+      "unit": "neurons",
+      "n": 159,
+      "inference_level": "observation",
+      "n_clusters": null,
+      "spontaneous_median": 0.8624988140235624,
+      "evoked_or_task_median": 0.6321346357644592,
+      "delta_median": 0.20635224919029038,
+      "delta_median_ci95": [
+        0.16380094764554592,
+        0.24338579008703687
+      ],
+      "delta_mean": 0.17957955572448323,
+      "delta_mean_ci95": [
+        0.1385950759139206,
+        0.2180809775679779
+      ],
+      "spontaneous_gt_evoked_or_task": 133,
+      "spontaneous_gt_fraction": 0.8364779874213837,
+      "inference_wilcoxon_p_two_sided": 1.210658307419545e-16,
+      "inference_sign_p_two_sided": 1.664011590892577e-18,
+      "notes": "paired neurons from the main Fig. 2 macaque V1 dataset"
+    },
+    {
+      "label": "Mouse VISp\nAllen",
+      "source": "Allen mouse",
+      "unit": "units",
+      "n": 104,
+      "inference_level": "observation",
+      "n_clusters": null,
+      "spontaneous_median": 1.3264655045945166,
+      "evoked_or_task_median": 1.192113193211231,
+      "delta_median": 0.11862633761109573,
+      "delta_median_ci95": [
+        0.030901144561062903,
+        0.19996532005647571
+      ],
+      "delta_mean": 0.3201234066721925,
+      "delta_mean_ci95": [
+        0.13953909837531195,
+        0.5206251659430327
+      ],
+      "spontaneous_gt_evoked_or_task": 65,
+      "spontaneous_gt_fraction": 0.625,
+      "inference_wilcoxon_p_two_sided": 0.0051333764604355415,
+      "inference_sign_p_two_sided": 0.013836195066747879,
+      "notes": "awake mouse VISp; paired units from Allen Visual Coding Neuropixels; matched 1.5 s windows"
+    },
+    {
+      "label": "Mouse Visual cortex\nSteinmetz",
+      "source": "Steinmetz mouse",
+      "unit": "units",
+      "n": 1575,
+      "inference_level": "cluster",
+      "n_clusters": 10,
+      "spontaneous_median": 1.5806709683103475,
+      "evoked_or_task_median": 1.5842445576591997,
+      "delta_median": -0.02696476993166047,
+      "delta_median_ci95": [
+        -0.11235992323107458,
+        0.0216585566964274
+      ],
+      "delta_mean": -0.0710382293981181,
+      "delta_mean_ci95": [
+        -0.1231799979010698,
+        -0.019698610922318956
+      ],
+      "spontaneous_gt_evoked_or_task": 751,
+      "spontaneous_gt_fraction": 0.4768253968253968,
+      "inference_wilcoxon_p_two_sided": 0.431640625,
+      "inference_sign_p_two_sided": 0.75390625,
+      "notes": "areas=VISp,VISl,VISpm,VISam,VISrl,VISa; matched 0.5 s windows; FR>0.1 Hz in both states; inference on session medians"
+    },
+    {
+      "label": "Mouse Auditory\nSteinmetz",
+      "source": "Steinmetz mouse",
+      "unit": "units",
+      "n": 326,
+      "inference_level": "cluster",
+      "n_clusters": 2,
+      "spontaneous_median": 1.4380558142739401,
+      "evoked_or_task_median": 1.3176053329946678,
+      "delta_median": 0.030485358806634277,
+      "delta_median_ci95": [
+        -0.143424315085122,
+        0.15241919449145402
+      ],
+      "delta_mean": -0.013357429842953704,
+      "delta_mean_ci95": [
+        -0.11930676272622508,
+        0.09228104799220217
+      ],
+      "spontaneous_gt_evoked_or_task": 166,
+      "spontaneous_gt_fraction": 0.50920245398773,
+      "inference_wilcoxon_p_two_sided": 1.0,
+      "inference_sign_p_two_sided": 1.0,
+      "notes": "areas=AUD,MG; matched 0.5 s windows; FR>0.1 Hz in both states; inference on session medians"
+    },
+    {
+      "label": "Mouse Thalamus\nSteinmetz",
+      "source": "Steinmetz mouse",
+      "unit": "units",
+      "n": 1783,
+      "inference_level": "cluster",
+      "n_clusters": 9,
+      "spontaneous_median": 1.0799659858589272,
+      "evoked_or_task_median": 1.1552849856995828,
+      "delta_median": -0.054817777753493946,
+      "delta_median_ci95": [
+        -0.1021552178989733,
+        0.015133861899729761
+      ],
+      "delta_mean": -0.005187717303145185,
+      "delta_mean_ci95": [
+        -0.052816378098772314,
+        0.041913481304289124
+      ],
+      "spontaneous_gt_evoked_or_task": 797,
+      "spontaneous_gt_fraction": 0.44699943914750423,
+      "inference_wilcoxon_p_two_sided": 0.42578125,
+      "inference_sign_p_two_sided": 0.1796875,
+      "notes": "areas=TH,LGd,LP,MD,PO,POL,LD,VPL,MG; matched 0.5 s windows; FR>0.1 Hz in both states; inference on session medians"
+    },
+    {
+      "label": "Mouse Hippocampus\nSteinmetz",
+      "source": "Steinmetz mouse",
+      "unit": "units",
+      "n": 1599,
+      "inference_level": "cluster",
+      "n_clusters": 12,
+      "spontaneous_median": 1.4957974702286558,
+      "evoked_or_task_median": 1.435951224958162,
+      "delta_median": 0.04023883464359823,
+      "delta_median_ci95": [
+        -0.023667724346294508,
+        0.13876907851730425
+      ],
+      "delta_mean": 0.036830074957176585,
+      "delta_mean_ci95": [
+        -0.03780220257206364,
+        0.11077255624869435
+      ],
+      "spontaneous_gt_evoked_or_task": 846,
+      "spontaneous_gt_fraction": 0.5290806754221389,
+      "inference_wilcoxon_p_two_sided": 0.4697265625,
+      "inference_sign_p_two_sided": 1.0,
+      "notes": "areas=CA1,CA3,DG,SUB,POST; matched 0.5 s windows; FR>0.1 Hz in both states; inference on session medians"
+    },
+    {
+      "label": "Mouse Striatum/BG\nSteinmetz",
+      "source": "Steinmetz mouse",
+      "unit": "units",
+      "n": 229,
+      "inference_level": "cluster",
+      "n_clusters": 3,
+      "spontaneous_median": 2.401598794069644,
+      "evoked_or_task_median": 1.797576690334326,
+      "delta_median": 0.219811730013451,
+      "delta_median_ci95": [
+        0.08287845115013526,
+        0.22743128258953393
+      ],
+      "delta_mean": 0.18240896405677273,
+      "delta_mean_ci95": [
+        -0.0611949157661905,
+        0.42494744800199613
+      ],
+      "spontaneous_gt_evoked_or_task": 144,
+      "spontaneous_gt_fraction": 0.62882096069869,
+      "inference_wilcoxon_p_two_sided": 0.25,
+      "inference_sign_p_two_sided": 0.25,
+      "notes": "areas=CP,GPe; matched 0.5 s windows; FR>0.1 Hz in both states; inference on session medians"
+    },
+    {
+      "label": "Mouse Frontal/PFC\nSteinmetz",
+      "source": "Steinmetz mouse",
+      "unit": "units",
+      "n": 1260,
+      "inference_level": "cluster",
+      "n_clusters": 7,
+      "spontaneous_median": 1.3887699396128905,
+      "evoked_or_task_median": 1.7893518136855326,
+      "delta_median": -0.32678263969272425,
+      "delta_median_ci95": [
+        -0.47079373405473773,
+        -0.22825517181959554
+      ],
+      "delta_mean": -0.495310432441686,
+      "delta_mean_ci95": [
+        -0.575757071654986,
+        -0.41642972307546355
+      ],
+      "spontaneous_gt_evoked_or_task": 389,
+      "spontaneous_gt_fraction": 0.30873015873015874,
+      "inference_wilcoxon_p_two_sided": 0.015625,
+      "inference_sign_p_two_sided": 0.015625,
+      "notes": "areas=MOs,ACA,PL,ILA,ORBm; matched 0.5 s windows; FR>0.1 Hz in both states; inference on session medians"
+    },
+    {
+      "label": "Mouse Thalamus\nIBL/BWM",
+      "source": "IBL/BWM mouse",
+      "unit": "region-session pairs",
+      "n": 27,
+      "inference_level": "cluster",
+      "n_clusters": 12,
+      "spontaneous_median": 1.055667865444163,
+      "evoked_or_task_median": 0.7956770953589052,
+      "delta_median": 0.2773177952382313,
+      "delta_median_ci95": [
+        0.07030512528676269,
+        0.3832672097644357
+      ],
+      "delta_mean": 0.23269040786826894,
+      "delta_mean_ci95": [
+        0.1272278862772614,
+        0.333419760147948
+      ],
+      "spontaneous_gt_evoked_or_task": 22,
+      "spontaneous_gt_fraction": 0.8148148148148148,
+      "inference_wilcoxon_p_two_sided": 0.0341796875,
+      "inference_sign_p_two_sided": 0.03857421875,
+      "notes": "13 matched regions; 0.4 s pre-task vs task windows; inference clustered by recording session"
+    },
+    {
+      "label": "Mouse Isocortex\nIBL/BWM",
+      "source": "IBL/BWM mouse",
+      "unit": "region-session pairs",
+      "n": 14,
+      "inference_level": "cluster",
+      "n_clusters": 8,
+      "spontaneous_median": 1.0778196622338816,
+      "evoked_or_task_median": 0.8135932688978993,
+      "delta_median": 0.10035253892197166,
+      "delta_median_ci95": [
+        -0.1031945821968856,
+        0.36343675635980155
+      ],
+      "delta_mean": 0.1617328283919337,
+      "delta_mean_ci95": [
+        -0.053983773685715386,
+        0.37704492500082404
+      ],
+      "spontaneous_gt_evoked_or_task": 10,
+      "spontaneous_gt_fraction": 0.7142857142857143,
+      "inference_wilcoxon_p_two_sided": 0.546875,
+      "inference_sign_p_two_sided": 0.7265625,
+      "notes": "13 matched regions; 0.4 s pre-task vs task windows; inference clustered by recording session"
+    },
+    {
+      "label": "Mouse Midbrain\nIBL/BWM",
+      "source": "IBL/BWM mouse",
+      "unit": "region-session pairs",
+      "n": 14,
+      "inference_level": "cluster",
+      "n_clusters": 8,
+      "spontaneous_median": 0.7908698309898743,
+      "evoked_or_task_median": 0.6777997678571481,
+      "delta_median": 0.0577950784897609,
+      "delta_median_ci95": [
+        -0.1326529803295986,
+        0.08549261327793495
+      ],
+      "delta_mean": 0.12054062317559164,
+      "delta_mean_ci95": [
+        -0.04588255083465899,
+        0.36934889557160283
+      ],
+      "spontaneous_gt_evoked_or_task": 8,
+      "spontaneous_gt_fraction": 0.5714285714285714,
+      "inference_wilcoxon_p_two_sided": 0.9453125,
+      "inference_sign_p_two_sided": 0.7265625,
+      "notes": "8 matched regions; 0.4 s pre-task vs task windows; inference clustered by recording session"
+    },
+    {
+      "label": "Mouse Hindbrain\nIBL/BWM",
+      "source": "IBL/BWM mouse",
+      "unit": "region-session pairs",
+      "n": 23,
+      "inference_level": "cluster",
+      "n_clusters": 11,
+      "spontaneous_median": 0.9365117499449324,
+      "evoked_or_task_median": 1.114772461178852,
+      "delta_median": 0.05048097794036088,
+      "delta_median_ci95": [
+        -0.18623725458029228,
+        0.15068421353470385
+      ],
+      "delta_mean": -0.0872055986677663,
+      "delta_mean_ci95": [
+        -0.31132916246973996,
+        0.12461968364440487
+      ],
+      "spontaneous_gt_evoked_or_task": 12,
+      "spontaneous_gt_fraction": 0.5217391304347826,
+      "inference_wilcoxon_p_two_sided": 0.9658203125,
+      "inference_sign_p_two_sided": 1.0,
+      "notes": "18 matched regions; 0.4 s pre-task vs task windows; inference clustered by recording session"
+    },
+    {
+      "label": "Mouse Cerebellum\nIBL/BWM",
+      "source": "IBL/BWM mouse",
+      "unit": "region-session pairs",
+      "n": 28,
+      "inference_level": "cluster",
+      "n_clusters": 9,
+      "spontaneous_median": 0.7949972165064324,
+      "evoked_or_task_median": 0.802735088709466,
+      "delta_median": 0.033777999109167844,
+      "delta_median_ci95": [
+        -0.11360693958818258,
+        0.20979186375608583
+      ],
+      "delta_mean": -0.04780424076124677,
+      "delta_mean_ci95": [
+        -0.20634520838863868,
+        0.09041290148630562
+      ],
+      "spontaneous_gt_evoked_or_task": 17,
+      "spontaneous_gt_fraction": 0.6071428571428571,
+      "inference_wilcoxon_p_two_sided": 0.91015625,
+      "inference_sign_p_two_sided": 0.5078125,
+      "notes": "10 matched regions; 0.4 s pre-task vs task windows; inference clustered by recording session"
+    },
+    {
+      "label": "Mouse HPF\nIBL/BWM",
+      "source": "IBL/BWM mouse",
+      "unit": "region-session pairs",
+      "n": 18,
+      "inference_level": "cluster",
+      "n_clusters": 7,
+      "spontaneous_median": 0.8759499858408164,
+      "evoked_or_task_median": 1.0107359156317908,
+      "delta_median": -0.0825032978681482,
+      "delta_median_ci95": [
+        -0.1426327492828277,
+        0.1658959965406301
+      ],
+      "delta_mean": -0.029871429455803136,
+      "delta_mean_ci95": [
+        -0.14260269558625427,
+        0.08000160984187048
+      ],
+      "spontaneous_gt_evoked_or_task": 7,
+      "spontaneous_gt_fraction": 0.3888888888888889,
+      "inference_wilcoxon_p_two_sided": 0.6875,
+      "inference_sign_p_two_sided": 1.0,
+      "notes": "9 matched regions; 0.4 s pre-task vs task windows; inference clustered by recording session"
+    }
+  ]
+}

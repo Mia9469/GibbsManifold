@@ -1,0 +1,24 @@
+{
+  "cases": 24,
+  "checkpoints_recomputed": 120,
+  "distribution_statistics_recomputed": 2160,
+  "maximum_statistic_error": 0.0,
+  "independently_replayed_endpoints": [
+    {
+      "step": 0,
+      "waveform_re": 0.5460898383337932,
+      "all_80_replayed_rasters_match": true
+    },
+    {
+      "step": 16777216,
+      "waveform_re": 0.4046692947008485,
+      "all_80_replayed_rasters_match": true
+    }
+  ],
+  "baseline_manuscript_checked": true,
+  "all_23_baseline_manuscript_payloads_unchanged": true,
+  "cover_updates_authorized_after_analysis": [
+    "outputs/elife_cover_letter_20261006/cover_letter.tex",
+    "outputs/elife_cover_letter_20261006/cover_letter.txt"
+  ]
+}

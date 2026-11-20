@@ -6,7 +6,7 @@
 %      instead of histogram-based method (Information 3).
 %    - Spike times stored per (stim, rep, window) and converted
 %      to binary spike trains at 1 ms resolution.
-%    - Output MI is directly in bits/s; ICE = MI / Cost [bits/J].
+%    - Output MI is in bits/s; MI/cost uses calibrated proxy units, not bits/J.
 %
 %  Requires: compute_entropy_toolbox.m on path
 %
@@ -537,41 +537,26 @@ for s = 1:NStim
 end
 
 %% ── Per-template MI via direct method ────────────────────────────────
-% Each of the NStim=20 frozen templates is analysed independently.
-% For template s, window w:
-%   spike_repeat = [NReps × nBins_win] (10 reps of the same frozen stimulus)
-%   compute_entropy_toolbox computes:
-%     Hr_s(w) = total entropy rate  (word distribution pooled over time)
-%               → includes stimulus-driven temporal modulation + noise
-%     Hn_s(w) = noise entropy rate  (word distribution at each time t, across trials)
-%               → trial-to-trial noise only
-%     MI_s(w) = Hr_s(w) - Hn_s(w)  → information from temporal modulation
-%
-% Final curves: mean ± SEM across 20 templates (shaded region).
-
+% Pool the NStim=20 frozen templates and NReps=10 repeats. Total and
+% conditional entropies use identical sliding word starts, including valid
+% zero-entropy conditional positions. Their difference targets I((S,J);W),
+% where S is template identity and J is word onset.
 dt_sec = dt_bin / 1000;   % bin width in seconds (10 ms -> 0.01 s)
 
-% --- Cross-stim MI via direct method (V1-comparable, matches figure2_new.m).
+% --- Cross-stim/state MI via direct method (V1-comparable).
 % Pool ALL (stim, rep) trials of each window into a single spike_long
 % matrix to estimate H_total over the marginal P(word) across the entire
-% stimulus ensemble; estimate H_noise WITHIN each stim across reps and
-% take the P(s)-weighted average.  MI = H_total - H_noise_avg.
-%
-% Why we changed this: the previous version called
-%   compute_entropy_toolbox(spike_repeat, spike_repeat, ...)
-% with spike_repeat = one stim's reps in BOTH slots, which collapses the
-% stimulus ensemble.  The MI it returned was within-one-frozen-template
-% temporal information, which saturates near the spike-train entropy
-% bound (~30 bits/s for a 10 Hz neuron at 10 ms bins) and is not the
-% I(s; r) used by the framework's R_0 anchor in main-text Fig. 6.
+% stimulus ensemble; estimate H_noise within each stimulus and word onset,
+% then take the P(s)-weighted average. MI = H(W)-H(W|S,J).
 
 T_list_mi = [4 5 6 7 8 10 11 12 13 15 17 20 22 25 28 30 40 50 60 70 80 90 100];
 T_list_mi = T_list_mi(T_list_mi <= nBins_win);
-n_fit_mi  = min(10, length(T_list_mi));
+fit_idx_mi = find(T_list_mi >= 20 & T_list_mi <= 100);
 
 Hr_vec = zeros(1, NWindows);
 Hn_vec = zeros(1, NWindows);
 MI_vec = zeros(1, NWindows);
+MI_raw_vec = zeros(1, NWindows);
 
 for w = 1:NWindows
     fprintf('  Window %d / %d\n', w, NWindows);
@@ -615,13 +600,14 @@ for w = 1:NWindows
     inv_T = 1 ./ T_sec;
     rate_total = H_total_T ./ T_sec;
     rate_noise = H_noise_T ./ T_sec;
-    fit_idx = 1 : n_fit_mi;
+    fit_idx = fit_idx_mi;
     p_t = polyfit(inv_T(fit_idx), rate_total(fit_idx), 1);
     p_n = polyfit(inv_T(fit_idx), rate_noise(fit_idx), 1);
 
     Hr_vec(w) = p_t(2);
     Hn_vec(w) = p_n(2);
-    MI_vec(w) = max(0, p_t(2) - p_n(2));
+    MI_raw_vec(w) = p_t(2) - p_n(2);
+    MI_vec(w) = max(0, MI_raw_vec(w));
 end
 
 % Per-stim arrays kept (NaN-filled) for backwards-compatible save() below.
@@ -652,7 +638,7 @@ ra1_sem   = squeeze(std(mean(ra1_store, 2), 0, 1))   / sqrt(NStim);
 cost1_sem = squeeze(std(mean(cost1_store, 2), 0, 1)) / sqrt(NStim);
 EI_sem    = squeeze(std(mean(EI_store, 2), 0, 1))    / sqrt(NStim);
 
-%% ICE = MI / Cost  [bits/s / W = bits/J]
+%% Information per calibrated cost proxy
 % Use the per-window cross-stim MI (MI_vec) directly: MI_per_stim is no
 % longer populated under the cross-stim formulation.
 ICE_vec     = MI_vec(:)' ./ cost1_grand(:)';
@@ -696,7 +682,7 @@ subplot(2, 2, 3);
 fill(x2, [ICE_vec + ICE_sem, fliplr(ICE_vec - ICE_sem)], ...
      'm', 'FaceAlpha', 0.15, 'EdgeColor', 'none'); hold on;
 plot(timewindow, ICE_vec, 'm-', 'LineWidth', 1.5);
-xlabel('Time [s]'); ylabel('ICE [bits/J]');
+xlabel('Time [s]'); ylabel('Information / calibrated cost proxy');
 title('Information-Cost Efficiency');
 
 % --- Subplot 4: CV & Sparseness ---
@@ -721,7 +707,7 @@ xlabel('Cost [W]'); ylabel('MI [bits/s]'); title('Cost vs MI');
 subplot(1, 2, 2)
 errorbar(cost1_grand, ICE_vec', ICE_sem', ICE_sem', cost1_sem, cost1_sem, ...
     'bs', 'MarkerFaceColor', 'b', 'MarkerSize', 4); hold on;
-xlabel('Cost [W]'); ylabel('ICE [bits/J]'); title('Cost vs ICE');
+xlabel('Calibrated cost proxy'); ylabel('Information / calibrated cost proxy'); title('Cost proxy vs information / cost');
 
 %% Plot CV vs MI / H(r) / H_noise / ICE — with error bars
 figure;
@@ -749,7 +735,7 @@ errorbar(cv1_grand, ICE_vec', ICE_sem', ICE_sem', cv1_sem, cv1_sem, ...
 %  MI  = 0.5 * log2(1 + sigma^2 / sigma_n^2)   [bits/s at unit rate]
 %  Cost = 2.4 + 0.37 * mu                        [W, physiological]
 %  CV  = sigma / mu  =>  mu = sigma / CV
-%  ICE = MI / Cost                                [bits/J]
+%  ICE = MI / calibrated cost proxy               [proxy units]
 sigma_n_th  = 1.0;
 R0_th       = 5;                             % observation rate [Hz]
 sigma_set   = [1, 5, 10, 50, 100];
@@ -764,7 +750,7 @@ for si = 1:length(sigma_set)
     MI_rate = 0.5 * log2(1 + sig^2 / sigma_n_th^2) * R0_th;  % bits/s
     mu_th   = sig ./ CV_th;
     C_th    = 2.4 + 0.37 * mu_th;                              % W = J/s
-    ICE_th  = MI_rate ./ C_th;                                  % bits/J
+    ICE_th  = MI_rate ./ C_th;                                  % proxy units
     plot(CV_th, ICE_th, '-', 'Color', th_colors(si,:), 'LineWidth', 1.5);
 end
 
@@ -784,7 +770,7 @@ C_pois_ref   = 2.4 + 0.37 * mu_pois_ref;
 ICE_pois_ref = H_pois_ref ./ C_pois_ref;
 plot(CV_pois_ref, ICE_pois_ref, '--', 'Color', [0.6 0.6 0.6], 'LineWidth', 1.2);
 
-xlabel('CV'); ylabel('ICE [bits/J]'); title('CV vs ICE');
+xlabel('CV'); ylabel('Information / calibrated cost proxy'); title('CV vs information / cost');
 legend_entries = arrayfun(@(s) sprintf('\\sigma = %d', s), sigma_set, 'UniformOutput', false);
 legend(['Neuron model', legend_entries, {'Poisson ref.'}], ...
     'Location', 'northeast', 'FontSize', 8);
@@ -820,13 +806,13 @@ subplot(1, 2, 2);
 errorbar(EI_grand, ICE_vec', ICE_sem', ICE_sem', EI_sem, EI_sem, ...
     'k.', 'MarkerSize', 10); hold on;
 plot(xFit, fitRes2(xFit), 'r-', 'LineWidth', 1.5);
-xlabel('E/I Ratio'); ylabel('ICE [bits/J]');
+xlabel('E/I Ratio'); ylabel('Information / calibrated cost proxy');
 title(sprintf('A=%.3f B=%.3f C=%.3f', fitRes2.A, fitRes2.B, fitRes2.C));
 legend('Data', 'Fit');
 
 %% Save MI Results
 save('MI_results_direct_1.mat', ...
-    'Hr_vec', 'Hn_vec', 'MI_vec', 'ICE_vec', 'timewindow', ...
+    'Hr_vec', 'Hn_vec', 'MI_raw_vec', 'MI_vec', 'ICE_vec', 'timewindow', ...
     'MI_sem', 'Hr_sem', 'Hn_sem', 'ICE_sem', ...
     'MI_per_stim', 'Hr_per_stim', 'Hn_per_stim', 'ICE_per_stim', ...
     'cv1_grand', 'ss1_grand', 'ent1_grand', 'ra1_grand', 'cost1_grand', 'EI_grand', ...
@@ -871,7 +857,7 @@ if ~isempty(ex_rec)
     ylim([1 3])
 end
 
-fprintf('\n=== Done. MI results saved to MI_results_direct.mat ===\n');
+fprintf('\n=== Done. Development MI results saved to MI_results_direct_1.mat ===\n');
 
 
 % ============================ local helpers ============================
@@ -880,15 +866,15 @@ fprintf('\n=== Done. MI results saved to MI_results_direct.mat ===\n');
 % total but stay within stim for the noise.
 
 function H = total_entropy_pool(spike_matrix, T)
-    % Concatenate all rows, slice into length-T words, Shannon entropy.
-    [~, n_cols] = size(spike_matrix);
-    remainder = mod(n_cols, T);
-    trimmed_len = n_cols - remainder;
-    all_data = reshape(spike_matrix(:, 1:trimmed_len)', 1, []);
-    total_len = length(all_data);
-    remainder2 = mod(total_len, T);
-    n_words = (total_len - remainder2) / T;
-    words = reshape(all_data(1:total_len - remainder2), T, n_words)';
+    % Pool all rows and all sliding starts, matching the conditional estimate.
+    [n_rows, n_cols] = size(spike_matrix);
+    n_windows = n_cols - T + 1;
+    if n_windows <= 0, H = 0; return; end
+    words = zeros(n_rows * n_windows, T, 'like', spike_matrix);
+    for j = 1:n_windows
+        idx = (j - 1) * n_rows + (1:n_rows);
+        words(idx, :) = spike_matrix(:, j:(j + T - 1));
+    end
     counts = count_unique_words_local(words);
     p = counts / sum(counts);
     H = -sum(p .* log2(p));
@@ -897,7 +883,7 @@ end
 function H = noise_entropy_avg(spike_matrix, T)
     % For repeats of the same stim: at each time position j,
     % gather the [trials x T] words across reps, compute their entropy,
-    % then average across non-trivial time positions.
+    % then average across all positions, including zero-entropy ones.
     [~, n_bins] = size(spike_matrix);
     n_windows = n_bins - T + 1;
     entropy_values = zeros(1, n_windows);
@@ -907,12 +893,7 @@ function H = noise_entropy_avg(spike_matrix, T)
         p = counts / sum(counts);
         entropy_values(j) = -sum(p .* log2(p));
     end
-    valid = entropy_values > 0;
-    if any(valid)
-        H = mean(entropy_values(valid));
-    else
-        H = 0;
-    end
+    H = mean(entropy_values);
 end
 
 function counts = count_unique_words_local(words)

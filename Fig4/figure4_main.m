@@ -1,4 +1,16 @@
-% figure4_main.m  (canonical Direct-Method MI on recurrent network) — Direct method (Strong et al. 1998) version of Figure5.m
+% figure4_main.m  (LEGACY; retained for provenance, not current inference)
+%
+% IMPORTANT: the current manuscript uses recompute_network_information.py.
+% The historical entropy helper mismatched total/noise window starts and
+% excluded valid zero-entropy positions. Those are implementation defects.
+% The replacement ALSO changes pooled to neuron-wise readout, 0.1-ms to 1-ms
+% bins, and the input/repeat protocol. These are analysis choices, not all
+% bug fixes. Pooled MIE_ST is neither joint-population MI nor mean-neuron MI.
+% Do not interpret a trend change as the effect of the two helper fixes alone.
+% The saved weights remain unchanged. See the controlled endpoint audit in
+% outputs/network_MI_change_explanation_20260907/MI_changes_CN.md.
+%
+% Historical Direct-Method (Strong et al. 1998) version of Figure5.m
 %
 % Key difference from Figure5.m:
 %   - Uses FROZEN stimulus paradigm: one stimulus per learning stage,
@@ -323,8 +335,8 @@ MIrateE_temporal = MIE_temporal;
 MIrateI_temporal = MII_temporal;
 MIrateE_ST       = MIE_ST;
 MIrateI_ST       = MII_ST;
-% PcostE, PcostI are already in Watts
-% ICE = MI_rate / Power [bits/J]
+% PcostE, PcostI are calibrated affine cost-proxy values
+% ICE = MI_rate / calibrated cost proxy
 %% Compute SEM for each level
 % Spatial: SEM across trials (per-trial values exist)
 semE_sp = std(MIE_spatial, 0, 1) / sqrt(Trials);
@@ -385,7 +397,7 @@ shade_err(x_time, mean(PcostI,1), semPcostI, 'b', 0.15);
 plot(x_time, mean(PcostE,1), 'Color', orange, 'LineWidth', 1.5);
 plot(x_time, mean(PcostI,1), 'b', 'LineWidth', 1.5);
 set(gca,'FontSize',fsize,'FontName','Helvetica','TickDir','out')
-ylabel('Cost [W]'); xlabel('time (s)');
+ylabel('Calibrated cost proxy'); xlabel('time (s)');
 title('Evolution Through Learning')
 xlim([10^(-1) 10^6])
 set(gca,'ticklength',[0.01 0.01]/ax(3)); box off
@@ -410,7 +422,7 @@ shade_err(x_time, mean(PentrI_rate./PcostI,1), semICE_pop_I, 'b', 0.15);
 plot(x_time, mean(PentrE_rate./PcostE,1), 'Color', orange, 'LineWidth', 1.5);
 plot(x_time, mean(PentrI_rate./PcostI,1), 'b', 'LineWidth', 1.5);
 set(gca,'FontSize',fsize,'FontName','Helvetica','TickDir','out')
-ylabel('ICE [bits/J]'); xlabel('time (s)');
+ylabel('Information / calibrated cost proxy'); xlabel('time (s)');
 xlim([10^(-1) 10^6])
 set(gca,'ticklength',[0.01 0.01]/ax(3)); box off
 % --- Three-level MI evolution with SEM ---
@@ -459,7 +471,7 @@ plot(x_time, mean(ICEI_sp,1), '--b', 'LineWidth', 1);
 plot(x_time, mean(MIrateI_temporal./PcostI,1), ':b', 'LineWidth', 1.5);
 plot(x_time, mean(MIrateI_ST./PcostI,1), '-b', 'LineWidth', 2);
 set(gca,'FontSize',fsize,'FontName','Helvetica','TickDir','out')
-ylabel('ICE [bits/J]'); xlabel('time (s)');
+ylabel('Information / calibrated cost proxy'); xlabel('time (s)');
 title('MI per Cost (3 Levels)')
 xlim([10^(-1) 10^6])
 set(gca,'ticklength',[0.01 0.01]/ax(3)); box off
@@ -471,8 +483,8 @@ set(gca,'ticklength',[0.01 0.01]/ax(3)); box off
 % empirical operating point to lie ON the frontier (free-trajectory rule
 % used for all systems in main-text Fig. 6).
 figure;
-C_0 = 2.4;     % baseline non-signaling cost [W]
-C_1 = 0.37;    % per-spike cost  [W/Hz]
+C_0 = 2.4;     % calibrated proxy baseline
+C_1 = 0.37;    % calibrated proxy slope
 
 % --- Min-rate anchor: smallest non-zero (PcostE, MIE_ST) operating point.
 % Average across trials/jackknife for stability; require the point to be
@@ -491,14 +503,14 @@ else
     warning('No valid anchor point; defaulting R_0 = 1.');
     R_0_rn = 1;
 end
-fprintf('Fig 5 frontier anchor:  C=%.2f W, MI=%.2f bits/s  ->  R_0 = %.3f\n', ...
+fprintf('Fig 5 frontier anchor:  Cproxy=%.2f, MI=%.2f bits/s  ->  R_0 = %.3f\n', ...
     C_anchor, I_anchor, R_0_rn);
 
-x_ref  = C_0 + (0.001:0.1:max(15, max(PcostE_mean)));         % cost grid [W]
+x_ref  = C_0 + (0.001:0.1:max(15, max(PcostE_mean)));         % calibrated cost-proxy grid
 r_vec  = (x_ref - C_0) / C_1;                                 % firing rate [Hz]
 y1_ref = (R_0_rn / log(2)) * (1 + log(r_vec));                % I_frontier [bits/s]
-y2_ref = (R_0_rn / log(2)) ./ (x_ref - C_0);                  % beta = dI/dC [bits/J]
-ICE    = y1_ref ./ x_ref;                                     % ICE_frontier [bits/J]
+y2_ref = (R_0_rn / log(2)) ./ (x_ref - C_0);                  % beta = dI/dCproxy
+ICE    = y1_ref ./ x_ref;                                     % information / calibrated cost proxy
 
 PcostE1 = PcostE;
 PcostI1 = PcostI;
@@ -522,7 +534,7 @@ for ii = 1:size(MIE_ST,2)
 %     scatter(PcostE1(:,ii), MIE_temporal(:,ii), 20, [1 0.8 0.5], '^'); hold on;
     scatter(PcostE1(:,ii), MIE_ST(:,ii), 36, orange, 's', 'filled'); hold on;
 end
-xlabel('Cost E [W]'); ylabel('MI [bits/s]')
+xlabel('Calibrated cost proxy (E)'); ylabel('MI [bits/s]')
 title('MI vs Cost (E, 3 Levels)')
 ylim([0 6])
 % legend('Spatial','Temporal','S+T','Location','best','FontSize',7); box off
@@ -532,7 +544,7 @@ for ii = 1:size(MIE_ST,2)
 %     scatter(PcostE1(:,ii), MIrateE_temporal(:,ii)./PcostE1(:,ii), 20, [1 0.8 0.5], '^'); hold on;
     scatter(PcostE1(:,ii), MIrateE_ST(:,ii)./PcostE1(:,ii), 36, orange, 's', 'filled'); hold on;
 end
-xlabel('Cost E [W]'); ylabel('ICE [bits/J]')
+xlabel('Calibrated cost proxy (E)'); ylabel('Information / calibrated cost proxy')
 ylim([0 1.2 ])
 title('ICE vs Cost (E, 3 Levels)'); box off
 % subplot(2,2,2)
@@ -564,13 +576,13 @@ y = mean(PcostE,1);
 set(gca, 'XScale', 'log'); hold on;
 shade_err(x_time, y, semPcostE, [0.5 0.5 0.5], 0.4);
 plot(x_time, y, 'k', 'LineWidth', 2);
-xlim([10^(-1) 10^6]); ylabel('Cost [W]');
+xlim([10^(-1) 10^6]); ylabel('Calibrated cost proxy');
 subplot(1,3,3)
 y = mean(PentrE_rate./PcostE,1);
 set(gca, 'XScale', 'log'); hold on;
 shade_err(x_time, y, semICE_pop_E, [0.5 0.5 0.5], 0.4);
 plot(x_time, y, 'k', 'LineWidth', 2);
-xlim([10^(-1) 10^6]); ylabel('ICE [bits/J]');
+xlim([10^(-1) 10^6]); ylabel('Information / calibrated cost proxy');
 %% Figure 4: Three-Level Mutual Information Analysis (with SEM)
 figure;
 % ---- E Population: MI Evolution with SEM ----
@@ -596,7 +608,7 @@ shade_err(x_time, mean(MIrateE_ST./PcostE,1), semICEE_st, [1 0.7 0.4], 0.5);
 plot(x_time, mean(ICEE_sp,1), '--', 'Color', [0.5 0.5 0.5], 'LineWidth', 1.5);
 plot(x_time, mean(MIrateE_temporal./PcostE,1), ':', 'Color', orange, 'LineWidth', 1.5);
 plot(x_time, mean(MIrateE_ST./PcostE,1), '-', 'Color', orange, 'LineWidth', 2);
-xlabel('time (s)'); ylabel('ICE [bits/J]')
+xlabel('time (s)'); ylabel('Information / calibrated cost proxy')
 title('MI Efficiency - E Pop')
 xlim([10^(-1) 10^6]); grid on; box off
 % ---- E Population: H(r) decomposition with SEM ----
@@ -647,7 +659,7 @@ shade_err(x_time, mean(MIrateI_ST./PcostI,1), semICEI_st, [0.5 0.7 1], 0.5);
 plot(x_time, mean(ICEI_sp,1), '--b', 'LineWidth', 1);
 plot(x_time, mean(MIrateI_temporal./PcostI,1), ':b', 'LineWidth', 1.5);
 plot(x_time, mean(MIrateI_ST./PcostI,1), '-b', 'LineWidth', 2);
-xlabel('time (s)'); ylabel('ICE [bits/J]')
+xlabel('time (s)'); ylabel('Information / calibrated cost proxy')
 title('MI Efficiency - I Pop')
 xlim([10^(-1) 10^6]); grid on; box off
 % ---- I Population: H(r) decomposition with SEM ----

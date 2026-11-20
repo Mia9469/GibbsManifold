@@ -1,0 +1,236 @@
+{
+  "unit_of_replication": "independent training run",
+  "test": "two-sided Welch t-test",
+  "multiplicity": "Bonferroni correction over three pairwise model comparisons within each metric",
+  "metric_protocol": {
+    "version": "reference-range-v1",
+    "data_range": "max(reference) - min(reference); independent of reconstruction",
+    "constant_reference_range": 1.0,
+    "constant_reference_rule": "An exactly constant reference uses data_range=1.0 in the existing input units, for every method. Neither image is rescaled or shifted.",
+    "parameters": {
+      "win_size": 7,
+      "K1": 0.01,
+      "K2": 0.03,
+      "gaussian_weights": false,
+      "use_sample_covariance": true
+    }
+  },
+  "aggregation": {
+    "training": "Ten sequential epoch-10 image checkpoints averaged within each run",
+    "SSIM": "Whole training image, reference-only range; cached constraint-aware coefficients",
+    "CV": "Endpoint coefficient sample SD over 144 atoms, divided by mean plus 1e-8, averaged over patches",
+    "CV_lt": "Endpoint coefficient sample SD over patches per atom, divided by mean plus 1e-8, averaged over atoms",
+    "RE": "Mean whole-image norm ratio within run",
+    "ICE": "Legacy RAE name: -log2(run mean RE) divided by run mean absolute activation",
+    "independence": "Legacy name: mean 1 minus absolute atom-pixel Pearson correlation, percent"
+  },
+  "groups": {
+    "Null": {
+      "n": 20,
+      "RE": {
+        "mean": 0.6113786606492326,
+        "sd": 0.00029407000449786834
+      },
+      "SSIM": {
+        "mean": 0.5376034573906324,
+        "sd": 0.00024577137465001136
+      },
+      "cost": {
+        "mean": 0.05785422660876065,
+        "sd": 5.522486866627582e-05
+      },
+      "independence": {
+        "mean": 92.68990822587315,
+        "sd": 0.03188572968400534
+      },
+      "CV": {
+        "mean": 2.5080261152982706,
+        "sd": 0.014342587313068915
+      },
+      "CV_lt": {
+        "mean": 2.522399503588676,
+        "sd": 0.006729609140956042
+      },
+      "ICE": {
+        "mean": 12.269854690685108,
+        "sd": 0.020192321391663406
+      }
+    },
+    "SparseNet": {
+      "n": 20,
+      "RE": {
+        "mean": 0.7020789138654125,
+        "sd": 0.0003960941571800076
+      },
+      "SSIM": {
+        "mean": 0.4657999399485683,
+        "sd": 0.0003075432180203182
+      },
+      "cost": {
+        "mean": 0.041953284887131306,
+        "sd": 3.8017974288503186e-05
+      },
+      "independence": {
+        "mean": 91.69010585684626,
+        "sd": 0.04507073710869083
+      },
+      "CV": {
+        "mean": 2.3543646132946012,
+        "sd": 0.013322466055927367
+      },
+      "CV_lt": {
+        "mean": 2.3964120531082154,
+        "sd": 0.0059340796366822565
+      },
+      "ICE": {
+        "mean": 12.163423513729295,
+        "sd": 0.023127136810119752
+      }
+    },
+    "CVM": {
+      "n": 20,
+      "RE": {
+        "mean": 0.6246154532089632,
+        "sd": 0.0003587336743191717
+      },
+      "SSIM": {
+        "mean": 0.5157709420270472,
+        "sd": 0.0005776747706341234
+      },
+      "cost": {
+        "mean": 0.050539559982717044,
+        "sd": 0.00015059846914853675
+      },
+      "independence": {
+        "mean": 92.74971024928584,
+        "sd": 0.03832290137291214
+      },
+      "CV": {
+        "mean": 2.9555761706829067,
+        "sd": 0.01837283485532247
+      },
+      "CV_lt": {
+        "mean": 2.79400994181633,
+        "sd": 0.013136015935152536
+      },
+      "ICE": {
+        "mean": 13.434325264399698,
+        "sd": 0.037002953818931664
+      }
+    }
+  },
+  "pairwise": {
+    "Null vs SparseNet": {
+      "RE": {
+        "t": -822.2274751527427,
+        "p_raw": 9.95262930840873e-77,
+        "p_bonferroni": 2.9857887925226186e-76
+      },
+      "SSIM": {
+        "t": 815.66893559653,
+        "p_raw": 7.289824418313359e-79,
+        "p_bonferroni": 2.186947325494008e-78
+      },
+      "cost": {
+        "t": 1060.6342061294683,
+        "p_raw": 7.966159803111137e-78,
+        "p_bonferroni": 2.3898479409333413e-77
+      },
+      "independence": {
+        "t": 80.98724259467278,
+        "p_raw": 1.1212653454599178e-40,
+        "p_bonferroni": 3.3637960363797533e-40
+      },
+      "CV": {
+        "t": 35.104961774015464,
+        "p_raw": 1.866466324096589e-30,
+        "p_bonferroni": 5.599398972289767e-30
+      },
+      "CV_lt": {
+        "t": 62.797421059760936,
+        "p_raw": 1.5713449008949885e-39,
+        "p_bonferroni": 4.7140347026849656e-39
+      },
+      "ICE": {
+        "t": 15.503203863958047,
+        "p_raw": 7.561985020118221e-18,
+        "p_bonferroni": 2.2685955060354663e-17
+      }
+    },
+    "Null vs CVM": {
+      "RE": {
+        "t": -127.61740565618256,
+        "p_raw": 4.411408413263769e-50,
+        "p_bonferroni": 1.3234225239791306e-49
+      },
+      "SSIM": {
+        "t": 155.52818477148185,
+        "p_raw": 1.0622959118449588e-39,
+        "p_bonferroni": 3.186887735534876e-39
+      },
+      "cost": {
+        "t": 203.93525036002995,
+        "p_raw": 2.0518020315761302e-40,
+        "p_bonferroni": 6.155406094728391e-40
+      },
+      "independence": {
+        "t": -5.3646028523272,
+        "p_raw": 4.626352392850478e-06,
+        "p_bonferroni": 1.3879057178551435e-05
+      },
+      "CV": {
+        "t": -85.87137222689495,
+        "p_raw": 3.858007567309349e-43,
+        "p_bonferroni": 1.1574022701928046e-42
+      },
+      "CV_lt": {
+        "t": -82.29815407421216,
+        "p_raw": 2.849090306903462e-35,
+        "p_bonferroni": 8.547270920710385e-35
+      },
+      "ICE": {
+        "t": -123.53957518743333,
+        "p_raw": 1.7563397028108956e-41,
+        "p_bonferroni": 5.269019108432686e-41
+      }
+    },
+    "SparseNet vs CVM": {
+      "RE": {
+        "t": 648.2576805108982,
+        "p_raw": 8.763912208679623e-78,
+        "p_bonferroni": 2.6291736626038867e-77
+      },
+      "SSIM": {
+        "t": -341.47868206663105,
+        "p_raw": 8.940162802242733e-54,
+        "p_bonferroni": 2.68204884067282e-53
+      },
+      "cost": {
+        "t": -247.22008294830727,
+        "p_raw": 1.719631558277529e-38,
+        "p_bonferroni": 5.158894674832587e-38
+      },
+      "independence": {
+        "t": -80.09837878070903,
+        "p_raw": 4.0632849293221095e-43,
+        "p_bonferroni": 1.2189854787966328e-42
+      },
+      "CV": {
+        "t": -118.47261534888021,
+        "p_raw": 8.5566957612697e-47,
+        "p_bonferroni": 2.56700872838091e-46
+      },
+      "CV_lt": {
+        "t": -123.35862282417406,
+        "p_raw": 4.824260394287193e-38,
+        "p_bonferroni": 1.447278118286158e-37
+      },
+      "ICE": {
+        "t": -130.25188960476294,
+        "p_raw": 4.811037388370757e-45,
+        "p_bonferroni": 1.443311216511227e-44
+      }
+    }
+  },
+  "legacy_SSIM_reproduction_max_difference": 1.1102230246251565e-16
+}

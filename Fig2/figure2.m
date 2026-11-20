@@ -59,9 +59,9 @@ rast_v1_s = {};  rast_v1_d = {};
 rast_v2_s = {};  rast_v2_d = {};
 
 % Metabolic cost parameters (from Yu et al. 2018, human gray matter)
-% C(r) = C1 + C2*r [Watts],  C1 = 2.4 W (nonsignaling), C2 = 0.37 W/Hz (per-spike)
-C1 = 2.4;    % baseline nonsignaling cost [W]
-C2 = 0.37;   % action-potential cost coefficient [W/Hz]
+% Calibrated affine cost proxy C(r) = C1 + C2*r.
+C1 = 2.4;    % baseline proxy term
+C2 = 0.37;   % rate-dependent proxy coefficient
 
 % Trial durations [s] — needed for information rate = MI / dur
 dur_driven = 1.28;   % driven trial duration [s]
@@ -943,7 +943,7 @@ plot([mean(cv1_l),   mean(cv1_l_s);   mean(cv2_l),   mean(cv2_l_s)], ...
      [mean(entr1_l) /mean(cost1_p),  mean(entr1_ls)/mean(cost1_ps); ...
       mean(entr2_l) /mean(cost2_p),  mean(entr2_ls)/mean(cost2_ps)]);
 xlabel('Mean CV_l')
-ylabel('ICE [bits/J]')
+ylabel('information / calibrated cost proxy')
 
 %% -----------------------------------------------------------------------
 %% SECTION 5: Figure – population mean rate vs CV / sparseness / CV-SS
@@ -1604,7 +1604,7 @@ scatter(cost1_ps, entr1_ps./(dur_spon*cost1_ps), 65, 'bo', 'filled', 'DisplayNam
 y = 1 ./ x;
 plot(x, y, 'k--', 'LineWidth', 2, 'DisplayName', 'Theory ICE=1/C');
 xlabel('Metabolic Cost');
-ylabel('ICE [bits/J]');
+ylabel('information / calibrated cost proxy');
 title('V1: ICE vs Cost (Three Levels)');
 legend('Location', 'best', 'FontSize', 7);
 % xlim([0 30]);
@@ -1685,7 +1685,7 @@ scatter(cost2_ps, entr2_ps./(dur_spon*cost2_ps), 65, 'bo', 'filled', 'DisplayNam
 y = 1 ./ x;
 plot(x, y, 'k--', 'LineWidth', 2, 'DisplayName', 'Theory ICE=1/C');
 xlabel('Metabolic Cost');
-ylabel('ICE [bits/J]');
+ylabel('information / calibrated cost proxy');
 title('V2: ICE vs Cost (Three Levels)');
 legend('Location', 'best', 'FontSize', 7);
 xlim([0 30]);

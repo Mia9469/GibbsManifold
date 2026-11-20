@@ -261,7 +261,7 @@ hold on
 semilogx((2.^(1:T(1,1)))*dt,PentrI_rate./PcostE,'b');
 set(gca,'FontSize',fsize,'FontName','Helvetica')
 set(gca,'TickDir','out')
-ylabel('ICE [nats/J]')
+ylabel('information / calibrated cost proxy')
 xlabel('time (s)')
 xlim([10^(-1) 10^6])
 % plot(sort(firingRatesE(:,end),'descend'),'ko-')

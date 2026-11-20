@@ -1,6 +1,7 @@
 import numpy as np
 import scipy.io as scio
 import torch
+import json
 import matplotlib as mpl
 mpl.use('Agg')  # non-GUI backend for headless / Windows-server runs
 import matplotlib.pyplot as plt
@@ -8,9 +9,11 @@ from basis_analysis import linear_independence, orthogonality, decorrelation
 import seaborn as sns
 from scipy.stats import ttest_ind
 import pandas as pd
-from skimage.metrics import structural_similarity as ssim
+from evaluation_metrics import reference_ssim, SSIM_PROTOCOL
 from scipy.io import loadmat
 import os
+
+torch.set_num_threads(int(os.environ.get('FIG6_TORCH_THREADS', '1')))
 
 def convert_pvalue_to_asterisks(pvalue):
     if pvalue <= 0.0001:
@@ -54,10 +57,26 @@ else:
     run_start, run_end = 11, 31
     N_EPOCH = 100
 
-# Local paths (relative to Fig7/)
+# Local paths (relative to Fig6/)
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-RECORD_DIR = os.path.join(BASE_DIR, 'record')
-DATA_PATH = os.path.join(BASE_DIR, 'src', 'model', 'IMAGES.mat')
+RECORD_DIR = os.environ.get(
+    'FIG6_RECORD_DIR', os.path.join(BASE_DIR, 'record')
+)
+DATA_PATH = os.environ.get(
+    'FIG6_DATA_PATH', os.path.join(BASE_DIR, 'src', 'model', 'IMAGES.mat')
+)
+WRITE_FIGURES = os.environ.get('FIG6_WRITE_FIGURES', '1') != '0'
+STATS_PATH = os.environ.get(
+    'FIG6_STATS_PATH', os.path.join(BASE_DIR, 'sparse_run_statistics.json')
+)
+FIGURE_DIR = os.environ.get('FIG6_FIGURE_DIR', BASE_DIR)
+RUN_ROWS_PATH = os.environ.get(
+    'FIG6_RUN_ROWS_PATH', os.path.join(BASE_DIR, 'sparse_run_rows.json')
+)
+CHECKPOINT_ROWS_PATH = os.environ.get(
+    'FIG6_CHECKPOINT_ROWS_PATH', os.path.join(BASE_DIR, 'sparse_checkpoint_rows.json')
+)
+checkpoint_rows = []
 
 # Load natural images for SSIM computation
 X = loadmat(DATA_PATH)
@@ -67,7 +86,7 @@ n_img = X.shape[2]      # 10
 
 # ── Main analysis ──────────────────────────────────────────────────────
 rec = pd.DataFrame(columns=[
-    "type", "CV", "CV_lt", "loss", "independence", "SSIM", "RE",
+    "type", "run", "CV", "CV_lt", "loss", "independence", "SSIM", "RE",
     "ICE", "ICE_ent", "cost"
 ])
 
@@ -96,6 +115,7 @@ for n, typ in enumerate(dis):
         ent_acc = 0.0       # total entropy across images
         cost_acc = 0.0
         indep_acc = 0.0
+        cv_pop_acc = cv_lt_acc = 0.0
         n_loaded = 0
 
         for j in range(n_img):
@@ -107,7 +127,8 @@ for n, typ in enumerate(dis):
                 print(f"[SKIP] model not found: {pth_path}")
                 continue
 
-            sparse_net = torch.load(pth_path, map_location='cpu')
+            sparse_net = torch.load(pth_path, map_location='cpu',
+                                    weights_only=False)
             U = sparse_net.U.weight.detach().cpu().numpy()   # [M², K]
             K_neurons = U.shape[1]  # number of neurons = K
 
@@ -150,7 +171,7 @@ for n, typ in enumerate(dis):
                 if x_pos + patch_w <= img_size and y_pos + patch_w <= img_size:
                     img_rec[x_pos:x_pos + patch_w, y_pos:y_pos + patch_w] = patch
 
-            sim_val = ssim(img, img_rec, data_range=img_rec.max() - img_rec.min())
+            sim_val = reference_ssim(img, img_rec)
             sim_acc += sim_val
 
             # ── Relative reconstruction error RE = ||img - img_rec||₂ / ||img||₂ ──
@@ -161,6 +182,16 @@ for n, typ in enumerate(dis):
             dec = decorrelation(U)  # [K, K], values = 1 - |corr|
             indep_val = np.sum(dec) / (K_neurons * (K_neurons - 1)) * 100
             indep_acc += indep_val
+            cv_pop = float(np.mean(w.std(axis=1, ddof=1) / (w.mean(axis=1) + 1e-8)))
+            cv_lt = float(np.mean(w.std(axis=0, ddof=1) / (w.mean(axis=0) + 1e-8)))
+            cv_pop_acc += cv_pop
+            cv_lt_acc += cv_lt
+            checkpoint_rows.append({
+                'type': test[n], 'run': k, 'image': j, 'checkpoint': pth_path,
+                'SSIM': sim_val, 'RE': float(re_val), 'cost': float(cost_img),
+                'independence': float(indep_val), 'CV': cv_pop, 'CV_lt': cv_lt,
+                'constant_reference': bool(img.max() == img.min()),
+            })
 
             n_loaded += 1
 
@@ -175,27 +206,28 @@ for n, typ in enumerate(dis):
         cost_avg = cost_acc / n_loaded
         indep_avg = indep_acc / n_loaded
 
-        # ── ICE = -log₂(RE) / ā  [bits/activation] ──
-        # Under Gaussian noise (high SNR): -log₂(RE) ≈ I(s; ŝ) in bits
+        # RAE = -log2(RE) / mean |a|. The internal key remains ICE for compatibility.
+        # An engineering score, not mutual information or bits per activation.
         ice = -np.log2(re_avg + 1e-12) / (cost_avg + 1e-12)
         # H(a)/ā: entropy-based (supplementary reference, unchanged)
         ice_ent = ent_avg / (cost_avg + 1e-12)
 
         # ── Training metrics from record ──
-        cv_train = np.mean(record['CV'][0][-10:])
-        cv_lt_train = np.mean(record['CV_lt'][0][-10:]) if 'CV_lt' in record else np.nan
+        cv_train = cv_pop_acc / n_loaded
+        cv_lt_train = cv_lt_acc / n_loaded
         loss_train = np.mean(record['E'][0][-10:]) / np.max(record['E'][0])
 
         # ── Store one row per (type, run) ──
         rec.loc[len(rec.index)] = [
             test[n],        # type
-            cv_train,       # CV population (from training record)
-            cv_lt_train,    # CV lifetime (from training record, supp)
+            k,
+            cv_train,       # endpoint population CV
+            cv_lt_train,    # endpoint lifetime CV
             loss_train,     # loss (normalized convergence)
             indep_avg,      # independence (%)
             sim_avg,        # SSIM (averaged over images, kept for reference)
             re_avg,         # RE = relative reconstruction error (fraction)
-            ice,            # ICE = -log₂(RE)/ā  [bits/activation]
+            ice,            # legacy key: RAE = -log2(RE)/mean |a|
             ice_ent,        # ICE_ent = H(a)/ā (reference)
             cost_avg,       # cost = mean activation ā
         ]
@@ -215,6 +247,12 @@ def pval_stars(p):
     return "ns"
 
 
+def welch_bonferroni(v1, v2, family_size=3):
+    """Two-sided Welch test with within-metric Bonferroni correction."""
+    stat, p_raw = ttest_ind(v1, v2, equal_var=False)
+    return float(stat), float(p_raw), float(min(1.0, p_raw * family_size))
+
+
 def add_stat_annotation(ax, data, x, y, pairs, order):
     """Draw bracket + stars between each pair, compatible with any seaborn."""
     y_max = data[y].max()
@@ -229,8 +267,8 @@ def add_stat_annotation(ax, data, x, y, pairs, order):
         v2 = data.loc[data[x] == g2, y].values
         if len(v1) < 2 or len(v2) < 2:
             continue
-        _, p = ttest_ind(v1, v2)
-        stars = pval_stars(p)
+        _, _, p_adj = welch_bonferroni(v1, v2, family_size=len(pairs))
+        stars = pval_stars(p_adj)
 
         x1, x2 = pos_map[g1], pos_map[g2]
         y_bar = y_max + offset + k * (h + offset)
@@ -258,8 +296,8 @@ box_pairs = [
 
 REPORT_COLS = {
     "RE":           "RE",
-    "independence": "Indep (%)",
-    "ICE":          "ICE (bits/act)",
+    "independence": "Decorrelation (%)",
+    "ICE":          "RAE score",
     "CV":           "CV_P (train)",
     "CV_lt":        "CV_L (train)",
     "cost":         "mean |a|",
@@ -271,45 +309,84 @@ col_w = 18
 print("\n" + "=" * 80)
 print("  SUMMARY  (mean ± std across runs, n per group shown)")
 print("=" * 80)
+stats_output = {
+    "metric_protocol": SSIM_PROTOCOL,
+    "aggregation": {
+        "training": "Ten sequential epoch-10 image checkpoints averaged within each run",
+        "SSIM": "Whole training image, reference-only range, cached coefficients",
+        "CV": "Endpoint coefficients; sample SD and 1e-8 mean stabilizer",
+        "RE": "Mean of whole-image norm ratios within run",
+        "ICE": "Legacy field name: -log2(run mean RE) / run mean absolute activation",
+        "independence": "Legacy name: mean 1 - absolute atom-pixel Pearson correlation, percent",
+    },
+    "unit_of_replication": "independent training run",
+    "test": "two-sided Welch t-test",
+    "multiplicity": (
+        "Bonferroni correction over three pairwise model comparisons "
+        "within each metric"
+    ),
+    "groups": {},
+    "pairwise": {},
+}
 header = f"{'Model':<14}" + "".join(f"{v:>{col_w}}" for v in REPORT_COLS.values())
 print(header)
 print("-" * len(header))
 for t in type_order:
     sub = rec[rec["type"] == t]
+    stats_output["groups"][label_map[t]] = {"n": int(len(sub))}
     row = f"{label_map[t]:<10}(n={len(sub):>2})"
     for col in REPORT_COLS:
         vals = sub[col].dropna()
         cell = f"{vals.mean():.3f}±{vals.std():.3f}" if len(vals) > 0 else "—"
         row += f"{cell:>{col_w}}"
+        stats_output["groups"][label_map[t]][col] = {
+            "mean": float(vals.mean()) if len(vals) else None,
+            "sd": float(vals.std(ddof=1)) if len(vals) > 1 else None,
+        }
     print(row)
 print("-" * len(header))
 
-print("\n  Pairwise Welch t-tests")
+print("\n  Pairwise Welch t-tests (Bonferroni-adjusted within metric)")
 print(f"  {'Pair':<24}" + "".join(f"{v:>{col_w}}" for v in REPORT_COLS.values()))
 for g1, g2 in box_pairs:
     pair_label = f"{label_map[g1]} vs {label_map[g2]}"
+    stats_output["pairwise"][pair_label] = {}
     row = f"  {pair_label:<24}"
     for col in REPORT_COLS:
         a = rec.loc[rec["type"] == g1, col].dropna().values
         b = rec.loc[rec["type"] == g2, col].dropna().values
         if len(a) >= 2 and len(b) >= 2:
-            from scipy.stats import ttest_ind
-            _, p = ttest_ind(a, b, equal_var=False)
-            row += f"{pval_stars(p):>{col_w}}"
+            stat, p_raw, p_adj = welch_bonferroni(
+                a, b, family_size=len(box_pairs)
+            )
+            row += f"{pval_stars(p_adj):>{col_w}}"
+            stats_output["pairwise"][pair_label][col] = {
+                "t": stat,
+                "p_raw": p_raw,
+                "p_bonferroni": p_adj,
+            }
         else:
             row += f"{'—':>{col_w}}"
     print(row)
 print("=" * 80 + "\n")
+with open(STATS_PATH, 'w', encoding='utf-8') as f:
+    json.dump(stats_output, f, indent=2)
+    f.write('\n')
+print(f"Saved {STATS_PATH}")
+with open(RUN_ROWS_PATH, 'w', encoding='utf-8') as f:
+    json.dump(rec.to_dict('records'), f, indent=2, allow_nan=False)
+with open(CHECKPOINT_ROWS_PATH, 'w', encoding='utf-8') as f:
+    json.dump(checkpoint_rows, f, indent=2, allow_nan=False)
 
 # Custom y-axis labels (feature name used as fallback)
 ylabels = {
-    "ICE":          r"ICE $= -\log_2(\mathrm{RE})\,/\,\bar{a}$  (bits/activation)",
+    "ICE":          r"RAE score $= -\log_2(\mathrm{RE})\,/\,\bar{a}$",
     "RE":           "Relative reconstruction error (RE)",
     "SSIM":         "SSIM",
     "CV":           r"Population $\mathrm{CV}_P$",
     "CV_lt":        r"Lifetime $\mathrm{CV}_L$",
     "cost":         r"Mean activation $\bar{a}$",
-    "independence": r"Basis independence $\bar{D}_\phi$  (%)",
+    "independence": r"Mean atom decorrelation $\bar{D}_\phi$  (%)",
 }
 
 for i, feature in enumerate(["independence", "loss", "CV", "CV_lt",
@@ -324,9 +401,10 @@ for i, feature in enumerate(["independence", "loss", "CV", "CV_lt",
         ax.set_ylabel(ylabels[feature])
 
     fig.tight_layout()
-    out_path = os.path.join(BASE_DIR, feature + '_new.pdf')
-    fig.savefig(out_path)
-    print(f"Saved {out_path}")
+    out_path = os.path.join(FIGURE_DIR, feature + '_new.pdf')
+    if WRITE_FIGURES:
+        fig.savefig(out_path)
+        print(f"Saved {out_path}")
 
 # ── Pooled |a| distribution: Gibbs-exponential check (Fig 7C) ──────────
 # Plots the density of |a| over all (patch, neuron) pairs on a log-y scale.
@@ -405,8 +483,9 @@ ax_hist.annotate(
 fig_hist.tight_layout()
 
 hist_path = os.path.join(BASE_DIR, 'activation_histogram.pdf')
-fig_hist.savefig(hist_path)
-print(f"Saved {hist_path}")
+if WRITE_FIGURES:
+    fig_hist.savefig(hist_path)
+    print(f"Saved {hist_path}")
 print('  zero-coefficient fractions:',
       ', '.join(f'{hist_labels[t]}={100*zero_frac[t]:.2f}%' for t in zero_frac))
 print('  pooled |a| means:',
@@ -433,7 +512,8 @@ if all_mr:
     sns.despine(ax=ax_pn)
 fig_pn.tight_layout()
 pn_path = os.path.join(BASE_DIR, 'activation_perneuron_mean.pdf')
-fig_pn.savefig(pn_path)
-print(f"Saved {pn_path}  (legacy)")
+if WRITE_FIGURES:
+    fig_pn.savefig(pn_path)
+    print(f"Saved {pn_path}  (legacy)")
 
 # plt.show()  # disabled: Agg backend; all figures already saved to disk

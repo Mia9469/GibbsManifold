@@ -1,0 +1,131 @@
+{
+  "n_sessions": 5,
+  "n_neuron_condition_rows": 1128,
+  "n_neurons": 564,
+  "CV_L": {
+    "median_spontaneous": 0.9371561302697271,
+    "median_evoked": 0.5069699843378412,
+    "paired_mean_spont_minus_evoked": 0.4714439333562425,
+    "paired_median_spont_minus_evoked": 0.37123726423248116,
+    "fixed_effect_spont_minus_evoked": 0.511514470892081,
+    "fixed_effect_evoked_minus_spont": -0.511514470892081,
+    "se": 0.1145636091859062,
+    "cluster_df": 4,
+    "t_statistic": 4.464894869556958,
+    "ci95_cluster_t": [
+      0.19343489893407817,
+      0.8295940428500839
+    ],
+    "p_value_cluster_t": 0.011118288365689358,
+    "ci95_asymptotic_z": [
+      0.28696979688770485,
+      0.7360591448964572
+    ],
+    "p_value_asymptotic_z": 8.010807729202396e-06,
+    "random_intercept_variance": 0.06413244057349851,
+    "residual_variance": 0.16157082426148228,
+    "converged": true,
+    "session_median_difference_median": 0.4399145826905219,
+    "session_mean_difference_median": 0.45323067322819216,
+    "sessions_with_positive_median_difference": 5,
+    "session_wilcoxon_p_two_sided": 0.0625,
+    "session_sign_test_p_two_sided": 0.0625,
+    "model": "paired neuron difference: y_spontaneous - y_evoked ~ 1 + random intercept by session",
+    "inference_note": "The fixed effect is tested against a t distribution with n_sessions - 1 degrees of freedom; the default asymptotic MixedLM z result is retained only as a secondary diagnostic.",
+    "session_differences": [
+      {
+        "session": "105l001p16",
+        "count": 159,
+        "mean": 0.179607621608178,
+        "median": 0.20638449928803992
+      },
+      {
+        "session": "106r001p26",
+        "count": 109,
+        "mean": 0.42415131364338,
+        "median": 0.362463464468853
+      },
+      {
+        "session": "106r002p70",
+        "count": 88,
+        "mean": 0.8640588899134994,
+        "median": 0.7066696311198455
+      },
+      {
+        "session": "107l002p67",
+        "count": 97,
+        "mean": 0.45323067322819216,
+        "median": 0.4399145826905219
+      },
+      {
+        "session": "107l003p143",
+        "count": 111,
+        "mean": 0.6405740159871126,
+        "median": 0.5746312604479571
+      }
+    ]
+  },
+  "S_L": {
+    "median_spontaneous": 0.4676611248884826,
+    "median_evoked": 0.20447991665107307,
+    "paired_mean_spont_minus_evoked": 0.21726404172455802,
+    "paired_median_spont_minus_evoked": 0.2051069669527839,
+    "fixed_effect_spont_minus_evoked": 0.23044989346579545,
+    "fixed_effect_evoked_minus_spont": -0.23044989346579545,
+    "se": 0.03908007547728305,
+    "cluster_df": 4,
+    "t_statistic": 5.896864083585361,
+    "ci95_cluster_t": [
+      0.12194620919613239,
+      0.33895357773545853
+    ],
+    "p_value_cluster_t": 0.00413690076954378,
+    "ci95_asymptotic_z": [
+      0.15385294553032067,
+      0.30704684140127025
+    ],
+    "p_value_asymptotic_z": 3.704747738765778e-09,
+    "random_intercept_variance": 0.007459040320581269,
+    "residual_variance": 0.01919967275749469,
+    "converged": true,
+    "session_median_difference_median": 0.2543657527369378,
+    "session_mean_difference_median": 0.2434476798196837,
+    "sessions_with_positive_median_difference": 5,
+    "session_wilcoxon_p_two_sided": 0.0625,
+    "session_sign_test_p_two_sided": 0.0625,
+    "model": "paired neuron difference: y_spontaneous - y_evoked ~ 1 + random intercept by session",
+    "inference_note": "The fixed effect is tested against a t distribution with n_sessions - 1 degrees of freedom; the default asymptotic MixedLM z result is retained only as a secondary diagnostic.",
+    "session_differences": [
+      {
+        "session": "105l001p16",
+        "count": 159,
+        "mean": 0.10776601627629645,
+        "median": 0.12036615047456675
+      },
+      {
+        "session": "106r001p26",
+        "count": 109,
+        "mean": 0.18242563941609302,
+        "median": 0.18845767457957435
+      },
+      {
+        "session": "106r002p70",
+        "count": 88,
+        "mean": 0.3001872289891873,
+        "median": 0.28699164272881
+      },
+      {
+        "session": "107l002p67",
+        "count": 97,
+        "mean": 0.2434476798196837,
+        "median": 0.2543657527369378
+      },
+      {
+        "session": "107l003p143",
+        "count": 111,
+        "mean": 0.3197011455388075,
+        "median": 0.32472425848180925
+      }
+    ]
+  }
+}

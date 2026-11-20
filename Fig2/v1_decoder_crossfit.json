@@ -1,0 +1,374 @@
+{
+  "analysis_version": "20260907_standard_partial_spearman_train_only_rank_r2",
+  "seed": 20260802,
+  "n_repeats": 30,
+  "split_design": "stratified 50/50; metrics on training half, LDA accuracy on disjoint half; halves exchanged",
+  "independent_unit": "recording session; repeated splits stabilize estimates and do not add degrees of freedom",
+  "session_inference_assumption": "session-level t reference assumes independent session effects; not animal-level inference",
+  "partial_correlation_definition": "Pearson correlation of residuals after regressing ranked x and ranked y on intercept and ranked controls",
+  "rank_r2_definition": "Five neuron folds; predictor and outcome mid-distribution CDFs are fitted to training neurons only. Held-out outcomes enter scoring only. R2=1-SSE/SSE_null, with each fold's training-mean outcome percentile as null prediction. Unclipped linear predictions; identical folds for baseline and full model.",
+  "split_cache_layout": "rows alternate left-to-right and right-to-left for each of the 30 repeats; neuron columns preserve raw raster order",
+  "dataset_structure": "the public dataset documents five sessions from three animals; the 105, 106, and 107 session-code groups are retained for a directional animal-level summary",
+  "per_session": [
+    {
+      "session": "105l001p16",
+      "session_code_group": "105",
+      "n_trials": 3200,
+      "n_neurons": 159,
+      "summary": {
+        "total_cv_accuracy_given_fr": {
+          "median_across_repeats": 0.7338211421502894,
+          "q025": 0.726544958432854,
+          "q975": 0.7376779119915273
+        },
+        "tuning_cv_accuracy_given_fr": {
+          "median_across_repeats": 0.8706442992814296,
+          "q025": 0.864283694646277,
+          "q975": 0.8746693006303187
+        },
+        "noise_cv_accuracy_given_fr": {
+          "median_across_repeats": -0.07383613591752733,
+          "q025": -0.08280357526937096,
+          "q975": -0.06406339449279591
+        },
+        "tuning_incremental_given_fr_modulation_osi_snr": {
+          "median_across_repeats": -0.3877725962837565,
+          "q025": -0.42149740383460166,
+          "q975": -0.3541514813604049
+        },
+        "baseline_rank_cv_r2": {
+          "median_across_repeats": 0.9264320561418643,
+          "q025": 0.9206533743189913,
+          "q975": 0.9311269079861191
+        },
+        "full_rank_cv_r2": {
+          "median_across_repeats": 0.936628242893166,
+          "q025": 0.931376152700051,
+          "q975": 0.9410670300826499
+        },
+        "delta_rank_cv_r2_from_tuning_cv": {
+          "median_across_repeats": 0.00993049443252672,
+          "q025": 0.007773352587808121,
+          "q975": 0.012830482171039008
+        }
+      }
+    },
+    {
+      "session": "106r001p26",
+      "session_code_group": "106",
+      "n_trials": 3200,
+      "n_neurons": 109,
+      "summary": {
+        "total_cv_accuracy_given_fr": {
+          "median_across_repeats": 0.5390493420475544,
+          "q025": 0.5305066199841809,
+          "q975": 0.5451593943067435
+        },
+        "tuning_cv_accuracy_given_fr": {
+          "median_across_repeats": 0.8902435771895083,
+          "q025": 0.8869309654547605,
+          "q975": 0.8944041646091041
+        },
+        "noise_cv_accuracy_given_fr": {
+          "median_across_repeats": 0.03425327128610761,
+          "q025": 0.018927766653986936,
+          "q975": 0.040690628776419935
+        },
+        "tuning_incremental_given_fr_modulation_osi_snr": {
+          "median_across_repeats": -0.20408389870885477,
+          "q025": -0.27490539432582706,
+          "q975": -0.1370946642589156
+        },
+        "baseline_rank_cv_r2": {
+          "median_across_repeats": 0.9440037991589059,
+          "q025": 0.9335161930191948,
+          "q975": 0.9550046191471327
+        },
+        "full_rank_cv_r2": {
+          "median_across_repeats": 0.9457375076692236,
+          "q025": 0.9351458685672276,
+          "q975": 0.9559250494762546
+        },
+        "delta_rank_cv_r2_from_tuning_cv": {
+          "median_across_repeats": 0.0014256151390671101,
+          "q025": 0.00028424258613329867,
+          "q975": 0.0034718710381679905
+        }
+      }
+    },
+    {
+      "session": "106r002p70",
+      "session_code_group": "106",
+      "n_trials": 3200,
+      "n_neurons": 88,
+      "summary": {
+        "total_cv_accuracy_given_fr": {
+          "median_across_repeats": 0.5757727246682238,
+          "q025": 0.5667391254255241,
+          "q975": 0.5858801392158267
+        },
+        "tuning_cv_accuracy_given_fr": {
+          "median_across_repeats": 0.9194232684821456,
+          "q025": 0.9138548545805758,
+          "q975": 0.9251566910717468
+        },
+        "noise_cv_accuracy_given_fr": {
+          "median_across_repeats": -0.2166626836768981,
+          "q025": -0.22852684744766008,
+          "q975": -0.20499045271211194
+        },
+        "tuning_incremental_given_fr_modulation_osi_snr": {
+          "median_across_repeats": -0.1580531531566733,
+          "q025": -0.27585114199245764,
+          "q975": -0.0823831567330326
+        },
+        "baseline_rank_cv_r2": {
+          "median_across_repeats": 0.9578431261478962,
+          "q025": 0.9446971173052928,
+          "q975": 0.9648623006865711
+        },
+        "full_rank_cv_r2": {
+          "median_across_repeats": 0.9562770905057099,
+          "q025": 0.9435011609350572,
+          "q975": 0.9638469434802789
+        },
+        "delta_rank_cv_r2_from_tuning_cv": {
+          "median_across_repeats": -0.0009048804806725819,
+          "q025": -0.002887931166638735,
+          "q975": 0.0017328983422482452
+        }
+      }
+    },
+    {
+      "session": "107l002p67",
+      "session_code_group": "107",
+      "n_trials": 3200,
+      "n_neurons": 97,
+      "summary": {
+        "total_cv_accuracy_given_fr": {
+          "median_across_repeats": 0.7842347425140692,
+          "q025": 0.7799128937151556,
+          "q975": 0.7884736981020861
+        },
+        "tuning_cv_accuracy_given_fr": {
+          "median_across_repeats": 0.8958525042744795,
+          "q025": 0.889954301857503,
+          "q975": 0.9014902266128999
+        },
+        "noise_cv_accuracy_given_fr": {
+          "median_across_repeats": -0.08942118103265809,
+          "q025": -0.09712083018644052,
+          "q975": -0.07245075248245328
+        },
+        "tuning_incremental_given_fr_modulation_osi_snr": {
+          "median_across_repeats": -0.13950705306725714,
+          "q025": -0.2425667587171342,
+          "q975": -0.04975258995142886
+        },
+        "baseline_rank_cv_r2": {
+          "median_across_repeats": 0.9570286893976523,
+          "q025": 0.9500255261781265,
+          "q975": 0.9618417314746198
+        },
+        "full_rank_cv_r2": {
+          "median_across_repeats": 0.9559560764612646,
+          "q025": 0.9471060514986976,
+          "q975": 0.9613655172635451
+        },
+        "delta_rank_cv_r2_from_tuning_cv": {
+          "median_across_repeats": -0.001300929761565539,
+          "q025": -0.0037942240717612694,
+          "q975": 0.00023127477027056864
+        }
+      }
+    },
+    {
+      "session": "107l003p143",
+      "session_code_group": "107",
+      "n_trials": 3200,
+      "n_neurons": 111,
+      "summary": {
+        "total_cv_accuracy_given_fr": {
+          "median_across_repeats": 0.8252711539168983,
+          "q025": 0.8217038136129942,
+          "q975": 0.829617209166075
+        },
+        "tuning_cv_accuracy_given_fr": {
+          "median_across_repeats": 0.9371187577181903,
+          "q025": 0.9343872830669984,
+          "q975": 0.9397817228147416
+        },
+        "noise_cv_accuracy_given_fr": {
+          "median_across_repeats": -0.06434411602609769,
+          "q025": -0.0751987958572178,
+          "q975": -0.05252784535358055
+        },
+        "tuning_incremental_given_fr_modulation_osi_snr": {
+          "median_across_repeats": -0.3552644763373332,
+          "q025": -0.42078159927282693,
+          "q975": -0.3016850505476712
+        },
+        "baseline_rank_cv_r2": {
+          "median_across_repeats": 0.9630421472278978,
+          "q025": 0.9596054434563919,
+          "q975": 0.9667502039386947
+        },
+        "full_rank_cv_r2": {
+          "median_across_repeats": 0.965403718348993,
+          "q025": 0.9611445784886351,
+          "q975": 0.9687833450231292
+        },
+        "delta_rank_cv_r2_from_tuning_cv": {
+          "median_across_repeats": 0.001953809190376604,
+          "q025": 0.0007661247488628719,
+          "q975": 0.003281398384773629
+        }
+      }
+    }
+  ],
+  "session_level": {
+    "total_cv_accuracy_given_fr": {
+      "per_session": [
+        0.7338211421502894,
+        0.5390493420475544,
+        0.5757727246682238,
+        0.7842347425140692,
+        0.8252711539168983
+      ],
+      "median": 0.7338211421502894,
+      "fisher_mean": 0.7089440818267881,
+      "ci95_cluster_t": [
+        0.5200933865190238,
+        0.8317067688053807
+      ],
+      "t_statistic": 7.963038973130642,
+      "df": 4,
+      "p_two_sided": 0.0013474159265667457,
+      "sessions_positive": 5
+    },
+    "tuning_cv_accuracy_given_fr": {
+      "per_session": [
+        0.8706442992814296,
+        0.8902435771895083,
+        0.9194232684821456,
+        0.8958525042744795,
+        0.9371187577181903
+      ],
+      "median": 0.8958525042744795,
+      "fisher_mean": 0.9054651529976891,
+      "ci95_cluster_t": [
+        0.8661023402630332,
+        0.9336675394408146
+      ],
+      "t_statistic": 22.600291677461115,
+      "df": 4,
+      "p_two_sided": 2.2701145791574283e-05,
+      "sessions_positive": 5
+    },
+    "noise_cv_accuracy_given_fr": {
+      "per_session": [
+        -0.07383613591752733,
+        0.03425327128610761,
+        -0.2166626836768981,
+        -0.08942118103265809,
+        -0.06434411602609769
+      ],
+      "median": -0.07383613591752733,
+      "fisher_mean": -0.08260129060028207,
+      "ci95_cluster_t": [
+        -0.1931672798814669,
+        0.030036246025115555
+      ],
+      "t_statistic": -2.0371450129820774,
+      "df": 4,
+      "p_two_sided": 0.11130432360392119,
+      "sessions_positive": 1
+    },
+    "tuning_incremental_given_fr_modulation_osi_snr": {
+      "per_session": [
+        -0.3877725962837565,
+        -0.20408389870885477,
+        -0.1580531531566733,
+        -0.13950705306725714,
+        -0.3552644763373332
+      ],
+      "median": -0.20408389870885477,
+      "fisher_mean": -0.25194335632684256,
+      "ci95_cluster_t": [
+        -0.39009951329125686,
+        -0.10269290625382366
+      ],
+      "t_statistic": -4.6292507345588545,
+      "df": 4,
+      "p_two_sided": 0.009812727570024183,
+      "sessions_positive": 0
+    }
+  },
+  "animal_group_level": {
+    "total_cv_accuracy_given_fr": {
+      "mean_session_effect_within_group": {
+        "105": 0.7338211421502894,
+        "106": 0.5574110333578891,
+        "107": 0.8047529482154838
+      },
+      "groups_positive": 3,
+      "n_documented_animals": 3,
+      "scope": "directional summary only; three animals are too few for a stable animal-level variance estimate"
+    },
+    "tuning_cv_accuracy_given_fr": {
+      "mean_session_effect_within_group": {
+        "105": 0.8706442992814296,
+        "106": 0.904833422835827,
+        "107": 0.916485630996335
+      },
+      "groups_positive": 3,
+      "n_documented_animals": 3,
+      "scope": "directional summary only; three animals are too few for a stable animal-level variance estimate"
+    },
+    "noise_cv_accuracy_given_fr": {
+      "mean_session_effect_within_group": {
+        "105": -0.07383613591752733,
+        "106": -0.09120470619539524,
+        "107": -0.07688264852937789
+      },
+      "groups_positive": 0,
+      "n_documented_animals": 3,
+      "scope": "directional summary only; three animals are too few for a stable animal-level variance estimate"
+    },
+    "tuning_incremental_given_fr_modulation_osi_snr": {
+      "mean_session_effect_within_group": {
+        "105": -0.3877725962837565,
+        "106": -0.181068525932764,
+        "107": -0.24738576470229517
+      },
+      "groups_positive": 0,
+      "n_documented_animals": 3,
+      "scope": "directional summary only; three animals are too few for a stable animal-level variance estimate"
+    }
+  },
+  "incremental_rank_r2": {
+    "per_session_delta": [
+      0.00993049443252672,
+      0.0014256151390671101,
+      -0.0009048804806725819,
+      -0.001300929761565539,
+      0.001953809190376604
+    ]
+  },
+  "provenance": {
+    "code_sha256": "f7510a77ec01a740598105b10ae20d8462b04c41c962e1cd8a6383fb88793ce8",
+    "raw_input_sha256": {
+      "105l001p16.mat": "2bb16408864eb492667bff674b62f35d712b85dd6177a9e1bfdef32f309f6d74",
+      "106r001p26.mat": "4614aa176354c1453ffc56d0968da4b19e578ee83abfd7f406086d482c6c3a24",
+      "106r002p70.mat": "32e0aa5ca4e8b38e1b86d7972954c0d1aee575f827ecb9fbedc9901f5de64fc3",
+      "107l002p67.mat": "52c4e23261f535f0d36baa1db8493ca5d1fe6529dc47e09b0825339a698b8f58",
+      "107l003p143.mat": "f1e1b64bc85802e6db0bae655749bbecf09c76aae188322bcf50fab2692aeab5"
+    },
+    "numpy_version": "2.0.2",
+    "scipy_version": "1.13.1",
+    "elapsed_seconds": 75.41992275,
+    "entropy_recomputed": false,
+    "decoder_rule_changed": false,
+    "npz_sha256": "4e0bc2fcf78fa4c233358df348dfab1eb9d6406855b71ea07036296a111dbbe1"
+  }
+}

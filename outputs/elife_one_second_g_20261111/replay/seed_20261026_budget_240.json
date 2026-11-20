@@ -1,0 +1,111 @@
+{
+  "seed": 20261026,
+  "budget": 240,
+  "signature": {
+    "inputs": {
+      "outputs/snn_budget_frontier_20261016/replication/seed_20261026_budget_240.json": "b801e925de9bb16327372f761bbdf1b4aef7c18b1505295660a6c3a1df8a5b58",
+      "outputs/snn_budget_frontier_20261016/replication/seed_20261026_budget_240_weights.npz": "4e26a1795ce591aa6103c6301cc48404af30c9d67713ae3730cac739bb9c73fd",
+      "outputs/snn_budget_frontier_20261016/replication/seed_20261026_budget_240_responses.npz": "c1a44c03f45ab9354b8d3b354f4c65003defcb2b8a868890b5fc18f78b381188"
+    },
+    "protocol_sha256": "46020693449ca1aeecfb45dea58861d2b4c5cabc04bed98dceed7c13c7fbb724",
+    "code_sha256": "a118dc44ad763ee614967f03ed73c020adfe22936e37b4afb5561add765090ae",
+    "simulator_sha256": {
+      "controlled_budget.py": "5d1249d4fcba147191725852d165e51132b267b12ccd892c7b861fb5606603da",
+      "network_budget.py": "c1803b6e17da8b7de0874c34a1b040da7da50fed628f74ce5040d9be097ecf22",
+      "replicate_learning.py": "2d5805a7a6c5b163eea5aa8f3d3247142f102d838040dc684d278010c8fa18bc"
+    }
+  },
+  "stages": [
+    {
+      "stage": 0,
+      "base_rate": 242.2125,
+      "bracketed": true,
+      "attempts": [
+        {
+          "command": 228.0,
+          "achieved_total_rate": 229.9375,
+          "histogram": [
+            5691,
+            1123,
+            835,
+            647,
+            531,
+            454,
+            434,
+            385,
+            325,
+            322,
+            268,
+            206,
+            161,
+            112,
+            122,
+            77,
+            65,
+            60,
+            55,
+            45,
+            35,
+            14,
+            9,
+            11,
+            9,
+            2,
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "stage": 4,
+      "base_rate": 242.3,
+      "bracketed": true,
+      "attempts": [
+        {
+          "command": 228.0,
+          "achieved_total_rate": 229.58125,
+          "histogram": [
+            5594,
+            1186,
+            886,
+            672,
+            484,
+            455,
+            424,
+            394,
+            401,
+            312,
+            240,
+            211,
+            146,
+            121,
+            93,
+            86,
+            73,
+            54,
+            36,
+            35,
+            23,
+            24,
+            13,
+            11,
+            7,
+            4,
+            5,
+            3,
+            3,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ]
+        }
+      ]
+    }
+  ]
+}

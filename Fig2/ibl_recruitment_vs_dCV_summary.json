@@ -1,0 +1,107 @@
+{
+  "dCV_definition": "cv_L(spontaneous/baseline) - cv_L(active_task); positive values mean higher baseline CV_L",
+  "panelA_steinmetz_rate_mechanism": {
+    "source": "Fig2/steinmetz_CVL_results.npz",
+    "n_neurons": 10163,
+    "spearman_dCV_vs_dFR": 0.7146284583327945,
+    "spearman_p": 0.0,
+    "inference_unit": "neuron-level descriptive; neurons are nested within sessions",
+    "by_group": {
+      "Visual": {
+        "n": 1858,
+        "median_dFR_active_minus_base": -0.052176451678508394,
+        "median_dCV_base_minus_active": -0.04941871894287475
+      },
+      "Thalamus": {
+        "n": 1982,
+        "median_dFR_active_minus_base": -0.054980842911877395,
+        "median_dCV_base_minus_active": -0.0615501456179699
+      },
+      "Frontal/PFC": {
+        "n": 1530,
+        "median_dFR_active_minus_base": -0.46408095726012555,
+        "median_dCV_base_minus_active": -0.4342065920829057
+      },
+      "Striatum/BG": {
+        "n": 344,
+        "median_dFR_active_minus_base": 0.26012759170653904,
+        "median_dCV_base_minus_active": 0.2703047734317551
+      },
+      "Hippocampus": {
+        "n": 1998,
+        "median_dFR_active_minus_base": 0.07051476835424067,
+        "median_dCV_base_minus_active": 0.0736381880555047
+      },
+      "Other": {
+        "n": 2451,
+        "median_dFR_active_minus_base": -0.07575757575757575,
+        "median_dCV_base_minus_active": -0.125876385132065
+      }
+    }
+  },
+  "panelsBC_ibl_session_level_controls": {
+    "source_tables": [
+      "/Users/mia/Library/Mobile Documents/com~apple~CloudDocs/GitHub/IBL_data/analysis_outputs/bits_per_spike/tier1_operating_points.csv",
+      "/Users/mia/Library/Mobile Documents/com~apple~CloudDocs/GitHub/IBL_data/analysis_outputs/recomputed/gm_ops_v3_geometry_balanced.csv",
+      "/Users/mia/Library/Mobile Documents/com~apple~CloudDocs/GitHub/IBL_data/analysis_outputs/regional_mechanisms/v7_hpf_choice_block_decoders.csv"
+    ],
+    "local_pair_cache": "Fig2/ibl_recruitment_v3_pairs.csv",
+    "n_matched_pairs_total": 404,
+    "inference": "Region-session pairs are shown descriptively. Primary correlations, FR-partial correlations, permutation p-values, and bootstrap intervals use one median per recording session.",
+    "correlations": {
+      "decoder_choice_above_chance": {
+        "n_region_session_pairs": 180,
+        "n_sessions": 19,
+        "pair_level_descriptive": {
+          "spearman_rho": -0.1466732512320339,
+          "spearman_rho_partial_FR": -0.3081267963131872,
+          "note": "Region-session pairs are nested and are not inferential replicates."
+        },
+        "session_level": {
+          "aggregation": "median across available regions within each session",
+          "spearman_rho": -0.27017543859649124,
+          "spearman_permutation_p_two_sided": 0.26108738912610874,
+          "spearman_ci95_session_bootstrap": [
+            -0.6515555555555554,
+            0.2007104795737123
+          ],
+          "spearman_rho_partial_FR": -0.5240531530741954,
+          "spearman_partial_FR_permutation_p_two_sided": 0.026509734902650975,
+          "spearman_partial_FR_ci95_session_bootstrap": [
+            -0.8070960465508443,
+            -0.015773668236421023
+          ],
+          "n_permutations": 100000,
+          "n_bootstrap": 20000
+        }
+      },
+      "decoder_stim_above_chance": {
+        "n_region_session_pairs": 396,
+        "n_sessions": 49,
+        "pair_level_descriptive": {
+          "spearman_rho": 0.04491966098388684,
+          "spearman_rho_partial_FR": -0.009290462941528082,
+          "note": "Region-session pairs are nested and are not inferential replicates."
+        },
+        "session_level": {
+          "aggregation": "median across available regions within each session",
+          "spearman_rho": -0.13839206201389248,
+          "spearman_permutation_p_two_sided": 0.3430665693343067,
+          "spearman_ci95_session_bootstrap": [
+            -0.44057965015629535,
+            0.17384882332550167
+          ],
+          "spearman_rho_partial_FR": -0.13516250890139883,
+          "spearman_partial_FR_permutation_p_two_sided": 0.35903640963590366,
+          "spearman_partial_FR_ci95_session_bootstrap": [
+            -0.441193371987135,
+            0.17789605933242755
+          ],
+          "n_permutations": 100000,
+          "n_bootstrap": 20000
+        }
+      }
+    },
+    "result": "Rate changes account for much of the cross-region CV_L shift. At the session level, neither choice nor stimulus decodability provides a uniform positive counterpart to the shift after firing-rate control."
+  }
+}

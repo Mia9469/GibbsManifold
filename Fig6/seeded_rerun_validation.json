@@ -1,0 +1,107 @@
+{
+  "purpose": "Historical deterministic audit; unavailable checkpoints prevent validation of corrected SSIM and endpoint CV",
+  "date": "2026-07-11",
+  "algorithm": "CVM-v2 absolute reconstruction-error gate",
+  "seed_base": 20260630,
+  "seed_range": [
+    20260630,
+    20260649
+  ],
+  "n_runs_per_method": 20,
+  "n_training_records": 60,
+  "all_records_have_seed_and_configuration_metadata": true,
+  "groups": {
+    "Null": {
+      "RE_mean": 0.6113196198419694,
+      "independence_mean_percent": 92.69193355091416,
+      "proxy_ICE_mean": 12.27284008634347,
+      "CV_population_mean": null,
+      "CV_lifetime_mean": null,
+      "mean_activation": 0.05785150080919266,
+      "SSIM_mean": null
+    },
+    "SparseNet": {
+      "RE_mean": 0.7020469632810787,
+      "independence_mean_percent": 91.70502186049592,
+      "proxy_ICE_mean": 12.168400074928332,
+      "CV_population_mean": null,
+      "CV_lifetime_mean": null,
+      "mean_activation": 0.04194151610136032,
+      "SSIM_mean": null
+    },
+    "CVM": {
+      "RE_mean": 0.624415285681463,
+      "independence_mean_percent": 92.77235082434598,
+      "proxy_ICE_mean": 13.442157301693914,
+      "CV_population_mean": null,
+      "CV_lifetime_mean": null,
+      "mean_activation": 0.05054431036114693,
+      "SSIM_mean": null
+    }
+  },
+  "comparison_to_archival_summary": {
+    "all_metric_rankings_unchanged": null,
+    "maximum_absolute_group_mean_shift": null,
+    "maximum_shift_metric": null,
+    "maximum_bonferroni_adjusted_pairwise_p_across_metrics": null,
+    "interpretation": "Historical inference only; not a validation of the corrected metric cohort"
+  },
+  "checkpoint_retention": "Temporary 60-run checkpoints were removed after validation; regenerate them with the seeded commands in Fig6/README.md.",
+  "legacy_audit": {
+    "purpose": "Independent deterministic rerun validating the archival Supplementary Figure S21 summary without replacing the figure source values.",
+    "date": "2026-07-11",
+    "algorithm": "CVM-v2 absolute reconstruction-error gate",
+    "seed_base": 20260630,
+    "seed_range": [
+      20260630,
+      20260649
+    ],
+    "n_runs_per_method": 20,
+    "n_training_records": 60,
+    "all_records_have_seed_and_configuration_metadata": true,
+    "groups": {
+      "Null": {
+        "RE_mean": 0.6113196198419694,
+        "independence_mean_percent": 92.69193355091416,
+        "proxy_ICE_mean": 12.27284008634347,
+        "CV_population_mean": 2.3899459466934205,
+        "CV_lifetime_mean": 2.4093333905339245,
+        "mean_activation": 0.05785150080919266,
+        "SSIM_mean": 0.4441672081965736
+      },
+      "SparseNet": {
+        "RE_mean": 0.7020469632810787,
+        "independence_mean_percent": 91.70502186049592,
+        "proxy_ICE_mean": 12.168400074928332,
+        "CV_population_mean": 2.252437118709087,
+        "CV_lifetime_mean": 2.2890467571616173,
+        "mean_activation": 0.04194151610136032,
+        "SSIM_mean": 0.3215721754048727
+      },
+      "CVM": {
+        "RE_mean": 0.624415285681463,
+        "independence_mean_percent": 92.77235082434598,
+        "proxy_ICE_mean": 13.442157301693914,
+        "CV_population_mean": 2.720002663850784,
+        "CV_lifetime_mean": 2.605969685614109,
+        "mean_activation": 0.05054431036114693,
+        "SSIM_mean": 0.4234175349286913
+      }
+    },
+    "comparison_to_archival_summary": {
+      "all_metric_rankings_unchanged": true,
+      "maximum_absolute_group_mean_shift": 0.02264057506012307,
+      "maximum_shift_metric": "CVM dictionary independence (percentage points)",
+      "maximum_bonferroni_adjusted_pairwise_p_across_metrics": 1.4848849230406263e-07,
+      "interpretation": "The explicitly seeded rerun reproduces every reported ordering and inferential conclusion; minor last-digit shifts reflect the previously unrecorded initialization stream."
+    },
+    "checkpoint_retention": "Temporary 60-run checkpoints were removed after validation; regenerate them with the seeded commands in Fig6/README.md."
+  },
+  "correction_scope": {
+    "version": "20260907-reference-range-exact-dedup-v1",
+    "validated_corrected_SSIM": false,
+    "validated_endpoint_CV": false,
+    "reason": "Seeded-rerun checkpoints were previously deleted; no retraining permitted",
+    "legacy_values": "Preserved unchanged under legacy_audit and in the pre-correction backup"
+  }
+}

@@ -4,7 +4,7 @@ Fig 1C: four panels illustrating the Gibbs manifold geometry.
   (i)   H–C frontier  (H in bits, parametric linear-cost Gibbs manifold)
   (ii)  S–CV algebraic identity   (distribution-independent, no reference lines)
   (iii) ICE–CV along the Gibbs-optimal manifold  (bits / unit cost)
-  (iv)  Trial-to-trial reliability P_agree vs CV  (Poisson, Supp §2.3)
+  (iv)  Exact count agreement P_agree vs CV  (Poisson, Supp §2.3)
 
 Output: Figure1C_panels.pdf / .png  — PDF uses TrueType (Type 42) fonts
 so text remains editable in Illustrator / Affinity Designer / etc.
@@ -139,7 +139,7 @@ ax.legend(loc='lower right', fontsize=8)
 # ---------- (iv) P_agree–CV  (Poisson) ----------
 # Supp §2.3: trial-to-trial response agreement P_agree = P(X=Y) for X,Y iid
 # Pois(λ).  With CV = 1/√λ  ⇒  λ = 1/CV².  P_agree = e^{-2λ} I_0(2λ), which
-# is monotonically increasing in CV.  Identified with theoretical reliability.
+# is monotonically increasing in CV.  This is exact count agreement, not decoder reliability.
 ax = axes[3]
 cv_rel = np.linspace(0.3, 3, 400)
 lam    = 1.0 / cv_rel**2
@@ -148,7 +148,7 @@ ax.plot(cv_rel, P_agr, 'k-', lw=2.2,
         label=r'Poisson: $P_{\mathrm{agree}} = e^{-2\lambda} I_0(2\lambda),\ \lambda = 1/\mathrm{CV}^2$')
 ax.set_xlabel(r'CV')
 ax.set_ylabel(r'$P_{\mathrm{agree}}$')
-ax.set_title(r'(iv)  Trial-to-trial reliability vs CV (Poisson-only)')
+ax.set_title(r'(iv)  Exact count agreement vs CV (Poisson-only)')
 ax.legend(loc='lower right', fontsize=8)
 
 for a in axes:

@@ -1,45 +1,30 @@
 cff-version: 1.2.0
-message: "If you use this software, please cite both the paper and the archived release."
-title: "Gibbs Manifold: analysis and simulation code for 'Variability as a Frontier of Metabolic Efficiency'"
+message: "Please cite this code and the corresponding manuscript when available."
 type: software
+title: "GibbsManifold: spike-budget learning and response-entropy benchmark"
+version: "2026.11.20"
+date-released: "2026-11-20"
+license: MIT
+url: "https://github.com/Mia9469/GibbsManifold"
+repository-code: "https://github.com/Mia9469/GibbsManifold"
 authors:
   - family-names: Huang
     given-names: Mingyi
-    affiliation: "Fudan University"
-    email: myhuang20@fudan.edu.cn
-  - family-names: Lin
-    given-names: Wei
-    affiliation: "Fudan University"
-    email: wlin@fudan.edu.cn
-  - family-names: Roe
-    given-names: Anna Wang
-    affiliation: "Zhejiang University"
-    email: annawang@zju.edu.cn
-  - family-names: Yu
-    given-names: Yuguo
-    affiliation: "Fudan University"
-    email: yuyuguo@fudan.edu.cn
-license: MIT
-repository-code: "https://github.com/<USER>/GibbsManifold"
-keywords:
-  - computational neuroscience
-  - neural variability
-  - coefficient of variation
-  - metabolic efficiency
-  - efficient coding
-  - Gibbs distribution
-  - information theory
-  - spike-train entropy
+    orcid: "https://orcid.org/0000-0001-8096-7876"
 preferred-citation:
-  type: article
-  title: "Variability as a Frontier of Metabolic Efficiency: How Neural Dynamics Converge to Thermodynamic Optimality"
+  type: unpublished
+  title: "How learning reshapes neural responses under a spike budget: A maximum-entropy benchmark"
+  year: 2026
   authors:
     - family-names: Huang
       given-names: Mingyi
-    - family-names: Lin
-      given-names: Wei
+    - family-names: Mao
+      given-names: Lingyan
+    - family-names: Ding
+      given-names: Jing
     - family-names: Roe
       given-names: Anna Wang
+    - family-names: Lin
+      given-names: Wei
     - family-names: Yu
       given-names: Yuguo
-  year: 2026

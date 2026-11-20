@@ -1,0 +1,12 @@
+{
+  "archived_endpoint_count": 48,
+  "verified_input_hashes": 96,
+  "direct_repeat_bootstrap_checks": 24,
+  "direct_template_subset_checks": 24,
+  "nominal_replay_spike_raster_equality_checks": 48,
+  "perturbed_replay_trials": 3840,
+  "exact_nominal_rate_matches": 48,
+  "maximum_achieved_rate_residual_spikes_s_cell": 1.7763568394002505e-15,
+  "maximum_equal_cost_entropy_difference_error_bits": 2.123301534595612e-15,
+  "maximum_original_endpoint_error_bits": 1.4432899320127035e-15
+}

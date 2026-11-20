@@ -1,0 +1,194 @@
+{
+  "source_table": "/Users/mia/Library/Mobile Documents/com~apple~CloudDocs/GitHub/IBL_data/ibl_metadata/gm_ops_pooled_v2.csv",
+  "state_summary": {
+    "spontaneous_H": {
+      "n_rows": 173,
+      "n_regions": 102,
+      "n_sessions": 24,
+      "info_col": "Hr_median_bits_s",
+      "cost_col": "C_median_W",
+      "ice_col": "ICE_H_median_bits_per_J",
+      "info_median_bits_s": 54.93969605948956,
+      "info_iqr_bits_s": [
+        37.731612134810774,
+        78.82952145070723
+      ],
+      "cost_median_W": 4.86975,
+      "cost_iqr_W": [
+        4.0095,
+        6.132375
+      ],
+      "ice_median_bits_per_J": 10.808190103614075,
+      "ice_iqr_bits_per_J": [
+        9.07697244527188,
+        12.018109627928196
+      ]
+    },
+    "active_MI": {
+      "n_rows": 199,
+      "n_regions": 112,
+      "n_sessions": 25,
+      "info_col": "MI_median_bits_s",
+      "cost_col": "C_median_W",
+      "ice_col": "ICE_I_median_bits_per_J",
+      "info_median_bits_s": 18.30409637839543,
+      "info_iqr_bits_s": [
+        15.304476796401339,
+        22.985088160304475
+      ],
+      "cost_median_W": 5.571879263301501,
+      "cost_iqr_W": [
+        4.466781268577945,
+        7.157512786002691
+      ],
+      "ice_median_bits_per_J": 3.203612154177566,
+      "ice_iqr_bits_per_J": [
+        2.8714294883001528,
+        3.5531463447264233
+      ]
+    },
+    "active_H_upper_bound": {
+      "n_rows": 199,
+      "n_regions": 112,
+      "n_sessions": 25,
+      "info_col": "Hr_median_bits_s",
+      "cost_col": "C_median_W",
+      "ice_col": "ICE_H_median_bits_per_J",
+      "info_median_bits_s": 67.85836752298808,
+      "info_iqr_bits_s": [
+        49.21661290460834,
+        95.89453605801397
+      ],
+      "cost_median_W": 5.571879263301501,
+      "cost_iqr_W": [
+        4.466781268577945,
+        7.157512786002691
+      ],
+      "ice_median_bits_per_J": 11.884689439052227,
+      "ice_iqr_bits_per_J": [
+        10.655698586362337,
+        12.823735505645669
+      ]
+    }
+  },
+  "paired": {
+    "n_pairs": 163,
+    "n_regions": 101,
+    "C_spon": {
+      "median": 4.879,
+      "iqr": [
+        4.038420820978502,
+        6.306653409090909
+      ]
+    },
+    "H_spon": {
+      "median": 55.46612718963421,
+      "iqr": [
+        38.03472805931975,
+        80.37256065786008
+      ]
+    },
+    "HC_spon": {
+      "median": 10.811885021182633,
+      "iqr": [
+        9.147295313157635,
+        12.046559494666518
+      ]
+    },
+    "C_task": {
+      "median": 5.73690053285968,
+      "iqr": [
+        4.631631188118812,
+        7.532749913418925
+      ]
+    },
+    "H_task": {
+      "median": 70.19344420940051,
+      "iqr": [
+        51.95884048094811,
+        102.60260515461954
+      ]
+    },
+    "MI_task": {
+      "median": 18.45914379552788,
+      "iqr": [
+        15.304476796401339,
+        23.048211339092997
+      ]
+    },
+    "HC_task": {
+      "median": 11.91563428422237,
+      "iqr": [
+        10.939670805068111,
+        12.869493808110423
+      ]
+    },
+    "MIC_task": {
+      "median": 3.2086817852309064,
+      "iqr": [
+        2.8744000045952554,
+        3.510526307064972
+      ]
+    },
+    "delta_C_task_minus_spon": {
+      "median": 0.6271286811779762,
+      "mean": 0.7271970580471517,
+      "positive": 117,
+      "fraction_positive": 0.7177914110429447,
+      "wilcoxon_p_two_sided": 7.715502739592624e-09,
+      "sign_p_two_sided": 2.543202524891255e-08
+    },
+    "delta_H_task_minus_spon": {
+      "median": 14.199295399204445,
+      "mean": 14.486334215888236,
+      "positive": 121,
+      "fraction_positive": 0.7423312883435583,
+      "wilcoxon_p_two_sided": 1.054182359299908e-09,
+      "sign_p_two_sided": 4.559897422568796e-10
+    },
+    "delta_HC_task_minus_spon": {
+      "median": 1.0391069826725943,
+      "mean": 1.2503952454298308,
+      "positive": 127,
+      "fraction_positive": 0.7791411042944786,
+      "wilcoxon_p_two_sided": 4.550434737294905e-14,
+      "sign_p_two_sided": 4.2346353699373125e-13
+    },
+    "delta_MIC_task_minus_HC_spon": {
+      "median": -7.5314893740775215,
+      "mean": -7.237051282372707,
+      "positive": 1,
+      "fraction_positive": 0.006134969325153374,
+      "wilcoxon_p_two_sided": 1.71704248683163e-28,
+      "sign_p_two_sided": 2.8053338397127686e-47
+    },
+    "ratio_C_task_over_spon": {
+      "median": 1.1459933156724007,
+      "iqr": [
+        0.9901651861711154,
+        1.4151489809059574
+      ],
+      "gt_one": 117,
+      "fraction_gt_one": 0.7177914110429447
+    },
+    "ratio_MI_task_over_H_spon": {
+      "median": 0.3526527161016704,
+      "iqr": [
+        0.25229117952978397,
+        0.49804362225375864
+      ],
+      "gt_one": 1,
+      "fraction_gt_one": 0.006134969325153374
+    },
+    "ratio_MIC_task_over_HC_spon": {
+      "median": 0.2997634464142222,
+      "iqr": [
+        0.258201331760601,
+        0.3680496082780491
+      ],
+      "gt_one": 1,
+      "fraction_gt_one": 0.006134969325153374
+    }
+  },
+  "definition_note": "Spontaneous rows use Hr_median_bits_s and C_median_W. Active-task rows use MI_median_bits_s and C_median_W; active Hr is plotted only as an entropy upper-bound reference."
+}

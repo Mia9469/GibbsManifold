@@ -1,22 +1,19 @@
-% PVC11_NOISE_ENTROPY  Direct-Method per-neuron rho = H(r|s)/H(r)
+% PVC11_NOISE_ENTROPY  Direct-Method per-neuron rho = H(W|S,J)/H(W)
 %                      on CRCNS pvc-11 (Kohn/Smith anesthetised macaque V1,
 %                      drifting gratings, 3 monkeys, 12 directions, 200 trials).
 %
 % Robustness check for the claim in Supplementary Section
-% sec:noise-entropy-check that rho ~= 0.85 on the v1v2-1 dataset is
-% caused by sufentanil anaesthesia rather than session- or
-% stimulus-specific artifacts.  pvc-11 uses the same lab + anaesthesia +
-% array + stimulus family as v1v2-1, and has ~10x the trial count per
-% condition, so if the framework-level conclusion survives here it is
-% dataset-independent within the anaesthetised-macaque regime.
+% sec:noise-entropy-check. This auxiliary dataset is not combined with the
+% corrected five-session v1v2-1 result reported in the manuscript.
 %
 % Method: identical to figure2_new.m per-neuron Direct-Method pipeline
 %   - bin spikes to 1 ms, take the 0.28-1.28 s window (1 s driven response)
 %   - apply SNR >= 1.5 and mean-FR >= 1 Hz filters (Kohn canonical)
 %   - for each neuron:  construct binary spike matrix across all 12 stim
 %                       x n_trials_per_stim driven trials
-%     * H_total(T) over pooled trials
-%     * H_noise(T) = P(s)-weighted noise entropy per stimulus
+%     * H_total(T) over pooled trials and all valid sliding word starts
+%     * H_noise(T) = P(s)-weighted conditional entropy at the same starts
+%       (including valid positions whose conditional entropy is zero)
 %     * linear fit H/T vs 1/T over fit_idx -> intercept = rate in bits/s
 %     * rho = H_noise_rate / H_total_rate
 %
@@ -66,7 +63,7 @@ mi_per_monkey  = cell(1, numel(monkey_files));
 
 total_elapsed = 0;
 
-for imonkey = 2:numel(monkey_files)
+for imonkey = 1:numel(monkey_files)
     tic;
     fpath = fullfile(PVC11_DIR, monkey_files{imonkey});
     fprintf('\n======================================\n');
@@ -206,7 +203,7 @@ valid_all = isfinite(rho_all) & (rho_all >= 0) & (rho_all <= 1);
 r = rho_all(valid_all);
 
 fprintf('\n\n==============================================\n');
-fprintf(' PVC-11 POOLED rho = H(r|s)/H(r)  (n=%d neurons)\n', length(r));
+fprintf(' PVC-11 POOLED rho = H(W|S,J)/H(W)  (n=%d neurons)\n', length(r));
 fprintf('==============================================\n');
 fprintf('  mean    = %.3f\n', mean(r));
 fprintf('  median  = %.3f\n', median(r));
@@ -215,8 +212,8 @@ fprintf('  IQR     = [%.3f, %.3f]  (width %.3f)\n', ...
         quantile(r, 0.75) - quantile(r, 0.25));
 fprintf('  frac rho<0.3: %.3f;  rho<0.5: %.3f;  rho<0.7: %.3f\n', ...
         mean(r < 0.3), mean(r < 0.5), mean(r < 0.7));
-fprintf('\n  Reference (v1v2-1 anaesthetised V1, n=159):\n');
-fprintf('    mean=0.852  median=0.871  IQR=[0.831, 0.895]  (from figure2_new.m)\n');
+fprintf('\n  Corrected reference (v1v2-1 V1, n=564):\n');
+fprintf('    mean=0.859  median=0.867  IQR=[0.838, 0.888]  (five-session pool)\n');
 fprintf('\n  Elapsed: %.1f min total\n', total_elapsed/60);
 
 %% ================= save =================
@@ -231,13 +228,13 @@ fprintf('Saved to %s\n', OUTPUT_MAT);
 
 function H = total_entropy_local(spike_matrix, T)
     [n_rows, n_cols] = size(spike_matrix);
-    remainder = mod(n_cols, T);
-    trimmed_len = n_cols - remainder;
-    all_data = reshape(spike_matrix(:, 1:trimmed_len)', 1, []);
-    total_len = length(all_data);
-    remainder2 = mod(total_len, T);
-    n_words = (total_len - remainder2) / T;
-    words = reshape(all_data(1:total_len - remainder2), T, n_words)';
+    n_windows = n_cols - T + 1;
+    if n_windows <= 0, H = 0; return; end
+    words = zeros(n_rows * n_windows, T, 'like', spike_matrix);
+    for j = 1:n_windows
+        idx = (j - 1) * n_rows + (1:n_rows);
+        words(idx, :) = spike_matrix(:, j:(j + T - 1));
+    end
     counts = count_unique_words_local(words);
     p = counts / sum(counts);
     H = -sum(p .* log2(p));
@@ -253,8 +250,7 @@ function H = noise_entropy_local(spike_matrix, T)
         p = counts / sum(counts);
         entropy_values(j) = -sum(p .* log2(p));
     end
-    valid = entropy_values > 0;
-    if any(valid), H = mean(entropy_values(valid)); else, H = 0; end
+    H = mean(entropy_values);
 end
 
 function counts = count_unique_words_local(words)

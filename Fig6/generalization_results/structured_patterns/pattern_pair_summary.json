@@ -1,0 +1,44 @@
+{
+  "metric": "SSIM",
+  "unit": "unique predefined structured input",
+  "n_patterns": 30,
+  "n_original_entries": 31,
+  "aliases": {
+    "edge_90deg": "edge_45deg"
+  },
+  "inference_scope": "Descriptive counts in a fixed bank, not independent stimulus-population samples",
+  "metrics": {
+    "RE": {
+      "n_patterns": 30,
+      "cvm_better_than_null": 24,
+      "best_counts": {
+        "null": 1,
+        "cauchy": 20,
+        "cv_m": 9
+      },
+      "mean_diff": -0.009775710192624703,
+      "median_diff": -0.008760180181372756,
+      "min_diff": -0.03229476887544669,
+      "max_diff": 0.011122569626112688
+    },
+    "SSIM": {
+      "n_patterns": 30,
+      "cvm_better_than_null": 22,
+      "best_counts": {
+        "null": 1,
+        "cauchy": 20,
+        "cv_m": 9
+      },
+      "mean_diff": 0.011034800765082611,
+      "median_diff": 0.008469069029721277,
+      "min_diff": -0.01636603533673578,
+      "max_diff": 0.04401178838495404
+    }
+  },
+  "mean_diff": 0.011034800765082611,
+  "median_diff": 0.008469069029721277,
+  "min_diff": -0.01636603533673578,
+  "max_diff": 0.04401178838495404,
+  "cvm_gt_null": 22,
+  "cvm_ge_null": 22
+}

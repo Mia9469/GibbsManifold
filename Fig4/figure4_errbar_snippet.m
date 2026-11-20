@@ -154,7 +154,7 @@ ax = get(h,'Position');
 semilogx(x_time, PcostE, 'Color', orange); hold on
 semilogx(x_time, PcostI, 'b');
 set(gca,'FontSize',fsize,'FontName','Helvetica','TickDir','out')
-ylabel('Cost [W]'); xlabel('time (s)');
+ylabel('calibrated cost proxy'); xlabel('time (s)');
 title('Evolution Through Learning')
 xlim([10^(-1) 10^6])
 set(gca,'ticklength',[0.01 0.01]/ax(3)); box off
@@ -175,7 +175,7 @@ ax = get(h,'Position');
 semilogx(x_time, PentrE_rate./PcostE, 'Color', orange); hold on
 semilogx(x_time, PentrI_rate./PcostI, 'b');
 set(gca,'FontSize',fsize,'FontName','Helvetica','TickDir','out')
-ylabel('ICE [bits/J]'); xlabel('time (s)');
+ylabel('information / calibrated cost proxy'); xlabel('time (s)');
 xlim([10^(-1) 10^6])
 set(gca,'ticklength',[0.01 0.01]/ax(3)); box off
 
@@ -225,7 +225,7 @@ plot(x_time, mean(ICEI_sp,1), '--b', 'LineWidth', 1);
 plot(x_time, mean(MIrateI_temporal./PcostI,1), ':b', 'LineWidth', 1.5);
 plot(x_time, mean(MIrateI_ST./PcostI,1), '-b', 'LineWidth', 2);
 set(gca,'FontSize',fsize,'FontName','Helvetica','TickDir','out')
-ylabel('ICE [bits/J]'); xlabel('time (s)');
+ylabel('information / calibrated cost proxy'); xlabel('time (s)');
 title('MI per Cost (3 Levels)')
 xlim([10^(-1) 10^6])
 set(gca,'ticklength',[0.01 0.01]/ax(3)); box off
@@ -267,7 +267,7 @@ for ii = 1:size(MIE_ST,2)
     scatter(PcostE1(:,ii), MIrateE_temporal(:,ii)./PcostE1(:,ii), 20, [1 0.8 0.5], '^'); hold on;
     scatter(PcostE1(:,ii), MIrateE_ST(:,ii)./PcostE1(:,ii), 36, orange, 's', 'filled'); hold on;
 end
-xlabel('Cost E [W]'); ylabel('ICE [bits/J]')
+xlabel('calibrated cost proxy'); ylabel('information / calibrated cost proxy')
 title('ICE vs Cost (E, 3 Levels)'); box off
 
 subplot(2,3,3)
@@ -303,14 +303,14 @@ y = mean(PcostE,1);
 std_dev = std(PcostE,0,1);
 semilogx(x_time, y, 'k', 'LineWidth', 2); hold on;
 shade_err(x_time, y, std_dev, [0.5 0.5 0.5], 0.4);
-xlim([10^(-1) 10^6]); ylabel('Cost [W]');
+xlim([10^(-1) 10^6]); ylabel('calibrated cost proxy');
 
 subplot(1,3,3)
 y = mean(PentrE_rate./PcostE,1);
 std_dev = std(PentrE_rate./PcostE,0,1);
 semilogx(x_time, y, 'k', 'LineWidth', 2); hold on;
 shade_err(x_time, y, std_dev, [0.5 0.5 0.5], 0.4);
-xlim([10^(-1) 10^6]); ylabel('ICE [bits/J]');
+xlim([10^(-1) 10^6]); ylabel('information / calibrated cost proxy');
 
 %% Figure 4: Three-Level Mutual Information Analysis (with SEM)
 
@@ -341,7 +341,7 @@ shade_err(x_time, y_st, semICEE_st, [1 0.7 0.4], 0.5);
 plot(x_time, y_sp, '--', 'Color', [0.5 0.5 0.5], 'LineWidth', 1.5);
 plot(x_time, y_tp, ':', 'Color', orange, 'LineWidth', 1.5);
 plot(x_time, y_st, '-', 'Color', orange, 'LineWidth', 2);
-xlabel('time (s)'); ylabel('ICE [bits/J]')
+xlabel('time (s)'); ylabel('information / calibrated cost proxy')
 title('MI Efficiency - E Pop')
 xlim([10^(-1) 10^6]); grid on; box off
 
@@ -397,7 +397,7 @@ shade_err(x_time, y_st, semICEI_st, [0.5 0.7 1], 0.5);
 plot(x_time, y_sp, '--', 'Color', [0.5 0.5 0.8], 'LineWidth', 1.5);
 plot(x_time, y_tp, ':', 'Color', 'b', 'LineWidth', 1.5);
 plot(x_time, y_st, '-b', 'LineWidth', 2);
-xlabel('time (s)'); ylabel('ICE [bits/J]')
+xlabel('time (s)'); ylabel('information / calibrated cost proxy')
 title('MI Efficiency - I Pop')
 xlim([10^(-1) 10^6]); grid on; box off
 

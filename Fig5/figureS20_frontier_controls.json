@@ -1,0 +1,60 @@
+{
+  "seed": 20260620,
+  "n_permutations": 1000,
+  "n_sessions": 5,
+  "n_neurons": 564,
+  "models": {
+    "Gibbs (1 par.)": {
+      "leave_one_session_out_r2": 0.47295495800053067,
+      "fold_rmse_bits_per_s": [
+        7.380814129310652,
+        7.904071967426599,
+        6.986819519486892,
+        8.980717719382852,
+        13.353794476432784
+      ],
+      "mean_fold_rmse_bits_per_s": 8.921243562407955,
+      "null_r2_95th_percentile": -0.03032164482876954,
+      "permutation_p_upper": 0.000999000999000999
+    },
+    "log (2 par.)": {
+      "leave_one_session_out_r2": 0.6636314307367528,
+      "fold_rmse_bits_per_s": [
+        6.371485282358222,
+        6.578295986350842,
+        5.518545621145124,
+        7.036623385300804,
+        10.217070872394448
+      ],
+      "mean_fold_rmse_bits_per_s": 7.144404229509888,
+      "null_r2_95th_percentile": -0.03946900351862254,
+      "permutation_p_upper": 0.000999000999000999
+    },
+    "sqrt (2 par.)": {
+      "leave_one_session_out_r2": 0.861235107922904,
+      "fold_rmse_bits_per_s": [
+        4.109168456908495,
+        4.393266565751726,
+        3.8496135083907412,
+        5.252003670873926,
+        5.779382602892403
+      ],
+      "mean_fold_rmse_bits_per_s": 4.676686960963458,
+      "null_r2_95th_percentile": -0.016480102908242963,
+      "permutation_p_upper": 0.000999000999000999
+    },
+    "rate-linear (2 par.)": {
+      "leave_one_session_out_r2": 0.9091391322470427,
+      "fold_rmse_bits_per_s": [
+        3.2377832194272385,
+        3.756327658469714,
+        3.4332994098566854,
+        4.475933829680442,
+        4.227236665988795
+      ],
+      "mean_fold_rmse_bits_per_s": 3.826116156684575,
+      "null_r2_95th_percentile": -0.008389186689550179,
+      "permutation_p_upper": 0.000999000999000999
+    }
+  }
+}

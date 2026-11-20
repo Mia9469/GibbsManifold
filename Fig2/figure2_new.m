@@ -6,7 +6,7 @@
 %
 % MUTUAL INFORMATION via DIRECT METHOD (Strong et al. 1998):
 %   - Temporal MI computed from binary spike words (not ISI histograms)
-%   - 1/T extrapolation to remove finite-word-length bias
+%   - 1/T extrapolation to reduce finite-word-length dependence
 %   - Spatial-only MI still uses histogram method on spike counts
 %   - Per-neuron, population, and spatial-only MI levels
 %
@@ -61,9 +61,9 @@ rast_v1_s = {};  rast_v1_d = {};
 rast_v2_s = {};  rast_v2_d = {};
 
 % Metabolic cost parameters (from Yu et al. 2018, human gray matter)
-% C(r) = C1 + C2*r [Watts],  C1 = 2.4 W (nonsignaling), C2 = 0.37 W/Hz (per-spike)
-C1 = 2.4;    % baseline nonsignaling cost [W]
-C2 = 0.37;   % action-potential cost coefficient [W/Hz]
+% Calibrated affine cost proxy C(r) = C1 + C2*r.
+C1 = 2.4;    % baseline proxy term
+C2 = 0.37;   % rate-dependent proxy coefficient
 
 % Trial durations [s]
 dur_driven = 1.28;   % driven trial duration [s]
@@ -1037,7 +1037,7 @@ fprintf('    V1: Hr_pop=%.2f, Hr_perNeuron_mean=%.2f\n', Hr_v1_spon_direct, mean
 fprintf('    V2: Hr_pop=%.2f, Hr_perNeuron_mean=%.2f\n', Hr_v2_spon_direct, mean(hr_v2_perNeuron_spon));
 
 % ICE computation
-% Direct method outputs are already in bits/s, so ICE = MI_rate / cost = bits/J
+% Direct method outputs are in bits/s; normalization is by the calibrated cost proxy.
 % Spatial-only MI is in bits (not bits/s), so divide by dur_driven for ICE
 
 mean_cost_v1_driven = mean(cost1_p);
@@ -1049,15 +1049,15 @@ mean_cost_v2_spon = mean(cost2_ps);
 ICE_spatial_v1 = MI_spatial_v1 / (dur_driven * mean_cost_v1_driven);
 ICE_spatial_v2 = MI_spatial_v2 / (dur_driven * mean_cost_v2_driven);
 
-% Per-neuron temporal ICE (already bits/s / W = bits/J)
+% Per-neuron temporal information per calibrated cost proxy
 ICE_perNeuron_v1 = mean(mi_v1_perNeuron) / mean_cost_v1_driven;
 ICE_perNeuron_v2 = mean(mi_v2_perNeuron) / mean_cost_v2_driven;
 
-% Population temporal ICE (already bits/s / W = bits/J)
+% Population temporal information per calibrated cost proxy
 ICE_pop_v1 = MI_v1 / mean_cost_v1_driven;
 ICE_pop_v2 = MI_v2 / mean_cost_v2_driven;
 
-fprintf('\n  ICE (bits/J):\n');
+fprintf('\n  information / calibrated cost proxy:\n');
 fprintf('    V1: Spatial=%.4f, PerNeuron=%.4f, Population=%.4f\n', ICE_spatial_v1, ICE_perNeuron_v1, ICE_pop_v1);
 fprintf('    V2: Spatial=%.4f, PerNeuron=%.4f, Population=%.4f\n', ICE_spatial_v2, ICE_perNeuron_v2, ICE_pop_v2);
 
@@ -1143,7 +1143,7 @@ b(1).FaceColor = [0.5 0.5 0.8]; b(1).DisplayName = 'Spatial-Only';
 b(2).FaceColor = [0.8 0.4 0.2]; b(2).DisplayName = 'Per-Neuron (mean)';
 b(3).FaceColor = [0.2 0.7 0.3]; b(3).DisplayName = 'Population';
 set(gca, 'XTickLabel', {'V1', 'V2'});
-ylabel('ICE [bits/J]');
+ylabel('information / calibrated cost proxy');
 title('Information-Cost Efficiency at Each Level');
 legend('Location', 'best');
 grid on
@@ -1273,7 +1273,7 @@ scatter(cost_v1_perStim, MI_v1_perStim_pop, 80, col_evk, 'o', 'filled', ...
         'MarkerFaceAlpha', 1.0, 'MarkerEdgeColor', 'k', 'LineWidth', 0.8);
 y = 1 + log(x);
 plot(x, y, 'k--', 'LineWidth', 1.5)
-xlabel('Metabolic Cost [W]'); ylabel('Information [nats]');
+xlabel('calibrated cost proxy'); ylabel('Information [nats]');
 title('V1: Information vs Cost (H, MI)');
 legend('Spon H(r)', 'Evoked H(r)', 'Evoked MI(s;r)', 'Theory  1 + ln C', ...
        'Location', 'best');
@@ -1293,7 +1293,7 @@ scatter(cost_v1_perStim, MI_v1_perStim_pop ./ (dur_driven * cost_v1_perStim), ..
         'MarkerFaceAlpha', 1.0, 'MarkerEdgeColor', 'k', 'LineWidth', 0.8);
 y = 1 ./ x;
 plot(x, y, 'k--', 'LineWidth', 1.5)
-xlabel('Metabolic Cost [W]'); ylabel('ICE [nats/J]');
+xlabel('calibrated cost proxy'); ylabel('information / calibrated cost proxy');
 title('V1: ICE vs Cost (H/C, MI/C)');
 legend('Spon H(r)/C', 'Evoked H(r)/C', 'Evoked MI(s;r)/C', 'Theory  1/C', ...
        'Location', 'best');
@@ -1607,7 +1607,7 @@ for g = 1:2  % g=1: V1, g=2: V2
 end
 
 set(gca, 'XTick', [1 2], 'XTickLabel', {'V1', 'V2'});
-ylabel('ICE [bits/J]');
+ylabel('information / calibrated cost proxy');
 title('A. Spon H(r)/C vs Driven MI/C');
 
 hS = bar(nan, nan, 'FaceColor', col_spon, 'EdgeColor', 'none');
@@ -1639,7 +1639,7 @@ scatter(cost_perN_v1_driven, mi_v1_driv_perN, 30, ...
 scatter(cost_perN_v2_driven, mi_v2_driv_perN, 80, ...
     col_orange, 'p', 'filled', 'MarkerFaceAlpha', 0.9);
 
-xlabel('Cost [W]');
+xlabel('calibrated cost proxy');
 ylabel('Information [bits/s]');
 title('B. Information vs Cost');
 
@@ -1669,8 +1669,8 @@ scatter(cost_perN_v1_driven, ICE_perN_v1_driven, 30, ...
 scatter(cost_perN_v2_driven, ICE_perN_v2_driven, 80, ...
     col_orange, 'p', 'filled', 'MarkerFaceAlpha', 0.9);
 
-xlabel('Cost [W]');
-ylabel('ICE [bits/J]');
+xlabel('calibrated cost proxy');
+ylabel('information / calibrated cost proxy');
 title('C. ICE vs Cost');
 
 h1c = scatter(nan, nan, 40, col_blue, 'o', 'filled', 'MarkerFaceAlpha', 1.0);
@@ -1698,6 +1698,9 @@ save('MI_analysis_figure2_new.mat', ...
     'Hr_v1_spon_direct', 'Hr_v2_spon_direct', ...
     'Hr_spatial_v1_spon', 'Hr_spatial_v2_spon', ...
     'cost1_p', 'cost2_p', 'cost1_ps', 'cost2_ps', ...
+    'entr1_p', 'entr2_p', 'entr1_ps', 'entr2_ps', ...
+    'dur_driven', 'dur_spon', ...
+    'unique_stim_driven', ...
     'ICE_spatial_v1', 'ICE_spatial_v2', ...
     'ICE_perNeuron_v1', 'ICE_perNeuron_v2', ...
     'ICE_pop_v1', 'ICE_pop_v2', ...
@@ -1725,17 +1728,15 @@ function H = total_entropy_local(spike_matrix, T)
 %   H - Shannon entropy (bits)
 
     [n_rows, n_cols] = size(spike_matrix);
+    n_windows = n_cols - T + 1;
+    if n_windows <= 0, H = 0; return; end
 
-    % Trim so column count is divisible by T, concatenate all rows
-    remainder = mod(n_cols, T);
-    trimmed_len = n_cols - remainder;
-    all_data = reshape(spike_matrix(:, 1:trimmed_len)', 1, []);
-
-    % Cut into words: each row is one word [n_words x T]
-    total_len = length(all_data);
-    remainder2 = mod(total_len, T);
-    n_words = (total_len - remainder2) / T;
-    words = reshape(all_data(1:total_len - remainder2), T, n_words)';
+    % Use the same sliding word starts as the conditional-entropy estimate.
+    words = zeros(n_rows * n_windows, T, 'like', spike_matrix);
+    for j = 1:n_windows
+        idx = (j - 1) * n_rows + (1:n_rows);
+        words(idx, :) = spike_matrix(:, j:(j + T - 1));
+    end
 
     % Count unique words
     counts = count_unique_words_local(words);
@@ -1775,13 +1776,8 @@ function H = noise_entropy_local(spike_matrix, T)
         entropy_values(j) = -sum(p .* log2(p));
     end
 
-    % Average over valid (non-zero) windows
-    valid = entropy_values > 0;
-    if any(valid)
-        H = mean(entropy_values(valid));
-    else
-        H = 0;
-    end
+    % Zero-entropy positions are valid observations and remain in the mean.
+    H = mean(entropy_values);
 end
 
 

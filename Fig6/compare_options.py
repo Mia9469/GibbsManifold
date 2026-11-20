@@ -8,7 +8,7 @@ Compare Option 1 / 2 / 3 for CVM training:
               "maximize CV subject to reconstruction staying good enough"
 
 Usage:
-    cd Fig7
+    cd Fig6
     python compare_options.py             # train all + evaluate + plot
     python compare_options.py --eval-only # skip training
 """
@@ -188,7 +188,7 @@ def plot_comparison(results):
     ax.set_ylabel('Relative reconstruction error (RE)', fontsize=13)
     ax.set_title('RE vs CV', fontsize=13)
 
-    # ── Panel 2: ICE vs CV ────────────────────────────────────────────────
+    # Panel 2: RAE vs CV (internal arrays retain the legacy ICE key).
     ax = axes[1]
     for b in BASELINES.values():
         ax.axhline(b['ICE'], ls='--', lw=1, color='gray', alpha=0.6)
@@ -196,8 +196,8 @@ def plot_comparison(results):
         ax.scatter(r['CV'], r['ICE'], marker=r['marker'],
                    color=r['color'], s=80, label=r['label'])
     ax.set_xlabel('Population CV', fontsize=13)
-    ax.set_ylabel(r'ICE $= -\log_2(\mathrm{RE})/\bar{a}$  (bits/activation)', fontsize=11)
-    ax.set_title('ICE vs CV', fontsize=13)
+    ax.set_ylabel(r'RAE score $= -\log_2(\mathrm{RE})/\bar{a}$', fontsize=11)
+    ax.set_title('RAE vs CV', fontsize=13)
 
     # ── Panel 3: RE vs ā (cost) ───────────────────────────────────────────
     ax = axes[2]

@@ -14,7 +14,7 @@
 %  Output: figure2_stats_only.mat (a few hundred kB), with:
 %    cv_v1_s, cv_v1, ss_v1_s, ss_v1, mrate_v1_s, mrate_v1   (V1)
 %    cv_v2_s, cv_v2, ss_v2_s, ss_v2, mrate_v2_s, mrate_v2   (V2)
-%    cost1_ps, cost1_p, cost2_ps, cost2_p                    (population cost in W)
+%    cost1_ps, cost1_p, cost2_ps, cost2_p                    (calibrated cost proxy)
 %    n_v1, n_v2, dur_spon, dur_driven
 %
 %  Runtime: ~10-30 s for 6400 trials.
@@ -34,9 +34,9 @@ nt          = max(neuralData.trialId);
 stim_labels = neuralData.stim;
 fprintf('[figure2_stats_only] loaded 105l001p16.mat (nt=%d trials)\n', nt);
 
-%% Cost coefficients (Yu et al. 2018, human cortical gray matter)
-C1 = 2.4;        % W
-C2 = 0.37;       % W/Hz
+%% Calibrated affine cost-proxy coefficients (adapted from Yu et al. 2018)
+C1 = 2.4;        % proxy baseline
+C2 = 0.37;       % proxy slope
 
 n_v1 = 159;
 n_v2 = 25;

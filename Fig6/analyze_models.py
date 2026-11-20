@@ -15,7 +15,7 @@ import seaborn as sns
 from scipy import stats
 
 # Absolute import since parent directory is a namespace package
-from src.model.SparseNet import SparseNet
+from src.model.SparseNetNew import SparseNet
 from basis_analysis import linear_independence, orthogonality, mutual_information, decorrelation
 
 def add_gaussian_noise(images, noise_level):
@@ -509,7 +509,7 @@ def compare_model_results(base_model_paths, noise_model_paths, noise_levels, noi
 
 def modify_sparsenet_class():
     """Monkey patch SparseNet class to add encode/decode methods for analysis"""
-    from src.model.SparseNet import SparseNet
+    from src.model.SparseNetNew import SparseNet
     
     # Add encode and decode methods for easier evaluation
     def encode(self, x):

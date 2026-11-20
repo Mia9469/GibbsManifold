@@ -6,10 +6,12 @@
 %   - 1 ms bins, refractory=1, T_list=[4..40], n_fit=8
 %   - no SNR/FR filter (all V1 units kept, matching figure2_new.m)
 %   - driven window 0-1.28 s (1280 bins) for both datasets
-%   - per-neuron H_total, P(s)-weighted H_noise, 1/T linear extrapolation
+%   - matched sliding word starts for H_total and P(s)-weighted H_noise
+%   - zero-entropy conditional positions retained; 1/T finite-word extrapolation
+%   - estimand: I((S,J);W), where S is stimulus identity and J word onset
 %   - rho    = H_noise_rate / H_total_rate
-%   - C      = C1 + C2 * mean_FR (Yu et al. 2018)
-%   - ICE    = H_total_rate / C   [bits/J]
+%   - C      = C1 + C2 * mean_FR (affine proxy adapted from Yu et al. 2018)
+%   - both H_total/C and I((S,J);W)/C are retained for downstream analyses
 %
 % Outputs:
 %   results.(dataset){k}.hr/hn/rho/mi/FR/C/ICE     (per-neuron vectors)
@@ -41,9 +43,9 @@ n_fit      = 8;
 dt_bin     = 0.001;
 refractory = 1;
 
-% Metabolic cost (Yu et al. 2018)
-C1 = 2.4;     % W, baseline
-C2 = 0.37;    % W/Hz, per-spike
+% Calibrated rate-based cost proxy (Yu et al. 2018)
+C1 = 2.4;     % baseline proxy term
+C2 = 0.37;    % calibrated proxy slope
 
 % Driven window (both datasets): 0 - 1.28 s  => 1280 bins
 DUR_DRIVEN = 1.28;
@@ -199,8 +201,10 @@ fprintf('\nSaved to %s\n', OUTPUT_MAT);
 
 function out = per_neuron_direct_method_v1v2(rast_cell, stim_driven, unique_stim, ...
     T_list, n_fit, dt_bin, refractory, C1, C2, dur_driven)
-% For each V1 neuron: pool all driven trials -> H_total; per-stim trials
-% with P(s) weighting -> H_noise; 1/T fit -> entropy rates.
+% For each V1 neuron, estimate H(W) and H(W|S,J) from the same sliding
+% word starts. Their difference targets I((S,J);W), not identity-only I(S;W).
+% The 1/T fit extrapolates finite word length but does not remove finite-repeat
+% plug-in bias.
 
     n_driven = numel(rast_cell);
     n_v1     = size(rast_cell{1}, 1);
@@ -214,6 +218,7 @@ function out = per_neuron_direct_method_v1v2(rast_cell, stim_driven, unique_stim
 
     hr  = nan(1, n_v1);
     hn  = nan(1, n_v1);
+    mi_raw = nan(1, n_v1);
     mi  = nan(1, n_v1);
     rho = nan(1, n_v1);
     FR  = nan(1, n_v1);
@@ -256,31 +261,43 @@ function out = per_neuron_direct_method_v1v2(rast_cell, stim_driven, unique_stim
 
         hr(neuron)  = ft.intercept;
         hn(neuron)  = fn.intercept;
-        mi(neuron)  = max(0, ft.intercept - fn.intercept);
+        mi_raw(neuron) = ft.intercept - fn.intercept;
+        mi(neuron)  = max(0, mi_raw(neuron));
         if hr(neuron) > 0
             rho(neuron) = hn(neuron) / hr(neuron);
         end
     end
 
     C   = C1 + C2 * FR;
-    ICE = hr ./ C;           % bits/J  (use Hr = coding capacity)
+    H_per_cost = hr ./ C;
+    MI_per_cost = mi ./ C;
 
-    out.hr  = hr;    out.hn  = hn;   out.mi  = mi;
-    out.rho = rho;   out.FR  = FR;   out.C   = C;    out.ICE = ICE;
+    out.hr  = hr;    out.hn  = hn;   out.mi_raw = mi_raw;   out.mi = mi;
+    out.rho = rho;   out.FR  = FR;   out.C   = C;
+    out.H_per_cost = H_per_cost;
+    out.MI_per_cost = MI_per_cost;
+    out.ICE = H_per_cost; % Backward-compatible legacy field; do not label as MI efficiency.
+    out.estimand = 'I((S,J);W)';
+    out.time_sampling = 'all sliding starts for total and conditional entropy';
+    out.zero_entropy_positions_retained = true;
 end
 
 
 function p = pool_results(cell_array)
-    p.hr  = [];   p.hn  = [];   p.mi  = [];
-    p.rho = [];   p.FR  = [];   p.C   = [];   p.ICE = [];
+    p.hr  = [];   p.hn  = [];   p.mi_raw = [];   p.mi  = [];
+    p.rho = [];   p.FR  = [];   p.C   = [];
+    p.H_per_cost = [];   p.MI_per_cost = [];   p.ICE = [];
     for k = 1:numel(cell_array)
         if isempty(cell_array{k}), continue; end
         p.hr  = [p.hr,  cell_array{k}.hr];
         p.hn  = [p.hn,  cell_array{k}.hn];
+        p.mi_raw = [p.mi_raw, cell_array{k}.mi_raw];
         p.mi  = [p.mi,  cell_array{k}.mi];
         p.rho = [p.rho, cell_array{k}.rho];
         p.FR  = [p.FR,  cell_array{k}.FR];
         p.C   = [p.C,   cell_array{k}.C];
+        p.H_per_cost = [p.H_per_cost, cell_array{k}.H_per_cost];
+        p.MI_per_cost = [p.MI_per_cost, cell_array{k}.MI_per_cost];
         p.ICE = [p.ICE, cell_array{k}.ICE];
     end
 end
@@ -298,11 +315,11 @@ function print_block(label, s)
         mean(v(s.mi)), median(v(s.mi)), q(s.mi,0.25), q(s.mi,0.75));
     fprintf('    FR    : mean=%7.3f  median=%7.3f  IQR=[%7.3f, %7.3f]  Hz\n', ...
         mean(v(s.FR)), median(v(s.FR)), q(s.FR,0.25), q(s.FR,0.75));
-    fprintf('    C     : mean=%7.3f  median=%7.3f  IQR=[%7.3f, %7.3f]  W\n', ...
+    fprintf('    Ctilde: mean=%7.3f  median=%7.3f  IQR=[%7.3f, %7.3f]  proxy units\n', ...
         mean(v(s.C)),  median(v(s.C)),  q(s.C,0.25),  q(s.C,0.75));
     fprintf('    rho   : mean=%7.3f  median=%7.3f  IQR=[%7.3f, %7.3f]\n', ...
         mean(v(s.rho)), median(v(s.rho)), q(s.rho,0.25), q(s.rho,0.75));
-    fprintf('    ICE   : mean=%7.3f  median=%7.3f  IQR=[%7.3f, %7.3f]  bits/J\n', ...
+    fprintf('    H/cost proxy ratio: mean=%7.3f  median=%7.3f  IQR=[%7.3f, %7.3f]\n', ...
         mean(v(s.ICE)), median(v(s.ICE)), q(s.ICE,0.25), q(s.ICE,0.75));
 end
 
@@ -310,13 +327,14 @@ end
 %% ================= local helpers (copied from figure2_new.m) =================
 
 function H = total_entropy_local(spike_matrix, T)
-    [~, n_cols] = size(spike_matrix);
-    remainder = mod(n_cols, T);
-    trimmed_len = n_cols - remainder;
-    all_data = reshape(spike_matrix(:, 1:trimmed_len)', 1, []);
-    total_len = length(all_data);
-    remainder2 = mod(total_len, T);
-    words = reshape(all_data(1:total_len - remainder2), T, (total_len - remainder2)/T)';
+    [n_rows, n_cols] = size(spike_matrix);
+    n_windows = n_cols - T + 1;
+    if n_windows <= 0, H = 0; return; end
+    words = zeros(n_rows * n_windows, T, 'like', spike_matrix);
+    for j = 1:n_windows
+        idx = (j - 1) * n_rows + (1:n_rows);
+        words(idx, :) = spike_matrix(:, j:(j + T - 1));
+    end
     counts = count_unique_words_local(words);
     p = counts / sum(counts);
     H = -sum(p .* log2(p));
@@ -332,8 +350,7 @@ function H = noise_entropy_local(spike_matrix, T)
         p = counts / sum(counts);
         entropy_values(j) = -sum(p .* log2(p));
     end
-    valid = entropy_values > 0;
-    if any(valid), H = mean(entropy_values(valid)); else, H = 0; end
+    H = mean(entropy_values);
 end
 
 function counts = count_unique_words_local(words)

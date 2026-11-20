@@ -3,9 +3,9 @@
 %  Signal:  r ~ N(mu, sigma^2),  sigma fixed per curve
 %  Channel: y = r + n,  n ~ N(0, sigma_n^2)
 %  MI  = 0.5 * log2(1 + sigma^2 / sigma_n^2)   [bits]   — constant per sigma
-%  Cost = 2.4 + 0.37 * mu                       [W]      — physiological (Cost 1)
+%  Cost proxy = 2.4 + 0.37 * mu                 [calibrated proxy units]
 %  CV  = sigma / mu  =>  mu = sigma / CV
-%  ICE = MI / Cost                               [bits/J]
+%  ICE = MI / calibrated cost proxy
 %
 %  Sweep sigma = {1, 5, 10, 50, 100}, sigma_n = 1
 
@@ -30,12 +30,12 @@ for si = 1:nS
     MI_vals(si) = 0.5 * log2(1 + sig^2 / sigma_n^2);
     MI_rate(si) = MI_vals(si) * R0;         % bits/s
     mu_vec = sig ./ CV_vec;
-    C_vec  = 2.4 + 0.37 * mu_vec;           % W = J/s
-    ICE_curves(si, :) = MI_rate(si) ./ C_vec;  % bits/J
+    C_vec  = 2.4 + 0.37 * mu_vec;
+    ICE_curves(si, :) = MI_rate(si) ./ C_vec;
 end
 
 %% Print MI values
-fprintf('\n  sigma   MI [bits]   MI_rate [bits/s]   ICE_max [bits/J]\n');
+fprintf('\n  sigma   MI [bits]   MI_rate [bits/s]   ICE_max [proxy^-1 bits]\n');
 fprintf('  -----   ---------   ---------------   ----------------\n');
 for si = 1:nS
     fprintf('  %4d    %.4f      %.4f            %.4f\n', ...
@@ -61,7 +61,7 @@ for si = 1:nS
 end
 
 xlabel('CV', 'FontSize', 13);
-ylabel('ICE = MI / C(r)  [bits/J]', 'FontSize', 13);
+ylabel('MI / calibrated cost proxy', 'FontSize', 13);
 title('Gaussian channel: ICE vs CV', 'FontSize', 14, 'FontWeight', 'bold');
 set(gca, 'FontSize', 11);
 xlim([0 8]);

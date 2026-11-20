@@ -1,151 +1,79 @@
 # GibbsManifold
 
-Code and analysis pipelines accompanying the manuscript:
+Code and shared numerical inputs for **How learning reshapes neural responses
+under a spike budget: A maximum-entropy benchmark**.
 
-> **Gibbs Manifold Geometry Unifies Neural Variability, Sparseness, and Metabolic Efficiency.**
-> Mingyi Huang, Wei Lin, Anna Wang Roe, Yuguo Yu. *(submitted to Nature Communications)*.
+Mingyi Huang, Lingyan Mao, Jing Ding, Anna Wang Roe, Wei Lin and Yuguo Yu.
+This is a research-code release, not a statement of journal acceptance.
 
-This repository contains the analytical derivations, simulation scripts, and
-data-analysis pipelines that generate every main and supplementary figure of
-the paper.
+The current release distinguishes a cost-constrained response-entropy reference
+from task performance. It includes the controlled 60-excitatory/15-inhibitory
+network cohort, saved synchronous simulated responses and weights, population
+and same-response readout analyses, and the accompanying V1 and sparse-coding
+analysis code. A larger CV is not asserted to imply higher coding efficiency.
 
----
+## Start here
 
-## Repository layout
+Use Python 3.9 with the pinned core dependencies:
 
-Folders are aligned with the **manuscript figure numbering**:
-
-| Folder    | Generates                                                       | Manuscript                  |
-| --------- | --------------------------------------------------------------- | --------------------------- |
-| `Fig1/`   | Theory illustration: truncated-exponential ICE–CV curves        | Fig. 1C                     |
-| `Fig2/`   | Macaque V1/V2 Direct-Method entropy + decoder analysis; also produces V1 frontier overlay used in Fig. 5C | Fig. 2, Fig. 5C overlay, Fig. S3, Fig. S11 |
-| `Fig3/`   | Single-neuron LIF model with inhibitory STDP; exports the single-neuron column of Fig. 5 | Fig. 3, Fig. 5A panel       |
-| `Fig4/`   | Recurrent E–I spiking network with plasticity; exports the network column of Fig. 5 (spatiotemporal points only) | Fig. 4, Fig. 5B panel       |
-| `Fig5/`   | Cross-system entropy–cost composite (assembled from Fig. 2 / Fig. 3 / Fig. 4 outputs) + R₀ anchor-sensitivity analysis | Fig. 5, Fig. S7             |
-| `Fig6/`   | CV-maximising sparse-coding learning rule                       | Fig. 6, Fig. S6, Fig. S8    |
-| `updated/`| Manuscript LaTeX sources, bibliography, supplementary           | PDF builds                  |
-
-Each `Fig*/` folder contains a short `README.md` documenting its main
-entry-point script(s), required inputs, and produced outputs.
-
----
-
-## Software requirements
-
-| Language          | Version       | Used by                                     |
-| ----------------- | ------------- | ------------------------------------------- |
-| Python            | ≥ 3.10        | `Fig1/`, `Fig2/*.py`, `Fig6/`, `Fig7/`      |
-| ↳ `numpy`, `scipy`, `matplotlib`            |                                |
-| ↳ `scikit-learn`  | ≥ 1.3         | `Fig2/v1_decoder_vs_CV_multi.py` (LDA)      |
-| ↳ `pytorch`       | ≥ 2.0         | `Fig7/train_new.py` (GPU-accelerated)       |
-| MATLAB            | R2022a+       | `Fig2/*.m`, `Fig3/`, `Fig4/`, `Fig5/`       |
-| LaTeX             | TeX Live 2023+ + Springer Nature `sn-jnl` class | `updated/`            |
-
-Install Python deps:
-```bash
-pip install numpy scipy matplotlib scikit-learn torch
+```sh
+python -m pip install -r requirements-core.txt
+python scripts/verify_release.py
+python -m unittest discover -s outputs/snn_budget_frontier_20261016 -p 'test_*.py'
+python outputs/snn_budget_frontier_20261016/summarize.py
+python outputs/snn_budget_frontier_20261016/verify_experiment.py
+python outputs/elife_reconsideration_20261109/analysis/population_bridge.py --self-test
+python outputs/elife_one_second_g_20261111/verify.py
 ```
 
----
+The first command verifies the released file hashes and key numerical contracts.
+`verify_experiment.py` recomputes all 120 archived network checkpoints and replays
+one initial/learned pair from the saved weights; it does not retrain the cohort.
+Runtime and exact stochastic replay can vary by platform. The saved responses
+permit direct statistical checks independently of stochastic replay.
 
-## Data availability
+## Current manuscript map
 
-The macaque V1/V2 recordings analysed in `Fig2/` are publicly available
-from the Collaborative Research in Computational Neuroscience (CRCNS)
-data portal:
+The historical `Fig*/` directory names are retained for import compatibility.
+They are **not** the current article's figure numbers.
 
-* **`v1v2-1` dataset**: <https://crcns.org/data-sets/vc/v1v2-1>
+| Current result | Code and shared inputs |
+| --- | --- |
+| Fig. 1: specified entropy reference and conditional CV/sparseness relation | `outputs/snn_budget_frontier_20261016/frontier.py`, `test_frontier.py`; `Fig1/` contains historical illustrative calculations |
+| Fig. 2: budget-controlled learning and pooled/joint response analyses | `outputs/snn_budget_frontier_20261016/`, `outputs/elife_editor_focus_20261111/analysis.py`, `outputs/elife_readout_review_20261111/figure2g_seed_deltas.csv` |
+| Fig. 3: V1 response statistics and state comparisons | `Fig2/`, including the session-level and mixed-effects analyses |
+| Fig. 4: response-law comparisons and independent-half decoding | `Fig5/discriminative_maxent_test.py`, `Fig5/shared_shape_count_loso.py`, `Fig2/v1_decoder_crossfit.py` |
+| Fig. 5: single-neuron adaptive trajectory | `Fig3/`; `source_data/LIF_trajectory.csv` and the saved model analysis arrays |
+| Fig. 6: sparse coding and held-out/structured generalization | `Fig6/`, including v2 CV targeting, finite-value guards, reference-range SSIM, run/fold/pattern summaries and tests |
+| Appendix population diagnostics | `outputs/elife_reconsideration_20261109/analysis/` |
+| Appendix one-second sampling and achieved-cost controls | `outputs/elife_one_second_g_20261111/` |
+| Appendix original 300E/75I network information readout | `Fig4/network_information_corrected/`, `scripts/recompute_network_words.py` |
 
-The five session `.mat` files used by `Fig2/` —
+See [REPRODUCIBILITY.md](REPRODUCIBILITY.md) for the analysis sequence, required
+external inputs and the distinction between recomputation and retraining.
+`RELEASE_MANIFEST.json` records hashes of the new release payload. Transport-only
+redaction replaces the original author's absolute workspace prefix in JSON
+metadata with repository-relative paths; numerical arrays and values are not
+changed.
 
-```
-105l001p16.mat   106r001p26.mat   106r002p70.mat
-107l002p67.mat   107l003p143.mat
-```
+## Data and access
 
-— are **not** redistributed in this repository (they require CRCNS
-account registration).  After registering, download these files into
-`Fig2/` and the pipelines run as-is.
+The packed rasters in the controlled-network and common-input network directories
+are **author-generated simulations**, not animal recordings. The five CRCNS
+session files, Allen/Steinmetz/IBL raw recordings and van Hateren images are not
+redistributed. Obtain these from their original providers under their access
+terms; the exact source links and expected paths are in REPRODUCIBILITY.md.
 
----
+Historical manuscript snapshots and the old source-data workbook are retained
+under `legacy_202605/` for provenance, not as the current submitted manuscript or
+current source-data authority. Historical code that uses an entropy or cost
+definition superseded by this release must not be substituted for the mapped
+analyses above. This release does not modify or upload the submitted PDFs.
 
-## Reproducing the figures
+## License and citation
 
-From the repository root:
+Source code retains the repository's MIT license. External datasets retain their
+providers' terms. `CITATION.cff` supplies software and manuscript metadata; no
+unissued DOI or journal acceptance is claimed.
 
-```bash
-# Fig. 1C  — theoretical ICE–CV manifold
-python3 Fig1/Fig1c.py
-
-# Fig. 2   — V1/V2 Direct-Method analysis (requires CRCNS .mat files)
-matlab -batch "cd Fig2; fig2_stats"             # within-condition statistics
-python3 Fig2/fig2_styled_panels.py              # paper-style panels (C, D)
-
-# Supplementary Fig. S11 — FR-controlled per-neuron decoder (5-session)
-python3 Fig2/v1_decoder_vs_CV_multi.py
-
-# V1 frontier overlay for Fig. 5C (consumed by the Fig 5 composite below)
-matlab -batch "cd Fig2; unified_v1_Hrho_ICE"
-
-# Fig. 3   — single-neuron MI
-matlab -batch "cd Fig3; figure3_main"           # main pipeline
-matlab -batch "cd Fig3; figure3_MI_new"         # Direct-Method MI
-
-# Fig. 4   — recurrent E–I network
-matlab -batch "cd Fig4; figure4_main"
-matlab -batch "cd Fig4; Learning_testentr"      # learning-trajectory entropy
-
-# Fig. 5   — cross-system entropy–cost composite
-#   panels are assembled from Fig2/Fig3/Fig4 outputs (.fig files live in Fig5/)
-python3 Fig5/figS7_anchor_sensitivity.py        # Supp Fig. S7 anchor sensitivity
-
-# Fig. 6   — CV-max sparse coding
-python3 Fig6/train_new.py                       # train all three models (GPU)
-python3 Fig6/analyze_models.py                  # per-method comparison + panels
-bash    Fig6/p3_matched/p3_sweep_v2.sh          # matched-baseline ablation
-python3 Fig6/p3_matched/plot_figureS8.py        # Supp Fig. S8
-```
-
-Each script writes its outputs (PDFs, JSON summaries, plot data) into
-its own `Fig*/` folder.
-
----
-
-## Citation
-
-```bibtex
-@article{HuangGibbsManifold2026,
-  title   = {Gibbs Manifold Geometry Unifies Neural Variability,
-             Sparseness, and Metabolic Efficiency},
-  author  = {Huang, Mingyi and Lin, Wei and Roe, Anna Wang and Yu, Yuguo},
-  year    = {2026},
-  journal = {(under review at Nature Communications)}
-}
-
-@software{HuangGibbsManifoldCode2026,
-  title     = {GibbsManifold: analysis and simulation code},
-  author    = {Huang, Mingyi and Lin, Wei and Roe, Anna Wang and Yu, Yuguo},
-  year      = {2026},
-  publisher = {Zenodo},
-  doi       = {10.5281/zenodo.XXXXXXX}
-}
-```
-
-A `CITATION.cff` file is provided at the repository root for GitHub's
-"Cite this repository" widget.
-
----
-
-## License
-
-Source code is released under the **MIT License** (see `LICENSE`).
-The CRCNS `v1v2-1` data are governed by the CRCNS data-sharing
-agreement; please consult the CRCNS portal for those terms before
-re-distributing any session file.
-
----
-
-## Contact
-
-* Analysis pipelines: **Mingyi Huang** — `myhuang20@fudan.edu.cn`
-* Conceptual framework: **Yuguo Yu** — `yuyuguo@fudan.edu.cn`
+Analysis contact: Mingyi Huang, `myhuang20@fudan.edu.cn`.

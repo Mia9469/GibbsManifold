@@ -1,0 +1,136 @@
+{
+  "per_session": [
+    {
+      "session": "105l001p16",
+      "n_units": 159,
+      "n_spontaneous_trials": 3200,
+      "n_evoked_trials": 3200,
+      "spontaneous_median_FR_Hz": 6.537441037735849,
+      "evoked_median_FR_Hz": 13.042944182389938,
+      "spontaneous_median_CV_P": 1.0298000490234307,
+      "evoked_median_CV_P": 1.0360632516499428,
+      "delta_CV_P_spont_minus_evoked": -0.006263202626512143,
+      "spontaneous_median_S_P": 0.5179355624587897,
+      "evoked_median_S_P": 0.5209833124315433,
+      "delta_S_P_spont_minus_evoked": -0.0030477499727535884,
+      "mannwhitney_CV_P_p_two_sided": 0.42596251497516957,
+      "mannwhitney_S_P_p_two_sided": 0.4259625149698745
+    },
+    {
+      "session": "106r001p26",
+      "n_units": 109,
+      "n_spontaneous_trials": 3200,
+      "n_evoked_trials": 3200,
+      "spontaneous_median_FR_Hz": 5.873709862385321,
+      "evoked_median_FR_Hz": 17.97950114678899,
+      "spontaneous_median_CV_P": 1.2034822439911856,
+      "evoked_median_CV_P": 0.9933953617791478,
+      "delta_CV_P_spont_minus_evoked": 0.21008688221203786,
+      "spontaneous_median_S_P": 0.5970423716892691,
+      "evoked_median_S_P": 0.5012857274271517,
+      "delta_S_P_spont_minus_evoked": 0.09575664426211739,
+      "mannwhitney_CV_P_p_two_sided": 0.0,
+      "mannwhitney_S_P_p_two_sided": 0.0
+    },
+    {
+      "session": "106r002p70",
+      "n_units": 88,
+      "n_spontaneous_trials": 3200,
+      "n_evoked_trials": 3200,
+      "spontaneous_median_FR_Hz": 2.237215909090909,
+      "evoked_median_FR_Hz": 11.341441761363637,
+      "spontaneous_median_CV_P": 1.7675693220852797,
+      "evoked_median_CV_P": 1.0901579324390593,
+      "delta_CV_P_spont_minus_evoked": 0.6774113896462204,
+      "spontaneous_median_S_P": 0.7662419794119004,
+      "evoked_median_S_P": 0.5492964054037841,
+      "delta_S_P_spont_minus_evoked": 0.21694557400811632,
+      "mannwhitney_CV_P_p_two_sided": 0.0,
+      "mannwhitney_S_P_p_two_sided": 0.0
+    },
+    {
+      "session": "107l002p67",
+      "n_units": 97,
+      "n_spontaneous_trials": 3200,
+      "n_evoked_trials": 3200,
+      "spontaneous_median_FR_Hz": 6.729220360824742,
+      "evoked_median_FR_Hz": 27.363885309278352,
+      "spontaneous_median_CV_P": 1.3026986090911885,
+      "evoked_median_CV_P": 0.7618622809847607,
+      "delta_CV_P_spont_minus_evoked": 0.5408363281064278,
+      "spontaneous_median_S_P": 0.6357752846380088,
+      "evoked_median_S_P": 0.3710881145797025,
+      "delta_S_P_spont_minus_evoked": 0.26468717005830633,
+      "mannwhitney_CV_P_p_two_sided": 0.0,
+      "mannwhitney_S_P_p_two_sided": 0.0
+    },
+    {
+      "session": "107l003p143",
+      "n_units": 111,
+      "n_spontaneous_trials": 3200,
+      "n_evoked_trials": 3200,
+      "spontaneous_median_FR_Hz": 4.539695945945946,
+      "evoked_median_FR_Hz": 34.740990990990994,
+      "spontaneous_median_CV_P": 1.4358634848467462,
+      "evoked_median_CV_P": 0.7905789681486283,
+      "delta_CV_P_spont_minus_evoked": 0.6452845166981179,
+      "spontaneous_median_S_P": 0.6795061648295557,
+      "evoked_median_S_P": 0.38811766023982397,
+      "delta_S_P_spont_minus_evoked": 0.29138850458973176,
+      "mannwhitney_CV_P_p_two_sided": 0.0,
+      "mannwhitney_S_P_p_two_sided": 0.0
+    }
+  ],
+  "n_sessions": 5,
+  "pooled_trials_per_condition": {
+    "spontaneous": 16000,
+    "evoked": 16000
+  },
+  "session_paired": {
+    "CV_P_delta_median": 0.5408363281064278,
+    "CV_P_delta_mean": 0.4134711828072583,
+    "CV_P_sessions_spont_gt_evoked": 4,
+    "CV_P_wilcoxon_p_two_sided": 0.125,
+    "S_P_delta_median": 0.21694557400811632,
+    "S_P_delta_mean": 0.17314602858910363,
+    "S_P_sessions_spont_gt_evoked": 4,
+    "S_P_wilcoxon_p_two_sided": 0.125,
+    "FR_delta_median_Hz": -12.105791284403669,
+    "FR_sessions_spont_gt_evoked": 0,
+    "FR_wilcoxon_p_two_sided": 0.0625
+  },
+  "pooled_trial_medians": {
+    "spontaneous_CV_P": 1.2995116051869462,
+    "evoked_CV_P": 0.9497925066479409,
+    "spontaneous_S_P": 0.6339129319497414,
+    "evoked_S_P": 0.47855589498271006,
+    "spontaneous_FR_Hz": 5.194583275285595,
+    "evoked_FR_Hz": 18.434633027522935
+  },
+  "pooled_trial_test": {
+    "CV_P_spon_median_ci": [
+      1.2995116051869462,
+      1.2936109780807903,
+      1.3059726892618562
+    ],
+    "CV_P_evk_median_ci": [
+      0.9497925066479409,
+      0.9462879838584575,
+      0.9533191811837662
+    ],
+    "S_P_spon_median_ci": [
+      0.6339129319497414,
+      0.6316693769886772,
+      0.6360904244534973
+    ],
+    "S_P_evk_median_ci": [
+      0.47855589498271006,
+      0.47650347590755276,
+      0.4803267858232829
+    ],
+    "CV_P_mannwhitney_p_two_sided": 0.0,
+    "S_P_mannwhitney_p_two_sided": 0.0,
+    "note": "Mann-Whitney computed on all 16,000 trials per state. Trials within a session are not independent, so these pooled p-values overstate significance (pseudoreplication); the honest paired test is the across-session Wilcoxon in 'session_paired'."
+  },
+  "interpretation": "CV_P is a complementary population projection, not the primary Fig. 2 state axis. It is higher in spontaneous activity in 4/5 v1v2-1 sessions, but session 105l001p16 is the weak opposite case. CV_L remains the main V1 result."
+}

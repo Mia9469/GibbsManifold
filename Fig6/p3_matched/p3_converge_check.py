@@ -18,7 +18,7 @@ sweep range (i.e. neither degenerate nor saturated):
 Outputs
 -------
     results/converge/converge.csv    -- one row per (method, epoch)
-    results/converge/converge.pdf    -- 4-panel: RE, mean_a, CV_pop, ICE vs ep
+    results/converge/converge.pdf    -- 4-panel: RE, mean_a, CV_pop, RAE vs ep
     results/converge/<method>_50ep.json  -- full per-config record
 
 Usage

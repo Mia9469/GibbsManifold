@@ -1,8 +1,8 @@
 %% redo_MI_from_saved.m
-%  Recompute MI / Hr / Hn / ICE from the previously-saved Binary_cell
-%  in MI_results_direct.mat, with:
-%    1. cross-stim formulation (matches figure2_new.m / V1 pipeline)
-%    2. 1/T extrapolation diagnostic (low / mid / high cost windows)
+%  Recompute MI / Hr / Hn / information-per-proxy-cost from the previously
+%  saved Binary_cell in MI_results_direct.mat, with:
+%    1. matched sliding-start formulation targeting I((S,J);W)
+%    2. 1/T finite-word extrapolation diagnostic (low / mid / high cost windows)
 %    3. drop the first WIN_DROP_INIT initialisation windows
 %
 %  Skips the slow simulation loop entirely.  Run after figure4_MI_new.m
@@ -53,6 +53,7 @@ WIN_DROP_INIT = 1;     % drop first w windows (initialisation artefact)
 Hr_vec = zeros(1, NWindows);
 Hn_vec = zeros(1, NWindows);
 MI_vec = zeros(1, NWindows);
+MI_raw_vec = zeros(1, NWindows);
 
 rate_total_store = nan(NWindows, length(T_list_mi));
 rate_noise_store = nan(NWindows, length(T_list_mi));
@@ -101,7 +102,8 @@ for w = 1:NWindows
 
     Hr_vec(w) = p_t(2);
     Hn_vec(w) = p_n(2);
-    MI_vec(w) = max(0, p_t(2) - p_n(2));
+    MI_raw_vec(w) = p_t(2) - p_n(2);
+    MI_vec(w) = max(0, MI_raw_vec(w));
 
     rate_total_store(w, :) = rate_total;
     rate_noise_store(w, :) = rate_noise;
@@ -151,7 +153,7 @@ if numel(valid_w) >= 3
         plot(0, p_n(2), 'bs', 'MarkerFaceColor', 'b', 'MarkerSize', 8);
         xlim([-max(inv_T)*0.05, max(inv_T)*1.05]);
         xlabel('1/T  (Hz)'); ylabel('rate = H/T  (bits/s)');
-        title(sprintf('w=%d, C=%.2fW, MI=%.2f, R^2_{tot}=%.3f', ...
+        title(sprintf('w=%d, cost=%.2f, MI=%.2f, R^2_{tot}=%.3f', ...
             w, cost1_grand(w), MI_vec(w), fit_total_R2(w)));
     end
     sgtitle('1/T extrapolation diagnostic  (low / mid / high cost windows)');
@@ -171,6 +173,7 @@ init_drop = 1 : min(WIN_DROP_INIT, NWindows);
 fprintf('\n--- Dropping initialisation windows %s ---\n', mat2str(init_drop));
 Hr_vec(init_drop) = NaN;
 Hn_vec(init_drop) = NaN;
+MI_raw_vec(init_drop) = NaN;
 MI_vec(init_drop) = NaN;
 cv1_grand(init_drop)   = NaN;
 ss1_grand(init_drop)   = NaN;
@@ -186,42 +189,45 @@ ICE_vec = MI_vec(:)' ./ cost1_grand(:)';
 figure('Color','w','Position',[60 480 900 360]);
 subplot(1, 2, 1);
 plot(cost1_grand, MI_vec, 'ko', 'MarkerFaceColor', 'k', 'MarkerSize', 5);
-xlabel('Cost [W]'); ylabel('MI [bits/s]'); title('Cost vs MI (after fixes)');
+xlabel('calibrated cost proxy'); ylabel('MI [bits/s]'); title('Cost proxy vs MI (after fixes)');
 grid on;
 
 subplot(1, 2, 2);
 plot(cost1_grand, ICE_vec, 'bs', 'MarkerFaceColor', 'b', 'MarkerSize', 5);
-xlabel('Cost [W]'); ylabel('ICE [bits/J]'); title('Cost vs ICE (after fixes)');
+xlabel('calibrated cost proxy'); ylabel('information / calibrated cost proxy'); title('Cost proxy vs normalized information (after fixes)');
 grid on;
 
 %% ===================== summary print =====================
 fprintf('\n--- Trajectory summary (init dropped) ---\n');
-fprintf('  Cost (W):   min=%.2f  median=%.2f  max=%.2f\n', ...
+fprintf('  Cost proxy: min=%.2f  median=%.2f  max=%.2f\n', ...
     min(cost1_grand), median(cost1_grand, 'omitnan'), max(cost1_grand));
 fprintf('  MI (b/s):   min=%.2f  median=%.2f  max=%.2f\n', ...
     min(MI_vec), median(MI_vec, 'omitnan'), max(MI_vec));
-fprintf('  ICE (b/J):  min=%.2f  median=%.2f  max=%.2f\n', ...
+fprintf('  I/cost proxy: min=%.2f  median=%.2f  max=%.2f\n', ...
     min(ICE_vec), median(ICE_vec, 'omitnan'), max(ICE_vec));
 
-%% ===================== save updated MAT =====================
-save('MI_results_direct.mat', '-struct', 'S');   % first restore everything
-save('MI_results_direct.mat', 'MI_vec', 'Hr_vec', 'Hn_vec', 'ICE_vec', ...
+%% ===================== save corrected MAT =====================
+OUT_MAT = 'MI_results_direct_corrected.mat';
+estimator_note = ['Matched sliding total/noise word positions; zero-entropy ' ...
+    'conditional positions retained; target I((S,J);W).'];
+save(OUT_MAT, '-struct', 'S');   % preserve rasters and simulation summaries
+save(OUT_MAT, 'MI_vec', 'MI_raw_vec', 'Hr_vec', 'Hn_vec', 'ICE_vec', ...
      'cost1_grand', 'cv1_grand', 'ra1_grand', 'EI_grand', ...
      'rate_total_store', 'rate_noise_store', 'fit_total_R2', 'fit_noise_R2', ...
-     '-append');
-fprintf('\nSaved updated arrays to MI_results_direct.mat (other fields preserved).\n');
+     'T_list_mi', 'estimator_note', '-append');
+fprintf('\nSaved corrected arrays to %s (legacy input left unchanged).\n', OUT_MAT);
 
 
 %% ============================ local helpers ============================
 function H = total_entropy_pool(spike_matrix, T)
-    [~, n_cols] = size(spike_matrix);
-    remainder = mod(n_cols, T);
-    trimmed_len = n_cols - remainder;
-    all_data = reshape(spike_matrix(:, 1:trimmed_len)', 1, []);
-    total_len = length(all_data);
-    remainder2 = mod(total_len, T);
-    n_words = (total_len - remainder2) / T;
-    words = reshape(all_data(1:total_len - remainder2), T, n_words)';
+    [n_rows, n_cols] = size(spike_matrix);
+    n_windows = n_cols - T + 1;
+    if n_windows <= 0, H = 0; return; end
+    words = zeros(n_rows * n_windows, T, 'like', spike_matrix);
+    for j = 1:n_windows
+        idx = (j - 1) * n_rows + (1:n_rows);
+        words(idx, :) = spike_matrix(:, j:(j + T - 1));
+    end
     counts = count_unique_words_local(words);
     p = counts / sum(counts);
     H = -sum(p .* log2(p));
@@ -237,8 +243,7 @@ function H = noise_entropy_avg(spike_matrix, T)
         p = counts / sum(counts);
         entropy_values(j) = -sum(p .* log2(p));
     end
-    valid = entropy_values > 0;
-    if any(valid), H = mean(entropy_values(valid)); else, H = 0; end
+    H = mean(entropy_values);
 end
 
 function counts = count_unique_words_local(words)

@@ -1,0 +1,28 @@
+{
+  "analysis": "Population bridge and stimulus-conditioned dependence sensitivity",
+  "date": "2026-11-09",
+  "status": "Retrospective sensitivity analysis; choices recorded before executing this new analysis, not prospectively registered with the original experiment",
+  "source_directory": "outputs/snn_budget_frontier_20261016/replication",
+  "training_seeds": [20261020, 20261021, 20261022, 20261023, 20261024, 20261025, 20261026, 20261027],
+  "total_activity_targets": [240, 480, 720],
+  "stages": [0, 4],
+  "cell_count": 75,
+  "templates": 10,
+  "noise_repeats": 8,
+  "duration_ms": 2000,
+  "count_analysis": "Recompute the original all-cell one-second pooled count law. Decompose average neuronal marginal KL to its common Gibbs reference into pooled KL plus cell-identity information (Jensen-Shannon divergence). Exact empirical-distribution identities, not unbiased entropy estimates.",
+  "primary_dependence_diagnostic": {"window_ms": 20, "cells_per_group": 4, "groups": 32, "shuffles": 32, "response": "binary spike occupancy per neuron-window"},
+  "sensitivity_diagnostics": [
+    {"window_ms": 20, "cells_per_group": 2, "groups": 32, "shuffles": 16},
+    {"window_ms": 20, "cells_per_group": 8, "groups": 32, "shuffles": 16},
+    {"window_ms": 50, "cells_per_group": 4, "groups": 32, "shuffles": 16},
+    {"window_ms": 100, "cells_per_group": 4, "groups": 32, "shuffles": 16},
+    {"window_ms": 20, "cells_per_group": 4, "groups": 32, "shuffles": 32, "repeat_subset": [0, 1, 2, 3]}
+  ],
+  "subsets": "For each seed and group size m, sample 32 unique sorted neuron subsets from all 75 cells using seed+110900+m. Identical subsets across learning stages and budgets. Groups need not be disjoint and are averaged within a trained seed; they are not inferential replicates.",
+  "shuffle": "At each fixed input-template and relative count-window index, independently permute repeat indices for each neuron. Each shuffle exactly preserves the conditional and unconditional marginal occupancy distributions, all-cell pooled occupancy law, expected activity and stimulus/time tuning; it changes cross-neuron trial coordination. Use identical permutation streams across paired stages and budgets.",
+  "shuffle_seed": 20261109,
+  "metric": "Total correlation TC=sum_i H2(Y_i)-H2(Y_group), in bits/group-window. Report observed TC, mean stimulus-conditioned shuffled TC and their signed difference. The signed excess is not calibrated population MI, noise entropy, or an unbiased total-correlation estimator; the shuffled law retains signal-induced dependence.",
+  "statistics": "Average groups and shuffles within each trained seed. Eight training seeds define paired endpoint inference. Exact two-sided sign-flip tests of the change in signed shuffle excess, Holm adjusted across three budgets only for the primary 20-ms four-cell diagnostic. All other settings are descriptive sensitivities. No inference based on treating windows, groups or shuffles as independent trainings.",
+  "scope": "No new training, no 75-dimensional joint entropy estimate, no whole-population optimality conclusion, no equivalence between count and occupancy response supports. Preserve original primary G and reconstruction results and every old figure byte-for-byte."
+}

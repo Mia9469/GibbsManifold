@@ -1,0 +1,27 @@
+{
+  "date": "2026-11-11",
+  "status": "Retrospective sensitivity protocol written before executing the new checks, not preregistered before the original results.",
+  "question": "Do the observed one-second pooled entropy-gap directions survive evaluation sampling and the residual achieved spike-rate differences?",
+  "source": "outputs/snn_budget_frontier_20261016/replication",
+  "seeds": [20261020, 20261021, 20261022, 20261023, 20261024, 20261025, 20261026, 20261027],
+  "budgets": [240, 480, 720],
+  "stages": [0, 4],
+  "window_ms": 1000,
+  "cells": 75,
+  "sampling_seed": 20261111,
+  "bootstrap_draws": 4000,
+  "half_repeat_draws": 2000,
+  "sampling": [
+    "Paired, within-template bootstrap of eight complete two-second noise trials; common weights across checkpoints, training seeds, and budgets because the evaluation bank and random streams are shared.",
+    "Separate training-seed bootstrap and combined seed/repeat bootstrap; percentile ranges are descriptive sensitivity intervals.",
+    "All ten leave-one-template-out and all 252 five-of-ten template subsets, with both stages and all networks using the same subset.",
+    "Balanced random four-of-eight subsets within each template with complementary halves. Report the half-minus-full change and first-order half/full extrapolation as diagnostics, not bias-free estimators."
+  ],
+  "cost": [
+    "Exact binomial thinning to the smaller achieved endpoint mean within each seed and budget.",
+    "Exponential reweighting of the empirical count support to the pair's midpoint mean; fail explicitly if the mean is outside the support.",
+    "Frozen-weight replay with unchanged dynamics and test inputs/noise; perturb each endpoint's controller setpoint by 5% of the nominal total budget in the direction needed to bracket nominal achieved activity. If unbracketed, try a single 10% offset. Form an exact mean-matched mixture of the nominal and nearest bracketing empirical laws, not an extrapolation or a simulated constant-cost run."
+  ],
+  "outcomes": "Retain the original one-second absolute deficit D (bits/response) and the plotted G=D/mean (bits/spike); do not change the primary window or cohort.",
+  "interpretation": "Eight training seeds remain the independent training units. Retrospective checks diagnose the finite evaluation bank and equal unit cost per spike, not joint information or biological metabolism. Report all budgets and any failed matches."
+}

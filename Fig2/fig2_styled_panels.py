@@ -29,8 +29,10 @@ MAT  = HERE / "105l001p16.mat"
 BLUE   = (0.20, 0.45, 0.85)
 ORANGE = (1.00, 0.55, 0.20)
 
-DUR_SPON   = 1.5
-DUR_DRIVEN = 1.28
+MATCHED_WINDOW_S = 1.28
+DUR_SPON   = MATCHED_WINDOW_S
+DUR_DRIVEN = MATCHED_WINDOW_S
+N_BINS_MATCHED = 1280
 N_V1 = 159
 
 
@@ -50,7 +52,7 @@ def load_rates():
     for i in range(rasters.shape[0]):
         r = rasters[i, 0]
         if r.shape[1] == 1500:
-            spon.append(np.asarray(r.sum(axis=1)).ravel() / DUR_SPON)
+            spon.append(np.asarray(r[:, :N_BINS_MATCHED].sum(axis=1)).ravel() / DUR_SPON)
         elif r.shape[1] == 1280:
             evk.append(np.asarray(r.sum(axis=1)).ravel() / DUR_DRIVEN)
     return np.array(spon).T, np.array(evk).T   # both (159, n_trials)

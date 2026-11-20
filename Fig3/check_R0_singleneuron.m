@@ -1,28 +1,27 @@
 %% check_R0_singleneuron.m
 %  Diagnostic script for picking the R_0 calibration of the single-neuron
-%  panel in main-text Fig.~6A.
+%  panel in main-text Fig.~5A.
 %
-%  Run this AFTER figure4_MI_new.m has finished (it writes
-%  MI_results_direct.mat).  The script:
+%  Run this after figure3_main.m has finished (it writes
+%  MI_results_direct_corrected.mat).  The script:
 %    1. loads the saved (cost, MI, FR) trajectory
 %    2. prints firing-rate / MI / cost ranges
 %    3. computes R_0 under three anchor choices:
 %         min FR, median FR, max FR
 %    4. plots I-C and ICE-C with the three candidate frontiers
-%    5. reports the fraction of data points that lie above each frontier
-%       (a clean upper-envelope anchor places <= ~5% above)
+%    5. reports calibration-dependent data-to-reference gaps descriptively
 %
 %  Usage:
-%    >> figure4_MI_new   % first, to populate MI_results_direct.mat
+%    >> figure3_main     % first, to populate MI_results_direct_corrected.mat
 %    >> check_R0_singleneuron
 
 clear; clc; close all;
 
 %% ============================== load ==============================
-MAT = 'MI_results_direct.mat';
+MAT = 'MI_results_direct_corrected.mat';
 if ~isfile(MAT)
     error('check_R0_singleneuron:missing_data', ...
-        ['MI_results_direct.mat not found.  Run figure4_MI_new.m first ', ...
+        ['MI_results_direct_corrected.mat not found.  Run figure3_main.m first ', ...
          'so it saves the trajectory.']);
 end
 S = load(MAT);
@@ -51,7 +50,7 @@ fprintf('  Firing rate (Hz):   min=%.3f  median=%.3f  max=%.3f\n', ...
     min(FR), median(FR), max(FR));
 fprintf('  MI         (b/s):   min=%.3f  median=%.3f  max=%.3f\n', ...
     min(MI), median(MI), max(MI));
-fprintf('  Cost       (W)  :   min=%.3f  median=%.3f  max=%.3f\n', ...
+fprintf('  Cost proxy      :   min=%.3f  median=%.3f  max=%.3f\n', ...
     min(cost), median(cost), max(cost));
 
 %% ============================== R_0 candidates ==============================
@@ -80,29 +79,16 @@ fprintf('  med-FR  anchor:  FR=%.3f Hz, C=%.3f W, I=%.3f b/s  ->  R_0 = %.3f\n',
 fprintf('  max-FR  anchor:  FR=%.3f Hz, C=%.3f W, I=%.3f b/s  ->  R_0 = %.3f\n', ...
     FR(idx_max),  cost(idx_max), MI(idx_max), R0_max);
 
-%% ============================== fraction above frontier ==============================
+%% ============================== calibration-dependent gaps ==============================
 frontier_I = @(C, R0) (R0/ln2) .* (1 + log((C - C0)/C1));
 gap = @(R0) MI - frontier_I(cost, R0);
 
 frac_above = @(R0) mean(gap(R0) > 0) * 100;
 
-fprintf('\n--- fraction of data points ABOVE the frontier ---\n');
-fprintf('  (a clean upper-envelope anchor should give <= 5%%)\n');
+fprintf('\n--- fraction of data points above the calibrated reference ---\n');
 fprintf('  R_0 = %.2f (min-FR  anchor):  %.1f%% above\n', R0_min, frac_above(R0_min));
 fprintf('  R_0 = %.2f (med-FR  anchor):  %.1f%% above\n', R0_med, frac_above(R0_med));
 fprintf('  R_0 = %.2f (max-FR  anchor):  %.1f%% above\n', R0_max, frac_above(R0_max));
-
-% Also report what fraction-above 5% would imply for R_0 (numerical scan)
-R0_scan = linspace(0.5, max([R0_min, R0_med, R0_max]) * 1.5, 400);
-fa = arrayfun(frac_above, R0_scan);
-% smallest R_0 such that <=5% above; if none, return min-FR anchor
-mask5 = fa <= 5;
-if any(mask5)
-    R0_5pct = min(R0_scan(mask5));
-else
-    R0_5pct = R0_min;
-end
-fprintf('\n  Smallest R_0 with <=5%% data above frontier:  R_0 = %.2f\n', R0_5pct);
 
 %% ============================== plot ==============================
 C_grid = linspace(C0 + C1/exp(1)*1.001, max(cost)*1.05, 400);
@@ -121,7 +107,7 @@ plot(cost(idx_med), MI(idx_med), 'o', 'MarkerSize', 12, ...
     'MarkerFaceColor', 'none', 'MarkerEdgeColor', [0.0 0.7 0.4], 'LineWidth', 2);
 plot(cost(idx_max), MI(idx_max), 'o', 'MarkerSize', 12, ...
     'MarkerFaceColor', 'none', 'MarkerEdgeColor', [0.9 0.3 0.1], 'LineWidth', 2);
-xlabel('Cost C (W)', 'FontSize', 12);
+xlabel('Affine cost proxy', 'FontSize', 12);
 ylabel('MI (bits/s)', 'FontSize', 12);
 title('I-C plane (single-neuron)', 'FontSize', 13);
 legend({'data', sprintf('R_0=%.2f (min)', R0_min), ...
@@ -131,12 +117,9 @@ legend({'data', sprintf('R_0=%.2f (min)', R0_min), ...
 ylim([0, max(MI)*1.2]);
 box off;
 
-% --- Panel B: ICE-C  (with beta = dI/dC overlay) ---
-%  Concavity inequality: ICE = I/C > beta = dI/dC at every C, so for each
-%  R_0 we draw the solid ICE curve (secant, higher) and the dashed beta
-%  curve (tangent slope, lower).  Where ICE / beta cross would indicate a
-%  violation of concavity (should never happen with the closed-form
-%  Gibbs frontier; serves as a sanity check).
+% --- Panel B: information per proxy cost and reference slope ---
+% Average yield and local slope are distinct. Because the affine proxy has
+% a non-zero baseline, no origin-independent inequality between them is used.
 subplot(1,2,2); hold on;
 ICE_data = MI ./ cost;
 beta_curve = @(C, R0) (R0 / ln2) ./ (C - C0);   % dI/dC at C, anchored R_0
@@ -151,9 +134,9 @@ plot(C_grid, beta_curve(C_grid, R0_min), '--', 'Color', [0.0 0.4 0.9], 'LineWidt
 plot(C_grid, beta_curve(C_grid, R0_med), '--', 'Color', [0.0 0.7 0.4], 'LineWidth', 1.2);
 plot(C_grid, beta_curve(C_grid, R0_max), '--', 'Color', [0.9 0.3 0.1], 'LineWidth', 1.2);
 
-xlabel('Cost C (W)', 'FontSize', 12);
-ylabel('bits/J', 'FontSize', 12);
-title('ICE-C  +  \beta = dI/dC  (concavity check)', 'FontSize', 13);
+xlabel('Affine cost proxy', 'FontSize', 12);
+ylabel('information / calibrated cost proxy', 'FontSize', 12);
+title('Information per proxy cost and reference slope', 'FontSize', 13);
 legend({'data ICE', ...
         sprintf('ICE  R_0=%.2f (min)', R0_min), ...
         sprintf('ICE  R_0=%.2f (med)', R0_med), ...
@@ -169,15 +152,5 @@ y_top = max( max(ICE_data) * 1.3, ...
 ylim([0, y_top]);
 box off;
 
-sgtitle(sprintf('Single-neuron R_0 calibration  |  recommended R_0 \\approx %.2f', R0_5pct), ...
+sgtitle('Single-neuron R_0 anchor sensitivity', ...
     'FontSize', 13, 'FontWeight', 'bold');
-
-%% ============================== guidance ==============================
-fprintf('\n--- recommendation ---\n');
-fprintf('Pick the smallest R_0 such that the frontier is a true upper envelope\n');
-fprintf('(<= 5%% of data above).  In this dataset that is R_0 = %.2f.\n', R0_5pct);
-if abs(R0_5pct - 3) < 0.5
-    fprintf('  -> consistent with R_0 = 3.\n');
-else
-    fprintf('  -> NOT consistent with R_0 = 3 (off by %.2f).\n', R0_5pct - 3);
-end

@@ -1,0 +1,426 @@
+{
+  "unit": "held-out image fold",
+  "SSIM_protocol": {
+    "version": "reference-range-v1",
+    "data_range": "max(reference) - min(reference); independent of reconstruction",
+    "constant_reference_range": 1.0,
+    "constant_reference_rule": "An exactly constant reference uses data_range=1.0 in the existing input units, for every method. Neither image is rescaled or shifted.",
+    "parameters": {
+      "win_size": 7,
+      "K1": 0.01,
+      "K2": 0.03,
+      "gaussian_weights": false,
+      "use_sample_covariance": true
+    }
+  },
+  "groups": {
+    "Null": {
+      "n": 10,
+      "RE": {
+        "mean": 0.7069783782799883,
+        "sd": 0.0913135129750577
+      },
+      "SSIM": {
+        "mean": 0.4104989876760935,
+        "sd": 0.14078381130054843
+      },
+      "ICE": {
+        "mean": 10.554755882264647,
+        "sd": 4.958086974746583
+      },
+      "mean_a": {
+        "mean": 0.0594564563619005,
+        "sd": 0.03688636249644766
+      },
+      "independence": {
+        "mean": 92.95495582652822,
+        "sd": 0.07272770944778517
+      }
+    },
+    "SparseNet": {
+      "n": 10,
+      "RE": {
+        "mean": 0.7181579557276563,
+        "sd": 0.08791776372189554
+      },
+      "SSIM": {
+        "mean": 0.40912081834351677,
+        "sd": 0.13848386804699034
+      },
+      "ICE": {
+        "mean": 10.711190006319324,
+        "sd": 5.226531130022023
+      },
+      "mean_a": {
+        "mean": 0.05606373068405013,
+        "sd": 0.03425365095905425
+      },
+      "independence": {
+        "mean": 91.9157808119398,
+        "sd": 0.08464352190594443
+      }
+    },
+    "CVM": {
+      "n": 10,
+      "RE": {
+        "mean": 0.7058349602191204,
+        "sd": 0.09072873257451393
+      },
+      "SSIM": {
+        "mean": 0.41134612525067993,
+        "sd": 0.14019585873315918
+      },
+      "ICE": {
+        "mean": 10.65647162610699,
+        "sd": 5.092450310685376
+      },
+      "mean_a": {
+        "mean": 0.059377254997567665,
+        "sd": 0.03689474905620213
+      },
+      "independence": {
+        "mean": 93.01221342186962,
+        "sd": 0.05581462909844734
+      }
+    }
+  },
+  "pairwise": {
+    "Null vs SparseNet": {
+      "RE": {
+        "first": "null",
+        "second": "cauchy",
+        "direction": "second minus first",
+        "n_first": 10,
+        "n_second": 10,
+        "paired_unit": "fold",
+        "mean_difference": 0.011179577447667954,
+        "mean_difference_ci95": [
+          0.004411059366308738,
+          0.017911027746158614
+        ],
+        "relative_change_percent": 1.581318155000272,
+        "cohens_d_pooled_descriptive": 0.12472791238594406,
+        "test": "two-sided paired t-test on unit differences",
+        "bootstrap": "percentile bootstrap of paired unit differences, seed 0, 10000 draws",
+        "t": 3.071274607151897,
+        "p_raw": 0.013326516362343346,
+        "p_bonferroni": 0.03997954908703004,
+        "multiplicity": "Bonferroni over 3 pairs within metric; CI unadjusted"
+      },
+      "SSIM": {
+        "first": "null",
+        "second": "cauchy",
+        "direction": "second minus first",
+        "n_first": 10,
+        "n_second": 10,
+        "paired_unit": "fold",
+        "mean_difference": -0.0013781693325767286,
+        "mean_difference_ci95": [
+          -0.008437245811678517,
+          0.006727985139733439
+        ],
+        "relative_change_percent": -0.3357302633993779,
+        "cohens_d_pooled_descriptive": -0.009869545954434431,
+        "test": "two-sided paired t-test on unit differences",
+        "bootstrap": "percentile bootstrap of paired unit differences, seed 0, 10000 draws",
+        "t": -0.3351336963765727,
+        "p_raw": 0.7452033704951702,
+        "p_bonferroni": 1.0,
+        "multiplicity": "Bonferroni over 3 pairs within metric; CI unadjusted"
+      },
+      "ICE": {
+        "first": "null",
+        "second": "cauchy",
+        "direction": "second minus first",
+        "n_first": 10,
+        "n_second": 10,
+        "paired_unit": "fold",
+        "mean_difference": 0.15643412405467672,
+        "mean_difference_ci95": [
+          -0.002361206490329819,
+          0.34941334820241554
+        ],
+        "relative_change_percent": 1.4821197742482692,
+        "cohens_d_pooled_descriptive": 0.030709018386234712,
+        "test": "two-sided paired t-test on unit differences",
+        "bootstrap": "percentile bootstrap of paired unit differences, seed 0, 10000 draws",
+        "t": 1.6431635175321577,
+        "p_raw": 0.13476308680621302,
+        "p_bonferroni": 0.40428926041863905,
+        "multiplicity": "Bonferroni over 3 pairs within metric; CI unadjusted"
+      },
+      "mean_a": {
+        "first": "null",
+        "second": "cauchy",
+        "direction": "second minus first",
+        "n_first": 10,
+        "n_second": 10,
+        "paired_unit": "fold",
+        "mean_difference": -0.0033927256778503723,
+        "mean_difference_ci95": [
+          -0.0052240072861240465,
+          -0.001916754397922985
+        ],
+        "relative_change_percent": -5.7062359337385935,
+        "cohens_d_pooled_descriptive": -0.0953163947810062,
+        "test": "two-sided paired t-test on unit differences",
+        "bootstrap": "percentile bootstrap of paired unit differences, seed 0, 10000 draws",
+        "t": -3.7387561796885214,
+        "p_raw": 0.004634381381919004,
+        "p_bonferroni": 0.013903144145757013,
+        "multiplicity": "Bonferroni over 3 pairs within metric; CI unadjusted"
+      },
+      "independence": {
+        "first": "null",
+        "second": "cauchy",
+        "direction": "second minus first",
+        "n_first": 10,
+        "n_second": 10,
+        "paired_unit": "fold",
+        "mean_difference": -1.039175014588423,
+        "mean_difference_ci95": [
+          -1.0573390429479619,
+          -1.019445508464737
+        ],
+        "relative_change_percent": -1.1179339555899774,
+        "cohens_d_pooled_descriptive": -13.168974504173336,
+        "test": "two-sided paired t-test on unit differences",
+        "bootstrap": "percentile bootstrap of paired unit differences, seed 0, 10000 draws",
+        "t": -101.24329977731854,
+        "p_raw": 4.539572125956358e-15,
+        "p_bonferroni": 1.3618716377869076e-14,
+        "multiplicity": "Bonferroni over 3 pairs within metric; CI unadjusted"
+      }
+    },
+    "Null vs CVM": {
+      "RE": {
+        "first": "null",
+        "second": "cv_m",
+        "direction": "second minus first",
+        "n_first": 10,
+        "n_second": 10,
+        "paired_unit": "fold",
+        "mean_difference": -0.001143418060867929,
+        "mean_difference_ci95": [
+          -0.0016483382196141407,
+          -0.0006823292312280596
+        ],
+        "relative_change_percent": -0.16173310188774898,
+        "cohens_d_pooled_descriptive": -0.012562052922900746,
+        "test": "two-sided paired t-test on unit differences",
+        "bootstrap": "percentile bootstrap of paired unit differences, seed 0, 10000 draws",
+        "t": -4.448391441807612,
+        "p_raw": 0.0016039199590208396,
+        "p_bonferroni": 0.004811759877062519,
+        "multiplicity": "Bonferroni over 3 pairs within metric; CI unadjusted"
+      },
+      "SSIM": {
+        "first": "null",
+        "second": "cv_m",
+        "direction": "second minus first",
+        "n_first": 10,
+        "n_second": 10,
+        "paired_unit": "fold",
+        "mean_difference": 0.0008471375745864318,
+        "mean_difference_ci95": [
+          0.00023520900740471297,
+          0.0014968243274772715
+        ],
+        "relative_change_percent": 0.20636776216726518,
+        "cohens_d_pooled_descriptive": 0.006029871982230478,
+        "test": "two-sided paired t-test on unit differences",
+        "bootstrap": "percentile bootstrap of paired unit differences, seed 0, 10000 draws",
+        "t": 2.5242139259721292,
+        "p_raw": 0.03254286259699065,
+        "p_bonferroni": 0.09762858779097194,
+        "multiplicity": "Bonferroni over 3 pairs within metric; CI unadjusted"
+      },
+      "ICE": {
+        "first": "null",
+        "second": "cv_m",
+        "direction": "second minus first",
+        "n_first": 10,
+        "n_second": 10,
+        "paired_unit": "fold",
+        "mean_difference": 0.10171574384234283,
+        "mean_difference_ci95": [
+          0.03699649031641695,
+          0.192694702197463
+        ],
+        "relative_change_percent": 0.9636958445742709,
+        "cohens_d_pooled_descriptive": 0.020239048450299172,
+        "test": "two-sided paired t-test on unit differences",
+        "bootstrap": "percentile bootstrap of paired unit differences, seed 0, 10000 draws",
+        "t": 2.3088362791197827,
+        "p_raw": 0.04632464968610404,
+        "p_bonferroni": 0.13897394905831212,
+        "multiplicity": "Bonferroni over 3 pairs within metric; CI unadjusted"
+      },
+      "mean_a": {
+        "first": "null",
+        "second": "cv_m",
+        "direction": "second minus first",
+        "n_first": 10,
+        "n_second": 10,
+        "paired_unit": "fold",
+        "mean_difference": -7.92013643328357e-05,
+        "mean_difference_ci95": [
+          -0.0001578796275260878,
+          4.683226775984383e-06
+        ],
+        "relative_change_percent": -0.1332090225000151,
+        "cohens_d_pooled_descriptive": -0.00214692791025952,
+        "test": "two-sided paired t-test on unit differences",
+        "bootstrap": "percentile bootstrap of paired unit differences, seed 0, 10000 draws",
+        "t": -1.7834924294133585,
+        "p_raw": 0.10817784404924576,
+        "p_bonferroni": 0.3245335321477373,
+        "multiplicity": "Bonferroni over 3 pairs within metric; CI unadjusted"
+      },
+      "independence": {
+        "first": "null",
+        "second": "cv_m",
+        "direction": "second minus first",
+        "n_first": 10,
+        "n_second": 10,
+        "paired_unit": "fold",
+        "mean_difference": 0.057257595341397405,
+        "mean_difference_ci95": [
+          0.03953186775475576,
+          0.07242886284796839
+        ],
+        "relative_change_percent": 0.06159714114463253,
+        "cohens_d_pooled_descriptive": 0.8832624565731986,
+        "test": "two-sided paired t-test on unit differences",
+        "bootstrap": "percentile bootstrap of paired unit differences, seed 0, 10000 draws",
+        "t": 6.390800986854647,
+        "p_raw": 0.0001266351746173578,
+        "p_bonferroni": 0.00037990552385207336,
+        "multiplicity": "Bonferroni over 3 pairs within metric; CI unadjusted"
+      }
+    },
+    "SparseNet vs CVM": {
+      "RE": {
+        "first": "cauchy",
+        "second": "cv_m",
+        "direction": "second minus first",
+        "n_first": 10,
+        "n_second": 10,
+        "paired_unit": "fold",
+        "mean_difference": -0.012322995508535883,
+        "mean_difference_ci95": [
+          -0.018770732274800445,
+          -0.0057226081192251095
+        ],
+        "relative_change_percent": -1.7159171475096875,
+        "cohens_d_pooled_descriptive": -0.1379424792225855,
+        "test": "two-sided paired t-test on unit differences",
+        "bootstrap": "percentile bootstrap of paired unit differences, seed 0, 10000 draws",
+        "t": -3.500291581404195,
+        "p_raw": 0.00672043275818582,
+        "p_bonferroni": 0.02016129827455746,
+        "multiplicity": "Bonferroni over 3 pairs within metric; CI unadjusted"
+      },
+      "SSIM": {
+        "first": "cauchy",
+        "second": "cv_m",
+        "direction": "second minus first",
+        "n_first": 10,
+        "n_second": 10,
+        "paired_unit": "fold",
+        "mean_difference": 0.0022253069071631604,
+        "mean_difference_ci95": [
+          -0.005885936189695458,
+          0.009039028257387432
+        ],
+        "relative_change_percent": 0.5439241435263971,
+        "cohens_d_pooled_descriptive": 0.015970052385751422,
+        "test": "two-sided paired t-test on unit differences",
+        "bootstrap": "percentile bootstrap of paired unit differences, seed 0, 10000 draws",
+        "t": 0.5500941728973722,
+        "p_raw": 0.5956409001782013,
+        "p_bonferroni": 1.0,
+        "multiplicity": "Bonferroni over 3 pairs within metric; CI unadjusted"
+      },
+      "ICE": {
+        "first": "cauchy",
+        "second": "cv_m",
+        "direction": "second minus first",
+        "n_first": 10,
+        "n_second": 10,
+        "paired_unit": "fold",
+        "mean_difference": -0.054718380212333884,
+        "mean_difference_ci95": [
+          -0.19543730362713335,
+          0.058878670195198345
+        ],
+        "relative_change_percent": -0.5108524839915216,
+        "cohens_d_pooled_descriptive": -0.010604488815650077,
+        "test": "two-sided paired t-test on unit differences",
+        "bootstrap": "percentile bootstrap of paired unit differences, seed 0, 10000 draws",
+        "t": -0.7982383802098719,
+        "p_raw": 0.44528341376126657,
+        "p_bonferroni": 1.0,
+        "multiplicity": "Bonferroni over 3 pairs within metric; CI unadjusted"
+      },
+      "mean_a": {
+        "first": "cauchy",
+        "second": "cv_m",
+        "direction": "second minus first",
+        "n_first": 10,
+        "n_second": 10,
+        "paired_unit": "fold",
+        "mean_difference": 0.0033135243135175366,
+        "mean_difference_ci95": [
+          0.0018454516506732918,
+          0.005149057633287928
+        ],
+        "relative_change_percent": 5.91028151906455,
+        "cohens_d_pooled_descriptive": 0.09307992044963481,
+        "test": "two-sided paired t-test on unit differences",
+        "bootstrap": "percentile bootstrap of paired unit differences, seed 0, 10000 draws",
+        "t": 3.6318009234769857,
+        "p_raw": 0.0054702589781185145,
+        "p_bonferroni": 0.016410776934355543,
+        "multiplicity": "Bonferroni over 3 pairs within metric; CI unadjusted"
+      },
+      "independence": {
+        "first": "cauchy",
+        "second": "cv_m",
+        "direction": "second minus first",
+        "n_first": 10,
+        "n_second": 10,
+        "paired_unit": "fold",
+        "mean_difference": 1.0964326099298205,
+        "mean_difference_ci95": [
+          1.0700238805701578,
+          1.1166872582854832
+        ],
+        "relative_change_percent": 1.1928665570204182,
+        "cohens_d_pooled_descriptive": 15.293420790698221,
+        "test": "two-sided paired t-test on unit differences",
+        "bootstrap": "percentile bootstrap of paired unit differences, seed 0, 10000 draws",
+        "t": 87.11136564875127,
+        "p_raw": 1.754250078665825e-14,
+        "p_bonferroni": 5.2627502359974744e-14,
+        "multiplicity": "Bonferroni over 3 pairs within metric; CI unadjusted"
+      }
+    }
+  },
+  "inference_scope": "Paired image-fold contrasts, conditional on the ten-image dataset; LOO training sets overlap",
+  "aggregation": {
+    "RE": "Mean patch norm ratio within checkpoint; checkpoint means within run, then seeds within fold for LOO",
+    "ICE": "Legacy RAE key: -log2(checkpoint mean RE) / checkpoint mean absolute activation, then checkpoint/run/fold means",
+    "SSIM": "Mean patch SSIM with each reference patch range; same checkpoint/run/fold averaging",
+    "cv_pop": "Legacy generalization diagnostic uses per-patch population SD (ddof=0), mean stabilizer 1e-12; not the training CV statistic",
+    "independence": "Legacy key: mean 1 minus absolute atom-pixel Pearson correlation, percent"
+  },
+  "frozen_non_SSIM_max_differences": {
+    "RE": 0.0,
+    "ICE": 0.0,
+    "mean_a": 0.0,
+    "independence": 0.0
+  },
+  "n_dictionary_checkpoints": 180,
+  "n_constant_references": 0
+}

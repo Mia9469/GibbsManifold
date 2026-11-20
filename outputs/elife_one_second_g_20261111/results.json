@@ -1,0 +1,4391 @@
+{
+  "protocol_sha256": "46020693449ca1aeecfb45dea58861d2b4c5cabc04bed98dceed7c13c7fbb724",
+  "code_sha256": "04a2a8e90973bd50886bc2428a4296f53cfec814a76458aab6e6a18530f3cfb3",
+  "replication_protocol_sha256": "6640dd0c342217fa45258c1aec54189490e667797d5772817723e81f0543273d",
+  "finite_support_maximum": 910,
+  "maximum_frozen_D_error_bits": 1.4432899320127035e-15,
+  "with_replay": true,
+  "metrics": [
+    "D_bits_per_response",
+    "G_bits_per_spike"
+  ],
+  "budget_order": [
+    240,
+    480,
+    720
+  ],
+  "sampling": {
+    "repeat_bootstrap": [
+      {
+        "D_bits_per_response": {
+          "mean": -0.02151268376379282,
+          "range": [
+            -0.028026526663029936,
+            -0.014569829015068769
+          ],
+          "percentile_95": [
+            -0.025349396818112692,
+            -0.017718529052846644
+          ],
+          "fraction_decreasing": 1.0,
+          "fraction_increasing": 0.0,
+          "draws": 4000
+        },
+        "G_bits_per_spike": {
+          "mean": -0.006895301231954944,
+          "range": [
+            -0.008956009284435362,
+            -0.004761586770813948
+          ],
+          "percentile_95": [
+            -0.00807665714734589,
+            -0.00571443165315986
+          ],
+          "fraction_decreasing": 1.0,
+          "fraction_increasing": 0.0,
+          "draws": 4000
+        }
+      },
+      {
+        "D_bits_per_response": {
+          "mean": -0.03969572390304295,
+          "range": [
+            -0.04322230407514435,
+            -0.03611753862730322
+          ],
+          "percentile_95": [
+            -0.04134333361823182,
+            -0.03802625553093031
+          ],
+          "fraction_decreasing": 1.0,
+          "fraction_increasing": 0.0,
+          "draws": 4000
+        },
+        "G_bits_per_spike": {
+          "mean": -0.00617760321888961,
+          "range": [
+            -0.006728183434533902,
+            -0.005622710561315997
+          ],
+          "percentile_95": [
+            -0.006434983977087233,
+            -0.005917443885669941
+          ],
+          "fraction_decreasing": 1.0,
+          "fraction_increasing": 0.0,
+          "draws": 4000
+        }
+      },
+      {
+        "D_bits_per_response": {
+          "mean": 0.06114004292384049,
+          "range": [
+            0.05441009715985728,
+            0.06811205401336431
+          ],
+          "percentile_95": [
+            0.057734117217627036,
+            0.06470473412420243
+          ],
+          "fraction_decreasing": 0.0,
+          "fraction_increasing": 1.0,
+          "draws": 4000
+        },
+        "G_bits_per_spike": {
+          "mean": 0.006000050019481325,
+          "range": [
+            0.005338002970209251,
+            0.006715405201104779
+          ],
+          "percentile_95": [
+            0.005662063358313476,
+            0.006354524902832972
+          ],
+          "fraction_decreasing": 0.0,
+          "fraction_increasing": 1.0,
+          "draws": 4000
+        }
+      }
+    ],
+    "seed_bootstrap": [
+      {
+        "D_bits_per_response": {
+          "mean": -0.021686694527761164,
+          "range": [
+            -0.052911766177329095,
+            0.00786937333667161
+          ],
+          "percentile_95": [
+            -0.039083073387571325,
+            -0.0038157212370600047
+          ],
+          "fraction_decreasing": 0.99025,
+          "fraction_increasing": 0.00975,
+          "draws": 4000
+        },
+        "G_bits_per_spike": {
+          "mean": -0.006947565599157736,
+          "range": [
+            -0.016525982956654754,
+            0.002232477630787903
+          ],
+          "percentile_95": [
+            -0.012358229107385313,
+            -0.001335889500337386
+          ],
+          "fraction_decreasing": 0.991,
+          "fraction_increasing": 0.009,
+          "draws": 4000
+        }
+      },
+      {
+        "D_bits_per_response": {
+          "mean": -0.040272433172838525,
+          "range": [
+            -0.054891980185341055,
+            -0.028620995955752564
+          ],
+          "percentile_95": [
+            -0.048190740339699896,
+            -0.03280823841375981
+          ],
+          "fraction_decreasing": 1.0,
+          "fraction_increasing": 0.0,
+          "draws": 4000
+        },
+        "G_bits_per_spike": {
+          "mean": -0.006267647063937014,
+          "range": [
+            -0.008562075048907655,
+            -0.004430386807570688
+          ],
+          "percentile_95": [
+            -0.007503192359281706,
+            -0.00509506526114803
+          ],
+          "fraction_decreasing": 1.0,
+          "fraction_increasing": 0.0,
+          "draws": 4000
+        }
+      },
+      {
+        "D_bits_per_response": {
+          "mean": 0.06008457884072271,
+          "range": [
+            0.03913146295662091,
+            0.08720293102647812
+          ],
+          "percentile_95": [
+            0.04669467782166973,
+            0.07414422244961058
+          ],
+          "fraction_decreasing": 0.0,
+          "fraction_increasing": 1.0,
+          "draws": 4000
+        },
+        "G_bits_per_spike": {
+          "mean": 0.005898332086203969,
+          "range": [
+            0.0038617701323515044,
+            0.008650506031132637
+          ],
+          "percentile_95": [
+            0.004594669060866817,
+            0.0072882493687289746
+          ],
+          "fraction_decreasing": 0.0,
+          "fraction_increasing": 1.0,
+          "draws": 4000
+        }
+      }
+    ],
+    "joint_seed_repeat_bootstrap": [
+      {
+        "D_bits_per_response": {
+          "mean": -0.021481757587140902,
+          "range": [
+            -0.05405136522323219,
+            0.01498098836943709
+          ],
+          "percentile_95": [
+            -0.03993222091567463,
+            -0.002402042337030929
+          ],
+          "fraction_decreasing": 0.98625,
+          "fraction_increasing": 0.01375,
+          "draws": 4000
+        },
+        "G_bits_per_spike": {
+          "mean": -0.0068855560744867095,
+          "range": [
+            -0.01702379095316519,
+            0.004429281518745958
+          ],
+          "percentile_95": [
+            -0.012667561264200584,
+            -0.0009302024096735567
+          ],
+          "fraction_decreasing": 0.98675,
+          "fraction_increasing": 0.01325,
+          "draws": 4000
+        }
+      },
+      {
+        "D_bits_per_response": {
+          "mean": -0.03967956631950098,
+          "range": [
+            -0.05701506262274986,
+            -0.024916180935722745
+          ],
+          "percentile_95": [
+            -0.04813188200401568,
+            -0.03168343078734509
+          ],
+          "fraction_decreasing": 1.0,
+          "fraction_increasing": 0.0,
+          "draws": 4000
+        },
+        "G_bits_per_spike": {
+          "mean": -0.006175048422110972,
+          "range": [
+            -0.008886018651600516,
+            -0.003862150336794998
+          ],
+          "percentile_95": [
+            -0.007500782005368498,
+            -0.004913667990299204
+          ],
+          "fraction_decreasing": 1.0,
+          "fraction_increasing": 0.0,
+          "draws": 4000
+        }
+      },
+      {
+        "D_bits_per_response": {
+          "mean": 0.061174308191581615,
+          "range": [
+            0.03445615539969663,
+            0.08908052572785854
+          ],
+          "percentile_95": [
+            0.0468030045882473,
+            0.07626177599655069
+          ],
+          "fraction_decreasing": 0.0,
+          "fraction_increasing": 1.0,
+          "draws": 4000
+        },
+        "G_bits_per_spike": {
+          "mean": 0.00600404671100393,
+          "range": [
+            0.0034215621254940418,
+            0.008752411512435323
+          ],
+          "percentile_95": [
+            0.004599353074451973,
+            0.007503561272887656
+          ],
+          "fraction_decreasing": 0.0,
+          "fraction_increasing": 1.0,
+          "draws": 4000
+        }
+      }
+    ],
+    "leave_one_template": [
+      {
+        "D_bits_per_response": {
+          "mean": -0.021839997046011226,
+          "range": [
+            -0.027198584059882524,
+            -0.016537268075479714
+          ],
+          "percentile_95": [
+            -0.026883213994219675,
+            -0.017098710037963216
+          ],
+          "fraction_decreasing": 1.0,
+          "fraction_increasing": 0.0,
+          "draws": 10
+        },
+        "G_bits_per_spike": {
+          "mean": -0.0069951534716909194,
+          "range": [
+            -0.008628054973475647,
+            -0.005354274446820095
+          ],
+          "percentile_95": [
+            -0.008526895896303704,
+            -0.005526422321505617
+          ],
+          "fraction_decreasing": 1.0,
+          "fraction_increasing": 0.0,
+          "draws": 10
+        }
+      },
+      {
+        "D_bits_per_response": {
+          "mean": -0.04059540099550303,
+          "range": [
+            -0.0430126413922684,
+            -0.038439691187148815
+          ],
+          "percentile_95": [
+            -0.04294399279192989,
+            -0.03847763331221371
+          ],
+          "fraction_decreasing": 1.0,
+          "fraction_increasing": 0.0,
+          "draws": 10
+        },
+        "G_bits_per_spike": {
+          "mean": -0.006317672504717137,
+          "range": [
+            -0.006699330049756863,
+            -0.005990748277792659
+          ],
+          "percentile_95": [
+            -0.006680101875778969,
+            -0.005998163749962856
+          ],
+          "fraction_decreasing": 1.0,
+          "fraction_increasing": 0.0,
+          "draws": 10
+        }
+      },
+      {
+        "D_bits_per_response": {
+          "mean": 0.059513826822725435,
+          "range": [
+            0.05474301004378644,
+            0.06651505577967531
+          ],
+          "percentile_95": [
+            0.05485056558600787,
+            0.06575118089607745
+          ],
+          "fraction_decreasing": 0.0,
+          "fraction_increasing": 1.0,
+          "draws": 10
+        },
+        "G_bits_per_spike": {
+          "mean": 0.005837159058232627,
+          "range": [
+            0.005360307490492138,
+            0.006556493616835282
+          ],
+          "percentile_95": [
+            0.005367290479250176,
+            0.006474736724964582
+          ],
+          "fraction_decreasing": 0.0,
+          "fraction_increasing": 1.0,
+          "draws": 10
+        }
+      }
+    ],
+    "five_template_subset": [
+      {
+        "D_bits_per_response": {
+          "mean": -0.022900501851021042,
+          "range": [
+            -0.05031944734075071,
+            0.0029286717440864425
+          ],
+          "percentile_95": [
+            -0.04282088914541918,
+            -0.0038897324663999754
+          ],
+          "fraction_decreasing": 0.996031746031746,
+          "fraction_increasing": 0.003968253968253968,
+          "draws": 252
+        },
+        "G_bits_per_spike": {
+          "mean": -0.007321776394194463,
+          "range": [
+            -0.01567450541176605,
+            0.0006368385702109642
+          ],
+          "percentile_95": [
+            -0.013383141709410231,
+            -0.0015649192824000399
+          ],
+          "fraction_decreasing": 0.996031746031746,
+          "fraction_increasing": 0.003968253968253968,
+          "draws": 252
+        }
+      },
+      {
+        "D_bits_per_response": {
+          "mean": -0.04320354976969286,
+          "range": [
+            -0.05849339045873613,
+            -0.030034036620403517
+          ],
+          "percentile_95": [
+            -0.05383869512997921,
+            -0.033831809699228665
+          ],
+          "fraction_decreasing": 1.0,
+          "fraction_increasing": 0.0,
+          "draws": 252
+        },
+        "G_bits_per_spike": {
+          "mean": -0.006721825419152483,
+          "range": [
+            -0.009033678888653954,
+            -0.004718428106005
+          ],
+          "percentile_95": [
+            -0.008330059764098945,
+            -0.005301499276763083
+          ],
+          "fraction_decreasing": 1.0,
+          "fraction_increasing": 0.0,
+          "draws": 252
+        }
+      },
+      {
+        "D_bits_per_response": {
+          "mean": 0.05487313348683427,
+          "range": [
+            0.02469120803405985,
+            0.08567028403267782
+          ],
+          "percentile_95": [
+            0.033743723162933455,
+            0.07723005323347493
+          ],
+          "fraction_decreasing": 0.0,
+          "fraction_increasing": 1.0,
+          "draws": 252
+        },
+        "G_bits_per_spike": {
+          "mean": 0.005342458454639563,
+          "range": [
+            0.0022278922729541016,
+            0.008487512337935339
+          ],
+          "percentile_95": [
+            0.0031883924845177757,
+            0.007588203195457919
+          ],
+          "fraction_decreasing": 0.0,
+          "fraction_increasing": 1.0,
+          "draws": 252
+        }
+      }
+    ],
+    "four_repeat_subset": [
+      {
+        "D_bits_per_response": {
+          "mean": -0.021444594847827986,
+          "range": [
+            -0.02944823261944807,
+            -0.01362375761543971
+          ],
+          "percentile_95": [
+            -0.025443396069987908,
+            -0.01740038097348523
+          ],
+          "fraction_decreasing": 1.0,
+          "fraction_increasing": 0.0,
+          "draws": 4000
+        },
+        "G_bits_per_spike": {
+          "mean": -0.0068739927576795595,
+          "range": [
+            -0.009343818508564295,
+            -0.0044052521225996935
+          ],
+          "percentile_95": [
+            -0.00812722352071858,
+            -0.005618372014008345
+          ],
+          "fraction_decreasing": 1.0,
+          "fraction_increasing": 0.0,
+          "draws": 4000
+        }
+      },
+      {
+        "D_bits_per_response": {
+          "mean": -0.03952956593960209,
+          "range": [
+            -0.04284598036237848,
+            -0.03626893280633854
+          ],
+          "percentile_95": [
+            -0.04138708006583147,
+            -0.03765896296374808
+          ],
+          "fraction_decreasing": 1.0,
+          "fraction_increasing": 0.0,
+          "draws": 4000
+        },
+        "G_bits_per_spike": {
+          "mean": -0.00615170098779606,
+          "range": [
+            -0.006666577100823736,
+            -0.00564697786628382
+          ],
+          "percentile_95": [
+            -0.00644059674399702,
+            -0.005861940020792277
+          ],
+          "fraction_decreasing": 1.0,
+          "fraction_increasing": 0.0,
+          "draws": 4000
+        }
+      },
+      {
+        "D_bits_per_response": {
+          "mean": 0.061425172973963084,
+          "range": [
+            0.05517473960907858,
+            0.06753382227853312
+          ],
+          "percentile_95": [
+            0.05781232928806073,
+            0.06520549327689153
+          ],
+          "fraction_decreasing": 0.0,
+          "fraction_increasing": 1.0,
+          "draws": 4000
+        },
+        "G_bits_per_spike": {
+          "mean": 0.006028541431453346,
+          "range": [
+            0.0054002366727817375,
+            0.006648110570591875
+          ],
+          "percentile_95": [
+            0.005659945037163539,
+            0.0064083261157219075
+          ],
+          "fraction_decreasing": 0.0,
+          "fraction_increasing": 1.0,
+          "draws": 4000
+        }
+      }
+    ],
+    "half_minus_full": [
+      {
+        "D_bits_per_response": {
+          "mean": 0.00025863995467679564,
+          "range": [
+            -0.00047241332765538685,
+            0.0010641001099661006
+          ],
+          "percentile_95": [
+            -0.00011135447164861545,
+            0.0006564947484145744
+          ],
+          "fraction_decreasing": 0.1065,
+          "fraction_increasing": 0.8935,
+          "draws": 2000
+        },
+        "G_bits_per_spike": {
+          "mean": 7.895976958805587e-05,
+          "range": [
+            -0.00014853634653150954,
+            0.000329029198200762
+          ],
+          "percentile_95": [
+            -3.701849359178488e-05,
+            0.00020244994152844616
+          ],
+          "fraction_decreasing": 0.112,
+          "fraction_increasing": 0.888,
+          "draws": 2000
+        }
+      },
+      {
+        "D_bits_per_response": {
+          "mean": 0.0007436185202024733,
+          "range": [
+            -6.793959851533315e-05,
+            0.0016080202418340714
+          ],
+          "percentile_95": [
+            0.0002765314372062938,
+            0.001219786390059928
+          ],
+          "fraction_decreasing": 0.0005,
+          "fraction_increasing": 0.9995,
+          "draws": 2000
+        },
+        "G_bits_per_spike": {
+          "mean": 0.00011605036586021971,
+          "range": [
+            -1.0317542666463662e-05,
+            0.0002505069094192211
+          ],
+          "percentile_95": [
+            4.334508316081835e-05,
+            0.00019008223108749308
+          ],
+          "fraction_decreasing": 0.0005,
+          "fraction_increasing": 0.9995,
+          "draws": 2000
+        }
+      },
+      {
+        "D_bits_per_response": {
+          "mean": 0.0013439872296039375,
+          "range": [
+            0.00032795541112188523,
+            0.0023743775338754772
+          ],
+          "percentile_95": [
+            0.0007648890313908528,
+            0.0018870949390757184
+          ],
+          "fraction_decreasing": 0.0,
+          "fraction_increasing": 1.0,
+          "draws": 2000
+        },
+        "G_bits_per_spike": {
+          "mean": 0.0001308453376984221,
+          "range": [
+            2.6112088682786765e-05,
+            0.00023612341396318608
+          ],
+          "percentile_95": [
+            7.161107559528555e-05,
+            0.00018665013826800803
+          ],
+          "fraction_decreasing": 0.0,
+          "fraction_increasing": 1.0,
+          "draws": 2000
+        }
+      }
+    ],
+    "half_full_extrapolation": [
+      {
+        "D_bits_per_response": {
+          "mean": -0.021961874757181577,
+          "range": [
+            -0.02276733491247088,
+            -0.021230821474849393
+          ],
+          "percentile_95": [
+            -0.022359729550919357,
+            -0.021591880330856166
+          ],
+          "fraction_decreasing": 1.0,
+          "fraction_increasing": 0.0,
+          "draws": 2000
+        },
+        "G_bits_per_spike": {
+          "mean": -0.007031912296855671,
+          "range": [
+            -0.007281981725468377,
+            -0.0068044161807361055
+          ],
+          "percentile_95": [
+            -0.007155402468796061,
+            -0.006915934033675831
+          ],
+          "fraction_decreasing": 1.0,
+          "fraction_increasing": 0.0,
+          "draws": 2000
+        }
+      },
+      {
+        "D_bits_per_response": {
+          "mean": -0.041016802980007046,
+          "range": [
+            -0.041881204701638634,
+            -0.040205244861289235
+          ],
+          "percentile_95": [
+            -0.041492970849864495,
+            -0.04054971589701087
+          ],
+          "fraction_decreasing": 1.0,
+          "fraction_increasing": 0.0,
+          "draws": 2000
+        },
+        "G_bits_per_spike": {
+          "mean": -0.006383801719516499,
+          "range": [
+            -0.006518258263075501,
+            -0.006257433810989815
+          ],
+          "percentile_95": [
+            -0.006457833584743773,
+            -0.006311096436817098
+          ],
+          "fraction_decreasing": 1.0,
+          "fraction_increasing": 0.0,
+          "draws": 2000
+        }
+      },
+      {
+        "D_bits_per_response": {
+          "mean": 0.05873719851475521,
+          "range": [
+            0.05770680821048367,
+            0.05975323033323726
+          ],
+          "percentile_95": [
+            0.058194090805283434,
+            0.05931629671296829
+          ],
+          "fraction_decreasing": 0.0,
+          "fraction_increasing": 1.0,
+          "draws": 2000
+        },
+        "G_bits_per_spike": {
+          "mean": 0.005766850756056503,
+          "range": [
+            0.005661572679791738,
+            0.005871584005072138
+          ],
+          "percentile_95": [
+            0.005711045955486917,
+            0.005826085018159638
+          ],
+          "fraction_decreasing": 0.0,
+          "fraction_increasing": 1.0,
+          "draws": 2000
+        }
+      }
+    ]
+  },
+  "cost": {
+    "240": {
+      "original": {
+        "matched": 8,
+        "attempted": 8,
+        "D_bits_per_response": {
+          "mean": -0.02170323480250478,
+          "min": -0.05554750008190951,
+          "max": 0.015467688144841313,
+          "decreasing": 5,
+          "increasing": 3
+        },
+        "G_bits_per_spike": {
+          "mean": -0.006952952527267615,
+          "min": -0.01727244945964962,
+          "max": 0.0044664302194320216,
+          "decreasing": 5,
+          "increasing": 3
+        }
+      },
+      "thinning": {
+        "matched": 8,
+        "attempted": 8,
+        "D_bits_per_response": {
+          "mean": -0.022492585415283213,
+          "min": -0.0554400152916244,
+          "max": 0.014058960131435622,
+          "decreasing": 5,
+          "increasing": 3
+        },
+        "G_bits_per_spike": {
+          "mean": -0.007018771256407603,
+          "min": -0.017260278733382442,
+          "max": 0.004377919908065894,
+          "decreasing": 5,
+          "increasing": 3
+        }
+      },
+      "tilt": {
+        "matched": 8,
+        "attempted": 8,
+        "D_bits_per_response": {
+          "mean": -0.02165734993480001,
+          "min": -0.055556373172900575,
+          "max": 0.01558410457461129,
+          "decreasing": 5,
+          "increasing": 3
+        },
+        "G_bits_per_spike": {
+          "mean": -0.006748688230949409,
+          "min": -0.017294036967400533,
+          "max": 0.004841036885719255,
+          "decreasing": 5,
+          "increasing": 3
+        }
+      },
+      "replay_mixture": {
+        "matched": 8,
+        "attempted": 8,
+        "D_bits_per_response": {
+          "mean": -0.021715087702009195,
+          "min": -0.05553290254624771,
+          "max": 0.014129810212700072,
+          "decreasing": 6,
+          "increasing": 2
+        },
+        "G_bits_per_spike": {
+          "mean": -0.0067859649068778725,
+          "min": -0.017354032045702406,
+          "max": 0.004415565691468795,
+          "decreasing": 6,
+          "increasing": 2
+        }
+      }
+    },
+    "480": {
+      "original": {
+        "matched": 8,
+        "attempted": 8,
+        "D_bits_per_response": {
+          "mean": -0.040273184459804566,
+          "min": -0.060352027799095626,
+          "max": -0.027184133996802008,
+          "decreasing": 8,
+          "increasing": 0
+        },
+        "G_bits_per_spike": {
+          "mean": -0.00626775135365628,
+          "min": -0.009395837039524482,
+          "max": -0.004192984742206751,
+          "decreasing": 8,
+          "increasing": 0
+        }
+      },
+      "thinning": {
+        "matched": 8,
+        "attempted": 8,
+        "D_bits_per_response": {
+          "mean": -0.03999660767836905,
+          "min": -0.060829719601620647,
+          "max": -0.02607578035583167,
+          "decreasing": 8,
+          "increasing": 0
+        },
+        "G_bits_per_spike": {
+          "mean": -0.006240154492866728,
+          "min": -0.009458950061803627,
+          "max": -0.004068883714159136,
+          "decreasing": 8,
+          "increasing": 0
+        }
+      },
+      "tilt": {
+        "matched": 8,
+        "attempted": 8,
+        "D_bits_per_response": {
+          "mean": -0.04025981235033546,
+          "min": -0.06034138377650192,
+          "max": -0.027069163449338338,
+          "decreasing": 8,
+          "increasing": 0
+        },
+        "G_bits_per_spike": {
+          "mean": -0.006269261099001694,
+          "min": -0.009365175060374344,
+          "max": -0.004210014209976614,
+          "decreasing": 8,
+          "increasing": 0
+        }
+      },
+      "replay_mixture": {
+        "matched": 8,
+        "attempted": 8,
+        "D_bits_per_response": {
+          "mean": -0.04085766857556561,
+          "min": -0.06099418937567206,
+          "max": -0.028492389148045038,
+          "decreasing": 8,
+          "increasing": 0
+        },
+        "G_bits_per_spike": {
+          "mean": -0.006384010714932127,
+          "min": -0.009530342089948757,
+          "max": -0.004451935804382037,
+          "decreasing": 8,
+          "increasing": 0
+        }
+      }
+    },
+    "720": {
+      "original": {
+        "matched": 8,
+        "attempted": 8,
+        "D_bits_per_response": {
+          "mean": 0.060081185744359146,
+          "min": 0.035914124796167776,
+          "max": 0.0969788823684303,
+          "decreasing": 0,
+          "increasing": 8
+        },
+        "G_bits_per_spike": {
+          "mean": 0.005897696093754924,
+          "min": 0.0035802680791437134,
+          "max": 0.009643600004952357,
+          "decreasing": 0,
+          "increasing": 8
+        }
+      },
+      "thinning": {
+        "matched": 8,
+        "attempted": 8,
+        "D_bits_per_response": {
+          "mean": 0.05654561156827864,
+          "min": 0.032659017184896735,
+          "max": 0.093768925373648,
+          "decreasing": 0,
+          "increasing": 8
+        },
+        "G_bits_per_spike": {
+          "mean": 0.005880102422247442,
+          "min": 0.0033918231530465238,
+          "max": 0.00974205731921331,
+          "decreasing": 0,
+          "increasing": 8
+        }
+      },
+      "tilt": {
+        "matched": 8,
+        "attempted": 8,
+        "D_bits_per_response": {
+          "mean": 0.058361802835436155,
+          "min": 0.035165157278945175,
+          "max": 0.09519030000437605,
+          "decreasing": 0,
+          "increasing": 8
+        },
+        "G_bits_per_spike": {
+          "mean": 0.0059896160392133475,
+          "min": 0.003628281929153829,
+          "max": 0.009762315026151831,
+          "decreasing": 0,
+          "increasing": 8
+        }
+      },
+      "replay_mixture": {
+        "matched": 8,
+        "attempted": 8,
+        "D_bits_per_response": {
+          "mean": 0.05324726112699402,
+          "min": 0.031654015573246166,
+          "max": 0.08218195817570774,
+          "decreasing": 0,
+          "increasing": 8
+        },
+        "G_bits_per_spike": {
+          "mean": 0.005546589700728546,
+          "min": 0.003297293288879814,
+          "max": 0.008560620643302895,
+          "decreasing": 0,
+          "increasing": 8
+        }
+      }
+    }
+  },
+  "cases": [
+    {
+      "seed": 20261020,
+      "budget": 240,
+      "control": "original",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        3.1795,
+        3.18675
+      ],
+      "endpoint_metrics": [
+        [
+          0.2294526031786674,
+          0.07216625355517138
+        ],
+        [
+          0.18444803871507953,
+          0.057879670107501224
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": -0.04500456446358786,
+        "G_bits_per_spike": -0.014286583447670156
+      }
+    },
+    {
+      "seed": 20261020,
+      "budget": 240,
+      "control": "thinning",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        3.1795,
+        3.1794999999999995
+      ],
+      "endpoint_metrics": [
+        [
+          0.2294526031786674,
+          0.07216625355517138
+        ],
+        [
+          0.1837954232518023,
+          0.05780639196471216
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": -0.045657179926865105,
+        "G_bits_per_spike": -0.014359861590459218
+      },
+      "retention": [
+        1.0,
+        0.9977249548913469
+      ]
+    },
+    {
+      "seed": 20261020,
+      "budget": 240,
+      "control": "tilt",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        3.183125,
+        3.1831250000000013
+      ],
+      "endpoint_metrics": [
+        [
+          0.22941866200188155,
+          0.07207340648007274
+        ],
+        [
+          0.18447343537227268,
+          0.05795356304646302
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": -0.04494522662960887,
+        "G_bits_per_spike": -0.014119843433609718
+      },
+      "tilt_parameter": [
+        0.0001758563003363231,
+        -0.00018596709294270883
+      ]
+    },
+    {
+      "seed": 20261020,
+      "budget": 240,
+      "control": "replay_mixture",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        3.2,
+        3.2
+      ],
+      "endpoint_metrics": [
+        [
+          0.22612583534390204,
+          0.07066432354496939
+        ],
+        [
+          0.18266267742528453,
+          0.057082086695401414
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": -0.04346315791861752,
+        "G_bits_per_spike": -0.013582236849567976
+      },
+      "brackets": [
+        {
+          "achieved_total_rate": 250.54375,
+          "command": 252.0,
+          "perturbation_weight": 0.12726332126228798,
+          "attempts": 1,
+          "endpoint_metrics": [
+            [
+              0.2294526031786674,
+              0.07216625355517138
+            ],
+            [
+              0.20828988589068706,
+              0.062351351577525
+            ]
+          ]
+        },
+        {
+          "achieved_total_rate": 251.04375,
+          "command": 252.0,
+          "perturbation_weight": 0.08255451713395774,
+          "attempts": 1,
+          "endpoint_metrics": [
+            [
+              0.18444803871507953,
+              0.057879670107501224
+            ],
+            [
+              0.16803696852750155,
+              0.05020149929867849
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "seed": 20261020,
+      "budget": 480,
+      "control": "original",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        6.394666666666666,
+        6.4123333333333346
+      ],
+      "endpoint_metrics": [
+        [
+          0.07252954074018562,
+          0.011342192567793834
+        ],
+        [
+          0.02673763991110222,
+          0.004169720836580893
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": -0.04579190082908341,
+        "G_bits_per_spike": -0.007172471731212941
+      }
+    },
+    {
+      "seed": 20261020,
+      "budget": 480,
+      "control": "thinning",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        6.394666666666666,
+        6.394666666666664
+      ],
+      "endpoint_metrics": [
+        [
+          0.07252954074018562,
+          0.011342192567793834
+        ],
+        [
+          0.02626875374990227,
+          0.00410791603678622
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": -0.046260786990283354,
+        "G_bits_per_spike": -0.007234276531007613
+      },
+      "retention": [
+        1.0,
+        0.9972448926547796
+      ]
+    },
+    {
+      "seed": 20261020,
+      "budget": 480,
+      "control": "tilt",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        6.403500000000002,
+        6.403499999999999
+      ],
+      "endpoint_metrics": [
+        [
+          0.07252078028340538,
+          0.011325178462310511
+        ],
+        [
+          0.026695089352379377,
+          0.004168827883560456
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": -0.045825690931025995,
+        "G_bits_per_spike": -0.007156350578750055
+      },
+      "tilt_parameter": [
+        0.00020107450695977235,
+        -0.00022350045529478658
+      ]
+    },
+    {
+      "seed": 20261020,
+      "budget": 480,
+      "control": "replay_mixture",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        6.4,
+        6.3999999999999995
+      ],
+      "endpoint_metrics": [
+        [
+          0.07222968364455658,
+          0.011285888069461965
+        ],
+        [
+          0.026532477451788897,
+          0.0041456996018420155
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": -0.04569720619276768,
+        "G_bits_per_spike": -0.007140188467619949
+      },
+      "brackets": [
+        {
+          "achieved_total_rate": 503.83125,
+          "command": 504.0,
+          "perturbation_weight": 0.016507608976013333,
+          "attempts": 1,
+          "endpoint_metrics": [
+            [
+              0.07252954074018562,
+              0.011342192567793834
+            ],
+            [
+              0.061294680610768204,
+              0.009124287240633872
+            ]
+          ]
+        },
+        {
+          "achieved_total_rate": 458.36875,
+          "command": 456.0,
+          "perturbation_weight": 0.04100858963701567,
+          "attempts": 1,
+          "endpoint_metrics": [
+            [
+              0.02673763991110222,
+              0.004169720836580893
+            ],
+            [
+              0.02753128480706316,
+              0.004504771236105726
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "seed": 20261020,
+      "budget": 720,
+      "control": "original",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        9.601499999999998,
+        9.938749999999999
+      ],
+      "endpoint_metrics": [
+        [
+          0.088585527091424,
+          0.009226217475542782
+        ],
+        [
+          0.15844534844869823,
+          0.01594218070166754
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": 0.06985982135727423,
+        "G_bits_per_spike": 0.006715963226124758
+      }
+    },
+    {
+      "seed": 20261020,
+      "budget": 720,
+      "control": "thinning",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        9.6015,
+        9.6015
+      ],
+      "endpoint_metrics": [
+        [
+          0.08858552709142337,
+          0.009226217475542715
+        ],
+        [
+          0.1549861936276649,
+          0.01614187300189188
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": 0.06640066653624152,
+        "G_bits_per_spike": 0.006915655526349165
+      },
+      "retention": [
+        1.0,
+        0.9660671613633505
+      ]
+    },
+    {
+      "seed": 20261020,
+      "budget": 720,
+      "control": "tilt",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        9.770125,
+        9.770125
+      ],
+      "endpoint_metrics": [
+        [
+          0.08996148524353179,
+          0.009207813128647973
+        ],
+        [
+          0.1570252973109919,
+          0.01607198447419986
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": 0.06706381206746012,
+        "G_bits_per_spike": 0.006864171345551888
+      },
+      "tilt_parameter": [
+        0.0025187217481692867,
+        -0.0032300073361910264
+      ]
+    },
+    {
+      "seed": 20261020,
+      "budget": 720,
+      "control": "replay_mixture",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        9.6,
+        9.599999999999998
+      ],
+      "endpoint_metrics": [
+        [
+          0.08852694522193684,
+          0.009221556793951754
+        ],
+        [
+          0.15514040395058648,
+          0.016160458744852762
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": 0.06661345872864964,
+        "G_bits_per_spike": 0.006938901950901008
+      },
+      "brackets": [
+        {
+          "achieved_total_rate": 684.1875,
+          "command": 684.0,
+          "perturbation_weight": 0.003131524008350843,
+          "attempts": 1,
+          "endpoint_metrics": [
+            [
+              0.088585527091424,
+              0.009226217475542782
+            ],
+            [
+              0.07824978808317112,
+              0.00857766928837173
+            ]
+          ]
+        },
+        {
+          "achieved_total_rate": 702.625,
+          "command": 684.0,
+          "perturbation_weight": 0.5938641344046749,
+          "attempts": 1,
+          "endpoint_metrics": [
+            [
+              0.15844534844869823,
+              0.01594218070166754
+            ],
+            [
+              0.15644653887539153,
+              0.016699506017654315
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "seed": 20261021,
+      "budget": 240,
+      "control": "original",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        3.211333333333333,
+        3.2270000000000003
+      ],
+      "endpoint_metrics": [
+        [
+          0.21615371793099908,
+          0.06730964851494678
+        ],
+        [
+          0.2316214060758404,
+          0.0717760787343788
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": 0.015467688144841313,
+        "G_bits_per_spike": 0.0044664302194320216
+      }
+    },
+    {
+      "seed": 20261021,
+      "budget": 240,
+      "control": "thinning",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        3.211333333333333,
+        3.211333333333333
+      ],
+      "endpoint_metrics": [
+        [
+          0.21615371793099908,
+          0.06730964851494678
+        ],
+        [
+          0.2302126780624347,
+          0.07168756842301267
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": 0.014058960131435622,
+        "G_bits_per_spike": 0.004377919908065894
+      },
+      "retention": [
+        1.0,
+        0.995145129635368
+      ]
+    },
+    {
+      "seed": 20261021,
+      "budget": 240,
+      "control": "tilt",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        3.2191666666666654,
+        3.2191666666666663
+      ],
+      "endpoint_metrics": [
+        [
+          0.21608999071731883,
+          0.06712606493936907
+        ],
+        [
+          0.23167409529193012,
+          0.07196710182508832
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": 0.01558410457461129,
+        "G_bits_per_spike": 0.004841036885719255
+      },
+      "tilt_parameter": [
+        0.0003785447976656279,
+        -0.0003601861922961773
+      ]
+    },
+    {
+      "seed": 20261021,
+      "budget": 240,
+      "control": "replay_mixture",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        3.2,
+        3.1999999999999993
+      ],
+      "endpoint_metrics": [
+        [
+          0.21745175011942924,
+          0.06795367191232163
+        ],
+        [
+          0.23158156033212932,
+          0.07236923760379042
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": 0.014129810212700072,
+        "G_bits_per_spike": 0.004415565691468795
+      },
+      "brackets": [
+        {
+          "achieved_total_rate": 228.79375,
+          "command": 228.0,
+          "perturbation_weight": 0.07050285121824587,
+          "attempts": 1,
+          "endpoint_metrics": [
+            [
+              0.21615371793099908,
+              0.06730964851494678
+            ],
+            [
+              0.2366744327942127,
+              0.07758333634361057
+            ]
+          ]
+        },
+        {
+          "achieved_total_rate": 230.4375,
+          "command": 228.0,
+          "perturbation_weight": 0.17475728155339884,
+          "attempts": 1,
+          "endpoint_metrics": [
+            [
+              0.2316214060758404,
+              0.0717760787343788
+            ],
+            [
+              0.23346172419323244,
+              0.07598428777647924
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "seed": 20261021,
+      "budget": 480,
+      "control": "original",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        6.42,
+        6.397666666666668
+      ],
+      "endpoint_metrics": [
+        [
+          0.05499436790239345,
+          0.008566100919375926
+        ],
+        [
+          0.021320673280015925,
+          0.0033325701995544086
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": -0.03367369462237752,
+        "G_bits_per_spike": -0.005233530719821518
+      }
+    },
+    {
+      "seed": 20261021,
+      "budget": 480,
+      "control": "thinning",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        6.397666666666666,
+        6.397666666666668
+      ],
+      "endpoint_metrics": [
+        [
+          0.05436798801876487,
+          0.008498096392241684
+        ],
+        [
+          0.021320673280015925,
+          0.0033325701995544086
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": -0.033047314738748945,
+        "G_bits_per_spike": -0.005165526192687275
+      },
+      "retention": [
+        0.9965212876427831,
+        1.0
+      ]
+    },
+    {
+      "seed": 20261021,
+      "budget": 480,
+      "control": "tilt",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        6.40883333333333,
+        6.408833333333332
+      ],
+      "endpoint_metrics": [
+        [
+          0.05498075820642661,
+          0.008578902796623405
+        ],
+        [
+          0.021349332779788125,
+          0.0033312354479163855
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": -0.03363142542663848,
+        "G_bits_per_spike": -0.00524766734870702
+      },
+      "tilt_parameter": [
+        -0.00025235868382610376,
+        0.0002604821825933359
+      ]
+    },
+    {
+      "seed": 20261021,
+      "budget": 480,
+      "control": "replay_mixture",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        6.399999999999999,
+        6.400000000000001
+      ],
+      "endpoint_metrics": [
+        [
+          0.05505166612175347,
+          0.008601822831523982
+        ],
+        [
+          0.021275398807836934,
+          0.00332428106372452
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": -0.03377626731391653,
+        "G_bits_per_spike": -0.005277541767799461
+      },
+      "brackets": [
+        {
+          "achieved_total_rate": 457.50625,
+          "command": 456.0,
+          "perturbation_weight": 0.06251628028132189,
+          "attempts": 1,
+          "endpoint_metrics": [
+            [
+              0.05499436790239345,
+              0.008566100919375926
+            ],
+            [
+              0.05920014845948429,
+              0.009704809791038532
+            ]
+          ]
+        },
+        {
+          "achieved_total_rate": 503.58125,
+          "command": 504.0,
+          "perturbation_weight": 0.0073664825046074285,
+          "attempts": 1,
+          "endpoint_metrics": [
+            [
+              0.021320673280015925,
+              0.0033325701995544086
+            ],
+            [
+              0.021982930531452092,
+              0.0032739896290001004
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "seed": 20261021,
+      "budget": 720,
+      "control": "original",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        9.62875,
+        9.755166666666666
+      ],
+      "endpoint_metrics": [
+        [
+          0.07525376330864311,
+          0.007815527800456249
+        ],
+        [
+          0.11116788810481089,
+          0.011395795879599963
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": 0.035914124796167776,
+        "G_bits_per_spike": 0.0035802680791437134
+      }
+    },
+    {
+      "seed": 20261021,
+      "budget": 720,
+      "control": "thinning",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        9.628750000000004,
+        9.628750000000004
+      ],
+      "endpoint_metrics": [
+        [
+          0.07525376330864184,
+          0.007815527800456114
+        ],
+        [
+          0.10791278049353857,
+          0.011207350953502638
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": 0.032659017184896735,
+        "G_bits_per_spike": 0.0033918231530465238
+      },
+      "retention": [
+        1.0,
+        0.9870410551673473
+      ]
+    },
+    {
+      "seed": 20261021,
+      "budget": 720,
+      "control": "tilt",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        9.691958333333336,
+        9.691958333333332
+      ],
+      "endpoint_metrics": [
+        [
+          0.07582410889573425,
+          0.007823404340787774
+        ],
+        [
+          0.11098926617467943,
+          0.011451686269941603
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": 0.035165157278945175,
+        "G_bits_per_spike": 0.003628281929153829
+      },
+      "tilt_parameter": [
+        0.0009606059692380611,
+        -0.0010119737374331146
+      ]
+    },
+    {
+      "seed": 20261021,
+      "budget": 720,
+      "control": "replay_mixture",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        9.6,
+        9.599999999999996
+      ],
+      "endpoint_metrics": [
+        [
+          0.07442924056340906,
+          0.007753045892021778
+        ],
+        [
+          0.10608325613665523,
+          0.011050339180901592
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": 0.031654015573246166,
+        "G_bits_per_spike": 0.003297293288879814
+      },
+      "brackets": [
+        {
+          "achieved_total_rate": 685.775,
+          "command": 684.0,
+          "perturbation_weight": 0.05926816698161947,
+          "attempts": 1,
+          "endpoint_metrics": [
+            [
+              0.07525376330864311,
+              0.007815527800456249
+            ],
+            [
+              0.06654056153850434,
+              0.00727722958023816
+            ]
+          ]
+        },
+        {
+          "achieved_total_rate": 698.325,
+          "command": 684.0,
+          "perturbation_weight": 0.34934333958724423,
+          "attempts": 1,
+          "endpoint_metrics": [
+            [
+              0.11116788810481089,
+              0.011395795879599963
+            ],
+            [
+              0.10238865836621888,
+              0.01099652651339479
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "seed": 20261022,
+      "budget": 240,
+      "control": "original",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        3.202,
+        3.2102499999999994
+      ],
+      "endpoint_metrics": [
+        [
+          0.25052035739004247,
+          0.0782387124890826
+        ],
+        [
+          0.23803400655527848,
+          0.07414812134733387
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": -0.012486350834763987,
+        "G_bits_per_spike": -0.004090591141748728
+      }
+    },
+    {
+      "seed": 20261022,
+      "budget": 240,
+      "control": "thinning",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        3.202,
+        3.202000000000001
+      ],
+      "endpoint_metrics": [
+        [
+          0.25052035739004247,
+          0.0782387124890826
+        ],
+        [
+          0.23722081191138453,
+          0.07408520047201264
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": -0.013299545478657943,
+        "G_bits_per_spike": -0.004153512017069955
+      },
+      "retention": [
+        1.0,
+        0.9974301066895104
+      ]
+    },
+    {
+      "seed": 20261022,
+      "budget": 240,
+      "control": "tilt",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        3.206125,
+        3.2061249999999983
+      ],
+      "endpoint_metrics": [
+        [
+          0.2504990034844749,
+          0.07813139022479626
+        ],
+        [
+          0.23805221474442756,
+          0.07424919949921718
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": -0.012446788740047343,
+        "G_bits_per_spike": -0.0038821907255790766
+      },
+      "tilt_parameter": [
+        0.0001831378179792496,
+        -0.0001824509674799272
+      ]
+    },
+    {
+      "seed": 20261022,
+      "budget": 240,
+      "control": "replay_mixture",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        3.2,
+        3.2
+      ],
+      "endpoint_metrics": [
+        [
+          0.25052085758968384,
+          0.0782877679967762
+        ],
+        [
+          0.2381498724034687,
+          0.07442183512608395
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": -0.012370985186215155,
+        "G_bits_per_spike": -0.003865932870692243
+      },
+      "brackets": [
+        {
+          "achieved_total_rate": 228.15625,
+          "command": 228.0,
+          "perturbation_weight": 0.012506513809274283,
+          "attempts": 1,
+          "endpoint_metrics": [
+            [
+              0.25052035739004247,
+              0.0782387124890826
+            ],
+            [
+              0.2554256909786617,
+              0.08396406770973677
+            ]
+          ]
+        },
+        {
+          "achieved_total_rate": 229.08125,
+          "command": 228.0,
+          "perturbation_weight": 0.06577540106951649,
+          "attempts": 1,
+          "endpoint_metrics": [
+            [
+              0.23803400655527848,
+              0.07414812134733387
+            ],
+            [
+              0.2448169033667087,
+              0.0801517703980712
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "seed": 20261022,
+      "budget": 480,
+      "control": "original",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        6.441750000000001,
+        6.410500000000001
+      ],
+      "endpoint_metrics": [
+        [
+          0.05629296871383491,
+          0.008738769544585695
+        ],
+        [
+          0.023721458114825174,
+          0.0037004068504524097
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": -0.03257151059900973,
+        "G_bits_per_spike": -0.005038362694133285
+      }
+    },
+    {
+      "seed": 20261022,
+      "budget": 480,
+      "control": "thinning",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        6.410500000000001,
+        6.410500000000001
+      ],
+      "endpoint_metrics": [
+        [
+          0.055176686467164844,
+          0.008607236013909185
+        ],
+        [
+          0.023721458114825174,
+          0.0037004068504524097
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": -0.03145522835233967,
+        "G_bits_per_spike": -0.004906829163456776
+      },
+      "retention": [
+        0.9951488337796406,
+        1.0
+      ]
+    },
+    {
+      "seed": 20261022,
+      "budget": 480,
+      "control": "tilt",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        6.426124999999916,
+        6.426125000000001
+      ],
+      "endpoint_metrics": [
+        [
+          0.05630706781990799,
+          0.008762211724781066
+        ],
+        [
+          0.02373355842342105,
+          0.003693292368794732
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": -0.03257350939648694,
+        "G_bits_per_spike": -0.005068919355986334
+      },
+      "tilt_parameter": [
+        -0.0003336190294194043,
+        0.0003345632364202825
+      ]
+    },
+    {
+      "seed": 20261022,
+      "budget": 480,
+      "control": "replay_mixture",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        6.400000000000001,
+        6.3999999999999995
+      ],
+      "endpoint_metrics": [
+        [
+          0.05661336797149845,
+          0.008845838745546631
+        ],
+        [
+          0.023637281623839372,
+          0.003693325253724902
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": -0.03297608634765908,
+        "G_bits_per_spike": -0.005152513491821729
+      },
+      "brackets": [
+        {
+          "achieved_total_rate": 458.6125,
+          "command": 456.0,
+          "perturbation_weight": 0.12770838643894833,
+          "attempts": 1,
+          "endpoint_metrics": [
+            [
+              0.05629296871383491,
+              0.008738769544585695
+            ],
+            [
+              0.06324023576415884,
+              0.010342102935074628
+            ]
+          ]
+        },
+        {
+          "achieved_total_rate": 457.14375,
+          "command": 456.0,
+          "perturbation_weight": 0.033306899286281826,
+          "attempts": 1,
+          "endpoint_metrics": [
+            [
+              0.023721458114825174,
+              0.0037004068504524097
+            ],
+            [
+              0.028454530588897384,
+              0.004668312306943503
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "seed": 20261022,
+      "budget": 720,
+      "control": "original",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        9.63375,
+        9.928250000000002
+      ],
+      "endpoint_metrics": [
+        [
+          0.0739041861614848,
+          0.0076713830192276945
+        ],
+        [
+          0.1162098579272362,
+          0.0117049689449033
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": 0.04230567176575141,
+        "G_bits_per_spike": 0.004033585925675605
+      }
+    },
+    {
+      "seed": 20261022,
+      "budget": 720,
+      "control": "thinning",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        9.63375,
+        9.633749999999996
+      ],
+      "endpoint_metrics": [
+        [
+          0.0739041861614848,
+          0.0076713830192276945
+        ],
+        [
+          0.11215299089727755,
+          0.011641675453201257
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": 0.03824880473579276,
+        "G_bits_per_spike": 0.003970292433973562
+      },
+      "retention": [
+        1.0,
+        0.9703371691889303
+      ]
+    },
+    {
+      "seed": 20261022,
+      "budget": 720,
+      "control": "tilt",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        9.780999999999997,
+        9.781000000000002
+      ],
+      "endpoint_metrics": [
+        [
+          0.07478064025948376,
+          0.007645500486605028
+        ],
+        [
+          0.1150177251048504,
+          0.011759301206916508
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": 0.04023708484536663,
+        "G_bits_per_spike": 0.00411380072031148
+      },
+      "tilt_parameter": [
+        0.0021094220974846993,
+        -0.002530581174075012
+      ]
+    },
+    {
+      "seed": 20261022,
+      "budget": 720,
+      "control": "replay_mixture",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        9.600000000000001,
+        9.600000000000001
+      ],
+      "endpoint_metrics": [
+        [
+          0.07312085111802084,
+          0.007616755324793837
+        ],
+        [
+          0.10831775122098548,
+          0.01128309908551932
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": 0.03519690010296464,
+        "G_bits_per_spike": 0.0036663437607254833
+      },
+      "brackets": [
+        {
+          "achieved_total_rate": 686.86875,
+          "command": 684.0,
+          "perturbation_weight": 0.07097791798107148,
+          "attempts": 1,
+          "endpoint_metrics": [
+            [
+              0.0739041861614848,
+              0.0076713830192276945
+            ],
+            [
+              0.06903991894408994,
+              0.007538549280057865
+            ]
+          ]
+        },
+        {
+          "achieved_total_rate": 701.6375,
+          "command": 684.0,
+          "perturbation_weight": 0.5727788279773154,
+          "attempts": 1,
+          "endpoint_metrics": [
+            [
+              0.1162098579272362,
+              0.0117049689449033
+            ],
+            [
+              0.10660397845715731,
+              0.011395198210310594
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "seed": 20261023,
+      "budget": 240,
+      "control": "original",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        3.2151666666666667,
+        3.2348333333333326
+      ],
+      "endpoint_metrics": [
+        [
+          0.26106869101852304,
+          0.08119911596657188
+        ],
+        [
+          0.22360680050738274,
+          0.06912467427710324
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": -0.037461890511140294,
+        "G_bits_per_spike": -0.01207444168946864
+      }
+    },
+    {
+      "seed": 20261023,
+      "budget": 240,
+      "control": "thinning",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        3.2151666666666667,
+        3.215166666666667
+      ],
+      "endpoint_metrics": [
+        [
+          0.26106869101852304,
+          0.08119911596657188
+        ],
+        [
+          0.22207726001846165,
+          0.06907177233480741
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": -0.03899143100006139,
+        "G_bits_per_spike": -0.012127343631764473
+      },
+      "retention": [
+        1.0,
+        0.9939203462311301
+      ]
+    },
+    {
+      "seed": 20261023,
+      "budget": 240,
+      "control": "tilt",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        3.2250000000000005,
+        3.224999999999999
+      ],
+      "endpoint_metrics": [
+        [
+          0.2609862191964324,
+          0.08092595944075422
+        ],
+        [
+          0.22363555412686953,
+          0.06934435786879677
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": -0.03735066506956286,
+        "G_bits_per_spike": -0.01158160157195745
+      },
+      "tilt_parameter": [
+        0.0004497756526829646,
+        -0.0004392196917643362
+      ]
+    },
+    {
+      "seed": 20261023,
+      "budget": 240,
+      "control": "replay_mixture",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        3.2,
+        3.2
+      ],
+      "endpoint_metrics": [
+        [
+          0.2621044502916901,
+          0.08190764071615315
+        ],
+        [
+          0.22642782946418602,
+          0.07075869670755813
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": -0.035676620827504085,
+        "G_bits_per_spike": -0.011148944008595021
+      },
+      "brackets": [
+        {
+          "achieved_total_rate": 229.33125,
+          "command": 228.0,
+          "perturbation_weight": 0.09634727368978216,
+          "attempts": 1,
+          "endpoint_metrics": [
+            [
+              0.26106869101852304,
+              0.08119911596657188
+            ],
+            [
+              0.2733321099856156,
+              0.08938994685164438
+            ]
+          ]
+        },
+        {
+          "achieved_total_rate": 230.425,
+          "command": 228.0,
+          "perturbation_weight": 0.21435897435897386,
+          "attempts": 1,
+          "endpoint_metrics": [
+            [
+              0.22360680050738274,
+              0.06912467427710324
+            ],
+            [
+              0.2387427094659703,
+              0.07770729395659227
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "seed": 20261023,
+      "budget": 480,
+      "control": "original",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        6.430916666666667,
+        6.455416666666666
+      ],
+      "endpoint_metrics": [
+        [
+          0.07927488702220743,
+          0.012327151964682188
+        ],
+        [
+          0.018922859223111804,
+          0.0029313149251577056
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": -0.060352027799095626,
+        "G_bits_per_spike": -0.009395837039524482
+      }
+    },
+    {
+      "seed": 20261023,
+      "budget": 480,
+      "control": "thinning",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        6.430916666666667,
+        6.430916666666667
+      ],
+      "endpoint_metrics": [
+        [
+          0.07927488702220743,
+          0.012327151964682188
+        ],
+        [
+          0.018445167420586783,
+          0.0028682019028785605
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": -0.060829719601620647,
+        "G_bits_per_spike": -0.009458950061803627
+      },
+      "retention": [
+        1.0,
+        0.9962047376234429
+      ]
+    },
+    {
+      "seed": 20261023,
+      "budget": 480,
+      "control": "tilt",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        6.443166666666664,
+        6.443166666666668
+      ],
+      "endpoint_metrics": [
+        [
+          0.07923195847583482,
+          0.012297052454926644
+        ],
+        [
+          0.018890574699332904,
+          0.002931877394552301
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": -0.06034138377650192,
+        "G_bits_per_spike": -0.009365175060374344
+      },
+      "tilt_parameter": [
+        0.00025098167084611764,
+        -0.0002804329491077952
+      ]
+    },
+    {
+      "seed": 20261023,
+      "budget": 480,
+      "control": "replay_mixture",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        6.4,
+        6.4
+      ],
+      "endpoint_metrics": [
+        [
+          0.08041803204816954,
+          0.012565317507526489
+        ],
+        [
+          0.019423842672497478,
+          0.0030349754175777307
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": -0.06099418937567206,
+        "G_bits_per_spike": -0.009530342089948757
+      },
+      "brackets": [
+        {
+          "achieved_total_rate": 458.3125,
+          "command": 456.0,
+          "perturbation_weight": 0.0965894298359791,
+          "attempts": 1,
+          "endpoint_metrics": [
+            [
+              0.07927488702220743,
+              0.012327151964682188
+            ],
+            [
+              0.09480808399182392,
+              0.01551475532390409
+            ]
+          ]
+        },
+        {
+          "achieved_total_rate": 459.34375,
+          "command": 456.0,
+          "perturbation_weight": 0.16750629722921703,
+          "attempts": 1,
+          "endpoint_metrics": [
+            [
+              0.018922859223111804,
+              0.0029313149251577056
+            ],
+            [
+              0.02671391619499051,
+              0.00436175242315649
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "seed": 20261023,
+      "budget": 720,
+      "control": "original",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        9.625166666666669,
+        9.876416666666668
+      ],
+      "endpoint_metrics": [
+        [
+          0.06645370421078717,
+          0.0069041614043864686
+        ],
+        [
+          0.16343258657921747,
+          0.016547761409338824
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": 0.0969788823684303,
+        "G_bits_per_spike": 0.009643600004952357
+      }
+    },
+    {
+      "seed": 20261023,
+      "budget": 720,
+      "control": "thinning",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        9.625166666666669,
+        9.625166666666669
+      ],
+      "endpoint_metrics": [
+        [
+          0.06645370421078717,
+          0.0069041614043864686
+        ],
+        [
+          0.16022262958443517,
+          0.016646218723599778
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": 0.093768925373648,
+        "G_bits_per_spike": 0.00974205731921331
+      },
+      "retention": [
+        1.0,
+        0.9745606115578357
+      ]
+    },
+    {
+      "seed": 20261023,
+      "budget": 720,
+      "control": "tilt",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        9.750791666666682,
+        9.750791666666672
+      ],
+      "endpoint_metrics": [
+        [
+          0.06726470675113287,
+          0.006898384156958137
+        ],
+        [
+          0.16245500675550892,
+          0.01666069918310997
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": 0.09519030000437605,
+        "G_bits_per_spike": 0.009762315026151831
+      },
+      "tilt_parameter": [
+        0.0017692883032781645,
+        -0.002429667750271889
+      ]
+    },
+    {
+      "seed": 20261023,
+      "budget": 720,
+      "control": "replay_mixture",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        9.599999999999998,
+        9.599999999999996
+      ],
+      "endpoint_metrics": [
+        [
+          0.06578464283268921,
+          0.0068525669617384615
+        ],
+        [
+          0.14796660100839695,
+          0.015413187605041356
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": 0.08218195817570774,
+        "G_bits_per_spike": 0.008560620643302895
+      },
+      "brackets": [
+        {
+          "achieved_total_rate": 685.76875,
+          "command": 684.0,
+          "perturbation_weight": 0.052258176155045126,
+          "attempts": 1,
+          "endpoint_metrics": [
+            [
+              0.06645370421078717,
+              0.0069041614043864686
+            ],
+            [
+              0.05992157505995594,
+              0.0065534017545954
+            ]
+          ]
+        },
+        {
+          "achieved_total_rate": 701.3,
+          "command": 684.0,
+          "perturbation_weight": 0.5257568552860994,
+          "attempts": 1,
+          "endpoint_metrics": [
+            [
+              0.16343258657921747,
+              0.016547761409338824
+            ],
+            [
+              0.13815272367326317,
+              0.014774638921281533
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "seed": 20261024,
+      "budget": 240,
+      "control": "original",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        3.21725,
+        3.2315833333333335
+      ],
+      "endpoint_metrics": [
+        [
+          0.25645287072123757,
+          0.0797118255408307
+        ],
+        [
+          0.20938980212117914,
+          0.06479480196637741
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": -0.04706306860005843,
+        "G_bits_per_spike": -0.014917023574453292
+      }
+    },
+    {
+      "seed": 20261024,
+      "budget": 240,
+      "control": "thinning",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        3.2172500000000004,
+        3.2172499999999995
+      ],
+      "endpoint_metrics": [
+        [
+          0.2564528707212369,
+          0.07971182554083048
+        ],
+        [
+          0.20775130145453952,
+          0.06457418648054691
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": -0.048701569266697387,
+        "G_bits_per_spike": -0.015137639060283564
+      },
+      "retention": [
+        1.0,
+        0.9955646097114417
+      ]
+    },
+    {
+      "seed": 20261024,
+      "budget": 240,
+      "control": "tilt",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        3.2244166666666643,
+        3.2244166666666487
+      ],
+      "endpoint_metrics": [
+        [
+          0.25643072716619003,
+          0.07952778864379301
+        ],
+        [
+          0.20939714853023894,
+          0.06494109483273154
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": -0.04703357863595109,
+        "G_bits_per_spike": -0.014586693811061466
+      },
+      "tilt_parameter": [
+        0.000316042034691862,
+        -0.00031676332858002307
+      ]
+    },
+    {
+      "seed": 20261024,
+      "budget": 240,
+      "control": "replay_mixture",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        3.2,
+        3.2
+      ],
+      "endpoint_metrics": [
+        [
+          0.25764851258625754,
+          0.08051516018320548
+        ],
+        [
+          0.21335839298975728,
+          0.06667449780929914
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": -0.044290119596500255,
+        "G_bits_per_spike": -0.01384066237390634
+      },
+      "brackets": [
+        {
+          "achieved_total_rate": 229.25,
+          "command": 228.0,
+          "perturbation_weight": 0.10742086144265554,
+          "attempts": 1,
+          "endpoint_metrics": [
+            [
+              0.25645287072123757,
+              0.0797118255408307
+            ],
+            [
+              0.2715563652153269,
+              0.08884068654808949
+            ]
+          ]
+        },
+        {
+          "achieved_total_rate": 229.86875,
+          "command": 228.0,
+          "perturbation_weight": 0.18949999999999778,
+          "attempts": 1,
+          "endpoint_metrics": [
+            [
+              0.20938980212117914,
+              0.06479480196637741
+            ],
+            [
+              0.23478669974527414,
+              0.07660459493034855
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "seed": 20261024,
+      "budget": 480,
+      "control": "original",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        6.414416666666668,
+        6.4535833333333334
+      ],
+      "endpoint_metrics": [
+        [
+          0.06081773955292001,
+          0.009481413932613253
+        ],
+        [
+          0.021294818328126734,
+          0.00329968906082565
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": -0.03952292122479328,
+        "G_bits_per_spike": -0.0061817248717876035
+      }
+    },
+    {
+      "seed": 20261024,
+      "budget": 480,
+      "control": "thinning",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        6.414416666666668,
+        6.4144166666666695
+      ],
+      "endpoint_metrics": [
+        [
+          0.06081773955292001,
+          0.009481413932613253
+        ],
+        [
+          0.020646566204229846,
+          0.0032187753426624667
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": -0.040171173348690165,
+        "G_bits_per_spike": -0.006262638589950787
+      },
+      "retention": [
+        1.0,
+        0.993931020234237
+      ]
+    },
+    {
+      "seed": 20261024,
+      "budget": 480,
+      "control": "tilt",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        6.434000000000003,
+        6.434
+      ],
+      "endpoint_metrics": [
+        [
+          0.06081392286412234,
+          0.009451961899925755
+        ],
+        [
+          0.021251923612518684,
+          0.003303065528834113
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": -0.039561999251603655,
+        "G_bits_per_spike": -0.006148896371091643
+      },
+      "tilt_parameter": [
+        0.00042008304852833995,
+        -0.0004517799643043427
+      ]
+    },
+    {
+      "seed": 20261024,
+      "budget": 480,
+      "control": "replay_mixture",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        6.4,
+        6.3999999999999995
+      ],
+      "endpoint_metrics": [
+        [
+          0.060996451617046143,
+          0.00953069556516346
+        ],
+        [
+          0.0205834928222431,
+          0.0032161707534754842
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": -0.04041295879480304,
+        "G_bits_per_spike": -0.006314524811687976
+      },
+      "brackets": [
+        {
+          "achieved_total_rate": 457.35625,
+          "command": 456.0,
+          "perturbation_weight": 0.04557428872497316,
+          "attempts": 1,
+          "endpoint_metrics": [
+            [
+              0.06081773955292001,
+              0.009481413932613253
+            ],
+            [
+              0.06856595867325875,
+              0.01124385399892186
+            ]
+          ]
+        },
+        {
+          "achieved_total_rate": 459.09375,
+          "command": 456.0,
+          "perturbation_weight": 0.1612337011033091,
+          "attempts": 1,
+          "endpoint_metrics": [
+            [
+              0.021294818328126734,
+              0.00329968906082565
+            ],
+            [
+              0.021209029422084216,
+              0.0034648199995236614
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "seed": 20261024,
+      "budget": 720,
+      "control": "original",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        9.617666666666668,
+        10.005833333333335
+      ],
+      "endpoint_metrics": [
+        [
+          0.08067788715589795,
+          0.008388509391317847
+        ],
+        [
+          0.15375045960603215,
+          0.015366082412529236
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": 0.0730725724501342,
+        "G_bits_per_spike": 0.006977573021211389
+      }
+    },
+    {
+      "seed": 20261024,
+      "budget": 720,
+      "control": "thinning",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        9.617666666666668,
+        9.617666666666665
+      ],
+      "endpoint_metrics": [
+        [
+          0.08067788715589795,
+          0.008388509391317847
+        ],
+        [
+          0.14823860287112012,
+          0.015413156642753282
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": 0.06756071571522217,
+        "G_bits_per_spike": 0.007024647251435435
+      },
+      "retention": [
+        1.0,
+        0.9612059631881402
+      ]
+    },
+    {
+      "seed": 20261024,
+      "budget": 720,
+      "control": "tilt",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        9.811750000000023,
+        9.811750000000004
+      ],
+      "endpoint_metrics": [
+        [
+          0.08191466561069898,
+          0.008348629511626243
+        ],
+        [
+          0.15231177971486282,
+          0.015523406091152216
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": 0.07039711410416384,
+        "G_bits_per_spike": 0.007174776579525973
+      },
+      "tilt_parameter": [
+        0.0028125009966660937,
+        -0.0035711137928460582
+      ]
+    },
+    {
+      "seed": 20261024,
+      "budget": 720,
+      "control": "replay_mixture",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        9.6,
+        9.600000000000001
+      ],
+      "endpoint_metrics": [
+        [
+          0.08004678431170388,
+          0.008338206699135821
+        ],
+        [
+          0.1413274533602651,
+          0.014721609725027611
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": 0.06128066904856121,
+        "G_bits_per_spike": 0.00638340302589179
+      },
+      "brackets": [
+        {
+          "achieved_total_rate": 685.30625,
+          "command": 684.0,
+          "perturbation_weight": 0.03678639597432308,
+          "attempts": 1,
+          "endpoint_metrics": [
+            [
+              0.08067788715589795,
+              0.008388509391317847
+            ],
+            [
+              0.06845734780081618,
+              0.007491980534339524
+            ]
+          ]
+        },
+        {
+          "achieved_total_rate": 708.15,
+          "command": 684.0,
+          "perturbation_weight": 0.7197753473248605,
+          "attempts": 1,
+          "endpoint_metrics": [
+            [
+              0.15375045960603215,
+              0.015366082412529236
+            ],
+            [
+              0.13964700253710677,
+              0.014789981204946703
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "seed": 20261025,
+      "budget": 240,
+      "control": "original",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        3.21775,
+        3.220083333333333
+      ],
+      "endpoint_metrics": [
+        [
+          0.22380146847979912,
+          0.06955216175271513
+        ],
+        [
+          0.2289022455019902,
+          0.0710858141876215
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": 0.005100777022191083,
+        "G_bits_per_spike": 0.0015336524349063713
+      }
+    },
+    {
+      "seed": 20261025,
+      "budget": 240,
+      "control": "thinning",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        3.21775,
+        3.2177499999999997
+      ],
+      "endpoint_metrics": [
+        [
+          0.22380146847979912,
+          0.06955216175271513
+        ],
+        [
+          0.22865076974248857,
+          0.07105920899463557
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": 0.004849301262689454,
+        "G_bits_per_spike": 0.0015070472419204395
+      },
+      "retention": [
+        1.0,
+        0.9992753810719185
+      ]
+    },
+    {
+      "seed": 20261025,
+      "budget": 240,
+      "control": "tilt",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        3.218916666666667,
+        3.218916666666669
+      ],
+      "endpoint_metrics": [
+        [
+          0.22379233659696043,
+          0.06952411627005786
+        ],
+        [
+          0.22890669197742877,
+          0.07111295994328172
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": 0.005114355380468338,
+        "G_bits_per_spike": 0.0015888436732238581
+      },
+      "tilt_parameter": [
+        5.508347339634859e-05,
+        -5.2191686527059474e-05
+      ]
+    },
+    {
+      "seed": 20261025,
+      "budget": 240,
+      "control": "replay_mixture",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        3.2,
+        3.2
+      ],
+      "endpoint_metrics": [
+        [
+          0.22512961130139528,
+          0.07035300353168603
+        ],
+        [
+          0.22937646942318551,
+          0.07168014669474547
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": 0.004246858121790237,
+        "G_bits_per_spike": 0.0013271431630594438
+      },
+      "brackets": [
+        {
+          "achieved_total_rate": 229.46875,
+          "command": 228.0,
+          "perturbation_weight": 0.11222339304530785,
+          "attempts": 1,
+          "endpoint_metrics": [
+            [
+              0.22380146847979912,
+              0.06955216175271513
+            ],
+            [
+              0.23815932842102416,
+              0.07784044507836824
+            ]
+          ]
+        },
+        {
+          "achieved_total_rate": 229.025,
+          "command": 228.0,
+          "perturbation_weight": 0.1206810215322965,
+          "attempts": 1,
+          "endpoint_metrics": [
+            [
+              0.2289022455019902,
+              0.0710858141876215
+            ],
+            [
+              0.2369851541133177,
+              0.07760675279335805
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "seed": 20261025,
+      "budget": 480,
+      "control": "original",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        6.450833333333334,
+        6.408583333333333
+      ],
+      "endpoint_metrics": [
+        [
+          0.047795996958704755,
+          0.007409274815972833
+        ],
+        [
+          0.020611862961902747,
+          0.003216290073766082
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": -0.027184133996802008,
+        "G_bits_per_spike": -0.004192984742206751
+      }
+    },
+    {
+      "seed": 20261025,
+      "budget": 480,
+      "control": "thinning",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        6.408583333333333,
+        6.408583333333333
+      ],
+      "endpoint_metrics": [
+        [
+          0.046687643317734416,
+          0.007285173787925218
+        ],
+        [
+          0.020611862961902747,
+          0.003216290073766082
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": -0.02607578035583167,
+        "G_bits_per_spike": -0.004068883714159136
+      },
+      "retention": [
+        0.9934504585970804,
+        1.0
+      ]
+    },
+    {
+      "seed": 20261025,
+      "budget": 480,
+      "control": "tilt",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        6.429708333333336,
+        6.429708333333353
+      ],
+      "endpoint_metrics": [
+        [
+          0.04777379040641895,
+          0.0074301644693192045
+        ],
+        [
+          0.020704626957080613,
+          0.003220150259342591
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": -0.027069163449338338,
+        "G_bits_per_spike": -0.004210014209976614
+      },
+      "tilt_parameter": [
+        -0.00046530385006348437,
+        0.0005055289118880131
+      ]
+    },
+    {
+      "seed": 20261025,
+      "budget": 480,
+      "control": "replay_mixture",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        6.4,
+        6.4
+      ],
+      "endpoint_metrics": [
+        [
+          0.04895989283271262,
+          0.007649983255111346
+        ],
+        [
+          0.02046750368466758,
+          0.003198047450729309
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": -0.028492389148045038,
+        "G_bits_per_spike": -0.004451935804382037
+      },
+      "brackets": [
+        {
+          "achieved_total_rate": 459.5625,
+          "command": 456.0,
+          "perturbation_weight": 0.1572164948453603,
+          "attempts": 1,
+          "endpoint_metrics": [
+            [
+              0.047795996958704755,
+              0.007409274815972833
+            ],
+            [
+              0.058168165508390296,
+              0.009492968667219957
+            ]
+          ]
+        },
+        {
+          "achieved_total_rate": 456.94375,
+          "command": 456.0,
+          "perturbation_weight": 0.027162447257380713,
+          "attempts": 1,
+          "endpoint_metrics": [
+            [
+              0.020611862961902747,
+              0.003216290073766082
+            ],
+            [
+              0.022246711122950916,
+              0.003651441417507775
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "seed": 20261025,
+      "budget": 720,
+      "control": "original",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        9.627083333333335,
+        9.733666666666664
+      ],
+      "endpoint_metrics": [
+        [
+          0.07746857941580976,
+          0.008046941813371278
+        ],
+        [
+          0.12335891205977867,
+          0.012673426806593476
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": 0.04589033264396891,
+        "G_bits_per_spike": 0.004626484993222197
+      }
+    },
+    {
+      "seed": 20261025,
+      "budget": 720,
+      "control": "thinning",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        9.627083333333335,
+        9.627083333333339
+      ],
+      "endpoint_metrics": [
+        [
+          0.07746857941580976,
+          0.008046941813371278
+        ],
+        [
+          0.12116744429773589,
+          0.012586101117271846
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": 0.04369886488192613,
+        "G_bits_per_spike": 0.004539159303900567
+      },
+      "retention": [
+        1.0,
+        0.9890500325331328
+      ]
+    },
+    {
+      "seed": 20261025,
+      "budget": 720,
+      "control": "tilt",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        9.680374999999998,
+        9.680374999999994
+      ],
+      "endpoint_metrics": [
+        [
+          0.07794844545373762,
+          0.008052213416705204
+        ],
+        [
+          0.12299413940893743,
+          0.012705513929877458
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": 0.045045693955199806,
+        "G_bits_per_spike": 0.004653300513172254
+      },
+      "tilt_parameter": [
+        0.0008240224092745741,
+        -0.0009452593616457233
+      ]
+    },
+    {
+      "seed": 20261025,
+      "budget": 720,
+      "control": "replay_mixture",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        9.599999999999998,
+        9.600000000000001
+      ],
+      "endpoint_metrics": [
+        [
+          0.07672793975267664,
+          0.007992493724237151
+        ],
+        [
+          0.12178072927461255,
+          0.012685492632772138
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": 0.04505278952193591,
+        "G_bits_per_spike": 0.004692998908534987
+      },
+      "brackets": [
+        {
+          "achieved_total_rate": 686.03125,
+          "command": 684.0,
+          "perturbation_weight": 0.056423611111111556,
+          "attempts": 1,
+          "endpoint_metrics": [
+            [
+              0.07746857941580976,
+              0.008046941813371278
+            ],
+            [
+              0.0714550197105789,
+              0.007811781866049713
+            ]
+          ]
+        },
+        {
+          "achieved_total_rate": 691.1375,
+          "command": 684.0,
+          "perturbation_weight": 0.2577949212471884,
+          "attempts": 1,
+          "endpoint_metrics": [
+            [
+              0.12335891205977867,
+              0.012673426806593476
+            ],
+            [
+              0.12271026214173104,
+              0.013316119673190688
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "seed": 20261026,
+      "budget": 240,
+      "control": "original",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        3.2295,
+        3.2306666666666666
+      ],
+      "endpoint_metrics": [
+        [
+          0.22752596281047294,
+          0.07045238049557917
+        ],
+        [
+          0.23089499371486238,
+          0.07146976693609029
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": 0.0033690309043894473,
+        "G_bits_per_spike": 0.0010173864405111227
+      }
+    },
+    {
+      "seed": 20261026,
+      "budget": 240,
+      "control": "thinning",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        3.2295000000000007,
+        3.2295
+      ],
+      "endpoint_metrics": [
+        [
+          0.2275259628104723,
+          0.07045238049557896
+        ],
+        [
+          0.23076675905798774,
+          0.07145587832729146
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": 0.003240796247515443,
+        "G_bits_per_spike": 0.0010034978317124965
+      },
+      "retention": [
+        1.0,
+        0.9996388774246802
+      ]
+    },
+    {
+      "seed": 20261026,
+      "budget": 240,
+      "control": "tilt",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        3.230083333333333,
+        3.2300833333333347
+      ],
+      "endpoint_metrics": [
+        [
+          0.22752327492265964,
+          0.0704388250837676
+        ],
+        [
+          0.23089864773725066,
+          0.07148380518683746
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": 0.003375372814591021,
+        "G_bits_per_spike": 0.0010449801030698591
+      },
+      "tilt_parameter": [
+        2.804204781216174e-05,
+        -2.6791536494044273e-05
+      ]
+    },
+    {
+      "seed": 20261026,
+      "budget": 240,
+      "control": "replay_mixture",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        3.2,
+        3.2
+      ],
+      "endpoint_metrics": [
+        [
+          0.23325743301465154,
+          0.0728929478170786
+        ],
+        [
+          0.2324938491391724,
+          0.07265432785599137
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": -0.0007635838754791457,
+        "G_bits_per_spike": -0.00023861996108723305
+      },
+      "brackets": [
+        {
+          "achieved_total_rate": 229.9375,
+          "command": 228.0,
+          "perturbation_weight": 0.18024439918533586,
+          "attempts": 1,
+          "endpoint_metrics": [
+            [
+              0.22752596281047294,
+              0.07045238049557917
+            ],
+            [
+              0.26259667995994806,
+              0.0856526273313231
+            ]
+          ]
+        },
+        {
+          "achieved_total_rate": 229.58125,
+          "command": 228.0,
+          "perturbation_weight": 0.18083538083538153,
+          "attempts": 1,
+          "endpoint_metrics": [
+            [
+              0.23089499371486238,
+              0.07146976693609029
+            ],
+            [
+              0.24264300852459675,
+              0.07926703787589257
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "seed": 20261026,
+      "budget": 480,
+      "control": "original",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        6.432083333333333,
+        6.421833333333334
+      ],
+      "endpoint_metrics": [
+        [
+          0.05802722159302744,
+          0.009021528264770736
+        ],
+        [
+          0.02931620782887625,
+          0.004565083879817744
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": -0.028711013764151187,
+        "G_bits_per_spike": -0.004456444384952992
+      }
+    },
+    {
+      "seed": 20261026,
+      "budget": 480,
+      "control": "thinning",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        6.421833333333334,
+        6.421833333333334
+      ],
+      "endpoint_metrics": [
+        [
+          0.05763498497020606,
+          0.008974849077917426
+        ],
+        [
+          0.02931620782887625,
+          0.004565083879817744
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": -0.028318777141329812,
+        "G_bits_per_spike": -0.004409765198099682
+      },
+      "retention": [
+        0.9984064261190647,
+        1.0
+      ]
+    },
+    {
+      "seed": 20261026,
+      "budget": 480,
+      "control": "tilt",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        6.426958333333333,
+        6.426958333333312
+      ],
+      "endpoint_metrics": [
+        [
+          0.05801747042711691,
+          0.009027205003992336
+        ],
+        [
+          0.029317311704241806,
+          0.004561615337100921
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": -0.028700158722875107,
+        "G_bits_per_spike": -0.004465589666891415
+      },
+      "tilt_parameter": [
+        -0.00011265903781018519,
+        0.00011395838155319313
+      ]
+    },
+    {
+      "seed": 20261026,
+      "budget": 480,
+      "control": "replay_mixture",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        6.4,
+        6.4
+      ],
+      "endpoint_metrics": [
+        [
+          0.058775781363859775,
+          0.009183715838103089
+        ],
+        [
+          0.028732057157545014,
+          0.004489383930866408
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": -0.03004372420631476,
+        "G_bits_per_spike": -0.004694331907236681
+      },
+      "brackets": [
+        {
+          "achieved_total_rate": 458.6375,
+          "command": 456.0,
+          "perturbation_weight": 0.10123586642124426,
+          "attempts": 1,
+          "endpoint_metrics": [
+            [
+              0.05802722159302744,
+              0.009021528264770736
+            ],
+            [
+              0.07029865870709524,
+              0.01149578785649264
+            ]
+          ]
+        },
+        {
+          "achieved_total_rate": 457.76875,
+          "command": 456.0,
+          "perturbation_weight": 0.06860434668761191,
+          "attempts": 1,
+          "endpoint_metrics": [
+            [
+              0.02931620782887625,
+              0.004565083879817744
+            ],
+            [
+              0.02846045183540261,
+              0.004662908701511833
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "seed": 20261026,
+      "budget": 720,
+      "control": "original",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        9.612833333333334,
+        9.752583333333334
+      ],
+      "endpoint_metrics": [
+        [
+          0.06291152762196676,
+          0.006544535356065685
+        ],
+        [
+          0.10530345809036344,
+          0.01079749380150867
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": 0.04239193046839668,
+        "G_bits_per_spike": 0.004252958445442985
+      }
+    },
+    {
+      "seed": 20261026,
+      "budget": 720,
+      "control": "thinning",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        9.612833333333334,
+        9.612833333333334
+      ],
+      "endpoint_metrics": [
+        [
+          0.06291152762196676,
+          0.006544535356065685
+        ],
+        [
+          0.1025930281609917,
+          0.010672506700521006
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": 0.03968150053902493,
+        "G_bits_per_spike": 0.00412797134445532
+      },
+      "retention": [
+        1.0,
+        0.9856704633814973
+      ]
+    },
+    {
+      "seed": 20261026,
+      "budget": 720,
+      "control": "tilt",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        9.682708333333375,
+        9.682708333333322
+      ],
+      "endpoint_metrics": [
+        [
+          0.06338950739507196,
+          0.006546671159849906
+        ],
+        [
+          0.1047748487951211,
+          0.010820820496516167
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": 0.04138534140004914,
+        "G_bits_per_spike": 0.0042741493366662605
+      },
+      "tilt_parameter": [
+        0.0010150929111444095,
+        -0.0011912435325627912
+      ]
+    },
+    {
+      "seed": 20261026,
+      "budget": 720,
+      "control": "replay_mixture",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        9.599999999999998,
+        9.599999999999998
+      ],
+      "endpoint_metrics": [
+        [
+          0.06265963847535208,
+          0.006527045674515843
+        ],
+        [
+          0.1010763450745987,
+          0.0105287859452707
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": 0.03841670659924662,
+        "G_bits_per_spike": 0.004001740270754858
+      },
+      "brackets": [
+        {
+          "achieved_total_rate": 685.175,
+          "command": 684.0,
+          "perturbation_weight": 0.02689486552567543,
+          "attempts": 1,
+          "endpoint_metrics": [
+            [
+              0.06291152762196676,
+              0.006544535356065685
+            ],
+            [
+              0.058330761165020034,
+              0.006384948498378521
+            ]
+          ]
+        },
+        {
+          "achieved_total_rate": 695.79375,
+          "command": 684.0,
+          "perturbation_weight": 0.3210028050490889,
+          "attempts": 1,
+          "endpoint_metrics": [
+            [
+              0.10530345809036344,
+              0.01079749380150867
+            ],
+            [
+              0.09892848381820003,
+              0.010663556961190009
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "seed": 20261027,
+      "budget": 240,
+      "control": "original",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        3.2129166666666666,
+        3.2120000000000006
+      ],
+      "endpoint_metrics": [
+        [
+          0.23971542338991372,
+          0.07460991001631344
+        ],
+        [
+          0.18416792330800422,
+          0.05733746055666382
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": -0.05554750008190951,
+        "G_bits_per_spike": -0.01727244945964962
+      }
+    },
+    {
+      "seed": 20261027,
+      "budget": 240,
+      "control": "thinning",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        3.2120000000000006,
+        3.2120000000000006
+      ],
+      "endpoint_metrics": [
+        [
+          0.23960793859962862,
+          0.07459773929004626
+        ],
+        [
+          0.18416792330800422,
+          0.05733746055666382
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": -0.0554400152916244,
+        "G_bits_per_spike": -0.017260278733382442
+      },
+      "retention": [
+        0.9997146932952926,
+        1.0
+      ]
+    },
+    {
+      "seed": 20261027,
+      "budget": 240,
+      "control": "tilt",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        3.2124583333333336,
+        3.2124583333333336
+      ],
+      "endpoint_metrics": [
+        [
+          0.2397206043026367,
+          0.07462216764501849
+        ],
+        [
+          0.18416423112973612,
+          0.05732813067761795
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": -0.055556373172900575,
+        "G_bits_per_spike": -0.017294036967400533
+      },
+      "tilt_parameter": [
+        -2.191621395578267e-05,
+        2.32221100165687e-05
+      ]
+    },
+    {
+      "seed": 20261027,
+      "budget": 240,
+      "control": "replay_mixture",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        3.2,
+        3.2
+      ],
+      "endpoint_metrics": [
+        [
+          0.24029143945741832,
+          0.07509107483044322
+        ],
+        [
+          0.1847585369111706,
+          0.057737042784740816
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": -0.05553290254624771,
+        "G_bits_per_spike": -0.017354032045702406
+      },
+      "brackets": [
+        {
+          "achieved_total_rate": 228.75625,
+          "command": 228.0,
+          "perturbation_weight": 0.07932446264073569,
+          "attempts": 1,
+          "endpoint_metrics": [
+            [
+              0.23971542338991372,
+              0.07460991001631344
+            ],
+            [
+              0.2490236086584462,
+              0.08164485407233012
+            ]
+          ]
+        },
+        {
+          "achieved_total_rate": 228.8375,
+          "command": 228.0,
+          "perturbation_weight": 0.07461139896372816,
+          "attempts": 1,
+          "endpoint_metrics": [
+            [
+              0.18416792330800422,
+              0.05733746055666382
+            ],
+            [
+              0.19613808683259373,
+              0.06428298033514844
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "seed": 20261027,
+      "budget": 480,
+      "control": "original",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        6.4115,
+        6.3955
+      ],
+      "endpoint_metrics": [
+        [
+          0.08182719235811131,
+          0.012762566070047774
+        ],
+        [
+          0.027448919514987534,
+          0.004291911424437109
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": -0.05437827284312378,
+        "G_bits_per_spike": -0.008470654645610665
+      }
+    },
+    {
+      "seed": 20261027,
+      "budget": 480,
+      "control": "thinning",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        6.395500000000002,
+        6.3955
+      ],
+      "endpoint_metrics": [
+        [
+          0.0812630004130957,
+          0.012706277916206031
+        ],
+        [
+          0.027448919514987534,
+          0.004291911424437109
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": -0.053814080898108164,
+        "G_bits_per_spike": -0.008414366491768922
+      },
+      "retention": [
+        0.9975044841300788,
+        1.0
+      ]
+    },
+    {
+      "seed": 20261027,
+      "budget": 480,
+      "control": "tilt",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        6.403500000000097,
+        6.403499999999999
+      ],
+      "endpoint_metrics": [
+        [
+          0.0818560568260031,
+          0.012783018166003256
+        ],
+        [
+          0.027480888977789848,
+          0.004291541965767135
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": -0.05437516784821325,
+        "G_bits_per_spike": -0.00849147620023612
+      },
+      "tilt_parameter": [
+        -0.0001719149590567067,
+        0.0001972250750925762
+      ]
+    },
+    {
+      "seed": 20261027,
+      "budget": 480,
+      "control": "replay_mixture",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        6.4,
+        6.4
+      ],
+      "endpoint_metrics": [
+        [
+          0.08184580370338651,
+          0.012788406828654142
+        ],
+        [
+          0.0273772764780398,
+          0.004277699449693718
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": -0.05446852722534671,
+        "G_bits_per_spike": -0.008510707378960425
+      },
+      "brackets": [
+        {
+          "achieved_total_rate": 456.59375,
+          "command": 456.0,
+          "perturbation_weight": 0.035539531290239,
+          "attempts": 1,
+          "endpoint_metrics": [
+            [
+              0.08182719235811131,
+              0.012762566070047774
+            ],
+            [
+              0.08596112805298327,
+              0.014119958067699667
+            ]
+          ]
+        },
+        {
+          "achieved_total_rate": 502.75,
+          "command": 504.0,
+          "perturbation_weight": 0.01461829994585872,
+          "attempts": 1,
+          "endpoint_metrics": [
+            [
+              0.027448919514987534,
+              0.004291911424437109
+            ],
+            [
+              0.029762200817793294,
+              0.004439910614290397
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "seed": 20261027,
+      "budget": 720,
+      "control": "original",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        9.598083333333335,
+        9.850916666666665
+      ],
+      "endpoint_metrics": [
+        [
+          0.06911877607410721,
+          0.007201310269318409
+        ],
+        [
+          0.14335492617885687,
+          0.0145524453235848
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": 0.07423615010474965,
+        "G_bits_per_spike": 0.007351135054266391
+      }
+    },
+    {
+      "seed": 20261027,
+      "budget": 720,
+      "control": "thinning",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        9.598083333333335,
+        9.598083333333335
+      ],
+      "endpoint_metrics": [
+        [
+          0.06911877607410721,
+          0.007201310269318409
+        ],
+        [
+          0.1394651736535841,
+          0.014530523314924064
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": 0.07034639757947689,
+        "G_bits_per_spike": 0.007329213045605655
+      },
+      "retention": [
+        1.0,
+        0.9743340298280198
+      ]
+    },
+    {
+      "seed": 20261027,
+      "budget": 720,
+      "control": "tilt",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        9.724499999999978,
+        9.724499999999992
+      ],
+      "endpoint_metrics": [
+        [
+          0.06970875775062269,
+          0.007168364209020808
+        ],
+        [
+          0.1421186767785512,
+          0.014614497072194078
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": 0.07240991902792851,
+        "G_bits_per_spike": 0.00744613286317327
+      },
+      "tilt_parameter": [
+        0.0017294515970843515,
+        -0.0023509867907333007
+      ]
+    },
+    {
+      "seed": 20261027,
+      "budget": 720,
+      "control": "replay_mixture",
+      "status": "ok",
+      "achieved_rate_per_cell": [
+        9.599999999999998,
+        9.599999999999996
+      ],
+      "endpoint_metrics": [
+        [
+          0.06909600933236598,
+          0.007197500972121458
+        ],
+        [
+          0.1346776005980062,
+          0.014028916728958986
+        ]
+      ],
+      "deltas": {
+        "D_bits_per_response": 0.06558159126564023,
+        "G_bits_per_spike": 0.006831415756837528
+      },
+      "brackets": [
+        {
+          "achieved_total_rate": 755.8,
+          "command": 756.0,
+          "perturbation_weight": 0.003999304468787347,
+          "attempts": 1,
+          "endpoint_metrics": [
+            [
+              0.06911877607410721,
+              0.007201310269318409
+            ],
+            [
+              0.07204555604391699,
+              0.007149267932381285
+            ]
+          ]
+        },
+        {
+          "achieved_total_rate": 693.75625,
+          "command": 684.0,
+          "perturbation_weight": 0.4176144244105421,
+          "attempts": 1,
+          "endpoint_metrics": [
+            [
+              0.14335492617885687,
+              0.0145524453235848
+            ],
+            [
+              0.12738887798022538,
+              0.0137716465235692
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "input_hashes": {
+    "outputs/snn_budget_frontier_20261016/replication/seed_20261020_budget_240_responses.npz": "c46c071fb6ec6f3ea62fed1911234ee2a85ec1760e0ea2c016128fb0a6402413",
+    "outputs/snn_budget_frontier_20261016/replication/seed_20261020_budget_240.json": "8cf96357b9384d4da0abe193ded968d6b616a17d59edda7c0c34c5053ce84c87",
+    "outputs/snn_budget_frontier_20261016/replication/seed_20261020_budget_480_responses.npz": "3b8a168ff84802eaecc9642e032e7c1bc36bac721deca8d1b0038155d2d1f738",
+    "outputs/snn_budget_frontier_20261016/replication/seed_20261020_budget_480.json": "a4c5e397ef088949b735fd4d6d6b416166a457ce118b21d64967bb20d458e364",
+    "outputs/snn_budget_frontier_20261016/replication/seed_20261020_budget_720_responses.npz": "22bbae7314ca6463800d5ef9ce301f2ccec9886b73ced9d6979979a02b73b0bb",
+    "outputs/snn_budget_frontier_20261016/replication/seed_20261020_budget_720.json": "b8873ee3933a7554643e0f991c5102a92734b924878b0b7adff97b321162dbeb",
+    "outputs/snn_budget_frontier_20261016/replication/seed_20261021_budget_240_responses.npz": "ab77effd93e80914dcecb2f02f833af5cb7ce391e691221a8c182a5338983fb2",
+    "outputs/snn_budget_frontier_20261016/replication/seed_20261021_budget_240.json": "7a66fb97b8de84ed10dc6f78cb4cf06e56bff6aaed157b1dc7f60b85da3be436",
+    "outputs/snn_budget_frontier_20261016/replication/seed_20261021_budget_480_responses.npz": "a50699614fca665e4226c6d19c242cf2e5bc915c2fbc494f00bec14d6b3b20f2",
+    "outputs/snn_budget_frontier_20261016/replication/seed_20261021_budget_480.json": "ccaea8b2c71ea88423fdc24ea4c48cd99516f00d6b5079634d24618bfd7e77ed",
+    "outputs/snn_budget_frontier_20261016/replication/seed_20261021_budget_720_responses.npz": "82febb1db0ad956276aedd214848bc0e5c88dd1393cb5179413e68d1bf981aca",
+    "outputs/snn_budget_frontier_20261016/replication/seed_20261021_budget_720.json": "05f5793b2bfa0738becbd12d09868d7c0d6a2e9f259cae7cc28789259fb77ad6",
+    "outputs/snn_budget_frontier_20261016/replication/seed_20261022_budget_240_responses.npz": "ecd6fb67d5b0bf3e2d815409a3e88b7adcb900a6f838b430be718c28ff4cc48e",
+    "outputs/snn_budget_frontier_20261016/replication/seed_20261022_budget_240.json": "87d86b51a485c6a01a224ee442a55beadfae1af9d1c1c7ada30a46bb21e6a46b",
+    "outputs/snn_budget_frontier_20261016/replication/seed_20261022_budget_480_responses.npz": "be5b6febdf5edd383d08819f06af39281b92a7ddd613ace620a532246295702a",
+    "outputs/snn_budget_frontier_20261016/replication/seed_20261022_budget_480.json": "9bb7808f0f009ea62e02aca6e2a0bac1257f27f9240782d1ac7db1a87030d887",
+    "outputs/snn_budget_frontier_20261016/replication/seed_20261022_budget_720_responses.npz": "9b72d4c449e7837b3875b9a2ce1e8a3fa999f922af700c3ff5d93abe77d15d75",
+    "outputs/snn_budget_frontier_20261016/replication/seed_20261022_budget_720.json": "7436778f895ba4a0ca79043d8ac0b4507574255811ec0ab250681199ef10cfa6",
+    "outputs/snn_budget_frontier_20261016/replication/seed_20261023_budget_240_responses.npz": "be602aab2f5a68869cc90eb6e18981a3586863b44e4389672e17585cd3c5d816",
+    "outputs/snn_budget_frontier_20261016/replication/seed_20261023_budget_240.json": "bb7ff22c500cede929633c759d47108b2255f1a3a3fd4320a9eb566bc593cc8f",
+    "outputs/snn_budget_frontier_20261016/replication/seed_20261023_budget_480_responses.npz": "d52ab6e80041d4e2256587076e1be4cd441c77a83a35a89e21736af490e9c604",
+    "outputs/snn_budget_frontier_20261016/replication/seed_20261023_budget_480.json": "28080347a520763a4491414bed0620dc83a5e65144dc9c6e578c8ccd09c37463",
+    "outputs/snn_budget_frontier_20261016/replication/seed_20261023_budget_720_responses.npz": "17acaf84c40ff507ed1ad531d3c9db16ecad1376b093ae32e99816f346b6403e",
+    "outputs/snn_budget_frontier_20261016/replication/seed_20261023_budget_720.json": "ac9845dd882f1489664eced8413d1233f16ba77b3e6b317e895336fca74c5693",
+    "outputs/snn_budget_frontier_20261016/replication/seed_20261024_budget_240_responses.npz": "2eec843bba7160440a6d3511b8fa152b9b115f86147e339741ff6172915551e9",
+    "outputs/snn_budget_frontier_20261016/replication/seed_20261024_budget_240.json": "a4fc8b73b03d006f1499517ac65ec3a4b02bb3b9c1abf1bf469718f1ce1c3bc7",
+    "outputs/snn_budget_frontier_20261016/replication/seed_20261024_budget_480_responses.npz": "101c67833195ff3ad184d055dd032e5744145b213f599ec501ae22af2517774a",
+    "outputs/snn_budget_frontier_20261016/replication/seed_20261024_budget_480.json": "c4a8b6109be3bddd8805965ea5aa7eb7df49b585153f0e4b11e62374de2eaf6c",
+    "outputs/snn_budget_frontier_20261016/replication/seed_20261024_budget_720_responses.npz": "d56492c079dc04bd1f4e0d362ea05dc73f649a4a8753ed535ad2a9172bf56367",
+    "outputs/snn_budget_frontier_20261016/replication/seed_20261024_budget_720.json": "ecf66bc0f9658877f89cb0d0be5e30727c1f48709010c8c4d1cdf5ab1a8750b6",
+    "outputs/snn_budget_frontier_20261016/replication/seed_20261025_budget_240_responses.npz": "085509a2ecfc6b3a7a8c41a854c96223c53071b42169ba283822a269391673bf",
+    "outputs/snn_budget_frontier_20261016/replication/seed_20261025_budget_240.json": "66f83243ba10a4c6abd94c0b2871afa6026433930d7d3b273d8383a8fae49732",
+    "outputs/snn_budget_frontier_20261016/replication/seed_20261025_budget_480_responses.npz": "7cdb4ddd51e6cb71da9e1b9ba925188e09f7f3318cfc35589456f9c9693dfa32",
+    "outputs/snn_budget_frontier_20261016/replication/seed_20261025_budget_480.json": "94e2ff5a212123d3f0751420732475a958638d48665d46050270b154f748b274",
+    "outputs/snn_budget_frontier_20261016/replication/seed_20261025_budget_720_responses.npz": "5a190d2b2f8f57a357bfc81bc60ccb411afebccfa291776a344d03a5b44c7ac3",
+    "outputs/snn_budget_frontier_20261016/replication/seed_20261025_budget_720.json": "a7b16f7c8453549f99632ac10ffc5f6425f3ecd364102321b12e4eeffdb73f92",
+    "outputs/snn_budget_frontier_20261016/replication/seed_20261026_budget_240_responses.npz": "c1a44c03f45ab9354b8d3b354f4c65003defcb2b8a868890b5fc18f78b381188",
+    "outputs/snn_budget_frontier_20261016/replication/seed_20261026_budget_240.json": "b801e925de9bb16327372f761bbdf1b4aef7c18b1505295660a6c3a1df8a5b58",
+    "outputs/snn_budget_frontier_20261016/replication/seed_20261026_budget_480_responses.npz": "12443f32f4a999db6ed72de43a1e3f2c1928595d068b876bdc31633726a16b02",
+    "outputs/snn_budget_frontier_20261016/replication/seed_20261026_budget_480.json": "a50a25f8ab73fae3938f5655004a153a311249cfc66236a30a22cfe21aeff87c",
+    "outputs/snn_budget_frontier_20261016/replication/seed_20261026_budget_720_responses.npz": "0511e1f0934f8edc5e5c022b35e560c07753950e98696d773ca6e4ef1989a6fa",
+    "outputs/snn_budget_frontier_20261016/replication/seed_20261026_budget_720.json": "85ef67adedd4ba145d25a9b39325f8da59c4d775bcd9f96c16dff9a8a78254f8",
+    "outputs/snn_budget_frontier_20261016/replication/seed_20261027_budget_240_responses.npz": "531d58dbe3853b2ba5bd91bd3b2ff5c0bbff35b59e6bd9c01b5e7e27c662aef8",
+    "outputs/snn_budget_frontier_20261016/replication/seed_20261027_budget_240.json": "19d1cc904fdad1c1e843f8bbeaf8de95158caab3f4ad22a7f0cd38f0443488d1",
+    "outputs/snn_budget_frontier_20261016/replication/seed_20261027_budget_480_responses.npz": "cea1e9fcb11b5c94f38fca61d70766183fbe250de2df7ce1da0f6083c8f190b5",
+    "outputs/snn_budget_frontier_20261016/replication/seed_20261027_budget_480.json": "dabaf44860429bd35a63aa31ffb05e937fa0559099b31277d8b2f5803787f7ca",
+    "outputs/snn_budget_frontier_20261016/replication/seed_20261027_budget_720_responses.npz": "a18699445732e04c6008556ebf3d6b032237f7101ee3bf96040a49e200f35d78",
+    "outputs/snn_budget_frontier_20261016/replication/seed_20261027_budget_720.json": "344a733b6845e8076c816536193a1b67bb383a42a2acb1f5fb408492ee635bc0",
+    "outputs/elife_one_second_g_20261111/replay/seed_20261020_budget_240.json": "ffb46aedfe3cc47d3aa3eac4553a55e3e7b94993ed5637526e26cff0f0ec01da",
+    "outputs/snn_budget_frontier_20261016/replication/seed_20261020_budget_240_weights.npz": "71f6e8b31ba5c0c66e2c14afb6048bb184fe3c617755df218393e17e7918b791",
+    "outputs/elife_one_second_g_20261111/replay/seed_20261020_budget_480.json": "b482123e438a7cc26726ba55c145eafe3a8bdedc0c95a91d01fe50e709967eff",
+    "outputs/snn_budget_frontier_20261016/replication/seed_20261020_budget_480_weights.npz": "d46101ad9ac3e00c7a6cc25786eda93f6a9f8b0c9b758e8a742ec5dcb5c1a435",
+    "outputs/elife_one_second_g_20261111/replay/seed_20261020_budget_720.json": "97835533788c44ac8f90ad51f1d9dbd3d2fdf65e2d25ad132f379226bdd17698",
+    "outputs/snn_budget_frontier_20261016/replication/seed_20261020_budget_720_weights.npz": "2b2b72d06926b353b3afb64d1ec3bcf02afebb6abcb3f06250d511baaf4d5f2c",
+    "outputs/elife_one_second_g_20261111/replay/seed_20261021_budget_240.json": "c0d6cd0820afc73becd15397a2e40bf874f545c32fe2fdb12e164f46e6f87dc9",
+    "outputs/snn_budget_frontier_20261016/replication/seed_20261021_budget_240_weights.npz": "567d8016b104e60a8e2d6a7a16fde390122d566d88266e2949a811c497f1f2ca",
+    "outputs/elife_one_second_g_20261111/replay/seed_20261021_budget_480.json": "358730892b4eaa8bdb572aee6d1bef58555d38f26ff40bd493ee8c031593bd49",
+    "outputs/snn_budget_frontier_20261016/replication/seed_20261021_budget_480_weights.npz": "62bec79965046251a515ee857101c94b679f83c8df3cabf0cc88e651fafdc9e2",
+    "outputs/elife_one_second_g_20261111/replay/seed_20261021_budget_720.json": "5941e47b493d974a49e08e6974b107ad14362b2f9e17332d13a9e569e0826e56",
+    "outputs/snn_budget_frontier_20261016/replication/seed_20261021_budget_720_weights.npz": "ac0f008c493b0e8b23509b2631d2025c1457ff88ae5e574d234b7a732ed6c5d5",
+    "outputs/elife_one_second_g_20261111/replay/seed_20261022_budget_240.json": "339dda486d7f214c8da50a159756351e74b0172c3fb301a9fdb5e71fcedfdbdd",
+    "outputs/snn_budget_frontier_20261016/replication/seed_20261022_budget_240_weights.npz": "44af90fc1d98012057601bd0885c84beab1f90d043f4ccac46f73fc28cc3d1a5",
+    "outputs/elife_one_second_g_20261111/replay/seed_20261022_budget_480.json": "82c1ec100ce4a5c6c4ca413f295a72d66cf9db6915dd75863bfbd3df5ef3de9f",
+    "outputs/snn_budget_frontier_20261016/replication/seed_20261022_budget_480_weights.npz": "ec29625eb69fcc7d19a0e7f9bcb2e87631598ca8345fac21c21043dd6af283f8",
+    "outputs/elife_one_second_g_20261111/replay/seed_20261022_budget_720.json": "bc6764907c9157112a9c5cfe1be0c4e540152f9dd87bdeb2cd9ffd0b96c2b7c0",
+    "outputs/snn_budget_frontier_20261016/replication/seed_20261022_budget_720_weights.npz": "4c97c1074c6f670c56c1452428a8062eb6d6b84afbc5d4d51a2d7cfbadd44f6a",
+    "outputs/elife_one_second_g_20261111/replay/seed_20261023_budget_240.json": "a1e10be23639dc06e06a8dadfcd77fb6ce708e6b0314fb5f7523af3e0bdffd3f",
+    "outputs/snn_budget_frontier_20261016/replication/seed_20261023_budget_240_weights.npz": "945efcc492f51abde37f6f4eed91bacceb36ccc469bbed2a1642d07102534d8c",
+    "outputs/elife_one_second_g_20261111/replay/seed_20261023_budget_480.json": "bd11266ba7e29bbac5a1ba2ae4d2c0b52ebb1f7b3bfdea9dfa692cffca8fe92e",
+    "outputs/snn_budget_frontier_20261016/replication/seed_20261023_budget_480_weights.npz": "1cbcafa48516322b72ffaf0f955da15d36e455b2094ad9e19db237c566511cad",
+    "outputs/elife_one_second_g_20261111/replay/seed_20261023_budget_720.json": "93b7752b88b2c43c18439bc43f89c0d83a36540e518d89e72fd778b11e6b8de9",
+    "outputs/snn_budget_frontier_20261016/replication/seed_20261023_budget_720_weights.npz": "54f76e1d21aee1dd2735a258dc431cdc6514729f88cd7f6455421ab5bd8908d8",
+    "outputs/elife_one_second_g_20261111/replay/seed_20261024_budget_240.json": "c210a29f1c567095ecd99f1fd48cde481986aff2a60349556bd1a813a1e57c9b",
+    "outputs/snn_budget_frontier_20261016/replication/seed_20261024_budget_240_weights.npz": "181285bbb548aa6313c8b143f20e28cc7d5b650cac34a90c0b72771fbd2c1649",
+    "outputs/elife_one_second_g_20261111/replay/seed_20261024_budget_480.json": "4136fa7e693a147695a430a71803c09b200014f8db38cd705ab7cbeaaab46a32",
+    "outputs/snn_budget_frontier_20261016/replication/seed_20261024_budget_480_weights.npz": "c62c873d80b185238dad2b2ce02002991601f2084101e333f4a9d02cc839889f",
+    "outputs/elife_one_second_g_20261111/replay/seed_20261024_budget_720.json": "ccc771952e4c2d13c593630f823e3f4dbdc2d63d2d2ca5ec5fedc474944c46c0",
+    "outputs/snn_budget_frontier_20261016/replication/seed_20261024_budget_720_weights.npz": "478516ac5df2d45f0bb6be62402a727edec06a214561d67c1cc597dffdda09bc",
+    "outputs/elife_one_second_g_20261111/replay/seed_20261025_budget_240.json": "f458568db7e93f5d32ce40ac0dec893943fcfea2fbbecb931ed5067628cd6e4c",
+    "outputs/snn_budget_frontier_20261016/replication/seed_20261025_budget_240_weights.npz": "b9329a7eab44fe9f6bd1416c552369beeceece9106f6263c8638cd9282847ca9",
+    "outputs/elife_one_second_g_20261111/replay/seed_20261025_budget_480.json": "dfda47bbc6f90327165fd20d8c054b02d61682f49c332655209710be6c00f505",
+    "outputs/snn_budget_frontier_20261016/replication/seed_20261025_budget_480_weights.npz": "dfe5f7d4e7ba2c31ca13ed1beb1b93e18d4a3177d861a191a8c66ef96dc08f72",
+    "outputs/elife_one_second_g_20261111/replay/seed_20261025_budget_720.json": "a546bc45edfe35b06633e8d57dd528b64e6b4b07f64e7799412dc385295cb94f",
+    "outputs/snn_budget_frontier_20261016/replication/seed_20261025_budget_720_weights.npz": "1ca3c64acd45f2b083b7c1e76e6c4881a8784f4fbec539eceda4c87ef870c5ad",
+    "outputs/elife_one_second_g_20261111/replay/seed_20261026_budget_240.json": "f12e10d07f746b7a89b9887c44b3c207443f875f58c0779210bb9a12dcab7ee3",
+    "outputs/snn_budget_frontier_20261016/replication/seed_20261026_budget_240_weights.npz": "4e26a1795ce591aa6103c6301cc48404af30c9d67713ae3730cac739bb9c73fd",
+    "outputs/elife_one_second_g_20261111/replay/seed_20261026_budget_480.json": "08aba371c729f339877aefc99299d870940eadcee7e0da95cbe58c435fa8b8d2",
+    "outputs/snn_budget_frontier_20261016/replication/seed_20261026_budget_480_weights.npz": "8c861715fc7f1f016fc191ea9940dc0e46108154a0ed5bc953b36a9257213f5c",
+    "outputs/elife_one_second_g_20261111/replay/seed_20261026_budget_720.json": "0f8fda556ca7b57da7c7bcc58fb8aac95d6ce33b608ed8739b5e0b5fff05dcfc",
+    "outputs/snn_budget_frontier_20261016/replication/seed_20261026_budget_720_weights.npz": "f94205499017de9b45642d7b3934b79c3816c34f7397257d7851b55e45b9b424",
+    "outputs/elife_one_second_g_20261111/replay/seed_20261027_budget_240.json": "1200c1458e36568856eb46bc77b622340814c12a139e070d0978b2a7cd4e0ae5",
+    "outputs/snn_budget_frontier_20261016/replication/seed_20261027_budget_240_weights.npz": "e3615a3451511eab0bc60eec48171900ace9e44c070a0d0b7bacd380758c1235",
+    "outputs/elife_one_second_g_20261111/replay/seed_20261027_budget_480.json": "8b2009dcb6e7c449f0ac64338bc3030356294f3fe0e388454ca22861a9069aa4",
+    "outputs/snn_budget_frontier_20261016/replication/seed_20261027_budget_480_weights.npz": "2d58ebc738a016e1ad1927c453a3daa92dc687f822286477c67a9b09e5c89ae1",
+    "outputs/elife_one_second_g_20261111/replay/seed_20261027_budget_720.json": "100de6a8e9c47fffa59d28279eefcf9c2897fbb6698c859f59d7a7351227a612",
+    "outputs/snn_budget_frontier_20261016/replication/seed_20261027_budget_720_weights.npz": "a5710a75205a96188c1ace6332275c2fb62f73693689696cd72b7bf11f077af9"
+  }
+}

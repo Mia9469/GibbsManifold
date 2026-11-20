@@ -1,0 +1,539 @@
+{
+  "unit": "training run",
+  "SSIM_protocol": {
+    "version": "reference-range-v1",
+    "data_range": "max(reference) - min(reference); independent of reconstruction",
+    "constant_reference_range": 1.0,
+    "constant_reference_rule": "An exactly constant reference uses data_range=1.0 in the existing input units, for every method. Neither image is rescaled or shifted.",
+    "parameters": {
+      "win_size": 7,
+      "K1": 0.01,
+      "K2": 0.03,
+      "gaussian_weights": false,
+      "use_sample_covariance": true
+    }
+  },
+  "groups": {
+    "Null": {
+      "n": 20,
+      "RE": {
+        "mean": 0.8590803455829603,
+        "sd": 0.005393873518112256
+      },
+      "SSIM": {
+        "mean": 0.17009954711263559,
+        "sd": 0.009281664233973556
+      },
+      "ICE": {
+        "mean": 88.16227829468313,
+        "sd": 2.135220233649969
+      },
+      "mean_a": {
+        "mean": 0.0024811799530077678,
+        "sd": 6.215300113732065e-05
+      },
+      "independence": {
+        "mean": 92.68990822587315,
+        "sd": 0.03188572968400534
+      }
+    },
+    "SparseNet": {
+      "n": 20,
+      "RE": {
+        "mean": 0.8433919080974974,
+        "sd": 0.005394007199090217
+      },
+      "SSIM": {
+        "mean": 0.18697762708379814,
+        "sd": 0.006932905402996775
+      },
+      "ICE": {
+        "mean": 91.19239530823572,
+        "sd": 1.386553523474844
+      },
+      "mean_a": {
+        "mean": 0.002691954370761247,
+        "sd": 7.821524563310368e-05
+      },
+      "independence": {
+        "mean": 91.69010585684626,
+        "sd": 0.04507073710869083
+      }
+    },
+    "CVM": {
+      "n": 20,
+      "RE": {
+        "mean": 0.8493046353903356,
+        "sd": 0.00587885865427451
+      },
+      "SSIM": {
+        "mean": 0.18113434787771823,
+        "sd": 0.007453791708379237
+      },
+      "ICE": {
+        "mean": 89.59244846978297,
+        "sd": 1.8126694656027955
+      },
+      "mean_a": {
+        "mean": 0.002627136493696507,
+        "sd": 7.976814205404949e-05
+      },
+      "independence": {
+        "mean": 92.74971024928584,
+        "sd": 0.03832290137291214
+      }
+    }
+  },
+  "pairwise": {
+    "Null vs SparseNet": {
+      "RE": {
+        "first": "null",
+        "second": "cauchy",
+        "direction": "second minus first",
+        "n_first": 20,
+        "n_second": 20,
+        "paired_unit": null,
+        "mean_difference": -0.01568843748546289,
+        "mean_difference_ci95": [
+          -0.01895778584113895,
+          -0.012453885986453457
+        ],
+        "relative_change_percent": -1.8261897814478494,
+        "cohens_d_pooled_descriptive": -2.9085300246676646,
+        "test": "two-sided Welch t-test",
+        "bootstrap": "independent group percentile bootstrap, seed 0, 10000 draws",
+        "t": -9.197579520935541,
+        "p_raw": 3.310361339743934e-11,
+        "p_bonferroni": 9.931084019231802e-11,
+        "multiplicity": "Bonferroni over 3 pairs within metric; CI unadjusted"
+      },
+      "SSIM": {
+        "first": "null",
+        "second": "cauchy",
+        "direction": "second minus first",
+        "n_first": 20,
+        "n_second": 20,
+        "paired_unit": null,
+        "mean_difference": 0.016878079971162557,
+        "mean_difference_ci95": [
+          0.01204003123683451,
+          0.021812855292965914
+        ],
+        "relative_change_percent": 9.922472021625268,
+        "cohens_d_pooled_descriptive": 2.0603375161478024,
+        "test": "two-sided Welch t-test",
+        "bootstrap": "independent group percentile bootstrap, seed 0, 10000 draws",
+        "t": 6.515359299721003,
+        "p_raw": 1.5920439014358126e-07,
+        "p_bonferroni": 4.776131704307438e-07,
+        "multiplicity": "Bonferroni over 3 pairs within metric; CI unadjusted"
+      },
+      "ICE": {
+        "first": "null",
+        "second": "cauchy",
+        "direction": "second minus first",
+        "n_first": 20,
+        "n_second": 20,
+        "paired_unit": null,
+        "mean_difference": 3.0301170135525837,
+        "mean_difference_ci95": [
+          1.8952456332778063,
+          4.043344971444192
+        ],
+        "relative_change_percent": 3.4369767571391394,
+        "cohens_d_pooled_descriptive": 1.6831780719882212,
+        "test": "two-sided Welch t-test",
+        "bootstrap": "independent group percentile bootstrap, seed 0, 10000 draws",
+        "t": 5.322676415133636,
+        "p_raw": 7.3662258290852e-06,
+        "p_bonferroni": 2.20986774872556e-05,
+        "multiplicity": "Bonferroni over 3 pairs within metric; CI unadjusted"
+      },
+      "mean_a": {
+        "first": "null",
+        "second": "cauchy",
+        "direction": "second minus first",
+        "n_first": 20,
+        "n_second": 20,
+        "paired_unit": null,
+        "mean_difference": 0.00021077441775347932,
+        "mean_difference_ci95": [
+          0.00016926971449211377,
+          0.0002544229073186444
+        ],
+        "relative_change_percent": 8.494926677848243,
+        "cohens_d_pooled_descriptive": 2.9836929726784494,
+        "test": "two-sided Welch t-test",
+        "bootstrap": "independent group percentile bootstrap, seed 0, 10000 draws",
+        "t": 9.435265632302443,
+        "p_raw": 2.747926120473123e-11,
+        "p_bonferroni": 8.243778361419368e-11,
+        "multiplicity": "Bonferroni over 3 pairs within metric; CI unadjusted"
+      },
+      "independence": {
+        "first": "null",
+        "second": "cauchy",
+        "direction": "second minus first",
+        "n_first": 20,
+        "n_second": 20,
+        "paired_unit": null,
+        "mean_difference": -0.9998023690268951,
+        "mean_difference_ci95": [
+          -1.0230471222940953,
+          -0.976532114323934
+        ],
+        "relative_change_percent": -1.078652884832411,
+        "cohens_d_pooled_descriptive": -25.610414801577072,
+        "test": "two-sided Welch t-test",
+        "bootstrap": "independent group percentile bootstrap, seed 0, 10000 draws",
+        "t": -80.98724259467278,
+        "p_raw": 1.1212653454599178e-40,
+        "p_bonferroni": 3.3637960363797533e-40,
+        "multiplicity": "Bonferroni over 3 pairs within metric; CI unadjusted"
+      }
+    },
+    "Null vs CVM": {
+      "RE": {
+        "first": "null",
+        "second": "cv_m",
+        "direction": "second minus first",
+        "n_first": 20,
+        "n_second": 20,
+        "paired_unit": null,
+        "mean_difference": -0.009775710192624687,
+        "mean_difference_ci95": [
+          -0.013159700616744974,
+          -0.006326673452523177
+        ],
+        "relative_change_percent": -1.1379273478769931,
+        "cohens_d_pooled_descriptive": -1.732796509161655,
+        "test": "two-sided Welch t-test",
+        "bootstrap": "independent group percentile bootstrap, seed 0, 10000 draws",
+        "t": -5.479583690539655,
+        "p_raw": 3.007976333488408e-06,
+        "p_bonferroni": 9.023929000465224e-06,
+        "multiplicity": "Bonferroni over 3 pairs within metric; CI unadjusted"
+      },
+      "SSIM": {
+        "first": "null",
+        "second": "cv_m",
+        "direction": "second minus first",
+        "n_first": 20,
+        "n_second": 20,
+        "paired_unit": null,
+        "mean_difference": 0.011034800765082647,
+        "mean_difference_ci95": [
+          0.005997411736417028,
+          0.016189929971481384
+        ],
+        "relative_change_percent": 6.487260520320895,
+        "cohens_d_pooled_descriptive": 1.3109370790343282,
+        "test": "two-sided Welch t-test",
+        "bootstrap": "independent group percentile bootstrap, seed 0, 10000 draws",
+        "t": 4.145547038916645,
+        "p_raw": 0.00019444356088501777,
+        "p_bonferroni": 0.0005833306826550533,
+        "multiplicity": "Bonferroni over 3 pairs within metric; CI unadjusted"
+      },
+      "ICE": {
+        "first": "null",
+        "second": "cv_m",
+        "direction": "second minus first",
+        "n_first": 20,
+        "n_second": 20,
+        "paired_unit": null,
+        "mean_difference": 1.430170175099832,
+        "mean_difference_ci95": [
+          0.177523055642056,
+          2.5991830880894757
+        ],
+        "relative_change_percent": 1.6222019244097532,
+        "cohens_d_pooled_descriptive": 0.7221177350762574,
+        "test": "two-sided Welch t-test",
+        "bootstrap": "independent group percentile bootstrap, seed 0, 10000 draws",
+        "t": 2.283536781643037,
+        "p_raw": 0.028232289055203773,
+        "p_bonferroni": 0.08469686716561131,
+        "multiplicity": "Bonferroni over 3 pairs within metric; CI unadjusted"
+      },
+      "mean_a": {
+        "first": "null",
+        "second": "cv_m",
+        "direction": "second minus first",
+        "n_first": 20,
+        "n_second": 20,
+        "paired_unit": null,
+        "mean_difference": 0.00014595654068873904,
+        "mean_difference_ci95": [
+          0.00010327529382261903,
+          0.00018889815182416945
+        ],
+        "relative_change_percent": 5.882545540955453,
+        "cohens_d_pooled_descriptive": 2.0412052832089205,
+        "test": "two-sided Welch t-test",
+        "bootstrap": "independent group percentile bootstrap, seed 0, 10000 draws",
+        "t": 6.454857866909238,
+        "p_raw": 1.7525359007668603e-07,
+        "p_bonferroni": 5.257607702300581e-07,
+        "multiplicity": "Bonferroni over 3 pairs within metric; CI unadjusted"
+      },
+      "independence": {
+        "first": "null",
+        "second": "cv_m",
+        "direction": "second minus first",
+        "n_first": 20,
+        "n_second": 20,
+        "paired_unit": null,
+        "mean_difference": 0.05980202341268637,
+        "mean_difference_ci95": [
+          0.03817334487660311,
+          0.08078894820581084
+        ],
+        "relative_change_percent": 0.06451837590232226,
+        "cohens_d_pooled_descriptive": 1.6964363755589866,
+        "test": "two-sided Welch t-test",
+        "bootstrap": "independent group percentile bootstrap, seed 0, 10000 draws",
+        "t": 5.3646028523272,
+        "p_raw": 4.626352392850478e-06,
+        "p_bonferroni": 1.3879057178551435e-05,
+        "multiplicity": "Bonferroni over 3 pairs within metric; CI unadjusted"
+      }
+    },
+    "SparseNet vs CVM": {
+      "RE": {
+        "first": "cauchy",
+        "second": "cv_m",
+        "direction": "second minus first",
+        "n_first": 20,
+        "n_second": 20,
+        "paired_unit": null,
+        "mean_difference": 0.005912727292838205,
+        "mean_difference_ci95": [
+          0.0025356523302421776,
+          0.00941748553789806
+        ],
+        "relative_change_percent": 0.7010652148863971,
+        "cohens_d_pooled_descriptive": 1.0480504181815984,
+        "test": "two-sided Welch t-test",
+        "bootstrap": "independent group percentile bootstrap, seed 0, 10000 draws",
+        "t": 3.3142264241457964,
+        "p_raw": 0.002036820598587065,
+        "p_bonferroni": 0.006110461795761194,
+        "multiplicity": "Bonferroni over 3 pairs within metric; CI unadjusted"
+      },
+      "SSIM": {
+        "first": "cauchy",
+        "second": "cv_m",
+        "direction": "second minus first",
+        "n_first": 20,
+        "n_second": 20,
+        "paired_unit": null,
+        "mean_difference": -0.00584327920607991,
+        "mean_difference_ci95": [
+          -0.010120698638273444,
+          -0.001374629040852935
+        ],
+        "relative_change_percent": -3.125122132104669,
+        "cohens_d_pooled_descriptive": -0.8117850812794227,
+        "test": "two-sided Welch t-test",
+        "bootstrap": "independent group percentile bootstrap, seed 0, 10000 draws",
+        "t": -2.567089827387891,
+        "p_raw": 0.01433912273148155,
+        "p_bonferroni": 0.04301736819444465,
+        "multiplicity": "Bonferroni over 3 pairs within metric; CI unadjusted"
+      },
+      "ICE": {
+        "first": "cauchy",
+        "second": "cv_m",
+        "direction": "second minus first",
+        "n_first": 20,
+        "n_second": 20,
+        "paired_unit": null,
+        "mean_difference": -1.5999468384527518,
+        "mean_difference_ci95": [
+          -2.583846206752035,
+          -0.6026108414346745
+        ],
+        "relative_change_percent": -1.754473970164767,
+        "cohens_d_pooled_descriptive": -0.9914538458790298,
+        "test": "two-sided Welch t-test",
+        "bootstrap": "independent group percentile bootstrap, seed 0, 10000 draws",
+        "t": -3.1352523479112793,
+        "p_raw": 0.003435508952795708,
+        "p_bonferroni": 0.010306526858387125,
+        "multiplicity": "Bonferroni over 3 pairs within metric; CI unadjusted"
+      },
+      "mean_a": {
+        "first": "cauchy",
+        "second": "cv_m",
+        "direction": "second minus first",
+        "n_first": 20,
+        "n_second": 20,
+        "paired_unit": null,
+        "mean_difference": -6.481787706474028e-05,
+        "mean_difference_ci95": [
+          -0.00011459577936322428,
+          -1.8450606125850037e-05
+        ],
+        "relative_change_percent": -2.407837137537019,
+        "cohens_d_pooled_descriptive": -0.8205260935873416,
+        "test": "two-sided Welch t-test",
+        "bootstrap": "independent group percentile bootstrap, seed 0, 10000 draws",
+        "t": -2.5947313353364794,
+        "p_raw": 0.013378726044436044,
+        "p_bonferroni": 0.04013617813330813,
+        "multiplicity": "Bonferroni over 3 pairs within metric; CI unadjusted"
+      },
+      "independence": {
+        "first": "cauchy",
+        "second": "cv_m",
+        "direction": "second minus first",
+        "n_first": 20,
+        "n_second": 20,
+        "paired_unit": null,
+        "mean_difference": 1.0596043924395815,
+        "mean_difference_ci95": [
+          1.0334900648694016,
+          1.084541072096592
+        ],
+        "relative_change_percent": 1.155636567912702,
+        "cohens_d_pooled_descriptive": 25.32933138339411,
+        "test": "two-sided Welch t-test",
+        "bootstrap": "independent group percentile bootstrap, seed 0, 10000 draws",
+        "t": 80.09837878070903,
+        "p_raw": 4.0632849293221095e-43,
+        "p_bonferroni": 1.2189854787966328e-42,
+        "multiplicity": "Bonferroni over 3 pairs within metric; CI unadjusted"
+      }
+    }
+  },
+  "inference_scope": "Initialization variability conditional on the fixed input bank; not stimulus-population inference",
+  "aggregation": {
+    "RE": "Mean patch norm ratio within checkpoint; checkpoint means within run, then seeds within fold for LOO",
+    "ICE": "Legacy RAE key: -log2(checkpoint mean RE) / checkpoint mean absolute activation, then checkpoint/run/fold means",
+    "SSIM": "Mean patch SSIM with each reference patch range; same checkpoint/run/fold averaging",
+    "cv_pop": "Legacy generalization diagnostic uses per-patch population SD (ddof=0), mean stabilizer 1e-12; not the training CV statistic",
+    "independence": "Legacy key: mean 1 minus absolute atom-pixel Pearson correlation, percent"
+  },
+  "frozen_non_SSIM_max_differences_before_deduplication": {
+    "RE": 0.0,
+    "ICE": 0.0,
+    "mean_a": 0.0,
+    "independence": 0.0
+  },
+  "n_dictionary_checkpoints": 600,
+  "checkpoint_directories": {
+    "null": "Fig6/record/trained_models_16_new",
+    "cauchy": "Fig6/record/trained_models_cauchy_16_nl_new",
+    "cv_m": "Fig6/record/trained_models_cv_v2_new"
+  },
+  "CVM_checkpoint_family": "current v2",
+  "n_constant_references": 0.0,
+  "input_manifest": {
+    "n_original_entries": 31,
+    "n_unique_inputs": 30,
+    "aliases": {
+      "edge_90deg": "edge_45deg"
+    },
+    "retained_names": [
+      "bar_0deg",
+      "bar_135deg",
+      "bar_45deg",
+      "bar_90deg",
+      "centre_surround",
+      "edge_0deg",
+      "edge_135deg",
+      "edge_45deg",
+      "grating_0deg_f1",
+      "grating_0deg_f2",
+      "grating_0deg_f3",
+      "grating_120deg_f1",
+      "grating_120deg_f2",
+      "grating_120deg_f3",
+      "grating_135deg_f1",
+      "grating_135deg_f2",
+      "grating_135deg_f3",
+      "grating_30deg_f1",
+      "grating_30deg_f2",
+      "grating_30deg_f3",
+      "grating_45deg_f1",
+      "grating_45deg_f2",
+      "grating_45deg_f3",
+      "grating_60deg_f1",
+      "grating_60deg_f2",
+      "grating_60deg_f3",
+      "grating_90deg_f1",
+      "grating_90deg_f2",
+      "grating_90deg_f3",
+      "random_dots"
+    ],
+    "original_names": [
+      "bar_0deg",
+      "bar_135deg",
+      "bar_45deg",
+      "bar_90deg",
+      "centre_surround",
+      "edge_0deg",
+      "edge_135deg",
+      "edge_45deg",
+      "edge_90deg",
+      "grating_0deg_f1",
+      "grating_0deg_f2",
+      "grating_0deg_f3",
+      "grating_120deg_f1",
+      "grating_120deg_f2",
+      "grating_120deg_f3",
+      "grating_135deg_f1",
+      "grating_135deg_f2",
+      "grating_135deg_f3",
+      "grating_30deg_f1",
+      "grating_30deg_f2",
+      "grating_30deg_f3",
+      "grating_45deg_f1",
+      "grating_45deg_f2",
+      "grating_45deg_f3",
+      "grating_60deg_f1",
+      "grating_60deg_f2",
+      "grating_60deg_f3",
+      "grating_90deg_f1",
+      "grating_90deg_f2",
+      "grating_90deg_f3",
+      "random_dots"
+    ],
+    "input_sha256_float64_le": {
+      "bar_0deg": "8dcd36dcf57fcc313971d3a45a0bb00246396407a3c404434428d3eb4bd45dcf",
+      "bar_135deg": "e5a3eb87292d826bec5dd6b46191a9952a1dd77858898623f63acc7bd46f035a",
+      "bar_45deg": "75ec27fa46502ea584a7d79d22a9ea576e29211938795e054603a4542981433e",
+      "bar_90deg": "719d9113c07ac67ddba6a4ede3942475125dd0b9c59a2811d47a7665e5a8718c",
+      "centre_surround": "e9fc30be81f3615a2ad76cdf2afbfe974276b50c38f00d1ca3331e075037557f",
+      "edge_0deg": "eb66bad060c081432a9d72491a023ed7cfcc0e0524ccc6317032684ba350beb5",
+      "edge_135deg": "2fa957541023e8a09f5a3cd67230346ae93654c05e01eb300382ec4c421a828f",
+      "edge_45deg": "d3c011d10a58a50d92e54a54e7725ea0b972720f586c6154a7f9b8efe270dc36",
+      "edge_90deg": "d3c011d10a58a50d92e54a54e7725ea0b972720f586c6154a7f9b8efe270dc36",
+      "grating_0deg_f1": "c73347421854615bae58f244c2d38dfe94fe6d6b13f347822332b54c4a3215dc",
+      "grating_0deg_f2": "f80c962389341325ed9d3b1df088d55541d340abd985e43fb22d88f214caefc2",
+      "grating_0deg_f3": "077aa772210c95f7a405203b524aa8fa3ff930f55d17cba3982d6f2cf3d505a0",
+      "grating_120deg_f1": "9d26b086221d2ed1dff9cb9bfdfe77edb704361a13cce2fb273fa282b4f3a63d",
+      "grating_120deg_f2": "a6df46053ebed61b8204b55850ac23f8072819ced52e6299e8e24aa1a1fd4f67",
+      "grating_120deg_f3": "328f60ac32e931a45946e62d69d12f990bcc8c78bb58c929a816ff79c88df6b5",
+      "grating_135deg_f1": "b04663a72e0fb623af1b4da9a5c6a61b6d60040fdb89dd203b0ac3086715e189",
+      "grating_135deg_f2": "26820b84e1c6fa2589cb085ee234589b896e0cf9c3e7678ef07d9f843d335bd8",
+      "grating_135deg_f3": "4c0af3964e2d90afb7ef7d0c93b623e0cad7d1567acf52b9b65e3c248ad00fd9",
+      "grating_30deg_f1": "f52270bc50546671f7cbea74a65f3ac731dae7281944cde3cc24f5032a29b1b2",
+      "grating_30deg_f2": "760c066172897dd71994e707c6db52c6d69773fdadae66d767ffc86fbe6980b2",
+      "grating_30deg_f3": "3fc0fe98c88999dd9bb25005d1f0b43a42b949c7b4a9d4c7ef3c6b53302e09f3",
+      "grating_45deg_f1": "96e2079be3e82ca2e493c9ff81f6f5953496776e7cbd90c6cb06e8d76ced9fc8",
+      "grating_45deg_f2": "53abacad809cd13c2e3aab6e8350ca3cdcb73bb35917e2488bbe7c8b75fd2721",
+      "grating_45deg_f3": "a742edb9a0e0859300e174139b8758df143d7bad445faadff51229c8e813ff59",
+      "grating_60deg_f1": "9efa7f97389d3f2925fd55a0649fdd55f0f8111650fa2d2d627fb0535cafc4c1",
+      "grating_60deg_f2": "fa3c68e3fe82a45f101206c1028fdd1b63a843eab1c8a50df1e33d660b085d7e",
+      "grating_60deg_f3": "4447c1ec4b1297ed27a28f276b47a602c25b8bef994256bc4453de23a007dda5",
+      "grating_90deg_f1": "6450310e6d41b23e808a8ec0866bfd27c56f79bbb652f9a8ddbedbea4c1befcb",
+      "grating_90deg_f2": "3646cc27a79befbf6826e1fa893c3106ee045bf8c0d0a76751d7dcb2f20f781f",
+      "grating_90deg_f3": "733a01bd90967ac2aa46b680dbf32cc618b1221783a5759f1edc70238817a2ec",
+      "random_dots": "c8039e82762786f4862d67ffa7b135d2d89034a2a4d47ccd03f7b52f7901a23b"
+    },
+    "equality": "exact numpy.array_equal on original inputs; no tolerance",
+    "inference": "Retain the original batch, including aliases, to preserve the batch-relative ISTA stopping rule; score each unique input once."
+  }
+}

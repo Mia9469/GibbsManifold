@@ -234,13 +234,14 @@ function print_pool(label, p)
 end
 
 function H = total_entropy_local(spike_matrix, T)
-    [~, n_cols] = size(spike_matrix);
-    remainder = mod(n_cols, T);
-    trimmed_len = n_cols - remainder;
-    all_data = reshape(spike_matrix(:, 1:trimmed_len)', 1, []);
-    total_len = length(all_data);
-    remainder2 = mod(total_len, T);
-    words = reshape(all_data(1:total_len - remainder2), T, (total_len - remainder2)/T)';
+    [n_rows, n_cols] = size(spike_matrix);
+    n_windows = n_cols - T + 1;
+    if n_windows <= 0, H = 0; return; end
+    words = zeros(n_rows * n_windows, T, 'like', spike_matrix);
+    for j = 1:n_windows
+        idx = (j - 1) * n_rows + (1:n_rows);
+        words(idx, :) = spike_matrix(:, j:(j + T - 1));
+    end
     counts = count_unique_words_local(words);
     p = counts / sum(counts);
     H = -sum(p .* log2(p));
@@ -256,8 +257,7 @@ function H = noise_entropy_local(spike_matrix, T)
         p = counts / sum(counts);
         entropy_values(j) = -sum(p .* log2(p));
     end
-    valid = entropy_values > 0;
-    if any(valid), H = mean(entropy_values(valid)); else, H = 0; end
+    H = mean(entropy_values);
 end
 
 function counts = count_unique_words_local(words)

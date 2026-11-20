@@ -1,0 +1,2004 @@
+{
+  "analysis_version": "20260907_adaptive_shape_unbounded_log_nuisance",
+  "seed": 20260802,
+  "n_trial_splits_within_heldout_session": 8,
+  "independent_unit": "held-out recording session (five sessions documented from three animals)",
+  "animal_grouping_note": "The 105/106/107 session-code prefixes are reported as descriptive three-animal groups; the five held-out sessions remain the unit used for predictive comparisons.",
+  "parameterization": "one shape parameter shared across four training sessions plus one neuron-specific rate/scale parameter profiled by native-count likelihood on the held-out neuron's calibration trials",
+  "nuisance_calibration_note": "At fixed shared shape, each family receives exactly one neuron-level nuisance parameter. That parameter is profiled against the native-count calibration likelihood for every family; scoring is performed only on the disjoint half.",
+  "parameter_domain": {
+    "count_support": [
+      0,
+      1280
+    ],
+    "power_cost": "alpha>0, beta>0; unbounded log-beta; positive-cost active branch only",
+    "lognormal": "sigma>0, real location",
+    "gamma": "shape>0, scale>0; unbounded log-scale",
+    "negative_binomial": "size>0, mean>0; unbounded log-mean",
+    "shape_search": "positive shapes; initial windows expand if an endpoint is competitive; unresolved boundary fits raise rather than being accepted",
+    "probability_floor": 1e-300
+  },
+  "qc_note": "Strict QC is determined using all trials before calibration/test splitting; predictions are conditional on retrospectively QC-selected neurons",
+  "training_objective": "mean per-neuron per-trial native-count NLL; nuisance is reprofiled at every shared-shape objective; objective evaluations cached within each fit",
+  "models": {
+    "power_cost": "power-cost",
+    "lognormal": "lognormal",
+    "gamma": "gamma",
+    "negative_binomial": "negative binomial"
+  },
+  "conditions": {
+    "spontaneous": {
+      "folds": [
+        {
+          "heldout_session": "105l001p16",
+          "n_neurons": 94,
+          "shared_shapes_trained_on_other_sessions": {
+            "power_cost": 2.4273715091715493,
+            "lognormal": 0.8033832368680714,
+            "gamma": 2.0301531010380365,
+            "negative_binomial": 3.128578153904728
+          },
+          "shape_bound_audit": {
+            "power_cost": {
+              "initial_search_window": [
+                0.2,
+                8.0
+              ],
+              "final_search_window": [
+                0.2,
+                7.999999999999998
+              ],
+              "expansions": 0,
+              "shape": 2.4273715091715493,
+              "active_search_boundary": false,
+              "n_unique_profile_objectives": 10,
+              "training_nll_per_trial": 3.3540651225129907,
+              "lower_endpoint_nll_gap": 1.1770042500738556,
+              "upper_endpoint_nll_gap": 0.1867858520787955,
+              "profile_log_shape_gradient": -7.457545692091117e-07
+            },
+            "lognormal": {
+              "initial_search_window": [
+                0.05,
+                3.0
+              ],
+              "final_search_window": [
+                0.05000000000000001,
+                3.0000000000000004
+              ],
+              "expansions": 0,
+              "shape": 0.8033832368680714,
+              "active_search_boundary": false,
+              "n_unique_profile_objectives": 13,
+              "training_nll_per_trial": 3.3984612558835097,
+              "lower_endpoint_nll_gap": 88.91421600796453,
+              "upper_endpoint_nll_gap": 0.7485772708518463,
+              "profile_log_shape_gradient": 1.369304669651683e-06
+            },
+            "gamma": {
+              "initial_search_window": [
+                0.1,
+                80.0
+              ],
+              "final_search_window": [
+                0.10000000000000002,
+                79.99999999999997
+              ],
+              "expansions": 0,
+              "shape": 2.0301531010380365,
+              "active_search_boundary": false,
+              "n_unique_profile_objectives": 14,
+              "training_nll_per_trial": 3.3202935185083207,
+              "lower_endpoint_nll_gap": 1.4086672587786482,
+              "upper_endpoint_nll_gap": 16.088837718737786,
+              "profile_log_shape_gradient": 8.817613306177918e-08
+            },
+            "negative_binomial": {
+              "initial_search_window": [
+                0.05,
+                200.0
+              ],
+              "final_search_window": [
+                0.05000000000000001,
+                199.99999999999991
+              ],
+              "expansions": 0,
+              "shape": 3.128578153904728,
+              "active_search_boundary": false,
+              "n_unique_profile_objectives": 11,
+              "training_nll_per_trial": 3.287976714152804,
+              "lower_endpoint_nll_gap": 2.0065297257422294,
+              "upper_endpoint_nll_gap": 0.8990989573151875,
+              "profile_log_shape_gradient": -1.910762659207421e-06
+            }
+          },
+          "calibration_nuisance_ranges": {
+            "power_cost": [
+              -10.21974517462782,
+              -5.251505652743578
+            ],
+            "lognormal": [
+              1.1163760262001063,
+              3.5433220769735305
+            ],
+            "gamma": [
+              0.9095103618422344,
+              2.9576685407713827
+            ],
+            "negative_binomial": [
+              1.6191406878954855,
+              3.665818712422674
+            ]
+          },
+          "mean_elpd_per_trial": {
+            "power_cost": -3.448743117092258,
+            "lognormal": -3.53131951383787,
+            "gamma": -3.4510973718216857,
+            "negative_binomial": -3.431746189608941
+          },
+          "best_model": "negative_binomial",
+          "calibration": {
+            "power_cost": {
+              "zero_fraction_mae": 0.03132379501930052,
+              "mean_count_nrmse": 0.11725134149586806
+            },
+            "lognormal": {
+              "zero_fraction_mae": 0.027895795790401468,
+              "mean_count_nrmse": 0.20075098818802786
+            },
+            "gamma": {
+              "zero_fraction_mae": 0.025255460044144855,
+              "mean_count_nrmse": 0.02422516120471984
+            },
+            "negative_binomial": {
+              "zero_fraction_mae": 0.0201693201060471,
+              "mean_count_nrmse": 0.024235194353385184
+            }
+          },
+          "power_cost_contrasts": {
+            "lognormal": {
+              "mean_delta_elpd_per_trial": 0.08257639674561167,
+              "median_delta_elpd_per_trial": 0.0508777043620349,
+              "neuron_bootstrap_ci95_of_mean": [
+                0.05873591518728962,
+                0.10583597527179482
+              ],
+              "fraction_neurons_power_cost_better": 0.6595744680851063
+            },
+            "gamma": {
+              "mean_delta_elpd_per_trial": 0.002354254729427729,
+              "median_delta_elpd_per_trial": -0.024171101394630523,
+              "neuron_bootstrap_ci95_of_mean": [
+                -0.01491107202649525,
+                0.021172522554318344
+              ],
+              "fraction_neurons_power_cost_better": 0.425531914893617
+            },
+            "negative_binomial": {
+              "mean_delta_elpd_per_trial": -0.016996927483317104,
+              "median_delta_elpd_per_trial": -0.027120065550573003,
+              "neuron_bootstrap_ci95_of_mean": [
+                -0.03772546385980046,
+                0.003092868121023825
+              ],
+              "fraction_neurons_power_cost_better": 0.44680851063829785
+            }
+          }
+        },
+        {
+          "heldout_session": "106r001p26",
+          "n_neurons": 53,
+          "shared_shapes_trained_on_other_sessions": {
+            "power_cost": 2.2757519008648446,
+            "lognormal": 0.8490439418363362,
+            "gamma": 1.8410110202383663,
+            "negative_binomial": 2.6759249224632806
+          },
+          "shape_bound_audit": {
+            "power_cost": {
+              "initial_search_window": [
+                0.2,
+                8.0
+              ],
+              "final_search_window": [
+                0.2,
+                7.999999999999998
+              ],
+              "expansions": 0,
+              "shape": 2.2757519008648446,
+              "active_search_boundary": false,
+              "n_unique_profile_objectives": 10,
+              "training_nll_per_trial": 3.3822299291036555,
+              "lower_endpoint_nll_gap": 1.1376735712371429,
+              "upper_endpoint_nll_gap": 0.2019659219307477,
+              "profile_log_shape_gradient": -2.3840618368353717e-06
+            },
+            "lognormal": {
+              "initial_search_window": [
+                0.05,
+                3.0
+              ],
+              "final_search_window": [
+                0.05000000000000001,
+                3.0000000000000004
+              ],
+              "expansions": 0,
+              "shape": 0.8490439418363362,
+              "active_search_boundary": false,
+              "n_unique_profile_objectives": 12,
+              "training_nll_per_trial": 3.4380393375727674,
+              "lower_endpoint_nll_gap": 98.93781704863791,
+              "upper_endpoint_nll_gap": 0.6991089412516573,
+              "profile_log_shape_gradient": -1.26048127491174e-05
+            },
+            "gamma": {
+              "initial_search_window": [
+                0.1,
+                80.0
+              ],
+              "final_search_window": [
+                0.10000000000000002,
+                79.99999999999997
+              ],
+              "expansions": 0,
+              "shape": 1.8410110202383663,
+              "active_search_boundary": false,
+              "n_unique_profile_objectives": 14,
+              "training_nll_per_trial": 3.3598843736835784,
+              "lower_endpoint_nll_gap": 1.3529216565458544,
+              "upper_endpoint_nll_gap": 18.031387263873064,
+              "profile_log_shape_gradient": -3.9859893163907145e-07
+            },
+            "negative_binomial": {
+              "initial_search_window": [
+                0.05,
+                200.0
+              ],
+              "final_search_window": [
+                0.05000000000000001,
+                199.99999999999991
+              ],
+              "expansions": 0,
+              "shape": 2.6759249224632806,
+              "active_search_boundary": false,
+              "n_unique_profile_objectives": 11,
+              "training_nll_per_trial": 3.334219905575138,
+              "lower_endpoint_nll_gap": 1.9414869975889393,
+              "upper_endpoint_nll_gap": 1.1399649605886872,
+              "profile_log_shape_gradient": -2.3940849303016876e-08
+            }
+          },
+          "calibration_nuisance_ranges": {
+            "power_cost": [
+              -9.658755252127804,
+              -5.121931471666206
+            ],
+            "lognormal": [
+              1.1136714861001922,
+              3.750807837120757
+            ],
+            "gamma": [
+              0.9776134632964781,
+              3.2078716968950745
+            ],
+            "negative_binomial": [
+              1.5841201044498106,
+              3.818220438604049
+            ]
+          },
+          "mean_elpd_per_trial": {
+            "power_cost": -3.41416029170812,
+            "lognormal": -3.474443680293038,
+            "gamma": -3.3936314527677016,
+            "negative_binomial": -3.3556889327649824
+          },
+          "best_model": "negative_binomial",
+          "calibration": {
+            "power_cost": {
+              "zero_fraction_mae": 0.04002941252165319,
+              "mean_count_nrmse": 0.16511441873661736
+            },
+            "lognormal": {
+              "zero_fraction_mae": 0.02190550884640756,
+              "mean_count_nrmse": 0.29167273767806584
+            },
+            "gamma": {
+              "zero_fraction_mae": 0.017973444694780454,
+              "mean_count_nrmse": 0.019820792296485715
+            },
+            "negative_binomial": {
+              "zero_fraction_mae": 0.014507232132006005,
+              "mean_count_nrmse": 0.019818875930081067
+            }
+          },
+          "power_cost_contrasts": {
+            "lognormal": {
+              "mean_delta_elpd_per_trial": 0.060283388584918156,
+              "median_delta_elpd_per_trial": 0.04555971179034046,
+              "neuron_bootstrap_ci95_of_mean": [
+                0.045759727604467636,
+                0.07642568878362879
+              ],
+              "fraction_neurons_power_cost_better": 0.9056603773584906
+            },
+            "gamma": {
+              "mean_delta_elpd_per_trial": -0.020528838940417887,
+              "median_delta_elpd_per_trial": -0.038562199362372485,
+              "neuron_bootstrap_ci95_of_mean": [
+                -0.03331840352696653,
+                -0.006048467415180167
+              ],
+              "fraction_neurons_power_cost_better": 0.1509433962264151
+            },
+            "negative_binomial": {
+              "mean_delta_elpd_per_trial": -0.05847135894313729,
+              "median_delta_elpd_per_trial": -0.06748061308789155,
+              "neuron_bootstrap_ci95_of_mean": [
+                -0.07439126701214029,
+                -0.040611623754748805
+              ],
+              "fraction_neurons_power_cost_better": 0.11320754716981132
+            }
+          }
+        },
+        {
+          "heldout_session": "106r002p70",
+          "n_neurons": 11,
+          "shared_shapes_trained_on_other_sessions": {
+            "power_cost": 2.36314264645087,
+            "lognormal": 0.8355094308795473,
+            "gamma": 1.8966646906080304,
+            "negative_binomial": 2.7872037698800782
+          },
+          "shape_bound_audit": {
+            "power_cost": {
+              "initial_search_window": [
+                0.2,
+                8.0
+              ],
+              "final_search_window": [
+                0.2,
+                7.999999999999998
+              ],
+              "expansions": 0,
+              "shape": 2.36314264645087,
+              "active_search_boundary": false,
+              "n_unique_profile_objectives": 10,
+              "training_nll_per_trial": 3.391650098492051,
+              "lower_endpoint_nll_gap": 1.145502034381996,
+              "upper_endpoint_nll_gap": 0.18673603850441323,
+              "profile_log_shape_gradient": 1.356734724566877e-06
+            },
+            "lognormal": {
+              "initial_search_window": [
+                0.05,
+                3.0
+              ],
+              "final_search_window": [
+                0.05000000000000001,
+                3.0000000000000004
+              ],
+              "expansions": 0,
+              "shape": 0.8355094308795473,
+              "active_search_boundary": false,
+              "n_unique_profile_objectives": 13,
+              "training_nll_per_trial": 3.4477024817663167,
+              "lower_endpoint_nll_gap": 96.10020799681391,
+              "upper_endpoint_nll_gap": 0.7128682071035146,
+              "profile_log_shape_gradient": -1.7842616273355816e-07
+            },
+            "gamma": {
+              "initial_search_window": [
+                0.1,
+                80.0
+              ],
+              "final_search_window": [
+                0.10000000000000002,
+                79.99999999999997
+              ],
+              "expansions": 0,
+              "shape": 1.8966646906080304,
+              "active_search_boundary": false,
+              "n_unique_profile_objectives": 14,
+              "training_nll_per_trial": 3.3688216907167416,
+              "lower_endpoint_nll_gap": 1.3700383841862114,
+              "upper_endpoint_nll_gap": 17.466433628128577,
+              "profile_log_shape_gradient": -3.1025848556964775e-07
+            },
+            "negative_binomial": {
+              "initial_search_window": [
+                0.05,
+                200.0
+              ],
+              "final_search_window": [
+                0.05000000000000001,
+                199.99999999999991
+              ],
+              "expansions": 0,
+              "shape": 2.7872037698800782,
+              "active_search_boundary": false,
+              "n_unique_profile_objectives": 11,
+              "training_nll_per_trial": 3.3405987461957793,
+              "lower_endpoint_nll_gap": 1.9617276901557195,
+              "upper_endpoint_nll_gap": 1.1007913789750474,
+              "profile_log_shape_gradient": -6.017630838073273e-08
+            }
+          },
+          "calibration_nuisance_ranges": {
+            "power_cost": [
+              -9.017550551526174,
+              -5.92035775487916
+            ],
+            "lognormal": [
+              1.334923328865685,
+              3.1311925230356104
+            ],
+            "gamma": [
+              1.1772283152009602,
+              2.6494225819290302
+            ],
+            "negative_binomial": [
+              1.814824742159051,
+              3.2895905464534243
+            ]
+          },
+          "mean_elpd_per_trial": {
+            "power_cost": -3.3173094539917294,
+            "lognormal": -3.392055427572066,
+            "gamma": -3.3153892902418995,
+            "negative_binomial": -3.2858034782409353
+          },
+          "best_model": "negative_binomial",
+          "calibration": {
+            "power_cost": {
+              "zero_fraction_mae": 0.03280905350260199,
+              "mean_count_nrmse": 0.11532652226957849
+            },
+            "lognormal": {
+              "zero_fraction_mae": 0.029418254159293503,
+              "mean_count_nrmse": 0.1919679459597629
+            },
+            "gamma": {
+              "zero_fraction_mae": 0.025612076541946933,
+              "mean_count_nrmse": 0.022073575505333353
+            },
+            "negative_binomial": {
+              "zero_fraction_mae": 0.0193470699269158,
+              "mean_count_nrmse": 0.021978927635541573
+            }
+          },
+          "power_cost_contrasts": {
+            "lognormal": {
+              "mean_delta_elpd_per_trial": 0.07474597358033627,
+              "median_delta_elpd_per_trial": 0.040620550981260384,
+              "neuron_bootstrap_ci95_of_mean": [
+                0.0274932706387093,
+                0.13378176552948032
+              ],
+              "fraction_neurons_power_cost_better": 0.8181818181818182
+            },
+            "gamma": {
+              "mean_delta_elpd_per_trial": -0.0019201637498298648,
+              "median_delta_elpd_per_trial": -0.03669922739581721,
+              "neuron_bootstrap_ci95_of_mean": [
+                -0.034464195928191534,
+                0.03921520136266966
+              ],
+              "fraction_neurons_power_cost_better": 0.36363636363636365
+            },
+            "negative_binomial": {
+              "mean_delta_elpd_per_trial": -0.03150597575079416,
+              "median_delta_elpd_per_trial": -0.05129959638319309,
+              "neuron_bootstrap_ci95_of_mean": [
+                -0.06179513833338942,
+                0.0023438080599835647
+              ],
+              "fraction_neurons_power_cost_better": 0.2727272727272727
+            }
+          }
+        },
+        {
+          "heldout_session": "107l002p67",
+          "n_neurons": 52,
+          "shared_shapes_trained_on_other_sessions": {
+            "power_cost": 2.3579106548012145,
+            "lognormal": 0.8482356274399584,
+            "gamma": 1.8450868515325543,
+            "negative_binomial": 2.689056409387589
+          },
+          "shape_bound_audit": {
+            "power_cost": {
+              "initial_search_window": [
+                0.2,
+                8.0
+              ],
+              "final_search_window": [
+                0.2,
+                7.999999999999998
+              ],
+              "expansions": 0,
+              "shape": 2.3579106548012145,
+              "active_search_boundary": false,
+              "n_unique_profile_objectives": 10,
+              "training_nll_per_trial": 3.3866809458748652,
+              "lower_endpoint_nll_gap": 1.1376020761802095,
+              "upper_endpoint_nll_gap": 0.18347352513035364,
+              "profile_log_shape_gradient": 6.976508259981529e-07
+            },
+            "lognormal": {
+              "initial_search_window": [
+                0.05,
+                3.0
+              ],
+              "final_search_window": [
+                0.05000000000000001,
+                3.0000000000000004
+              ],
+              "expansions": 0,
+              "shape": 0.8482356274399584,
+              "active_search_boundary": false,
+              "n_unique_profile_objectives": 11,
+              "training_nll_per_trial": 3.447935646408336,
+              "lower_endpoint_nll_gap": 99.1286736445512,
+              "upper_endpoint_nll_gap": 0.6994335700726664,
+              "profile_log_shape_gradient": -1.0882326151318011e-05
+            },
+            "gamma": {
+              "initial_search_window": [
+                0.1,
+                80.0
+              ],
+              "final_search_window": [
+                0.10000000000000002,
+                79.99999999999997
+              ],
+              "expansions": 0,
+              "shape": 1.8450868515325543,
+              "active_search_boundary": false,
+              "n_unique_profile_objectives": 14,
+              "training_nll_per_trial": 3.369271836711799,
+              "lower_endpoint_nll_gap": 1.3526739133819392,
+              "upper_endpoint_nll_gap": 17.99979352578894,
+              "profile_log_shape_gradient": -3.9421577113785133e-07
+            },
+            "negative_binomial": {
+              "initial_search_window": [
+                0.05,
+                200.0
+              ],
+              "final_search_window": [
+                0.05000000000000001,
+                199.99999999999991
+              ],
+              "expansions": 0,
+              "shape": 2.689056409387589,
+              "active_search_boundary": false,
+              "n_unique_profile_objectives": 11,
+              "training_nll_per_trial": 3.34133211773781,
+              "lower_endpoint_nll_gap": 1.9428891460696143,
+              "upper_endpoint_nll_gap": 1.1470781190224395,
+              "profile_log_shape_gradient": -3.6637359812630166e-09
+            }
+          },
+          "calibration_nuisance_ranges": {
+            "power_cost": [
+              -10.004190683178047,
+              -5.200583494384693
+            ],
+            "lognormal": [
+              1.2037049556658832,
+              3.6631438039378734
+            ],
+            "gamma": [
+              0.9968415608288075,
+              3.174210110015497
+            ],
+            "negative_binomial": [
+              1.6086876310433962,
+              3.786757357220656
+            ]
+          },
+          "mean_elpd_per_trial": {
+            "power_cost": -3.3962445041486093,
+            "lognormal": -3.436314864415422,
+            "gamma": -3.357136637837891,
+            "negative_binomial": -3.327676785822111
+          },
+          "best_model": "negative_binomial",
+          "calibration": {
+            "power_cost": {
+              "zero_fraction_mae": 0.037257568151282436,
+              "mean_count_nrmse": 0.19908367079052272
+            },
+            "lognormal": {
+              "zero_fraction_mae": 0.019018124200835332,
+              "mean_count_nrmse": 0.3096972540394682
+            },
+            "gamma": {
+              "zero_fraction_mae": 0.013467262538095815,
+              "mean_count_nrmse": 0.021475656319430245
+            },
+            "negative_binomial": {
+              "zero_fraction_mae": 0.009865885062900178,
+              "mean_count_nrmse": 0.021458046427011504
+            }
+          },
+          "power_cost_contrasts": {
+            "lognormal": {
+              "mean_delta_elpd_per_trial": 0.04007036026681299,
+              "median_delta_elpd_per_trial": 0.04220269447256997,
+              "neuron_bootstrap_ci95_of_mean": [
+                0.020182770007942753,
+                0.0605648303775413
+              ],
+              "fraction_neurons_power_cost_better": 0.7115384615384616
+            },
+            "gamma": {
+              "mean_delta_elpd_per_trial": -0.03910786631071802,
+              "median_delta_elpd_per_trial": -0.03711251019640441,
+              "neuron_bootstrap_ci95_of_mean": [
+                -0.04968041785963304,
+                -0.028515229511646468
+              ],
+              "fraction_neurons_power_cost_better": 0.15384615384615385
+            },
+            "negative_binomial": {
+              "mean_delta_elpd_per_trial": -0.06856771832649854,
+              "median_delta_elpd_per_trial": -0.06906141619586861,
+              "neuron_bootstrap_ci95_of_mean": [
+                -0.07944177139396909,
+                -0.058433162146361003
+              ],
+              "fraction_neurons_power_cost_better": 0.019230769230769232
+            }
+          }
+        },
+        {
+          "heldout_session": "107l003p143",
+          "n_neurons": 44,
+          "shared_shapes_trained_on_other_sessions": {
+            "power_cost": 2.3990666114672172,
+            "lognormal": 0.8460793019366969,
+            "gamma": 1.8582575184169585,
+            "negative_binomial": 2.6975356781476836
+          },
+          "shape_bound_audit": {
+            "power_cost": {
+              "initial_search_window": [
+                0.2,
+                8.0
+              ],
+              "final_search_window": [
+                0.2,
+                7.999999999999998
+              ],
+              "expansions": 0,
+              "shape": 2.3990666114672172,
+              "active_search_boundary": false,
+              "n_unique_profile_objectives": 10,
+              "training_nll_per_trial": 3.418269300866234,
+              "lower_endpoint_nll_gap": 1.132854565844196,
+              "upper_endpoint_nll_gap": 0.17281824197411044,
+              "profile_log_shape_gradient": 1.3176126856251358e-08
+            },
+            "lognormal": {
+              "initial_search_window": [
+                0.05,
+                3.0
+              ],
+              "final_search_window": [
+                0.05000000000000001,
+                3.0000000000000004
+              ],
+              "expansions": 0,
+              "shape": 0.8460793019366969,
+              "active_search_boundary": false,
+              "n_unique_profile_objectives": 12,
+              "training_nll_per_trial": 3.4814175203766067,
+              "lower_endpoint_nll_gap": 98.63577749295503,
+              "upper_endpoint_nll_gap": 0.7009974863387076,
+              "profile_log_shape_gradient": -5.910893996485811e-06
+            },
+            "gamma": {
+              "initial_search_window": [
+                0.1,
+                80.0
+              ],
+              "final_search_window": [
+                0.10000000000000002,
+                79.99999999999997
+              ],
+              "expansions": 0,
+              "shape": 1.8582575184169585,
+              "active_search_boundary": false,
+              "n_unique_profile_objectives": 14,
+              "training_nll_per_trial": 3.401723324778382,
+              "lower_endpoint_nll_gap": 1.3585764491762267,
+              "upper_endpoint_nll_gap": 17.933601163803214,
+              "profile_log_shape_gradient": -3.7656766593840985e-07
+            },
+            "negative_binomial": {
+              "initial_search_window": [
+                0.05,
+                200.0
+              ],
+              "final_search_window": [
+                0.05000000000000001,
+                199.99999999999991
+              ],
+              "expansions": 0,
+              "shape": 2.6975356781476836,
+              "active_search_boundary": false,
+              "n_unique_profile_objectives": 11,
+              "training_nll_per_trial": 3.37309194701218,
+              "lower_endpoint_nll_gap": 1.9498392022986182,
+              "upper_endpoint_nll_gap": 1.167302884465737,
+              "profile_log_shape_gradient": -1.2678746941219288e-09
+            }
+          },
+          "calibration_nuisance_ranges": {
+            "power_cost": [
+              -9.792526157634262,
+              -5.34387711440445
+            ],
+            "lognormal": [
+              1.1446967234434036,
+              3.569919061045692
+            ],
+            "gamma": [
+              0.9757578930903796,
+              3.024768070644275
+            ],
+            "negative_binomial": [
+              1.5947049128320356,
+              3.6444539696069223
+            ]
+          },
+          "mean_elpd_per_trial": {
+            "power_cost": -3.2477292535766127,
+            "lognormal": -3.274271963872477,
+            "gamma": -3.2000408460587852,
+            "negative_binomial": -3.173987811340447
+          },
+          "best_model": "negative_binomial",
+          "calibration": {
+            "power_cost": {
+              "zero_fraction_mae": 0.04095242455709915,
+              "mean_count_nrmse": 0.1864223051364856
+            },
+            "lognormal": {
+              "zero_fraction_mae": 0.02183962197702427,
+              "mean_count_nrmse": 0.30345332953070714
+            },
+            "gamma": {
+              "zero_fraction_mae": 0.015342574269314985,
+              "mean_count_nrmse": 0.022650161734844625
+            },
+            "negative_binomial": {
+              "zero_fraction_mae": 0.011231323970132857,
+              "mean_count_nrmse": 0.022651622771786305
+            }
+          },
+          "power_cost_contrasts": {
+            "lognormal": {
+              "mean_delta_elpd_per_trial": 0.02654271029586452,
+              "median_delta_elpd_per_trial": 0.02375643897234414,
+              "neuron_bootstrap_ci95_of_mean": [
+                0.0016405906391479702,
+                0.05228467088612538
+              ],
+              "fraction_neurons_power_cost_better": 0.6363636363636364
+            },
+            "gamma": {
+              "mean_delta_elpd_per_trial": -0.047688407517827276,
+              "median_delta_elpd_per_trial": -0.049598195838974846,
+              "neuron_bootstrap_ci95_of_mean": [
+                -0.060800350038623066,
+                -0.03395955917357325
+              ],
+              "fraction_neurons_power_cost_better": 0.11363636363636363
+            },
+            "negative_binomial": {
+              "mean_delta_elpd_per_trial": -0.07374144223616576,
+              "median_delta_elpd_per_trial": -0.07632586079150752,
+              "neuron_bootstrap_ci95_of_mean": [
+                -0.0834557208813952,
+                -0.06336796889543747
+              ],
+              "fraction_neurons_power_cost_better": 0.022727272727272728
+            }
+          }
+        }
+      ],
+      "session_winners": {
+        "power_cost": 0,
+        "lognormal": 0,
+        "gamma": 0,
+        "negative_binomial": 5
+      },
+      "mean_across_heldout_sessions": {
+        "power_cost": -3.3648373241034655,
+        "lognormal": -3.4216810899981747,
+        "gamma": -3.343459119745593,
+        "negative_binomial": -3.3149806395554826
+      },
+      "power_cost_contrast_summary": {
+        "lognormal": {
+          "per_session_mean_delta_elpd_per_trial": [
+            0.08257639674561167,
+            0.060283388584918156,
+            0.07474597358033627,
+            0.04007036026681299,
+            0.02654271029586452
+          ],
+          "sessions_power_cost_better": 5,
+          "mean_across_sessions": 0.05684376589470872,
+          "session_code_group_means": {
+            "105": 0.08257639674561167,
+            "106": 0.06751468108262722,
+            "107": 0.033306535281338756
+          },
+          "session_code_groups_power_cost_better": 3
+        },
+        "gamma": {
+          "per_session_mean_delta_elpd_per_trial": [
+            0.002354254729427729,
+            -0.020528838940417887,
+            -0.0019201637498298648,
+            -0.03910786631071802,
+            -0.047688407517827276
+          ],
+          "sessions_power_cost_better": 1,
+          "mean_across_sessions": -0.021378204357873066,
+          "session_code_group_means": {
+            "105": 0.002354254729427729,
+            "106": -0.011224501345123875,
+            "107": -0.04339813691427265
+          },
+          "session_code_groups_power_cost_better": 1
+        },
+        "negative_binomial": {
+          "per_session_mean_delta_elpd_per_trial": [
+            -0.016996927483317104,
+            -0.05847135894313729,
+            -0.03150597575079416,
+            -0.06856771832649854,
+            -0.07374144223616576
+          ],
+          "sessions_power_cost_better": 0,
+          "mean_across_sessions": -0.04985668454798257,
+          "session_code_group_means": {
+            "105": -0.016996927483317104,
+            "106": -0.04498866734696573,
+            "107": -0.07115458028133215
+          },
+          "session_code_groups_power_cost_better": 0
+        }
+      }
+    },
+    "driven": {
+      "folds": [
+        {
+          "heldout_session": "105l001p16",
+          "n_neurons": 123,
+          "shared_shapes_trained_on_other_sessions": {
+            "power_cost": 5.406904796699596,
+            "lognormal": 0.6020292909276209,
+            "gamma": 3.3919914851054442,
+            "negative_binomial": 5.516455455497105
+          },
+          "shape_bound_audit": {
+            "power_cost": {
+              "initial_search_window": [
+                0.2,
+                8.0
+              ],
+              "final_search_window": [
+                0.2,
+                7.999999999999998
+              ],
+              "expansions": 0,
+              "shape": 5.406904796699596,
+              "active_search_boundary": false,
+              "n_unique_profile_objectives": 11,
+              "training_nll_per_trial": 4.028040843713748,
+              "lower_endpoint_nll_gap": 1.1880134952626733,
+              "upper_endpoint_nll_gap": 0.012454382692011379,
+              "profile_log_shape_gradient": 1.1680567624239302e-06
+            },
+            "lognormal": {
+              "initial_search_window": [
+                0.05,
+                3.0
+              ],
+              "final_search_window": [
+                0.05000000000000001,
+                3.0000000000000004
+              ],
+              "expansions": 0,
+              "shape": 0.6020292909276209,
+              "active_search_boundary": false,
+              "n_unique_profile_objectives": 13,
+              "training_nll_per_trial": 4.04794631631759,
+              "lower_endpoint_nll_gap": 56.19053160273357,
+              "upper_endpoint_nll_gap": 0.9626911472989033,
+              "profile_log_shape_gradient": -7.818634628620202e-07
+            },
+            "gamma": {
+              "initial_search_window": [
+                0.1,
+                80.0
+              ],
+              "final_search_window": [
+                0.10000000000000002,
+                79.99999999999997
+              ],
+              "expansions": 0,
+              "shape": 3.3919914851054442,
+              "active_search_boundary": false,
+              "n_unique_profile_objectives": 13,
+              "training_nll_per_trial": 3.9818612357034158,
+              "lower_endpoint_nll_gap": 1.7100437788165945,
+              "upper_endpoint_nll_gap": 9.407322752731892,
+              "profile_log_shape_gradient": -2.9148350400021172e-06
+            },
+            "negative_binomial": {
+              "initial_search_window": [
+                0.05,
+                200.0
+              ],
+              "final_search_window": [
+                0.05000000000000001,
+                199.99999999999991
+              ],
+              "expansions": 0,
+              "shape": 5.516455455497105,
+              "active_search_boundary": false,
+              "n_unique_profile_objectives": 10,
+              "training_nll_per_trial": 3.914186684882014,
+              "lower_endpoint_nll_gap": 2.3487459204925116,
+              "upper_endpoint_nll_gap": 1.0829985814490728,
+              "profile_log_shape_gradient": 1.2323031484129388e-07
+            }
+          },
+          "calibration_nuisance_ranges": {
+            "power_cost": [
+              -25.956861200337848,
+              -13.409575144308764
+            ],
+            "lognormal": [
+              1.1152952495752029,
+              4.261306700055417
+            ],
+            "gamma": [
+              0.3824072775990358,
+              3.063301265392301
+            ],
+            "negative_binomial": [
+              1.5985033473813206,
+              4.284732456796319
+            ]
+          },
+          "mean_elpd_per_trial": {
+            "power_cost": -3.6977726488530918,
+            "lognormal": -3.791370491839073,
+            "gamma": -3.709310590481513,
+            "negative_binomial": -3.662921035121801
+          },
+          "best_model": "negative_binomial",
+          "calibration": {
+            "power_cost": {
+              "zero_fraction_mae": 0.029012053966156574,
+              "mean_count_nrmse": 0.23417409787573784
+            },
+            "lognormal": {
+              "zero_fraction_mae": 0.014271585999827866,
+              "mean_count_nrmse": 0.16897948724024542
+            },
+            "gamma": {
+              "zero_fraction_mae": 0.01410712464799709,
+              "mean_count_nrmse": 0.019225586225833573
+            },
+            "negative_binomial": {
+              "zero_fraction_mae": 0.011853794655855277,
+              "mean_count_nrmse": 0.01919941344070284
+            }
+          },
+          "power_cost_contrasts": {
+            "lognormal": {
+              "mean_delta_elpd_per_trial": 0.09359784298598096,
+              "median_delta_elpd_per_trial": -0.051872245728713684,
+              "neuron_bootstrap_ci95_of_mean": [
+                0.0370923746265847,
+                0.1545062922664863
+              ],
+              "fraction_neurons_power_cost_better": 0.43089430894308944
+            },
+            "gamma": {
+              "mean_delta_elpd_per_trial": 0.011537941628421415,
+              "median_delta_elpd_per_trial": -0.1096635741486095,
+              "neuron_bootstrap_ci95_of_mean": [
+                -0.035382044657497044,
+                0.0638970593624628
+              ],
+              "fraction_neurons_power_cost_better": 0.2926829268292683
+            },
+            "negative_binomial": {
+              "mean_delta_elpd_per_trial": -0.034851613731291184,
+              "median_delta_elpd_per_trial": -0.1190681123345228,
+              "neuron_bootstrap_ci95_of_mean": [
+                -0.08171539199586339,
+                0.016219974647542528
+              ],
+              "fraction_neurons_power_cost_better": 0.25203252032520324
+            }
+          }
+        },
+        {
+          "heldout_session": "106r001p26",
+          "n_neurons": 90,
+          "shared_shapes_trained_on_other_sessions": {
+            "power_cost": 5.0774383884876775,
+            "lognormal": 0.6254669935690389,
+            "gamma": 3.1669512043632273,
+            "negative_binomial": 4.979262172644827
+          },
+          "shape_bound_audit": {
+            "power_cost": {
+              "initial_search_window": [
+                0.2,
+                8.0
+              ],
+              "final_search_window": [
+                0.2,
+                7.999999999999998
+              ],
+              "expansions": 0,
+              "shape": 5.0774383884876775,
+              "active_search_boundary": false,
+              "n_unique_profile_objectives": 11,
+              "training_nll_per_trial": 3.959066968684105,
+              "lower_endpoint_nll_gap": 1.1871738569338457,
+              "upper_endpoint_nll_gap": 0.01703231701621366,
+              "profile_log_shape_gradient": 1.1195400162478109e-06
+            },
+            "lognormal": {
+              "initial_search_window": [
+                0.05,
+                3.0
+              ],
+              "final_search_window": [
+                0.05000000000000001,
+                3.0000000000000004
+              ],
+              "expansions": 0,
+              "shape": 0.6254669935690389,
+              "active_search_boundary": false,
+              "n_unique_profile_objectives": 12,
+              "training_nll_per_trial": 3.9871624709534634,
+              "lower_endpoint_nll_gap": 60.266862133375824,
+              "upper_endpoint_nll_gap": 0.9355021733365936,
+              "profile_log_shape_gradient": -4.865394753750252e-06
+            },
+            "gamma": {
+              "initial_search_window": [
+                0.1,
+                80.0
+              ],
+              "final_search_window": [
+                0.10000000000000002,
+                79.99999999999997
+              ],
+              "expansions": 0,
+              "shape": 3.1669512043632273,
+              "active_search_boundary": false,
+              "n_unique_profile_objectives": 14,
+              "training_nll_per_trial": 3.9201249411010943,
+              "lower_endpoint_nll_gap": 1.674153682899063,
+              "upper_endpoint_nll_gap": 10.176446451940624,
+              "profile_log_shape_gradient": -2.4767610184994737e-06
+            },
+            "negative_binomial": {
+              "initial_search_window": [
+                0.05,
+                200.0
+              ],
+              "final_search_window": [
+                0.05000000000000001,
+                199.99999999999991
+              ],
+              "expansions": 0,
+              "shape": 4.979262172644827,
+              "active_search_boundary": false,
+              "n_unique_profile_objectives": 10,
+              "training_nll_per_trial": 3.8625803255640534,
+              "lower_endpoint_nll_gap": 2.30304516183383,
+              "upper_endpoint_nll_gap": 1.153955361483816,
+              "profile_log_shape_gradient": -6.27964347188481e-08
+            }
+          },
+          "calibration_nuisance_ranges": {
+            "power_cost": [
+              -26.065505553510157,
+              -12.873548119036805
+            ],
+            "lognormal": [
+              1.1103691974008052,
+              4.752223286515361
+            ],
+            "gamma": [
+              0.5133595297642486,
+              3.613099332837572
+            ],
+            "negative_binomial": [
+              1.6544112780768316,
+              4.765874344785192
+            ]
+          },
+          "mean_elpd_per_trial": {
+            "power_cost": -3.862721218023891,
+            "lognormal": -3.9368593849132307,
+            "gamma": -3.855166005290764,
+            "negative_binomial": -3.776480306293937
+          },
+          "best_model": "negative_binomial",
+          "calibration": {
+            "power_cost": {
+              "zero_fraction_mae": 0.025062043424272692,
+              "mean_count_nrmse": 0.3015149216390003
+            },
+            "lognormal": {
+              "zero_fraction_mae": 0.015425998207051688,
+              "mean_count_nrmse": 0.20740216768365954
+            },
+            "gamma": {
+              "zero_fraction_mae": 0.015265144122820182,
+              "mean_count_nrmse": 0.01598478409631813
+            },
+            "negative_binomial": {
+              "zero_fraction_mae": 0.01294791229629104,
+              "mean_count_nrmse": 0.01595263750775888
+            }
+          },
+          "power_cost_contrasts": {
+            "lognormal": {
+              "mean_delta_elpd_per_trial": 0.07413816688933973,
+              "median_delta_elpd_per_trial": -0.04334411405647187,
+              "neuron_bootstrap_ci95_of_mean": [
+                0.02262303274721526,
+                0.13062779968236649
+              ],
+              "fraction_neurons_power_cost_better": 0.3333333333333333
+            },
+            "gamma": {
+              "mean_delta_elpd_per_trial": -0.0075552127331271245,
+              "median_delta_elpd_per_trial": -0.10640171562449813,
+              "neuron_bootstrap_ci95_of_mean": [
+                -0.04610881885410956,
+                0.035618127018685546
+              ],
+              "fraction_neurons_power_cost_better": 0.3
+            },
+            "negative_binomial": {
+              "mean_delta_elpd_per_trial": -0.08624091172995407,
+              "median_delta_elpd_per_trial": -0.1690387318745714,
+              "neuron_bootstrap_ci95_of_mean": [
+                -0.12572756843910338,
+                -0.04348310158904143
+              ],
+              "fraction_neurons_power_cost_better": 0.25555555555555554
+            }
+          }
+        },
+        {
+          "heldout_session": "106r002p70",
+          "n_neurons": 63,
+          "shared_shapes_trained_on_other_sessions": {
+            "power_cost": 5.289616387355209,
+            "lognormal": 0.6146278101511315,
+            "gamma": 3.28258635987634,
+            "negative_binomial": 5.310617162327815
+          },
+          "shape_bound_audit": {
+            "power_cost": {
+              "initial_search_window": [
+                0.2,
+                8.0
+              ],
+              "final_search_window": [
+                0.2,
+                7.999999999999998
+              ],
+              "expansions": 0,
+              "shape": 5.289616387355209,
+              "active_search_boundary": false,
+              "n_unique_profile_objectives": 11,
+              "training_nll_per_trial": 3.9816094713966486,
+              "lower_endpoint_nll_gap": 1.1926119796706773,
+              "upper_endpoint_nll_gap": 0.014142566624120612,
+              "profile_log_shape_gradient": -1.1670509003636198e-06
+            },
+            "lognormal": {
+              "initial_search_window": [
+                0.05,
+                3.0
+              ],
+              "final_search_window": [
+                0.05000000000000001,
+                3.0000000000000004
+              ],
+              "expansions": 0,
+              "shape": 0.6146278101511315,
+              "active_search_boundary": false,
+              "n_unique_profile_objectives": 12,
+              "training_nll_per_trial": 4.011067932649867,
+              "lower_endpoint_nll_gap": 58.1427272878587,
+              "upper_endpoint_nll_gap": 0.9475195633953506,
+              "profile_log_shape_gradient": 3.923461555643826e-06
+            },
+            "gamma": {
+              "initial_search_window": [
+                0.1,
+                80.0
+              ],
+              "final_search_window": [
+                0.10000000000000002,
+                79.99999999999997
+              ],
+              "expansions": 0,
+              "shape": 3.28258635987634,
+              "active_search_boundary": false,
+              "n_unique_profile_objectives": 14,
+              "training_nll_per_trial": 3.941803052686934,
+              "lower_endpoint_nll_gap": 1.691762221683585,
+              "upper_endpoint_nll_gap": 9.744650258776769,
+              "profile_log_shape_gradient": -2.723323788700327e-06
+            },
+            "negative_binomial": {
+              "initial_search_window": [
+                0.05,
+                200.0
+              ],
+              "final_search_window": [
+                0.05000000000000001,
+                199.99999999999991
+              ],
+              "expansions": 0,
+              "shape": 5.310617162327815,
+              "active_search_boundary": false,
+              "n_unique_profile_objectives": 10,
+              "training_nll_per_trial": 3.8767907556897385,
+              "lower_endpoint_nll_gap": 2.3278598917788034,
+              "upper_endpoint_nll_gap": 1.092728729540934,
+              "profile_log_shape_gradient": -1.830757767606883e-08
+            }
+          },
+          "calibration_nuisance_ranges": {
+            "power_cost": [
+              -27.44887073383572,
+              -12.441837939059234
+            ],
+            "lognormal": [
+              1.0422544249812076,
+              4.3964913641931975
+            ],
+            "gamma": [
+              0.4444056479686724,
+              3.3067532806416753
+            ],
+            "negative_binomial": [
+              1.6318107632858256,
+              4.4953901966048315
+            ]
+          },
+          "mean_elpd_per_trial": {
+            "power_cost": -3.6808254971177155,
+            "lognormal": -3.7692609952502165,
+            "gamma": -3.6962300530110386,
+            "negative_binomial": -3.656443658073229
+          },
+          "best_model": "negative_binomial",
+          "calibration": {
+            "power_cost": {
+              "zero_fraction_mae": 0.028858492675977905,
+              "mean_count_nrmse": 0.24896996663854037
+            },
+            "lognormal": {
+              "zero_fraction_mae": 0.016191923673706213,
+              "mean_count_nrmse": 0.17428894771078268
+            },
+            "gamma": {
+              "zero_fraction_mae": 0.016023552731031367,
+              "mean_count_nrmse": 0.018512559097379
+            },
+            "negative_binomial": {
+              "zero_fraction_mae": 0.013683420443429191,
+              "mean_count_nrmse": 0.018562212506404004
+            }
+          },
+          "power_cost_contrasts": {
+            "lognormal": {
+              "mean_delta_elpd_per_trial": 0.08843549813250076,
+              "median_delta_elpd_per_trial": -0.04723981234812835,
+              "neuron_bootstrap_ci95_of_mean": [
+                0.02533698333056315,
+                0.15910383098859468
+              ],
+              "fraction_neurons_power_cost_better": 0.42857142857142855
+            },
+            "gamma": {
+              "mean_delta_elpd_per_trial": 0.015404555893322947,
+              "median_delta_elpd_per_trial": -0.09466496658830498,
+              "neuron_bootstrap_ci95_of_mean": [
+                -0.03650884515511487,
+                0.07707439572375586
+              ],
+              "fraction_neurons_power_cost_better": 0.3333333333333333
+            },
+            "negative_binomial": {
+              "mean_delta_elpd_per_trial": -0.02438183904448628,
+              "median_delta_elpd_per_trial": -0.10833726079985057,
+              "neuron_bootstrap_ci95_of_mean": [
+                -0.08391640870151659,
+                0.04094737467016941
+              ],
+              "fraction_neurons_power_cost_better": 0.30158730158730157
+            }
+          }
+        },
+        {
+          "heldout_session": "107l002p67",
+          "n_neurons": 90,
+          "shared_shapes_trained_on_other_sessions": {
+            "power_cost": 4.573887260142816,
+            "lognormal": 0.6675826893494177,
+            "gamma": 2.828533150885744,
+            "negative_binomial": 4.455305920391363
+          },
+          "shape_bound_audit": {
+            "power_cost": {
+              "initial_search_window": [
+                0.2,
+                8.0
+              ],
+              "final_search_window": [
+                0.2,
+                7.999999999999998
+              ],
+              "expansions": 0,
+              "shape": 4.573887260142816,
+              "active_search_boundary": false,
+              "n_unique_profile_objectives": 11,
+              "training_nll_per_trial": 3.898128836366423,
+              "lower_endpoint_nll_gap": 1.168729854213744,
+              "upper_endpoint_nll_gap": 0.026535114772818336,
+              "profile_log_shape_gradient": -8.542322404991864e-07
+            },
+            "lognormal": {
+              "initial_search_window": [
+                0.05,
+                3.0
+              ],
+              "final_search_window": [
+                0.05000000000000001,
+                3.0000000000000004
+              ],
+              "expansions": 0,
+              "shape": 0.6675826893494177,
+              "active_search_boundary": false,
+              "n_unique_profile_objectives": 12,
+              "training_nll_per_trial": 3.9471335955394444,
+              "lower_endpoint_nll_gap": 67.06931020407227,
+              "upper_endpoint_nll_gap": 0.8783119916314197,
+              "profile_log_shape_gradient": -1.1762382179369979e-05
+            },
+            "gamma": {
+              "initial_search_window": [
+                0.1,
+                80.0
+              ],
+              "final_search_window": [
+                0.10000000000000002,
+                79.99999999999997
+              ],
+              "expansions": 0,
+              "shape": 2.828533150885744,
+              "active_search_boundary": false,
+              "n_unique_profile_objectives": 14,
+              "training_nll_per_trial": 3.875308392200139,
+              "lower_endpoint_nll_gap": 1.6080139448412445,
+              "upper_endpoint_nll_gap": 11.517883359826326,
+              "profile_log_shape_gradient": 9.500955577834702e-07
+            },
+            "negative_binomial": {
+              "initial_search_window": [
+                0.05,
+                200.0
+              ],
+              "final_search_window": [
+                0.05000000000000001,
+                199.99999999999991
+              ],
+              "expansions": 0,
+              "shape": 4.455305920391363,
+              "active_search_boundary": false,
+              "n_unique_profile_objectives": 10,
+              "training_nll_per_trial": 3.8173915440299435,
+              "lower_endpoint_nll_gap": 2.235662512566009,
+              "upper_endpoint_nll_gap": 1.1608286800512637,
+              "profile_log_shape_gradient": -3.4376501645283497e-07
+            }
+          },
+          "calibration_nuisance_ranges": {
+            "power_cost": [
+              -23.017601037398016,
+              -11.111151561069516
+            ],
+            "lognormal": [
+              1.275084466064723,
+              4.582801293054436
+            ],
+            "gamma": [
+              0.5809058853423078,
+              3.5542606831650065
+            ],
+            "negative_binomial": [
+              1.6151714442818608,
+              4.59402708156327
+            ]
+          },
+          "mean_elpd_per_trial": {
+            "power_cost": -4.120946820310005,
+            "lognormal": -4.114025714520304,
+            "gamma": -4.0519685770445575,
+            "negative_binomial": -3.974251949633977
+          },
+          "best_model": "negative_binomial",
+          "calibration": {
+            "power_cost": {
+              "zero_fraction_mae": 0.02131730315466466,
+              "mean_count_nrmse": 0.2564138341176714
+            },
+            "lognormal": {
+              "zero_fraction_mae": 0.003236854089103975,
+              "mean_count_nrmse": 0.20767461340978466
+            },
+            "gamma": {
+              "zero_fraction_mae": 0.003084197044809711,
+              "mean_count_nrmse": 0.013396176167821463
+            },
+            "negative_binomial": {
+              "zero_fraction_mae": 0.002177701946317655,
+              "mean_count_nrmse": 0.013394246303621508
+            }
+          },
+          "power_cost_contrasts": {
+            "lognormal": {
+              "mean_delta_elpd_per_trial": -0.006921105789700556,
+              "median_delta_elpd_per_trial": -0.023710425348398734,
+              "neuron_bootstrap_ci95_of_mean": [
+                -0.02342515541721963,
+                0.013494138821960584
+              ],
+              "fraction_neurons_power_cost_better": 0.2777777777777778
+            },
+            "gamma": {
+              "mean_delta_elpd_per_trial": -0.06897824326544724,
+              "median_delta_elpd_per_trial": -0.08487164323612836,
+              "neuron_bootstrap_ci95_of_mean": [
+                -0.08246829607767579,
+                -0.0532524236246065
+              ],
+              "fraction_neurons_power_cost_better": 0.08888888888888889
+            },
+            "negative_binomial": {
+              "mean_delta_elpd_per_trial": -0.14669487067602724,
+              "median_delta_elpd_per_trial": -0.18720925812739023,
+              "neuron_bootstrap_ci95_of_mean": [
+                -0.1676437300233528,
+                -0.12437238102298893
+              ],
+              "fraction_neurons_power_cost_better": 0.1
+            }
+          }
+        },
+        {
+          "heldout_session": "107l003p143",
+          "n_neurons": 103,
+          "shared_shapes_trained_on_other_sessions": {
+            "power_cost": 4.378087656956995,
+            "lognormal": 0.676729631990256,
+            "gamma": 2.7635107606121347,
+            "negative_binomial": 4.353520147178467
+          },
+          "shape_bound_audit": {
+            "power_cost": {
+              "initial_search_window": [
+                0.2,
+                8.0
+              ],
+              "final_search_window": [
+                0.2,
+                7.999999999999998
+              ],
+              "expansions": 0,
+              "shape": 4.378087656956995,
+              "active_search_boundary": false,
+              "n_unique_profile_objectives": 11,
+              "training_nll_per_trial": 3.832781548054202,
+              "lower_endpoint_nll_gap": 1.176541181494084,
+              "upper_endpoint_nll_gap": 0.03190253457689263,
+              "profile_log_shape_gradient": -3.7359670912451293e-07
+            },
+            "lognormal": {
+              "initial_search_window": [
+                0.05,
+                3.0
+              ],
+              "final_search_window": [
+                0.05000000000000001,
+                3.0000000000000004
+              ],
+              "expansions": 0,
+              "shape": 0.676729631990256,
+              "active_search_boundary": false,
+              "n_unique_profile_objectives": 12,
+              "training_nll_per_trial": 3.883120849798354,
+              "lower_endpoint_nll_gap": 68.49815937921854,
+              "upper_endpoint_nll_gap": 0.8738774180165021,
+              "profile_log_shape_gradient": 1.2546275129921014e-05
+            },
+            "gamma": {
+              "initial_search_window": [
+                0.1,
+                80.0
+              ],
+              "final_search_window": [
+                0.10000000000000002,
+                79.99999999999997
+              ],
+              "expansions": 0,
+              "shape": 2.7635107606121347,
+              "active_search_boundary": false,
+              "n_unique_profile_objectives": 14,
+              "training_nll_per_trial": 3.8101002102876964,
+              "lower_endpoint_nll_gap": 1.5953743251250923,
+              "upper_endpoint_nll_gap": 11.800926047156777,
+              "profile_log_shape_gradient": 1.116666759060081e-06
+            },
+            "negative_binomial": {
+              "initial_search_window": [
+                0.05,
+                200.0
+              ],
+              "final_search_window": [
+                0.05000000000000001,
+                199.99999999999991
+              ],
+              "expansions": 0,
+              "shape": 4.353520147178467,
+              "active_search_boundary": false,
+              "n_unique_profile_objectives": 11,
+              "training_nll_per_trial": 3.753971973339446,
+              "lower_endpoint_nll_gap": 2.2214394112819646,
+              "upper_endpoint_nll_gap": 1.113921267774868,
+              "profile_log_shape_gradient": -3.8268055391199596e-07
+            }
+          },
+          "calibration_nuisance_ranges": {
+            "power_cost": [
+              -24.05808126340957,
+              -10.636717795739365
+            ],
+            "lognormal": [
+              1.1688788417197722,
+              5.120689460151374
+            ],
+            "gamma": [
+              0.5848650509858873,
+              4.1105319380932475
+            ],
+            "negative_binomial": [
+              1.5922917535991299,
+              5.127035893145856
+            ]
+          },
+          "mean_elpd_per_trial": {
+            "power_cost": -4.328078078332439,
+            "lognormal": -4.325745509119222,
+            "gamma": -4.265920080928692,
+            "negative_binomial": -4.182511591634676
+          },
+          "best_model": "negative_binomial",
+          "calibration": {
+            "power_cost": {
+              "zero_fraction_mae": 0.018952940023844816,
+              "mean_count_nrmse": 0.28664770819339824
+            },
+            "lognormal": {
+              "zero_fraction_mae": 0.002174990267334912,
+              "mean_count_nrmse": 0.24093056892363726
+            },
+            "gamma": {
+              "zero_fraction_mae": 0.002071858227949438,
+              "mean_count_nrmse": 0.01305541849708242
+            },
+            "negative_binomial": {
+              "zero_fraction_mae": 0.0017353219850808033,
+              "mean_count_nrmse": 0.01305349089340491
+            }
+          },
+          "power_cost_contrasts": {
+            "lognormal": {
+              "mean_delta_elpd_per_trial": -0.002332569213216102,
+              "median_delta_elpd_per_trial": -0.0187779888659817,
+              "neuron_bootstrap_ci95_of_mean": [
+                -0.01676400364752737,
+                0.014742651780432681
+              ],
+              "fraction_neurons_power_cost_better": 0.3592233009708738
+            },
+            "gamma": {
+              "mean_delta_elpd_per_trial": -0.062157997403747084,
+              "median_delta_elpd_per_trial": -0.07996468887217623,
+              "neuron_bootstrap_ci95_of_mean": [
+                -0.07418210575414205,
+                -0.0478949219887003
+              ],
+              "fraction_neurons_power_cost_better": 0.07766990291262135
+            },
+            "negative_binomial": {
+              "mean_delta_elpd_per_trial": -0.14556648669776193,
+              "median_delta_elpd_per_trial": -0.19453008506998715,
+              "neuron_bootstrap_ci95_of_mean": [
+                -0.16738858556702296,
+                -0.12033287395496141
+              ],
+              "fraction_neurons_power_cost_better": 0.1262135922330097
+            }
+          }
+        }
+      ],
+      "session_winners": {
+        "power_cost": 0,
+        "lognormal": 0,
+        "gamma": 0,
+        "negative_binomial": 5
+      },
+      "mean_across_heldout_sessions": {
+        "power_cost": -3.938068852527428,
+        "lognormal": -3.9874524191284086,
+        "gamma": -3.915719061351313,
+        "negative_binomial": -3.850521708151524
+      },
+      "power_cost_contrast_summary": {
+        "lognormal": {
+          "per_session_mean_delta_elpd_per_trial": [
+            0.09359784298598096,
+            0.07413816688933973,
+            0.08843549813250076,
+            -0.006921105789700556,
+            -0.002332569213216102
+          ],
+          "sessions_power_cost_better": 3,
+          "mean_across_sessions": 0.04938356660098096,
+          "session_code_group_means": {
+            "105": 0.09359784298598096,
+            "106": 0.08128683251092025,
+            "107": -0.004626837501458329
+          },
+          "session_code_groups_power_cost_better": 2
+        },
+        "gamma": {
+          "per_session_mean_delta_elpd_per_trial": [
+            0.011537941628421415,
+            -0.0075552127331271245,
+            0.015404555893322947,
+            -0.06897824326544724,
+            -0.062157997403747084
+          ],
+          "sessions_power_cost_better": 2,
+          "mean_across_sessions": -0.022349791176115418,
+          "session_code_group_means": {
+            "105": 0.011537941628421415,
+            "106": 0.003924671580097912,
+            "107": -0.06556812033459716
+          },
+          "session_code_groups_power_cost_better": 2
+        },
+        "negative_binomial": {
+          "per_session_mean_delta_elpd_per_trial": [
+            -0.034851613731291184,
+            -0.08624091172995407,
+            -0.02438183904448628,
+            -0.14669487067602724,
+            -0.14556648669776193
+          ],
+          "sessions_power_cost_better": 0,
+          "mean_across_sessions": -0.08754714437590413,
+          "session_code_group_means": {
+            "105": -0.034851613731291184,
+            "106": -0.055311375387220175,
+            "107": -0.14613067868689458
+          },
+          "session_code_groups_power_cost_better": 0
+        }
+      }
+    }
+  },
+  "model_recovery": {
+    "spontaneous": {
+      "fitted_shapes_all_sessions": {
+        "power_cost": 2.3615526045473167,
+        "lognormal": 0.8379692932136692,
+        "gamma": 1.8863209010596702,
+        "negative_binomial": 2.77209667689475
+      },
+      "winner_fraction": {
+        "power_cost": {
+          "power_cost": 0.9666666666666667,
+          "lognormal": 0.0,
+          "gamma": 0.0,
+          "negative_binomial": 0.03333333333333333
+        },
+        "lognormal": {
+          "power_cost": 0.0,
+          "lognormal": 0.95,
+          "gamma": 0.05,
+          "negative_binomial": 0.0
+        },
+        "gamma": {
+          "power_cost": 0.0,
+          "lognormal": 0.0,
+          "gamma": 0.9,
+          "negative_binomial": 0.1
+        },
+        "negative_binomial": {
+          "power_cost": 0.0,
+          "lognormal": 0.0,
+          "gamma": 0.15,
+          "negative_binomial": 0.85
+        }
+      },
+      "shape_bound_audit": {
+        "power_cost": {
+          "initial_search_window": [
+            0.2,
+            8.0
+          ],
+          "final_search_window": [
+            0.2,
+            7.999999999999998
+          ],
+          "expansions": 0,
+          "shape": 2.3615526045473167,
+          "active_search_boundary": false,
+          "n_unique_profile_objectives": 10,
+          "training_nll_per_trial": 3.388446034489195,
+          "lower_endpoint_nll_gap": 1.1446650422185853,
+          "upper_endpoint_nll_gap": 0.18616709584768287,
+          "profile_log_shape_gradient": 1.1448686443316092e-06
+        },
+        "lognormal": {
+          "initial_search_window": [
+            0.05,
+            3.0
+          ],
+          "final_search_window": [
+            0.05000000000000001,
+            3.0000000000000004
+          ],
+          "expansions": 0,
+          "shape": 0.8379692932136692,
+          "active_search_boundary": false,
+          "n_unique_profile_objectives": 12,
+          "training_nll_per_trial": 3.4453794306413905,
+          "lower_endpoint_nll_gap": 96.65580538403626,
+          "upper_endpoint_nll_gap": 0.7103168083902172,
+          "profile_log_shape_gradient": -1.563527085579608e-07
+        },
+        "gamma": {
+          "initial_search_window": [
+            0.1,
+            80.0
+          ],
+          "final_search_window": [
+            0.10000000000000002,
+            79.99999999999997
+          ],
+          "expansions": 0,
+          "shape": 1.8863209010596702,
+          "active_search_boundary": false,
+          "n_unique_profile_objectives": 14,
+          "training_nll_per_trial": 3.3666008612809764,
+          "lower_endpoint_nll_gap": 1.3666144228655313,
+          "upper_endpoint_nll_gap": 17.563559557434534,
+          "profile_log_shape_gradient": -3.3030023161018107e-07
+        },
+        "negative_binomial": {
+          "initial_search_window": [
+            0.05,
+            200.0
+          ],
+          "final_search_window": [
+            0.05000000000000001,
+            199.99999999999991
+          ],
+          "expansions": 0,
+          "shape": 2.77209667689475,
+          "active_search_boundary": false,
+          "n_unique_profile_objectives": 11,
+          "training_nll_per_trial": 3.3383208958712913,
+          "lower_endpoint_nll_gap": 1.9581669767635175,
+          "upper_endpoint_nll_gap": 1.099319702934074,
+          "profile_log_shape_gradient": -6.94733159889438e-08
+        }
+      },
+      "n_synthetic_neurons_per_generator": 60,
+      "n_counts_per_synthetic_neuron": 400,
+      "scope": "conditional fixed-shape separability; the generating family is scored with its generating shape, not a recovery of LOSO shape learning"
+    },
+    "driven": {
+      "fitted_shapes_all_sessions": {
+        "power_cost": 4.921182508366572,
+        "lognormal": 0.6378008160445394,
+        "gamma": 3.066544026460288,
+        "negative_binomial": 4.896814141221898
+      },
+      "winner_fraction": {
+        "power_cost": {
+          "power_cost": 1.0,
+          "lognormal": 0.0,
+          "gamma": 0.0,
+          "negative_binomial": 0.0
+        },
+        "lognormal": {
+          "power_cost": 0.0,
+          "lognormal": 0.95,
+          "gamma": 0.05,
+          "negative_binomial": 0.0
+        },
+        "gamma": {
+          "power_cost": 0.0,
+          "lognormal": 0.03333333333333333,
+          "gamma": 0.9,
+          "negative_binomial": 0.06666666666666667
+        },
+        "negative_binomial": {
+          "power_cost": 0.0,
+          "lognormal": 0.0,
+          "gamma": 0.1,
+          "negative_binomial": 0.9
+        }
+      },
+      "shape_bound_audit": {
+        "power_cost": {
+          "initial_search_window": [
+            0.2,
+            8.0
+          ],
+          "final_search_window": [
+            0.2,
+            7.999999999999998
+          ],
+          "expansions": 0,
+          "shape": 4.921182508366572,
+          "active_search_boundary": false,
+          "n_unique_profile_objectives": 11,
+          "training_nll_per_trial": 3.940317955527106,
+          "lower_endpoint_nll_gap": 1.1821050434456732,
+          "upper_endpoint_nll_gap": 0.019783492648799417,
+          "profile_log_shape_gradient": -1.07582609487622e-06
+        },
+        "lognormal": {
+          "initial_search_window": [
+            0.05,
+            3.0
+          ],
+          "final_search_window": [
+            0.05000000000000001,
+            3.0000000000000004
+          ],
+          "expansions": 0,
+          "shape": 0.6378008160445394,
+          "active_search_boundary": false,
+          "n_unique_profile_objectives": 12,
+          "training_nll_per_trial": 3.977153925806881,
+          "lower_endpoint_nll_gap": 62.03351254990314,
+          "upper_endpoint_nll_gap": 0.9175487551897024,
+          "profile_log_shape_gradient": -1.2196865739610985e-05
+        },
+        "gamma": {
+          "initial_search_window": [
+            0.1,
+            80.0
+          ],
+          "final_search_window": [
+            0.10000000000000002,
+            79.99999999999997
+          ],
+          "expansions": 0,
+          "shape": 3.066544026460288,
+          "active_search_boundary": false,
+          "n_unique_profile_objectives": 14,
+          "training_nll_per_trial": 3.9074226491758792,
+          "lower_endpoint_nll_gap": 1.654113108081146,
+          "upper_endpoint_nll_gap": 10.527339369298746,
+          "profile_log_shape_gradient": 3.95383725759757e-07
+        },
+        "negative_binomial": {
+          "initial_search_window": [
+            0.05,
+            200.0
+          ],
+          "final_search_window": [
+            0.05000000000000001,
+            199.99999999999991
+          ],
+          "expansions": 0,
+          "shape": 4.896814141221898,
+          "active_search_boundary": false,
+          "n_unique_profile_objectives": 10,
+          "training_nll_per_trial": 3.8460917108932517,
+          "lower_endpoint_nll_gap": 2.2860740451178976,
+          "upper_endpoint_nll_gap": 1.119959690876454,
+          "profile_log_shape_gradient": 1.6121992629791748e-07
+        }
+      },
+      "n_synthetic_neurons_per_generator": 60,
+      "n_counts_per_synthetic_neuron": 400,
+      "scope": "conditional fixed-shape separability; the generating family is scored with its generating shape, not a recovery of LOSO shape learning"
+    }
+  },
+  "nuisance_bound_and_convergence_audit": {
+    "power_cost": {
+      "profile_calls": 240,
+      "min_transformed_nuisance": -43.56380040298349,
+      "max_transformed_nuisance": 0.8937377987972075,
+      "max_stationarity_residual": 1.993019083101899e-09,
+      "fixed_nuisance_bounds": null,
+      "residual_definition": "relative power-moment error"
+    },
+    "lognormal": {
+      "profile_calls": 260,
+      "min_transformed_nuisance": 0.6579634614925073,
+      "max_transformed_nuisance": 8.235461193643072,
+      "max_stationarity_residual": 1.999618248760271e-06,
+      "fixed_nuisance_bounds": null,
+      "residual_definition": "absolute per-trial NLL gradient"
+    },
+    "gamma": {
+      "profile_calls": 281,
+      "min_transformed_nuisance": -2.7553004046838243,
+      "max_transformed_nuisance": 18.178263900782166,
+      "max_stationarity_residual": 1.9996693190194037e-06,
+      "fixed_nuisance_bounds": null,
+      "residual_definition": "absolute per-trial NLL gradient"
+    },
+    "negative_binomial": {
+      "profile_calls": 241,
+      "min_transformed_nuisance": 1.0296194171811581,
+      "max_transformed_nuisance": 15.866567998004227,
+      "max_stationarity_residual": 1.9797807837562686e-06,
+      "fixed_nuisance_bounds": null,
+      "residual_definition": "absolute per-trial NLL gradient"
+    }
+  },
+  "provenance": {
+    "code_sha256": "2a63a657144b982808a2f60359c473e7eee2da14380883f44b10b53d3d5f3bc4",
+    "loader_code_sha256": "bd8efd276dcb35aef25d92320a106e86fe6fd7d9fec829bd3a8d50c1da42ff27",
+    "input_sha256": {
+      "105l001p16.mat": "2bb16408864eb492667bff674b62f35d712b85dd6177a9e1bfdef32f309f6d74",
+      "106r001p26.mat": "4614aa176354c1453ffc56d0968da4b19e578ee83abfd7f406086d482c6c3a24",
+      "106r002p70.mat": "32e0aa5ca4e8b38e1b86d7972954c0d1aee575f827ecb9fbedc9901f5de64fc3",
+      "107l002p67.mat": "52c4e23261f535f0d36baa1db8493ca5d1fe6529dc47e09b0825339a698b8f58",
+      "107l003p143.mat": "f1e1b64bc85802e6db0bae655749bbecf09c76aae188322bcf50fab2692aeab5"
+    },
+    "npz_sha256": "8a6e819c3d871aa40e84cf4d577039f4cbe28b1808298c284bfb17634d2da91b",
+    "numpy_version": "2.0.2",
+    "scipy_version": "1.13.1",
+    "elapsed_seconds": 353.840338417,
+    "continuous_pipeline_rerun": false,
+    "entropy_recomputed": false
+  }
+}

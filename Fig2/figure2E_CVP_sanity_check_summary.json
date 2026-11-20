@@ -1,0 +1,77 @@
+{
+  "interpretation": "CV_P samples across-neuron heterogeneity within a trial/window. The single-session macaque V1 main dataset is slightly evoked-higher, whereas 4/5 macaque sessions and the IBL/BWM multi-region analysis show spontaneous/pre-task higher CV_P. This supports treating CV_L as the main Fig. 2E validation axis and keeping CV_P as a companion check.",
+  "allen_VISp_CV_P": "Not computed from awake_V1_CVL.npz because that file stores per-unit CV_L/FR vectors only; CV_P would require recounting per-window population rates from the raw NWB.",
+  "macaque_V1": {
+    "per_session": [
+      {
+        "session": "105l001p16",
+        "n_units": 159,
+        "n_spontaneous_trials": 3200,
+        "n_evoked_trials": 3200,
+        "spontaneous_median_CV_P": 1.0153170210839735,
+        "evoked_median_CV_P": 1.0360632516499428,
+        "delta_median_spont_minus_evoked": -0.02074623056596936,
+        "mannwhitney_p_two_sided": 0.0012624269918539944
+      },
+      {
+        "session": "106r001p26",
+        "n_units": 109,
+        "n_spontaneous_trials": 3200,
+        "n_evoked_trials": 3200,
+        "spontaneous_median_CV_P": 1.1924256652812262,
+        "evoked_median_CV_P": 0.9933953617791478,
+        "delta_median_spont_minus_evoked": 0.1990303035020784,
+        "mannwhitney_p_two_sided": 0.0
+      },
+      {
+        "session": "106r002p70",
+        "n_units": 88,
+        "n_spontaneous_trials": 3200,
+        "n_evoked_trials": 3200,
+        "spontaneous_median_CV_P": 1.7504843765804792,
+        "evoked_median_CV_P": 1.0901579324390593,
+        "delta_median_spont_minus_evoked": 0.6603264441414198,
+        "mannwhitney_p_two_sided": 0.0
+      },
+      {
+        "session": "107l002p67",
+        "n_units": 97,
+        "n_spontaneous_trials": 3200,
+        "n_evoked_trials": 3200,
+        "spontaneous_median_CV_P": 1.2659616048179432,
+        "evoked_median_CV_P": 0.7618622809847607,
+        "delta_median_spont_minus_evoked": 0.5040993238331825,
+        "mannwhitney_p_two_sided": 0.0
+      },
+      {
+        "session": "107l003p143",
+        "n_units": 111,
+        "n_spontaneous_trials": 3200,
+        "n_evoked_trials": 3200,
+        "spontaneous_median_CV_P": 1.4463011937706556,
+        "evoked_median_CV_P": 0.7905789681486283,
+        "delta_median_spont_minus_evoked": 0.6557222256220273,
+        "mannwhitney_p_two_sided": 0.0
+      }
+    ],
+    "n_sessions": 5,
+    "sessions_spont_gt_evoked": 4,
+    "session_median_delta": 0.5040993238331825,
+    "session_mean_delta": 0.39968641330654775,
+    "session_wilcoxon_p_two_sided": 0.125
+  },
+  "IBL_BWM": {
+    "n_pairs": 163,
+    "n_regions": 101,
+    "spontaneous_median_CV_P": 1.2823461004099128,
+    "active_task_median_CV_P": 1.2166206890593976,
+    "delta_median_spont_minus_active": 0.0551509070367866,
+    "delta_median_ci95": [
+      0.018245045677065308,
+      0.11976443031178152
+    ],
+    "delta_mean_spont_minus_active": 0.07099845040616465,
+    "spontaneous_gt_active": 99,
+    "wilcoxon_p_two_sided": 0.003358702598080726
+  }
+}

@@ -1,0 +1,111 @@
+{
+  "seed": 20261023,
+  "budget": 240,
+  "signature": {
+    "inputs": {
+      "outputs/snn_budget_frontier_20261016/replication/seed_20261023_budget_240.json": "bb7ff22c500cede929633c759d47108b2255f1a3a3fd4320a9eb566bc593cc8f",
+      "outputs/snn_budget_frontier_20261016/replication/seed_20261023_budget_240_weights.npz": "945efcc492f51abde37f6f4eed91bacceb36ccc469bbed2a1642d07102534d8c",
+      "outputs/snn_budget_frontier_20261016/replication/seed_20261023_budget_240_responses.npz": "be602aab2f5a68869cc90eb6e18981a3586863b44e4389672e17585cd3c5d816"
+    },
+    "protocol_sha256": "46020693449ca1aeecfb45dea58861d2b4c5cabc04bed98dceed7c13c7fbb724",
+    "code_sha256": "a118dc44ad763ee614967f03ed73c020adfe22936e37b4afb5561add765090ae",
+    "simulator_sha256": {
+      "controlled_budget.py": "5d1249d4fcba147191725852d165e51132b267b12ccd892c7b861fb5606603da",
+      "network_budget.py": "c1803b6e17da8b7de0874c34a1b040da7da50fed628f74ce5040d9be097ecf22",
+      "replicate_learning.py": "2d5805a7a6c5b163eea5aa8f3d3247142f102d838040dc684d278010c8fa18bc"
+    }
+  },
+  "stages": [
+    {
+      "stage": 0,
+      "base_rate": 241.1375,
+      "bracketed": true,
+      "attempts": [
+        {
+          "command": 228.0,
+          "achieved_total_rate": 229.33125,
+          "histogram": [
+            5788,
+            983,
+            829,
+            675,
+            597,
+            527,
+            421,
+            393,
+            314,
+            257,
+            224,
+            180,
+            132,
+            117,
+            114,
+            102,
+            98,
+            79,
+            46,
+            38,
+            20,
+            10,
+            17,
+            10,
+            5,
+            3,
+            6,
+            4,
+            4,
+            6,
+            0,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "stage": 4,
+      "base_rate": 242.6125,
+      "bracketed": true,
+      "attempts": [
+        {
+          "command": 228.0,
+          "achieved_total_rate": 230.425,
+          "histogram": [
+            5597,
+            1193,
+            852,
+            725,
+            571,
+            467,
+            416,
+            399,
+            323,
+            248,
+            218,
+            162,
+            147,
+            116,
+            115,
+            85,
+            73,
+            73,
+            50,
+            48,
+            31,
+            26,
+            19,
+            18,
+            7,
+            4,
+            6,
+            5,
+            3,
+            1,
+            1,
+            0,
+            1
+          ]
+        }
+      ]
+    }
+  ]
+}

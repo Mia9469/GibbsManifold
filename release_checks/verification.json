@@ -1,0 +1,125 @@
+{
+  "release_date": "2026-11-20",
+  "commands": [
+    {
+      "command": [
+        "python",
+        "scripts/verify_release.py"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 6.419649625
+    },
+    {
+      "command": [
+        "python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "outputs/snn_budget_frontier_20261016",
+        "-p",
+        "test_*.py"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 13.009243417
+    },
+    {
+      "command": [
+        "python",
+        "outputs/snn_budget_frontier_20261016/summarize.py"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.5630935420000007
+    },
+    {
+      "command": [
+        "python",
+        "outputs/snn_budget_frontier_20261016/verify_experiment.py"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 15.246112209000003
+    },
+    {
+      "command": [
+        "python",
+        "outputs/elife_reconsideration_20261109/analysis/population_bridge.py",
+        "--self-test"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.5121909160000016
+    },
+    {
+      "command": [
+        "python",
+        "outputs/elife_reconsideration_20261109/analysis/population_bridge.py"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.45404470800000496
+    },
+    {
+      "command": [
+        "python",
+        "outputs/elife_one_second_g_20261111/verify.py"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 0.8328238340000027
+    },
+    {
+      "command": [
+        "python",
+        "outputs/elife_editor_focus_20261111/analysis.py"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 11.065009250000003
+    },
+    {
+      "command": [
+        "python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "Fig6/tests",
+        "-p",
+        "test_*.py"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 5.282725624999998
+    },
+    {
+      "command": [
+        "python",
+        "scripts/recompute_network_words.py",
+        "--rasters",
+        "Fig4/network_information_corrected/network_information_rasters_packbits.npz",
+        "--reference",
+        "Fig4/network_information_corrected/network_information_results.npz",
+        "--stages",
+        "1",
+        "29"
+      ],
+      "returncode": 0,
+      "elapsed_seconds": 4.689438374999995
+    }
+  ],
+  "all_commands_pass": true,
+  "same_response_and_cell_type_csv_recomputation": {
+    "outputs/elife_editor_focus_20261111/counts.csv": {
+      "rows": 2160,
+      "maximum_numeric_difference": 0.0
+    },
+    "outputs/elife_editor_focus_20261111/pairs.csv": {
+      "rows": 1536,
+      "maximum_numeric_difference": 0.0
+    },
+    "outputs/elife_editor_focus_20261111/type_decomposition.csv": {
+      "rows": 288,
+      "maximum_numeric_difference": 0.0
+    },
+    "outputs/elife_editor_focus_20261111/time_dependence.csv": {
+      "rows": 48,
+      "maximum_numeric_difference": 0.0
+    }
+  },
+  "scope": "Executed saved-response tests, two stochastic endpoint replays and core cached-result verification; no full cohort retraining, no external neural recording replay"
+}

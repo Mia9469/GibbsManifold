@@ -1,0 +1,3 @@
+# Numerical caches and protocols are bound to exact file hashes.
+# Preserve the recorded bytes on all clone platforms.
+* -text

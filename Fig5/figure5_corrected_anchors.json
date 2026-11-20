@@ -1,0 +1,14 @@
+{
+  "estimand": "I((S,J);W)",
+  "LIF": {
+    "R0": 3.114695879405901,
+    "anchor": "minimum firing rate",
+    "n_checkpoints": 19
+  },
+  "V1": {
+    "R0": 2.5974802101411023,
+    "anchor": "median firing rate",
+    "n_neurons": 564,
+    "fraction_below_reference": 0.49113475177304966
+  }
+}

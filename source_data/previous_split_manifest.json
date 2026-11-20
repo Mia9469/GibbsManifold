@@ -1,0 +1,284 @@
+[
+  {
+    "path": "ann/data/LIF_trajectory.csv",
+    "origin": "outputs/elife_ann_routeA_20260914/data/LIF_trajectory.csv",
+    "sha256": "349c6e59d9a8feab923ceccfe32fd0fa9de08a92858095247831d6295b51320d",
+    "role": "A: geometry, V1, plasticity, projection or ANN; no B primary results"
+  },
+  {
+    "path": "ann/data/ann/held_out_natural/statistics.json",
+    "origin": "outputs/elife_ann_routeA_20260914/data/ann/held_out_natural/statistics.json",
+    "sha256": "5ae47c4232a17f95c49c101fc7c8f5c29d59d3cf71709b9648e9b645dc14efe5",
+    "role": "A: geometry, V1, plasticity, projection or ANN; no B primary results"
+  },
+  {
+    "path": "ann/data/ann/held_out_natural/summary_per_run.json",
+    "origin": "outputs/elife_ann_routeA_20260914/data/ann/held_out_natural/summary_per_run.json",
+    "sha256": "0780bf2ecb6901a3e679cea3c1772585f64987f40849647824dfff98faa92964",
+    "role": "A: geometry, V1, plasticity, projection or ANN; no B primary results"
+  },
+  {
+    "path": "ann/data/ann/natural_image_folds.csv",
+    "origin": "outputs/elife_ann_routeA_20260914/data/ann/natural_image_folds.csv",
+    "sha256": "46e4e082a53677a1e73a9ae6614ab49818b4b6afeae89dcfde93ee8f51a70572",
+    "role": "A: geometry, V1, plasticity, projection or ANN; no B primary results"
+  },
+  {
+    "path": "ann/data/ann/structured_patterns/input_manifest.json",
+    "origin": "outputs/elife_ann_routeA_20260914/data/ann/structured_patterns/input_manifest.json",
+    "sha256": "2f47d758653fe04ef3d3322c28b8e941a7234f85662b294602f2bed28c5fa026",
+    "role": "A: geometry, V1, plasticity, projection or ANN; no B primary results"
+  },
+  {
+    "path": "ann/data/ann/structured_patterns/pattern_pair_summary.json",
+    "origin": "outputs/elife_ann_routeA_20260914/data/ann/structured_patterns/pattern_pair_summary.json",
+    "sha256": "506cce283eda8dbb0bf930a6a2b044ac23f592e8b84864e4edee7da43fd8f75d",
+    "role": "A: geometry, V1, plasticity, projection or ANN; no B primary results"
+  },
+  {
+    "path": "ann/data/ann/structured_patterns/statistics.json",
+    "origin": "outputs/elife_ann_routeA_20260914/data/ann/structured_patterns/statistics.json",
+    "sha256": "f56b5c05fceb56e0f73af5b2628f4c828519f9b62ba05a9b0d62f04d3d1ae1ca",
+    "role": "A: geometry, V1, plasticity, projection or ANN; no B primary results"
+  },
+  {
+    "path": "ann/data/ann/structured_patterns/summary_by_pattern.json",
+    "origin": "outputs/elife_ann_routeA_20260914/data/ann/structured_patterns/summary_by_pattern.json",
+    "sha256": "8b1625de4f9060682c1b8550d220347eb4a78308a3dcbcff7f1a2aff8451e6f3",
+    "role": "A: geometry, V1, plasticity, projection or ANN; no B primary results"
+  },
+  {
+    "path": "ann/data/ann/structured_patterns/summary_per_run_pattern.json",
+    "origin": "outputs/elife_ann_routeA_20260914/data/ann/structured_patterns/summary_per_run_pattern.json",
+    "sha256": "7c6f57a298325b78b6f6326ccf8eb54f2c09bae393ee69060aa40f518960d826",
+    "role": "A: geometry, V1, plasticity, projection or ANN; no B primary results"
+  },
+  {
+    "path": "ann/data/ann/structured_runs.csv",
+    "origin": "outputs/elife_ann_routeA_20260914/data/ann/structured_runs.csv",
+    "sha256": "f1e619025ca18be8dad03cd5cc617a27e0b31f508dbff4c969bcf8c92bb887e8",
+    "role": "A: geometry, V1, plasticity, projection or ANN; no B primary results"
+  },
+  {
+    "path": "ann/data/ann/training_runs.csv",
+    "origin": "outputs/elife_ann_routeA_20260914/data/ann/training_runs.csv",
+    "sha256": "e2085d5e16e4d2081579409147331140a2028e4c360d769dc7fca83184c8ad10",
+    "role": "A: geometry, V1, plasticity, projection or ANN; no B primary results"
+  },
+  {
+    "path": "ann/data/broad_controls/cost_sensitivity.json",
+    "origin": "outputs/elife_ann_routeA_20260914/data/broad_controls/cost_sensitivity.json",
+    "sha256": "0274919f5886143636c936b3929379bc2c7912cba0a3ffe7d04daf5ecbaf43cd",
+    "role": "A: geometry, V1, plasticity, projection or ANN; no B primary results"
+  },
+  {
+    "path": "ann/data/broad_controls/cvm_ablation_verified.json",
+    "origin": "outputs/elife_ann_routeA_20260914/data/broad_controls/cvm_ablation_verified.json",
+    "sha256": "26952cbbe61ce16e126642a4ec8555f9ca9b23b184165b01b512736c101a75a8",
+    "role": "A: geometry, V1, plasticity, projection or ANN; no B primary results"
+  },
+  {
+    "path": "ann/data/broad_controls/figure1_references.json",
+    "origin": "outputs/elife_ann_routeA_20260914/data/broad_controls/figure1_references.json",
+    "sha256": "bfd629d645bc38e4cf86892140a43a7413e44a55013d6f73957c1c117eae2bcf",
+    "role": "A: geometry, V1, plasticity, projection or ANN; no B primary results"
+  },
+  {
+    "path": "ann/data/broad_controls/figure2E_verified.json",
+    "origin": "outputs/elife_ann_routeA_20260914/data/broad_controls/figure2E_verified.json",
+    "sha256": "fefc711ac3e113b8543164519b668556ac502cb61bc0acaa492e3f136dd58d2b",
+    "role": "A: geometry, V1, plasticity, projection or ANN; no B primary results"
+  },
+  {
+    "path": "ann/data/broad_controls/figure7C_verified.json",
+    "origin": "outputs/elife_ann_routeA_20260914/data/broad_controls/figure7C_verified.json",
+    "sha256": "de31316ef234793b01dbb6a72334d01ca86c7127678d4596fc595a68a7368983",
+    "role": "A: geometry, V1, plasticity, projection or ANN; no B primary results"
+  },
+  {
+    "path": "ann/data/broad_controls/network_projection.csv",
+    "origin": "outputs/elife_ann_routeA_20260914/data/broad_controls/network_projection.csv",
+    "sha256": "3e710f0f2a4357d4cdfeca71d1ba90d5782363a6439858b2c522b9e892bd1077",
+    "role": "A: geometry, V1, plasticity, projection or ANN; no B primary results"
+  },
+  {
+    "path": "ann/data/broad_controls/network_projection.json",
+    "origin": "outputs/elife_ann_routeA_20260914/data/broad_controls/network_projection.json",
+    "sha256": "9cd22fd06ee0e72b8dc7d078f1c3c5d1eeda8c9684bd3347c084c7a554cd6651",
+    "role": "A: geometry, V1, plasticity, projection or ANN; no B primary results"
+  },
+  {
+    "path": "ann/data/broad_controls/v1_variance_matched.json",
+    "origin": "outputs/elife_ann_routeA_20260914/data/broad_controls/v1_variance_matched.json",
+    "sha256": "7210e2fad9fc9ccb56a9b2318c1e8507e8afd5e53a56e12bf96535f5b5f24751",
+    "role": "A: geometry, V1, plasticity, projection or ANN; no B primary results"
+  },
+  {
+    "path": "ann/data/broad_verified/TableS6_discrete_old_and_repaired.csv",
+    "origin": "outputs/elife_ann_routeA_20260914/data/broad_verified/TableS6_discrete_old_and_repaired.csv",
+    "sha256": "82738ee13ff6c40cd8a2bc711166dfdcb62acb1c009dc9d40e7f511f7a541b70",
+    "role": "A: geometry, V1, plasticity, projection or ANN; no B primary results"
+  },
+  {
+    "path": "ann/data/broad_verified/V1_full_cohort_null_source.csv",
+    "origin": "outputs/elife_ann_routeA_20260914/data/broad_verified/V1_full_cohort_null_source.csv",
+    "sha256": "54d982754b0b5a775021e5fd2285fd7dccd0cea64560e79d7191497e0f7d13e8",
+    "role": "A: geometry, V1, plasticity, projection or ANN; no B primary results"
+  },
+  {
+    "path": "ann/data/network/all_checkpoints.json",
+    "origin": "outputs/elife_ann_routeA_20260914/data/network/all_checkpoints.json",
+    "sha256": "efdff28929eab509cef86deefa2d060178e88fcd79730e4e7969c2809b468102",
+    "role": "A: geometry, V1, plasticity, projection or ANN; no B primary results"
+  },
+  {
+    "path": "ann/data/network/disjoint_pair_scores.csv",
+    "origin": "outputs/elife_ann_routeA_20260914/data/network/disjoint_pair_scores.csv",
+    "sha256": "c20a320a8dc314b2dfa5166ecb4d06712401d1f775011cac92b1934756ca7a68",
+    "role": "A: geometry, V1, plasticity, projection or ANN; no B primary results"
+  },
+  {
+    "path": "ann/data/network/protocol.json",
+    "origin": "outputs/elife_ann_routeA_20260914/data/network/protocol.json",
+    "sha256": "1a5942018afca1c4d00c5cbc90566ef5ace324a561b776615558fcc2e9c39bc0",
+    "role": "A: geometry, V1, plasticity, projection or ANN; no B primary results"
+  },
+  {
+    "path": "ann/data/network/source_data.csv",
+    "origin": "outputs/elife_ann_routeA_20260914/data/network/source_data.csv",
+    "sha256": "1d01b2efd37d0b7412dd213668c351d0f08f74c6d05b9738d97effa78b72b2bc",
+    "role": "A: geometry, V1, plasticity, projection or ANN; no B primary results"
+  },
+  {
+    "path": "ann/data/network/summary.json",
+    "origin": "outputs/elife_ann_routeA_20260914/data/network/summary.json",
+    "sha256": "3e3acdc680f2e508ff670a2bf2a7ad33a32187d260ff31ded9924e99a74aa5d1",
+    "role": "A: geometry, V1, plasticity, projection or ANN; no B primary results"
+  },
+  {
+    "path": "ann/data/network/trial_level_statistics.json",
+    "origin": "outputs/elife_ann_routeA_20260914/data/network/trial_level_statistics.json",
+    "sha256": "b62f7e59c23ab856d4a6d08165ca569ce49344c78c5f5fd19026aed92cabf81d",
+    "role": "A: geometry, V1, plasticity, projection or ANN; no B primary results"
+  },
+  {
+    "path": "ann/data/v1/decoder/RAW_REPLAY_VERIFICATION.json",
+    "origin": "outputs/elife_ann_routeA_20260914/data/v1/decoder/RAW_REPLAY_VERIFICATION.json",
+    "sha256": "ef98dfeccba70d3e6da1b10f20892f1afb39026c948a1dca23d5b55f1c1f5553",
+    "role": "A: geometry, V1, plasticity, projection or ANN; no B primary results"
+  },
+  {
+    "path": "ann/data/v1/decoder/v1_decoder_crossfit.json",
+    "origin": "outputs/elife_ann_routeA_20260914/data/v1/decoder/v1_decoder_crossfit.json",
+    "sha256": "510f17be7b0c59e5d536645b0f5a9a375092a925aa07b8b329c9b897d9e7686d",
+    "role": "A: geometry, V1, plasticity, projection or ANN; no B primary results"
+  },
+  {
+    "path": "ann/data/v1/decoder/v1_decoder_crossfit.npz",
+    "origin": "outputs/elife_ann_routeA_20260914/data/v1/decoder/v1_decoder_crossfit.npz",
+    "sha256": "4e0bc2fcf78fa4c233358df348dfab1eb9d6406855b71ea07036296a111dbbe1",
+    "role": "A: geometry, V1, plasticity, projection or ANN; no B primary results"
+  },
+  {
+    "path": "ann/data/v1/downstream_controls.json",
+    "origin": "outputs/elife_ann_routeA_20260914/data/v1/downstream_controls.json",
+    "sha256": "46510a18b4cecae95a522c0bf385ba03864f599ad41deb1534a0684523cb5ced",
+    "role": "A: geometry, V1, plasticity, projection or ANN; no B primary results"
+  },
+  {
+    "path": "ann/data/v1/entropy/105l001p16.npz",
+    "origin": "outputs/elife_ann_routeA_20260914/data/v1/entropy/105l001p16.npz",
+    "sha256": "46e89bde17d320e61f37dceaf163e5fc4e9abac2d97360f1e010e8b6100b9553",
+    "role": "A: geometry, V1, plasticity, projection or ANN; no B primary results"
+  },
+  {
+    "path": "ann/data/v1/entropy/106r001p26.npz",
+    "origin": "outputs/elife_ann_routeA_20260914/data/v1/entropy/106r001p26.npz",
+    "sha256": "c94ad5246b4050feb30caa5f2b251ae2edebcdad7e1ddf4471174617a5b67986",
+    "role": "A: geometry, V1, plasticity, projection or ANN; no B primary results"
+  },
+  {
+    "path": "ann/data/v1/entropy/106r002p70.npz",
+    "origin": "outputs/elife_ann_routeA_20260914/data/v1/entropy/106r002p70.npz",
+    "sha256": "07faa4562bdbb820507db244a0326a15836d65fa706a098d176c5dfd623d6171",
+    "role": "A: geometry, V1, plasticity, projection or ANN; no B primary results"
+  },
+  {
+    "path": "ann/data/v1/entropy/107l002p67.npz",
+    "origin": "outputs/elife_ann_routeA_20260914/data/v1/entropy/107l002p67.npz",
+    "sha256": "6403902990646a604a89b00ed8ae213c7f8cd423bae8d950fff0d8e29ebfb5d3",
+    "role": "A: geometry, V1, plasticity, projection or ANN; no B primary results"
+  },
+  {
+    "path": "ann/data/v1/entropy/107l003p143.npz",
+    "origin": "outputs/elife_ann_routeA_20260914/data/v1/entropy/107l003p143.npz",
+    "sha256": "40033055f92bcc9497331427806bec38c4dd15791706ea83b67e136fc0cc0cde",
+    "role": "A: geometry, V1, plasticity, projection or ANN; no B primary results"
+  },
+  {
+    "path": "ann/data/v1/entropy/FULL_RAW_ENTROPY_AUDIT.json",
+    "origin": "outputs/elife_ann_routeA_20260914/data/v1/entropy/FULL_RAW_ENTROPY_AUDIT.json",
+    "sha256": "40b9faf1bed58f72469b7dd2f6f2314ec3c3844444566ec2bf8715b867753bf0",
+    "role": "A: geometry, V1, plasticity, projection or ANN; no B primary results"
+  },
+  {
+    "path": "ann/data/v1/laws/continuous/RAW_REPLAY_VERIFICATION.json",
+    "origin": "outputs/elife_ann_routeA_20260914/data/v1/laws/continuous/RAW_REPLAY_VERIFICATION.json",
+    "sha256": "aac49464c14b9e063d351038342dbe853f7ae6d318c424b366ff342ccefd5b45",
+    "role": "A: geometry, V1, plasticity, projection or ANN; no B primary results"
+  },
+  {
+    "path": "ann/data/v1/laws/continuous/discriminative_maxent_test.json",
+    "origin": "outputs/elife_ann_routeA_20260914/data/v1/laws/continuous/discriminative_maxent_test.json",
+    "sha256": "a252ea4b86cf5b5ef4113ffb3e5cc838632d819397414d647e2f4e2b09c0cf83",
+    "role": "A: geometry, V1, plasticity, projection or ANN; no B primary results"
+  },
+  {
+    "path": "ann/data/v1/laws/shared/RAW_REPLAY_VERIFICATION.json",
+    "origin": "outputs/elife_ann_routeA_20260914/data/v1/laws/shared/RAW_REPLAY_VERIFICATION.json",
+    "sha256": "14b37a3e27f080b6d878c8ff109d22c089147b69f620645b4b3552831a471211",
+    "role": "A: geometry, V1, plasticity, projection or ANN; no B primary results"
+  },
+  {
+    "path": "ann/data/v1/laws/shared/native_count_input_cache.npz",
+    "origin": "outputs/elife_ann_routeA_20260914/data/v1/laws/shared/native_count_input_cache.npz",
+    "sha256": "bd01e03471c8a8c7185d33b7cfe82a8e8ed39f25e400a82a51e5ddf18827d372",
+    "role": "A: geometry, V1, plasticity, projection or ANN; no B primary results"
+  },
+  {
+    "path": "ann/data/v1/laws/shared/shared_shape_count_loso.json",
+    "origin": "outputs/elife_ann_routeA_20260914/data/v1/laws/shared/shared_shape_count_loso.json",
+    "sha256": "2ba269f29a74900d8d9abe7e0b98bb4d0834b12899b6fdf3a0f7f715c99c52aa",
+    "role": "A: geometry, V1, plasticity, projection or ANN; no B primary results"
+  },
+  {
+    "path": "ann/data/v1/laws/shared/shared_shape_count_loso.npz",
+    "origin": "outputs/elife_ann_routeA_20260914/data/v1/laws/shared/shared_shape_count_loso.npz",
+    "sha256": "8a6e819c3d871aa40e84cf4d577039f4cbe28b1808298c284bfb17634d2da91b",
+    "role": "A: geometry, V1, plasticity, projection or ANN; no B primary results"
+  },
+  {
+    "path": "ann/data/v1/protocol.json",
+    "origin": "outputs/elife_ann_routeA_20260914/data/v1/protocol.json",
+    "sha256": "008b915a7705b0abf50d6c11fb2323827cff5da322130f6b146cae99924c43f1",
+    "role": "A: geometry, V1, plasticity, projection or ANN; no B primary results"
+  },
+  {
+    "path": "ann/data/v1/raw_manifest.json",
+    "origin": "outputs/elife_ann_routeA_20260914/data/v1/raw_manifest.json",
+    "sha256": "597882a38db3b83dcf68363a8d9e2b68150674784f255bb91ed0ddca6cd7d6a4",
+    "role": "A: geometry, V1, plasticity, projection or ANN; no B primary results"
+  },
+  {
+    "path": "ann/data/v1/state/RAW_REPLAY_VERIFICATION.json",
+    "origin": "outputs/elife_ann_routeA_20260914/data/v1/state/RAW_REPLAY_VERIFICATION.json",
+    "sha256": "5a361c85b1746506bacdc2a9bec043e0583e15c79ac91273c47a45b642f1047a",
+    "role": "A: geometry, V1, plasticity, projection or ANN; no B primary results"
+  },
+  {
+    "path": "ann/data/v1/state/state_arrays.npz",
+    "origin": "outputs/elife_ann_routeA_20260914/data/v1/state/state_arrays.npz",
+    "sha256": "249d959f8ecf9466914c4f49c97de3165161f9f0b123a2c7602c4c5031c1d6a8",
+    "role": "A: geometry, V1, plasticity, projection or ANN; no B primary results"
+  }
+]

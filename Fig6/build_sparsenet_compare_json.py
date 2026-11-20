@@ -1,5 +1,5 @@
 """
-Build sparsenet_compare_results.json from Fig7 TensorBoard event files.
+Build sparsenet_compare_results.json from Fig6 TensorBoard event files.
 
 Output schema (matches fig2's existing consumer):
 {

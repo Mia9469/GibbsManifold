@@ -105,3 +105,10 @@ Fig7/p3_matched/results/
 # --- Misc ---
 *.log
 node_modules/
+
+# Public release runtime outputs and explicitly shared synthetic results
+*.nbc
+*.nbi
+matplotlib_cache/
+recomputed/
+!Fig3/MI_results_direct_corrected.mat

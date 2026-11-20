@@ -1,0 +1,120 @@
+{
+  "analysis_bin_s": 0.001,
+  "checkpoint": "Fig4/checkpoint.mat",
+  "checkpoint_sha256": "2b2475578e7fa6d94694ea547ea6070d1cd1af7ced5ce60ecdf06ba2d201203a",
+  "endpoint_change": {
+    "cost": -6.2599436666666675,
+    "cv_p": 0.023956677633035217,
+    "mean_mi": -60.97063766770391,
+    "mean_rate": -16.918766666666667,
+    "mi_per_cost": -3.0738266552048232,
+    "mi_per_spike": 1.1490576979501745
+  },
+  "estimand": "mean single-neuron I((S,J);W), averaged over all 300 excitatory neurons",
+  "final_checkpoint": {
+    "cost": 3.7363166666666663,
+    "cv_p": 0.5987957058878054,
+    "mean_h_noise_rate": 16.03431736743628,
+    "mean_h_rate": 34.08570366975028,
+    "mean_mi": 18.051386302313997,
+    "mean_rate": 3.611666666666667,
+    "mi_per_cost": 4.8313320076315796,
+    "mi_per_spike": 4.998076502717304
+  },
+  "first_checkpoint": {
+    "cost": 9.996260333333334,
+    "cv_p": 0.5748390282547702,
+    "mean_h_noise_rate": 24.36767900835606,
+    "mean_h_rate": 103.38970297837398,
+    "mean_mi": 79.02202397001791,
+    "mean_rate": 20.530433333333335,
+    "mi_per_cost": 7.905158662836403,
+    "mi_per_spike": 3.84901880476713
+  },
+  "fit_quality": {
+    "fraction_noise_R2_below_0_95": 0.2181609195402299,
+    "fraction_total_R2_below_0_95": 0.20172413793103447,
+    "median_noise_R2": 0.9665176677259799,
+    "median_total_R2": 0.9742774592198451
+  },
+  "fit_word_lengths_bins": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    10,
+    13,
+    15
+  ],
+  "inference_scope": "one saved learned-weight trajectory; stimuli and repeats are test resamples, not training replicates",
+  "integration_step_s": 0.0001,
+  "legacy_error": "Legacy MIE_ST stacked neurons and trials on one repeat axis, used a different frozen input at each checkpoint, and evaluated entropy words at the 0.1 ms simulation step.",
+  "legacy_state": "Fig4/figure4_state.mat",
+  "n_checkpoints": 29,
+  "n_repeats": 20,
+  "n_stimuli": 5,
+  "population_decoder": {
+    "classifier": "Poisson naive Bayes, fivefold cross-validation holding out complete repeats",
+    "final_accuracy": 0.8347999999999999,
+    "final_mi_lower_bound_bits_s": 300.2093118472456,
+    "final_mi_lower_bound_per_cost": 80.34900106983588,
+    "final_per_cost_by_window": [
+      89.77004458485023,
+      80.34900106983588,
+      43.9761832600718,
+      34.46389195085635,
+      14.981460373355556
+    ],
+    "first_accuracy": 1.0,
+    "first_mi_lower_bound_bits_s": 398.28921423310436,
+    "first_mi_lower_bound_per_cost": 39.843821684493044,
+    "first_per_cost_by_window": [
+      89.5844893865168,
+      39.843821684493044,
+      17.420975575821387,
+      13.292683400051619,
+      5.645967593455756
+    ],
+    "information_quantity": "Fano lower bound from held-out classification error",
+    "primary_window_ms": 20,
+    "target": "joint frozen-stimulus identity S and non-overlapping word-start window J",
+    "window_sensitivity_ms": [
+      10,
+      20,
+      40,
+      50,
+      100
+    ]
+  },
+  "sampling": "same 1 ms sliding starts for total and conditional entropy; zero-entropy positions retained",
+  "seed": 20260905,
+  "trajectory_spearman": {
+    "checkpoint_vs_mi_per_cost_p": 0.0006790032941605626,
+    "checkpoint_vs_mi_per_cost_rho": -0.5940886699507388,
+    "checkpoint_vs_population_decoder_bound_per_cost_p": 0.013436448348480946,
+    "checkpoint_vs_population_decoder_bound_per_cost_rho": 0.45369458128078805,
+    "cv_p_vs_mi_per_cost_p": 0.012553701393012238,
+    "cv_p_vs_mi_per_cost_rho": 0.4576354679802954
+  },
+  "versions": {
+    "numba": "0.60.0",
+    "numpy": "2.0.2",
+    "python": "3.9.6",
+    "scipy": "1.13.1"
+  },
+  "word_lengths_bins": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    10,
+    13,
+    15,
+    20,
+    25,
+    30,
+    40
+  ]
+}

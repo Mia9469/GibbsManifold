@@ -1,4 +1,4 @@
-# P3 — Matched-baseline analysis for Fig. 7
+# P3 — Matched-baseline analysis for Fig. 6
 
 This subdirectory implements the **matched-RE / matched-activation baseline**
 that the reviewer asked for as the P3 priority item.  It compares three
@@ -10,24 +10,18 @@ regularisation knob:
 |------------|------------------------|----------------------------|------------------------|
 | `null`     | reconstruction + L1    | `non`                      | L1 strength `lmda` (8 levels) |
 | `cauchy`   | reconstruction + L1 + Cauchy prior | `s`            | Cauchy weight `alpha_s` (8 levels) |
-| `cvmax`    | reconstruction + L1 + budget-gated CV penalty | **`cv_constrained`**     | 2-D grid: `recon_budget` (4) × `cv_ratio` (4) |
 | `cvmax_v2` | reconstruction + L1 + **absolute-RE-target gated CV penalty** | **`cv_constrained_v2`** | 2-D grid: `recon_budget` (4 target REs: 0.4, 0.5, 0.55, 0.6) × `cv_ratio` (4) |
 
-`cvmax` uses **`cv_constrained`** — the same mode the main experiment uses
-(see [`Fig7/result_new.py`](../result_new.py): `USE_CONSTRAINED=True`).
-The plain `cv` mode was an early prototype that cannot match `null`'s RE
-because it has no reconstruction-budget gate; using it for matched-baseline
-caused `cvmax` to plateau at RE ≈ 0.71 even at the smallest `cv_ratio`,
-making the comparison unfair.  `cv_constrained` gates the CV penalty so
-it only fires when reconstruction is within `recon_budget × recon_warmup`,
-letting `cvmax` track `null`'s RE while still pushing CV up.
+The manuscript uses only `cvmax_v2`, matching `USE_V2=True` in
+[`Fig6/result_new.py`](../result_new.py). The warmup-relative `cvmax` v1 mode
+is retained in the code only as a legacy sensitivity and is excluded from the
+default sweep and aggregate tables.
 
 Sweep totals:
 - null:     8 × 3 seeds        = 24 runs
 - cauchy:   8 × 3 seeds        = 24 runs
-- cvmax:    4 × 4 × 3 seeds    = 48 runs
 - cvmax_v2: 4 × 4 × 3 seeds    = 48 runs
-- **Total: 144 runs**, ~30 epochs each.
+- **Total: 96 runs**, ~30 epochs each.
 
 `cvmax_v2` uses an **absolute-RE-target gate** instead of the warmup-relative
 gate that v1 uses.  The motivation: v1's `recon ≤ recon_warmup × budget`
@@ -41,15 +35,16 @@ when `current_RE ≤ recon_budget`.  Sweeping `recon_budget` over
 through pure reconstruction; only then does CV pressure kick in.  This is
 the configuration that lets cvmax actually compete with `null` at low RE.
 
-Run only the v2 additions on top of an existing 96-run sweep with
+Run only the v2 additions on top of existing Null/Cauchy records with
 `bash p3_sweep.sh --methods cvmax_v2`.
 
 The Pareto curves let us read off, at any fixed RE level, which method
-produces the sparsest code (matched-RE) and the highest ICE (matched-RE-ICE),
-and at any fixed mean activation which method gives the lowest RE (matched-a)
-or highest ICE (matched-a-ICE).  CV is the *mechanism* and reported
-diagnostically; **ICE = bits/activation is the outcome metric** for the
-matched comparison.
+produces the sparsest code and the highest reconstruction--activation
+efficiency (RAE), and at any fixed mean activation which method gives the
+lowest RE or highest RAE.  CV is the *mechanism* and reported diagnostically;
+**RAE = -log2(RE) / mean |a| is a dimensionless engineering score** under the
+common activation normalization.  It is not mutual information.  Historical
+filenames and record keys retain `ICE` for backward compatibility.
 
 
 ## Files
@@ -57,7 +52,7 @@ matched comparison.
 ```
 p3_matched/
 ├── p3_train.py     # one (method, knob, seed) run end-to-end
-├── p3_sweep.sh     # bash launcher that fires all 72 runs
+├── p3_sweep.sh     # default current-v2 launcher (96 runs)
 ├── p3_eval.py      # aggregate JSON records → CSV tables + Pareto plot
 └── README.md       # this file
 results/
@@ -79,12 +74,12 @@ e.g. `cvmax__lmda0.005_a0_cv0.1__seed2`.
 
 ## Prerequisites
 
-The training driver imports the existing Fig 7 model code:
+The training driver imports the existing Fig 6 model code:
 
 ```
-Fig7/src/model/SparseNetNew.py
-Fig7/src/model/ImageDataset1.py
-Fig7/src/model/IMAGES.mat        # natural-image patches
+Fig6/src/model/SparseNetNew.py
+Fig6/src/model/ImageDataset1.py
+Fig6/src/model/IMAGES.mat        # natural-image patches
 ```
 
 Python deps: `torch`, `numpy`, `scipy`, `matplotlib`, plus whatever
@@ -97,8 +92,8 @@ and falls back to CPU if no GPU is visible.
 ### 1.  One-shot test (~1 min on GPU)
 
 ```
-cd Fig7/p3_matched
-python p3_train.py --method cvmax --lmda 5e-3 --cv_ratio 0.10 \
+cd Fig6/p3_matched
+python p3_train.py --method cvmax_v2 --lmda 5e-3 --cv_ratio 0.10 \
                    --seed 0 --epochs 2
 ```
 
@@ -124,8 +119,9 @@ Useful flags:
 
 ```
 --epochs 5            # quick run with fewer epochs
---seeds 0,1           # only 2 seeds × 3 methods × 8 knobs = 48 runs
---methods cvmax       # restrict to one method
+--seeds 0,1           # two seeds: 64 current-v2 runs
+--methods cvmax_v2    # restrict to the current CVM method
+--methods all         # also include the legacy v1 sensitivity
 --dry-run             # print commands without executing
 ```
 
@@ -148,18 +144,18 @@ Produces:
 * **`results/eval/p3_matched_RE.csv`** — for each RE target, what mean |a|
   does each method need? (per-budget rows + an envelope `cvmax` row that
   picks the best budget at each target).
-* **`results/eval/p3_matched_RE_ICE.csv`** — for each RE target, what ICE
-  does each method achieve? (this is the **headline outcome metric**).
+* **`results/eval/p3_matched_RE_ICE.csv`** — for each RE target, what RAE
+  does each method achieve? (legacy filename; this is the **headline outcome metric**).
 * **`results/eval/p3_matched_a.csv`** — for each mean |a| target, what RE
   does each method achieve?
 * **`results/eval/p3_matched_a_ICE.csv`** — for each mean |a| target, what
-  ICE does each method achieve?
+  RAE does each method achieve? (legacy filename).
 * **`results/eval/p3_pareto.pdf`** — RE vs. mean |a| Pareto; null and cauchy
   are single curves, cvmax is one curve per `recon_budget` level.
-* **`results/eval/p3_ice_vs_re.pdf`** — ICE vs. RE, the matched-RE comparison
-  axis (this is what we report in the manuscript).
-* **`results/eval/p3_ice_cv.pdf`** — ICE vs. CV (left) and CV vs. knob
-  (right), diagnostic plot showing the mechanism.
+* **`results/eval/p3_ice_vs_re.pdf`** — RAE vs. RE, the matched-RE comparison
+  axis (legacy filename; this is what we report in the manuscript).
+* **`results/eval/p3_ice_cv.pdf`** — RAE vs. CV (left) and CV vs. knob
+  (right; legacy filename), diagnostic plot showing the mechanism.
 
 The targets default to the 25/50/75 percentiles of the observed metric
 range, so the script is self-bootstrapping; override with
@@ -179,8 +175,8 @@ training trace:
     "CV_pop":              ...,   # population CV (per patch, then averaged)
     "CV_lt":               ...,   # lifetime CV (per neuron, then averaged)
     "entropy_per_neuron":  ...,   # 200-bin H(|a|) averaged across K neurons
-    "ICE_log_a":           ...,   # -log2(RE) / mean_a   bits / activation
-    "ICE_ent_a":           ...,   # entropy_per_neuron / mean_a
+    "ICE_log_a":           ...,   # legacy key: RAE = -log2(RE) / mean_a
+    "ICE_ent_a":           ...,   # legacy diagnostic: entropy_per_neuron / mean_a
 }
 ```
 
@@ -194,8 +190,8 @@ differed.
 ```
 LMDAS_NULL    = (1e-4, 5e-4, 1e-3, 3e-3, 5e-3, 1e-2, 3e-2, 5e-2)  # 8
 ALPHAS_CAUCHY = (0.05, 0.1, 0.3, 0.5, 1.0, 2.0, 5.0, 10.0)        # 8
-RECON_BUDGETS = (1.0, 1.05, 1.10, 1.20)                           # 4
-CVRS_CVMAX    = (0.05, 0.10, 0.20, 0.40)                          # 4
+RECON_TARGETS_V2 = (0.40, 0.50, 0.55, 0.60)                       # 4
+CVRS_V2          = (0.05, 0.10, 0.20, 0.40)                       # 4
 SEEDS         = (0, 1, 2)                                         # 3
 ```
 
@@ -203,12 +199,12 @@ Common (matched) settings:
 
 ```
 patch_size  = 16
-n_neuron    = 144  (i.e. 9× overcomplete on 16×16 patches)
+n_neuron    = 144  (an undercomplete dictionary for 256-D patches)
 batch_size  = 1024
 epochs      = 30   (chosen via convergence diagnostic — see below)
 lr          = 1e-2 (SGD on U)
 r_lr        = 1e-2 (ISTA step size for a)
-lmda_base   = 5e-3 (held fixed for cauchy and cvmax sweeps)
+lmda_base   = 5e-3 (held fixed for Cauchy and CVM-v2 sweeps)
 ```
 
 The 30-epoch default came from `p3_converge_check.py`: at 30 epochs, RE
@@ -227,17 +223,16 @@ diminishing returns past 30.  Override on the command line if needed.
 
 ## Caveat — old records from before route A
 
-If you have existing JSON records from a sweep that used the plain `cv`
-mode (run before recon_budget was added to `p3_train.py`), delete them
-before re-running:
+If old v1 records share the directory, the default `p3_eval.py` method filter
+excludes them. Use a clean output directory for a fresh archival rerun; do not
+mix legacy records into custom aggregates made with `--methods all`.
 
 ```
-rm -rf results/records results/checkpoints results/eval
+python p3_eval.py --methods null,cauchy,cvmax_v2
 ```
 
-Old records had a different `run_id` format (no `_b` budget suffix) so
-they will not collide with the new sweep, but `p3_eval.py` would mix
-them in and contaminate the comparison.  Cleanest path is a full reset.
+Old records had a different `run_id` format and do not collide with v2; the
+explicit method filter prevents silent algorithm mixing.
 
 
 ## Reproducibility

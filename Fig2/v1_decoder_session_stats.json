@@ -1,0 +1,227 @@
+{
+  "n_sessions": 5,
+  "n_neurons_pooled": 564,
+  "pooled_neuron_level_descriptive": {
+    "raw": {
+      "cv_vs_acc": {
+        "rho": 0.29435197265099944,
+        "p": 9.77750657511609e-13
+      },
+      "fr_vs_acc": {
+        "rho": 0.12767107560869898,
+        "p": 0.0023836489969755975
+      },
+      "cv_vs_fr": {
+        "rho": -0.8096529439050894,
+        "p": 3.588606518677409e-132
+      }
+    },
+    "partial": {
+      "cv_acc_given_fr": {
+        "rho": 0.6832453633372033,
+        "p": 1.1993919216964546e-78
+      },
+      "fr_acc_given_cv": {
+        "rho": 0.6525037257495394,
+        "p": 1.3712672351728967e-69
+      },
+      "total_cv_acc_given_fr_and_tuning": {
+        "rho": -0.45971228544946724,
+        "p": 9.821729824942388e-31
+      },
+      "within_stim_noise_cv_acc_given_fr": {
+        "rho": -0.1922706148774893,
+        "p": 4.329055551378309e-06
+      },
+      "tuning_cv_vs_acc_raw": {
+        "rho": 0.7073178472784368,
+        "p": 1.0331962430361319e-86
+      }
+    },
+    "fr_quartile_bins": [
+      {
+        "fr_bin": 1,
+        "fr_range": [
+          0.466796875,
+          6.526550292968749
+        ],
+        "n": 141,
+        "cv_acc_rho": 0.3261807444445147,
+        "cv_acc_p": 7.906503153514773e-05,
+        "mean_cv_l": 1.0240464677876768,
+        "mean_acc": 0.24337765957446805
+      },
+      {
+        "fr_bin": 2,
+        "fr_range": [
+          6.526550292968749,
+          15.0126953125
+        ],
+        "n": 141,
+        "cv_acc_rho": 0.6846750234322655,
+        "cv_acc_p": 7.894443985072043e-21,
+        "mean_cv_l": 0.6334957636446582,
+        "mean_acc": 0.26012411347517733
+      },
+      {
+        "fr_bin": 3,
+        "fr_range": [
+          15.0126953125,
+          29.25360107421875
+        ],
+        "n": 141,
+        "cv_acc_rho": 0.6825015947511986,
+        "cv_acc_p": 1.1668832491200245e-20,
+        "mean_cv_l": 0.46417953819045393,
+        "mean_acc": 0.27091976950354607
+      },
+      {
+        "fr_bin": 4,
+        "fr_range": [
+          29.25360107421875,
+          131.22998046875
+        ],
+        "n": 141,
+        "cv_acc_rho": 0.6760564586771698,
+        "cv_acc_p": 3.645536107665505e-20,
+        "mean_cv_l": 0.31672813697486296,
+        "mean_acc": 0.27576241134751767
+      }
+    ]
+  },
+  "session_level": {
+    "raw_total_CV_vs_accuracy": {
+      "n_sessions": 5,
+      "per_session_rho": [
+        0.33437625484537364,
+        0.36553823633813065,
+        0.39823355636336827,
+        0.5533690136832119,
+        0.45481907891460466
+      ],
+      "median_rho": 0.39823355636336827,
+      "fisher_mean_rho": 0.4246147934574481,
+      "fisher_mean_rho_ci95_cluster_t": [
+        0.30791513068827453,
+        0.5287269417275585
+      ],
+      "fisher_z_t_statistic": 9.318168863625226,
+      "cluster_df": 4,
+      "fisher_z_t_p_two_sided": 0.000738241529167272,
+      "sessions_with_positive_rho": 5,
+      "session_wilcoxon_p_two_sided": 0.0625,
+      "session_sign_test_p_two_sided": 0.0625
+    },
+    "total_CV_vs_accuracy_given_FR": {
+      "n_sessions": 5,
+      "per_session_rho": [
+        0.7396355995396652,
+        0.5420683551729049,
+        0.5730502701887075,
+        0.793860063175458,
+        0.8288434640189335
+      ],
+      "median_rho": 0.7396355995396652,
+      "fisher_mean_rho": 0.7138567399816466,
+      "fisher_mean_rho_ci95_cluster_t": [
+        0.5199532426420287,
+        0.8377958497243344
+      ],
+      "fisher_z_t_statistic": 7.796379992474034,
+      "cluster_df": 4,
+      "fisher_z_t_p_two_sided": 0.0014601137574812445,
+      "sessions_with_positive_rho": 5,
+      "session_wilcoxon_p_two_sided": 0.0625,
+      "session_sign_test_p_two_sided": 0.0625
+    },
+    "FR_vs_accuracy_given_total_CV": {
+      "n_sessions": 5,
+      "per_session_rho": [
+        0.7124747058893599,
+        0.43966406434674915,
+        0.4500234426338653,
+        0.6840125673574984,
+        0.7897663498113109
+      ],
+      "median_rho": 0.6840125673574984,
+      "fisher_mean_rho": 0.6358836654231611,
+      "fisher_mean_rho_ci95_cluster_t": [
+        0.4000142840827527,
+        0.7927533193349413
+      ],
+      "fisher_z_t_statistic": 6.367425867671668,
+      "cluster_df": 4,
+      "fisher_z_t_p_two_sided": 0.0031193020676955428,
+      "sessions_with_positive_rho": 5,
+      "session_wilcoxon_p_two_sided": 0.0625,
+      "session_sign_test_p_two_sided": 0.0625
+    },
+    "tuning_CV_vs_accuracy_raw": {
+      "n_sessions": 5,
+      "per_session_rho": [
+        0.6556164756079926,
+        0.7790803278203629,
+        0.8546470416780185,
+        0.7824277413746646,
+        0.8026211296912777
+      ],
+      "median_rho": 0.7824277413746646,
+      "fisher_mean_rho": 0.7824889982792593,
+      "fisher_mean_rho_ci95_cluster_t": [
+        0.6825664196529604,
+        0.8536927517233488
+      ],
+      "fisher_z_t_statistic": 13.404106932681117,
+      "cluster_df": 4,
+      "fisher_z_t_p_two_sided": 0.00017916560507518753,
+      "sessions_with_positive_rho": 5,
+      "session_wilcoxon_p_two_sided": 0.0625,
+      "session_sign_test_p_two_sided": 0.0625
+    },
+    "total_CV_vs_accuracy_given_FR_and_tuning": {
+      "n_sessions": 5,
+      "per_session_rho": [
+        -0.3817363989459044,
+        -0.733983564753319,
+        -0.5420951243673353,
+        -0.4140614688598796,
+        -0.25974017686871437
+      ],
+      "median_rho": -0.4140614688598796,
+      "fisher_mean_rho": -0.48581680804427574,
+      "fisher_mean_rho_ci95_cluster_t": [
+        -0.6914700148763047,
+        -0.2073237047840465
+      ],
+      "fisher_z_t_statistic": -4.600602711159111,
+      "cluster_df": 4,
+      "fisher_z_t_p_two_sided": 0.010026338842772542,
+      "sessions_with_positive_rho": 0,
+      "session_wilcoxon_p_two_sided": 0.0625,
+      "session_sign_test_p_two_sided": 0.0625
+    },
+    "within_stim_noise_CV_vs_accuracy_given_FR": {
+      "n_sessions": 5,
+      "per_session_rho": [
+        -0.0749505445064473,
+        0.0399597826208203,
+        -0.22316313638200455,
+        -0.08734520223469217,
+        -0.054706073689843364
+      ],
+      "median_rho": -0.0749505445064473,
+      "fisher_mean_rho": -0.0807084631568704,
+      "fisher_mean_rho_ci95_cluster_t": [
+        -0.19722258827951028,
+        0.038053912544514394
+      ],
+      "fisher_z_t_statistic": -1.8878389789105412,
+      "cluster_df": 4,
+      "fisher_z_t_p_two_sided": 0.13207970979796943,
+      "sessions_with_positive_rho": 1,
+      "session_wilcoxon_p_two_sided": 0.125,
+      "session_sign_test_p_two_sided": 0.375
+    }
+  },
+  "inference_note": "Session is the unit. Pooled neuron p-values are descriptive. The earlier sample-size-weighted Fisher test is not used for cluster-level inference."
+}

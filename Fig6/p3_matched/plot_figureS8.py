@@ -1,11 +1,11 @@
 """
-Re-render the Fig.~S7 ICE-vs-RE Pareto plot from the aggregated sweep
+Re-render the Fig.~S8 RAE-vs-RE Pareto plot from the aggregated sweep
 summary p3_summary.csv.  The x-axis is cropped at RE>=0.60 to focus
 on the region where all three methods (Null, SparseNet, CVM) have
 data; Null's under-regularised tail down to RE~0.37 is omitted from
 the plot and discussed in the caption.
 
-Output: ../../updated/figures/FigureS7.pdf
+Output: ../../updated/figures/FigureS8.pdf
 """
 from pathlib import Path
 import csv
@@ -21,7 +21,7 @@ mpl.rcParams['font.size'] = 9
 
 ROOT = Path(__file__).parent
 CSV  = ROOT / 'results' / 'eval' / 'p3_summary.csv'
-OUT  = ROOT.parent.parent / 'updated' / 'figures' / 'FigureS7.pdf'
+OUT  = ROOT.parent.parent / 'updated' / 'figures' / 'FigureS8.pdf'
 
 # Colour / label conventions (match main-text Fig 7)
 COLOURS = {'null': '0.45', 'cauchy': '#1f77b4', 'cvm': '#2ca02c'}
@@ -102,8 +102,8 @@ def main():
 
     ax.set_xlim(left=RE_MIN)
     ax.set_xlabel('Reconstruction error  RE')
-    ax.set_ylabel(r'ICE  $= -\log_2(\mathrm{RE})/\bar{a}$  [bits/activation]')
-    ax.set_title('CV-max ICE--RE Pareto comparison  (sweep aggregated; $n=3$ seeds per point)')
+    ax.set_ylabel(r'RAE score  $= -\log_2(\mathrm{RE})/\bar{a}$')
+    ax.set_title('CV-max RAE--RE Pareto comparison  (sweep aggregated; $n=3$ seeds per point)')
     ax.legend(frameon=False, loc='best', fontsize=8)
     ax.grid(alpha=0.3)
     fig.tight_layout()

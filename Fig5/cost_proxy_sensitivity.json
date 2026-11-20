@@ -1,0 +1,4354 @@
+{
+  "default_proxy": {
+    "C0": 2.4,
+    "C1": 0.37
+  },
+  "scan": {
+    "C0_range": [
+      1.2,
+      4.8
+    ],
+    "C1_range": [
+      0.185,
+      0.74
+    ],
+    "n_parameter_pairs": 169,
+    "cells": [
+      {
+        "C0": 1.2,
+        "C1": 0.185,
+        "v1": {
+          "per_session_rho": [
+            0.5807797946023406,
+            0.44227597071633773,
+            0.4133880455073791,
+            0.4849305701662108,
+            0.3882063882063882
+          ],
+          "fisher_mean_rho": 0.46486264089241724,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9929824561403509,
+          "endpoint_delta_information_per_cost": 3.664287989550008,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.45369458128078805,
+          "endpoint_delta_information_per_cost": 81.01035877068567,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 1.2,
+        "C1": 0.23124999999999998,
+        "v1": {
+          "per_session_rho": [
+            0.567593145450203,
+            0.438495042164767,
+            0.42587439681589245,
+            0.4892436355985693,
+            0.40369427869427865
+          ],
+          "fisher_mean_rho": 0.4671819864105744,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9929824561403509,
+          "endpoint_delta_information_per_cost": 3.3216887737660787,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.48817733990147766,
+          "endpoint_delta_information_per_cost": 80.54298787810704,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 1.2,
+        "C1": 0.27749999999999997,
+        "v1": {
+          "per_session_rho": [
+            0.551871865297349,
+            0.43005282179594106,
+            0.4176675707090276,
+            0.5038528297917104,
+            0.42359599859599856
+          ],
+          "fisher_mean_rho": 0.46720065312595327,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9912280701754386,
+          "endpoint_delta_information_per_cost": 3.027621988359618,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.7300492610837437,
+          "endpoint_delta_information_per_cost": 78.57358667813679,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 1.2,
+        "C1": 0.32375,
+        "v1": {
+          "per_session_rho": [
+            0.5478713876283736,
+            0.4328792512278751,
+            0.41652284174562365,
+            0.5186592678308436,
+            0.4451386451386451
+          ],
+          "fisher_mean_rho": 0.4738894376346999,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9912280701754386,
+          "endpoint_delta_information_per_cost": 2.776518675866915,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.7551724137931033,
+          "endpoint_delta_information_per_cost": 75.95060775688027,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 1.2,
+        "C1": 0.37,
+        "v1": {
+          "per_session_rho": [
+            0.5544811320754717,
+            0.4375683439903624,
+            0.41361699130005997,
+            0.5330054702293288,
+            0.46047736047736043
+          ],
+          "fisher_mean_rho": 0.4817442389046634,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9912280701754386,
+          "endpoint_delta_information_per_cost": 2.5612725938902803,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.7689655172413792,
+          "endpoint_delta_information_per_cost": 73.0849062055103,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 1.2,
+        "C1": 0.41624999999999995,
+        "v1": {
+          "per_session_rho": [
+            0.5603773584905661,
+            0.4322305625057919,
+            0.41747384734598997,
+            0.5426835682726698,
+            0.4641189891189891
+          ],
+          "fisher_mean_rho": 0.4855566312559133,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9912280701754386,
+          "endpoint_delta_information_per_cost": 2.3754984829865258,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.7689655172413792,
+          "endpoint_delta_information_per_cost": 70.18278168329674,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 1.2,
+        "C1": 0.46249999999999997,
+        "v1": {
+          "per_session_rho": [
+            0.5650495581561977,
+            0.431053655824298,
+            0.42557500616392524,
+            0.5543998527245949,
+            0.4733064233064233
+          ],
+          "fisher_mean_rho": 0.4922192713165549,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9912280701754386,
+          "endpoint_delta_information_per_cost": 2.2139355793768765,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.782758620689655,
+          "endpoint_delta_information_per_cost": 67.34856262600445,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 1.2,
+        "C1": 0.5087499999999999,
+        "v1": {
+          "per_session_rho": [
+            0.5715786959636973,
+            0.43781855249745166,
+            0.43068225846218877,
+            0.561579528718704,
+            0.46823446823446824
+          ],
+          "fisher_mean_rho": 0.4964728306556234,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9912280701754386,
+          "endpoint_delta_information_per_cost": 2.0723646844163515,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.8295566502463052,
+          "endpoint_delta_information_per_cost": 64.63343100317313,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 1.2,
+        "C1": 0.5549999999999999,
+        "v1": {
+          "per_session_rho": [
+            0.5751821112968714,
+            0.44124733574274866,
+            0.43348244161882293,
+            0.5621449610772143,
+            0.47517550017550014
+          ],
+          "fisher_mean_rho": 0.4999033172234582,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9912280701754386,
+          "endpoint_delta_information_per_cost": 1.947422854680628,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.8443349753694579,
+          "endpoint_delta_information_per_cost": 62.06006397543459,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 1.2,
+        "C1": 0.60125,
+        "v1": {
+          "per_session_rho": [
+            0.57464174826845,
+            0.43957001204707635,
+            0.43179176499594946,
+            0.5612507889753839,
+            0.47997542997542997
+          ],
+          "fisher_mean_rho": 0.4998948828359498,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9912280701754386,
+          "endpoint_delta_information_per_cost": 1.8364235785021346,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.8482758620689654,
+          "endpoint_delta_information_per_cost": 59.63563658622033,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 1.2,
+        "C1": 0.6475,
+        "v1": {
+          "per_session_rho": [
+            0.5813022450441845,
+            0.4400148271707905,
+            0.44047409390299747,
+            0.5557674100568062,
+            0.48267813267813264
+          ],
+          "fisher_mean_rho": 0.5024144987325643,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9947368421052631,
+          "endpoint_delta_information_per_cost": 1.7372079927148212,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.8566502463054185,
+          "endpoint_delta_information_per_cost": 57.35891640247013,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 1.2,
+        "C1": 0.6937499999999999,
+        "v1": {
+          "per_session_rho": [
+            0.5817799140195845,
+            0.44808636826985454,
+            0.43841358176887046,
+            0.5565563854407742,
+            0.4853545103545103
+          ],
+          "fisher_mean_rho": 0.5043347529057738,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9947368421052631,
+          "endpoint_delta_information_per_cost": 1.64802828909129,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.8566502463054185,
+          "endpoint_delta_information_per_cost": 55.22422893737152,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 1.2,
+        "C1": 0.74,
+        "v1": {
+          "per_session_rho": [
+            0.5894494865058515,
+            0.45057918635900296,
+            0.43536684160473405,
+            0.5592257521565327,
+            0.4868901368901369
+          ],
+          "fisher_mean_rho": 0.5068533150225542,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9947368421052631,
+          "endpoint_delta_information_per_cost": 1.567458136198876,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.8566502463054185,
+          "endpoint_delta_information_per_cost": 53.223708269674646,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 1.5,
+        "C1": 0.185,
+        "v1": {
+          "per_session_rho": [
+            0.5858221877239073,
+            0.4363080344731721,
+            0.41287732027755286,
+            0.4666000420786871,
+            0.382028782028782
+          ],
+          "fisher_mean_rho": 0.45993847127995174,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9929824561403509,
+          "endpoint_delta_information_per_cost": 3.176572794479762,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.3527093596059112,
+          "endpoint_delta_information_per_cost": 63.28738746200693,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 1.5,
+        "C1": 0.23124999999999998,
+        "v1": {
+          "per_session_rho": [
+            0.5807797946023406,
+            0.44227597071633773,
+            0.4133880455073791,
+            0.4849305701662108,
+            0.3882063882063882
+          ],
+          "fisher_mean_rho": 0.46486264089241724,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9929824561403509,
+          "endpoint_delta_information_per_cost": 2.9314303916400064,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.45369458128078805,
+          "endpoint_delta_information_per_cost": 64.80828701654852,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 1.5,
+        "C1": 0.27749999999999997,
+        "v1": {
+          "per_session_rho": [
+            0.5702770480057321,
+            0.4354276712074877,
+            0.42356732767426303,
+            0.48424679150010513,
+            0.4002369252369252
+          ],
+          "fisher_mean_rho": 0.46509846818416484,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9929824561403509,
+          "endpoint_delta_information_per_cost": 2.7089874875251816,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.4842364532019703,
+          "endpoint_delta_information_per_cost": 64.63684206118131,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 1.5,
+        "C1": 0.32375,
+        "v1": {
+          "per_session_rho": [
+            0.5564843563410556,
+            0.4332128625706608,
+            0.422739600577648,
+            0.4984877971807279,
+            0.42000702000702
+          ],
+          "fisher_mean_rho": 0.4680085464962552,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9912280701754386,
+          "endpoint_delta_information_per_cost": 2.5117603167211127,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.7133004926108373,
+          "endpoint_delta_information_per_cost": 63.57892466709357,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 1.5,
+        "C1": 0.37,
+        "v1": {
+          "per_session_rho": [
+            0.5513434439933127,
+            0.436687980724678,
+            0.41669895389383965,
+            0.5129523458868083,
+            0.43490698490698493
+          ],
+          "fisher_mean_rho": 0.47224699323497443,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9912280701754386,
+          "endpoint_delta_information_per_cost": 2.3379418851066793,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.7389162561576353,
+          "endpoint_delta_information_per_cost": 62.058739886959174,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 1.5,
+        "C1": 0.41624999999999995,
+        "v1": {
+          "per_session_rho": [
+            0.5487102937664199,
+            0.4337596144935595,
+            0.41932302490225787,
+            0.5198427309067957,
+            0.4470866970866971
+          ],
+          "fisher_mean_rho": 0.4753968085247642,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9912280701754386,
+          "endpoint_delta_information_per_cost": 2.1846565686831996,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.7551724137931033,
+          "endpoint_delta_information_per_cost": 60.31057792584784,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 1.5,
+        "C1": 0.46249999999999997,
+        "v1": {
+          "per_session_rho": [
+            0.5544811320754717,
+            0.4375683439903624,
+            0.41361699130005997,
+            0.5330054702293288,
+            0.46047736047736043
+          ],
+          "fisher_mean_rho": 0.4817442389046634,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9912280701754386,
+          "endpoint_delta_information_per_cost": 2.049018075112224,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.7689655172413792,
+          "endpoint_delta_information_per_cost": 58.46792496440825,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 1.5,
+        "C1": 0.5087499999999999,
+        "v1": {
+          "per_session_rho": [
+            0.5569381418676859,
+            0.4359929570938746,
+            0.4156246697897222,
+            0.5412502629917946,
+            0.46187258687258687
+          ],
+          "fisher_mean_rho": 0.48441102864804525,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9912280701754386,
+          "endpoint_delta_information_per_cost": 1.9284513103467067,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.7689655172413792,
+          "endpoint_delta_information_per_cost": 56.60810709967901,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 1.5,
+        "C1": 0.5549999999999999,
+        "v1": {
+          "per_session_rho": [
+            0.5642285646047289,
+            0.4320081549439348,
+            0.41838963051671313,
+            0.5581606353881758,
+            0.4656809406809407
+          ],
+          "fisher_mean_rho": 0.49022994860896,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9912280701754386,
+          "endpoint_delta_information_per_cost": 1.8207573477320662,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.782758620689655,
+          "endpoint_delta_information_per_cost": 54.77599621630941,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 1.5,
+        "C1": 0.60125,
+        "v1": {
+          "per_session_rho": [
+            0.5680469309768331,
+            0.43348160504123806,
+            0.4275650734387658,
+            0.5586208710288239,
+            0.4703580203580203
+          ],
+          "fisher_mean_rho": 0.4940590720626959,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9912280701754386,
+          "endpoint_delta_information_per_cost": 1.724090902312084,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.8172413793103447,
+          "endpoint_delta_information_per_cost": 52.997190302846136,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 1.5,
+        "C1": 0.6475,
+        "v1": {
+          "per_session_rho": [
+            0.571038332935276,
+            0.43879158558057646,
+            0.43050614631397277,
+            0.5606459078476751,
+            0.4731923481923482
+          ],
+          "fisher_mean_rho": 0.4972549517806865,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9912280701754386,
+          "endpoint_delta_information_per_cost": 1.6369125270605027,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.8443349753694579,
+          "endpoint_delta_information_per_cost": 51.28561682512914,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 1.5,
+        "C1": 0.6937499999999999,
+        "v1": {
+          "per_session_rho": [
+            0.5751821112968714,
+            0.44124733574274866,
+            0.43348244161882293,
+            0.5621449610772143,
+            0.47517550017550014
+          ],
+          "fisher_mean_rho": 0.4999033172234582,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9912280701754386,
+          "endpoint_delta_information_per_cost": 1.5579382837445024,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.8443349753694579,
+          "endpoint_delta_information_per_cost": 49.648051180347665,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 1.5,
+        "C1": 0.74,
+        "v1": {
+          "per_session_rho": [
+            0.5778063052304754,
+            0.43916226485033827,
+            0.43122820612165835,
+            0.56217126025668,
+            0.481028431028431
+          ],
+          "fisher_mean_rho": 0.5008324830737046,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9912280701754386,
+          "endpoint_delta_information_per_cost": 1.4860945797365988,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.8482758620689654,
+          "endpoint_delta_information_per_cost": 48.08686670314445,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 1.7999999999999998,
+        "C1": 0.185,
+        "v1": {
+          "per_session_rho": [
+            0.5899211846190591,
+            0.4458530256695395,
+            0.4145856081152479,
+            0.4570139911634757,
+            0.38845208845208845
+          ],
+          "fisher_mean_rho": 0.4623844652607801,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9929824561403509,
+          "endpoint_delta_information_per_cost": 2.787853331965482,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.2571428571428571,
+          "endpoint_delta_information_per_cost": 50.486092919447955,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 1.7999999999999998,
+        "C1": 0.23124999999999998,
+        "v1": {
+          "per_session_rho": [
+            0.5876940530212563,
+            0.43708646093967196,
+            0.41307104364059044,
+            0.47625184094256257,
+            0.3839154089154089
+          ],
+          "fisher_mean_rho": 0.46287767182596706,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9929824561403509,
+          "endpoint_delta_information_per_cost": 2.612124845590226,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.35911330049261075,
+          "endpoint_delta_information_per_cost": 53.09365099443071,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 1.7999999999999998,
+        "C1": 0.27749999999999997,
+        "v1": {
+          "per_session_rho": [
+            0.5807797946023406,
+            0.44227597071633773,
+            0.4133880455073791,
+            0.4849305701662108,
+            0.3882063882063882
+          ],
+          "fisher_mean_rho": 0.46486264089241724,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9929824561403509,
+          "endpoint_delta_information_per_cost": 2.4428586597000055,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.45369458128078805,
+          "endpoint_delta_information_per_cost": 54.00690584712378,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 1.7999999999999998,
+        "C1": 0.32375,
+        "v1": {
+          "per_session_rho": [
+            0.5705457368043946,
+            0.43823556667593366,
+            0.4226515445035399,
+            0.4826293919629707,
+            0.3934889434889435
+          ],
+          "fisher_mean_rho": 0.46394293937903547,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9929824561403509,
+          "endpoint_delta_information_per_cost": 2.2869136479976078,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.48177339901477817,
+          "endpoint_delta_information_per_cost": 53.95210803765138,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 1.7999999999999998,
+        "C1": 0.37,
+        "v1": {
+          "per_session_rho": [
+            0.5586278958681634,
+            0.43841163932907057,
+            0.4298897537952169,
+            0.4953581948243214,
+            0.4086346086346086
+          ],
+          "fisher_mean_rho": 0.46806809839337926,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9912280701754386,
+          "endpoint_delta_information_per_cost": 2.145644595183269,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.6389162561576353,
+          "endpoint_delta_information_per_cost": 53.33228798118251,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 1.7999999999999998,
+        "C1": 0.41624999999999995,
+        "v1": {
+          "per_session_rho": [
+            0.551871865297349,
+            0.43005282179594106,
+            0.4176675707090276,
+            0.5038528297917104,
+            0.42359599859599856
+          ],
+          "fisher_mean_rho": 0.46720065312595327,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9912280701754386,
+          "endpoint_delta_information_per_cost": 2.018414658906412,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.7300492610837437,
+          "endpoint_delta_information_per_cost": 52.382391118757866,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 1.7999999999999998,
+        "C1": 0.46249999999999997,
+        "v1": {
+          "per_session_rho": [
+            0.5491461667064724,
+            0.4325919747938097,
+            0.41703356697545,
+            0.5168314748579843,
+            0.4379606879606879
+          ],
+          "fisher_mean_rho": 0.47244188500512885,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9912280701754386,
+          "endpoint_delta_information_per_cost": 1.9039270351784494,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.7492610837438421,
+          "endpoint_delta_information_per_cost": 51.24436379417012,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 1.7999999999999998,
+        "C1": 0.5087499999999999,
+        "v1": {
+          "per_session_rho": [
+            0.551644972534034,
+            0.43396348809192853,
+            0.41345849036666554,
+            0.5266147696191879,
+            0.4480607230607231
+          ],
+          "fisher_mean_rho": 0.4766200676511074,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9912280701754386,
+          "endpoint_delta_information_per_cost": 1.8007489899464226,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.7551724137931033,
+          "endpoint_delta_information_per_cost": 50.00617619369225,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 1.7999999999999998,
+        "C1": 0.5549999999999999,
+        "v1": {
+          "per_session_rho": [
+            0.5544811320754717,
+            0.4375683439903624,
+            0.41361699130005997,
+            0.5330054702293288,
+            0.46047736047736043
+          ],
+          "fisher_mean_rho": 0.4817442389046634,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9912280701754386,
+          "endpoint_delta_information_per_cost": 1.7075150625935203,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.7689655172413792,
+          "endpoint_delta_information_per_cost": 48.72327080367354,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 1.7999999999999998,
+        "C1": 0.60125,
+        "v1": {
+          "per_session_rho": [
+            0.554687126821113,
+            0.43770734871652306,
+            0.4144623296114967,
+            0.5418682937092362,
+            0.4598982098982099
+          ],
+          "fisher_mean_rho": 0.4837716821638604,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9912280701754386,
+          "endpoint_delta_information_per_cost": 1.622997536988359,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.7689655172413792,
+          "endpoint_delta_information_per_cost": 47.4308943207823,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 1.7999999999999998,
+        "C1": 0.6475,
+        "v1": {
+          "per_session_rho": [
+            0.5650704561738716,
+            0.4322954313780002,
+            0.418266352012962,
+            0.54958710288239,
+            0.46501404001404
+          ],
+          "fisher_mean_rho": 0.4884381808806006,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9912280701754386,
+          "endpoint_delta_information_per_cost": 1.546121432567837,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.782758620689655,
+          "endpoint_delta_information_per_cost": 46.15145399193596,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 1.7999999999999998,
+        "C1": 0.6937499999999999,
+        "v1": {
+          "per_session_rho": [
+            0.5650495581561977,
+            0.431053655824298,
+            0.42557500616392524,
+            0.5543998527245949,
+            0.4733064233064233
+          ],
+          "fisher_mean_rho": 0.4922192713165549,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9912280701754386,
+          "endpoint_delta_information_per_cost": 1.4759570529179178,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.782758620689655,
+          "endpoint_delta_information_per_cost": 44.89904175066964,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 1.7999999999999998,
+        "C1": 0.74,
+        "v1": {
+          "per_session_rho": [
+            0.5707666587055171,
+            0.4350477249559819,
+            0.4274065725053715,
+            0.563749211024616,
+            0.46919971919971915
+          ],
+          "fisher_mean_rho": 0.4958349519133055,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9912280701754386,
+          "endpoint_delta_information_per_cost": 1.4117045107945116,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.8172413793103447,
+          "endpoint_delta_information_per_cost": 43.682288238695584,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 2.0999999999999996,
+        "C1": 0.185,
+        "v1": {
+          "per_session_rho": [
+            0.5881508239789826,
+            0.43971828375498107,
+            0.4154485576415062,
+            0.45100462865558594,
+            0.39531414531414527
+          ],
+          "fisher_mean_rho": 0.46100562376938226,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9912280701754386,
+          "endpoint_delta_information_per_cost": 2.471849750248844,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.24975369458128074,
+          "endpoint_delta_information_per_cost": 40.92287026327401,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 2.0999999999999996,
+        "C1": 0.23124999999999998,
+        "v1": {
+          "per_session_rho": [
+            0.5862998566993075,
+            0.4408395885460106,
+            0.4159768940861541,
+            0.4605643803913318,
+            0.38434538434538434
+          ],
+          "fisher_mean_rho": 0.4607435907943917,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9929824561403509,
+          "endpoint_delta_information_per_cost": 2.34670163745716,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.2581280788177339,
+          "endpoint_delta_information_per_cost": 44.114812455053524,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 2.0999999999999996,
+        "C1": 0.27749999999999997,
+        "v1": {
+          "per_session_rho": [
+            0.5837502985431097,
+            0.4381428968584932,
+            0.40946074460216275,
+            0.4772906585314538,
+            0.3823885573885573
+          ],
+          "fisher_mean_rho": 0.4613854770749932,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9929824561403509,
+          "endpoint_delta_information_per_cost": 2.217677693235684,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.36502463054187184,
+          "endpoint_delta_information_per_cost": 45.6907783822717,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 2.0999999999999996,
+        "C1": 0.32375,
+        "v1": {
+          "per_session_rho": [
+            0.5807797946023406,
+            0.44227597071633773,
+            0.4133880455073791,
+            0.4849305701662108,
+            0.3882063882063882
+          ],
+          "fisher_mean_rho": 0.46486264089241724,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9929824561403509,
+          "endpoint_delta_information_per_cost": 2.093878851171434,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.45369458128078805,
+          "endpoint_delta_information_per_cost": 46.29163358324895,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 2.0999999999999996,
+        "C1": 0.37,
+        "v1": {
+          "per_session_rho": [
+            0.5748656556006688,
+            0.43381521638402376,
+            0.4243422211264134,
+            0.4845097832947612,
+            0.3912337662337662
+          ],
+          "fisher_mean_rho": 0.4643853198349447,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9929824561403509,
+          "endpoint_delta_information_per_cost": 1.9785374212113163,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.4793103448275861,
+          "endpoint_delta_information_per_cost": 46.28711218316027,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 2.0999999999999996,
+        "C1": 0.41624999999999995,
+        "v1": {
+          "per_session_rho": [
+            0.5625208980176738,
+            0.435677879714577,
+            0.4279525201648411,
+            0.4888359983168525,
+            0.4099157599157599
+          ],
+          "fisher_mean_rho": 0.4669516345579816,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9912280701754386,
+          "endpoint_delta_information_per_cost": 1.8724521307802662,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.4999999999999999,
+          "endpoint_delta_information_per_cost": 45.90097508002159,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 2.0999999999999996,
+        "C1": 0.46249999999999997,
+        "v1": {
+          "per_session_rho": [
+            0.5565500358251732,
+            0.4293948660921138,
+            0.42698390334965314,
+            0.49930307174416155,
+            0.4195331695331695
+          ],
+          "fisher_mean_rho": 0.46817940809403624,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9912280701754386,
+          "endpoint_delta_information_per_cost": 1.7753992571636292,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.7187192118226599,
+          "endpoint_delta_information_per_cost": 45.27363802086357,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 2.0999999999999996,
+        "C1": 0.5087499999999999,
+        "v1": {
+          "per_session_rho": [
+            0.5536213279197516,
+            0.43348160504123806,
+            0.4196576379838682,
+            0.5115979381443299,
+            0.4352404352404352
+          ],
+          "fisher_mean_rho": 0.47247761967939866,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9912280701754386,
+          "endpoint_delta_information_per_cost": 1.6867473080034374,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.733990147783251,
+          "endpoint_delta_information_per_cost": 44.49568453979346,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 2.0999999999999996,
+        "C1": 0.5549999999999999,
+        "v1": {
+          "per_session_rho": [
+            0.5477430140912348,
+            0.43337040126030957,
+            0.4146384417597126,
+            0.5208289501367557,
+            0.44228676728676725
+          ],
+          "fisher_mean_rho": 0.47351172680178266,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9912280701754386,
+          "endpoint_delta_information_per_cost": 1.6057332451804465,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.7517241379310343,
+          "endpoint_delta_information_per_cost": 43.62678275587122,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 2.0999999999999996,
+        "C1": 0.60125,
+        "v1": {
+          "per_session_rho": [
+            0.5512359684738477,
+            0.43592808822166623,
+            0.41631150716776455,
+            0.525155165158847,
+            0.4478588978588978
+          ],
+          "fisher_mean_rho": 0.47708539614568596,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9912280701754386,
+          "endpoint_delta_information_per_cost": 1.5315868342679781,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.7551724137931033,
+          "endpoint_delta_information_per_cost": 42.70683720311219,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 2.0999999999999996,
+        "C1": 0.6475,
+        "v1": {
+          "per_session_rho": [
+            0.5544811320754717,
+            0.4375683439903624,
+            0.41361699130005997,
+            0.5330054702293288,
+            0.46047736047736043
+          ],
+          "fisher_mean_rho": 0.4817442389046634,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9912280701754386,
+          "endpoint_delta_information_per_cost": 1.4635843393658745,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.7689655172413792,
+          "endpoint_delta_information_per_cost": 41.7628035460059,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 2.0999999999999996,
+        "C1": 0.6937499999999999,
+        "v1": {
+          "per_session_rho": [
+            0.5510747551946501,
+            0.43618756371049955,
+            0.41647000810115886,
+            0.5423811277088155,
+            0.4607493857493857
+          ],
+          "fisher_mean_rho": 0.4833352195400253,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9912280701754386,
+          "endpoint_delta_information_per_cost": 1.4010687336323846,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.7689655172413792,
+          "endpoint_delta_information_per_cost": 40.81298025583477,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 2.0999999999999996,
+        "C1": 0.74,
+        "v1": {
+          "per_session_rho": [
+            0.5607744208263674,
+            0.43207302381614315,
+            0.41986897256172745,
+            0.547220176730486,
+            0.4632327132327132
+          ],
+          "fisher_mean_rho": 0.48687207465977744,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9912280701754386,
+          "endpoint_delta_information_per_cost": 1.3434540738391858,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.7719211822660096,
+          "endpoint_delta_information_per_cost": 39.869781162057734,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 2.4,
+        "C1": 0.185,
+        "v1": {
+          "per_session_rho": [
+            0.5844429185574397,
+            0.4417662867204151,
+            0.41648761931598055,
+            0.44997896065642745,
+            0.39255879255879256
+          ],
+          "fisher_mean_rho": 0.4599970284548896,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9912280701754386,
+          "endpoint_delta_information_per_cost": 2.2107124347423555,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.24975369458128074,
+          "endpoint_delta_information_per_cost": 33.58717125199871,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 2.4,
+        "C1": 0.23124999999999998,
+        "v1": {
+          "per_session_rho": [
+            0.5873835681872462,
+            0.4429802613288852,
+            0.41872424359832344,
+            0.4484141594782243,
+            0.3867760617760617
+          ],
+          "fisher_mean_rho": 0.4599840893198424,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9929824561403509,
+          "endpoint_delta_information_per_cost": 2.1230983968228454,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.25172413793103443,
+          "endpoint_delta_information_per_cost": 37.07172763496221,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 2.4,
+        "C1": 0.27749999999999997,
+        "v1": {
+          "per_session_rho": [
+            0.5891121327919752,
+            0.43724399962932076,
+            0.4115036455214681,
+            0.47029507679360394,
+            0.38454720954720956
+          ],
+          "fisher_mean_rho": 0.4618619558916721,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9929824561403509,
+          "endpoint_delta_information_per_cost": 2.025012110466446,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.2669950738916256,
+          "endpoint_delta_information_per_cost": 39.05024729655159,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 2.4,
+        "C1": 0.32375,
+        "v1": {
+          "per_session_rho": [
+            0.5853654167661811,
+            0.44168288388471877,
+            0.4134761015814871,
+            0.4758179044813801,
+            0.3781063531063531
+          ],
+          "fisher_mean_rho": 0.46213530429364713,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9929824561403509,
+          "endpoint_delta_information_per_cost": 1.92658781159732,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.36502463054187184,
+          "endpoint_delta_information_per_cost": 40.083499821555925,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 2.4,
+        "C1": 0.37,
+        "v1": {
+          "per_session_rho": [
+            0.5807797946023406,
+            0.44227597071633773,
+            0.4133880455073791,
+            0.4849305701662108,
+            0.3882063882063882
+          ],
+          "fisher_mean_rho": 0.46486264089241724,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9929824561403509,
+          "endpoint_delta_information_per_cost": 1.832143994775004,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.45369458128078805,
+          "endpoint_delta_information_per_cost": 40.505179385342835,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 2.4,
+        "C1": 0.41624999999999995,
+        "v1": {
+          "per_session_rho": [
+            0.571945903988536,
+            0.4376610138078028,
+            0.42244020992568077,
+            0.4807621502209131,
+            0.38992628992628986
+          ],
+          "fisher_mean_rho": 0.463074622897505,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9929824561403509,
+          "endpoint_delta_information_per_cost": 1.7433953642970579,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.47438423645320177,
+          "endpoint_delta_information_per_cost": 40.52313445574122,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 2.4,
+        "C1": 0.46249999999999997,
+        "v1": {
+          "per_session_rho": [
+            0.567593145450203,
+            0.438495042164767,
+            0.42587439681589245,
+            0.4892436355985693,
+            0.40369427869427865
+          ],
+          "fisher_mean_rho": 0.4671819864105744,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9929824561403509,
+          "endpoint_delta_information_per_cost": 1.6608443868830394,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.48817733990147766,
+          "endpoint_delta_information_per_cost": 40.27149393905352,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 2.4,
+        "C1": 0.5087499999999999,
+        "v1": {
+          "per_session_rho": [
+            0.5583711487938858,
+            0.4307756463719767,
+            0.4284280229650242,
+            0.4972911845150431,
+            0.417014742014742
+          ],
+          "fisher_mean_rho": 0.4682379496204397,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9912280701754386,
+          "endpoint_delta_information_per_cost": 1.5844245353152795,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.6778325123152708,
+          "endpoint_delta_information_per_cost": 39.83925748676366,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 2.4,
+        "C1": 0.5549999999999999,
+        "v1": {
+          "per_session_rho": [
+            0.551871865297349,
+            0.43005282179594106,
+            0.4176675707090276,
+            0.5038528297917104,
+            0.42359599859599856
+          ],
+          "fisher_mean_rho": 0.46720065312595327,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9912280701754386,
+          "endpoint_delta_information_per_cost": 1.513810994179809,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.7300492610837437,
+          "endpoint_delta_information_per_cost": 39.286793339068396,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 2.4,
+        "C1": 0.60125,
+        "v1": {
+          "per_session_rho": [
+            0.5505791736326726,
+            0.43647484014456495,
+            0.4183191856574267,
+            0.5171470650115716,
+            0.4352579852579852
+          ],
+          "fisher_mean_rho": 0.4732942875818478,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9912280701754386,
+          "endpoint_delta_information_per_cost": 1.4485747071550596,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.7438423645320195,
+          "endpoint_delta_information_per_cost": 38.65576319063335,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 2.4,
+        "C1": 0.6475,
+        "v1": {
+          "per_session_rho": [
+            0.5478713876283736,
+            0.4328792512278751,
+            0.41652284174562365,
+            0.5186592678308436,
+            0.4451386451386451
+          ],
+          "fisher_mean_rho": 0.4738894376346999,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9912280701754386,
+          "endpoint_delta_information_per_cost": 1.3882593379334576,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.7551724137931033,
+          "endpoint_delta_information_per_cost": 37.97530387844014,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 2.4,
+        "C1": 0.6937499999999999,
+        "v1": {
+          "per_session_rho": [
+            0.5508986147599714,
+            0.43551107404318423,
+            0.41419816138917265,
+            0.5257731958762887,
+            0.44670059670059664
+          ],
+          "fisher_mean_rho": 0.4764445024916639,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9912280701754386,
+          "endpoint_delta_information_per_cost": 1.3324190960874693,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.7600985221674875,
+          "endpoint_delta_information_per_cost": 37.26599230920249,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 2.4,
+        "C1": 0.74,
+        "v1": {
+          "per_session_rho": [
+            0.5544811320754717,
+            0.4375683439903624,
+            0.41361699130005997,
+            0.5330054702293288,
+            0.46047736047736043
+          ],
+          "fisher_mean_rho": 0.4817442389046634,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9912280701754386,
+          "endpoint_delta_information_per_cost": 1.2806362969451401,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.7689655172413792,
+          "endpoint_delta_information_per_cost": 36.54245310275515,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 2.7,
+        "C1": 0.185,
+        "v1": {
+          "per_session_rho": [
+            0.5913243372342967,
+            0.4452414048744324,
+            0.4189531893910043,
+            0.44368030717441614,
+            0.39524394524394524
+          ],
+          "fisher_mean_rho": 0.4620659702943035,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9912280701754386,
+          "endpoint_delta_information_per_cost": 1.9919083072661146,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.24975369458128074,
+          "endpoint_delta_information_per_cost": 27.83869560338963,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 2.7,
+        "C1": 0.23124999999999998,
+        "v1": {
+          "per_session_rho": [
+            0.5870103893002151,
+            0.44275785376702814,
+            0.4164347856715157,
+            0.44746738901746264,
+            0.39185679185679184
+          ],
+          "fisher_mean_rho": 0.46017088197978945,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9912280701754386,
+          "endpoint_delta_information_per_cost": 1.9325569905692128,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.24975369458128074,
+          "endpoint_delta_information_per_cost": 31.441668907476604,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 2.7,
+        "C1": 0.27749999999999997,
+        "v1": {
+          "per_session_rho": [
+            0.5899211846190591,
+            0.4458530256695395,
+            0.4145856081152479,
+            0.4570139911634757,
+            0.38845208845208845
+          ],
+          "fisher_mean_rho": 0.4623844652607801,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9929824561403509,
+          "endpoint_delta_information_per_cost": 1.8585688879769875,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.2571428571428571,
+          "endpoint_delta_information_per_cost": 33.65739527963197,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 2.7,
+        "C1": 0.32375,
+        "v1": {
+          "per_session_rho": [
+            0.584386195366611,
+            0.4351218608099342,
+            0.4120848156105809,
+            0.4683883862823479,
+            0.3847753597753598
+          ],
+          "fisher_mean_rho": 0.4600812898623116,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9929824561403509,
+          "endpoint_delta_information_per_cost": 1.780406644350932,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.3527093596059112,
+          "endpoint_delta_information_per_cost": 34.97526900215121,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 2.7,
+        "C1": 0.37,
+        "v1": {
+          "per_session_rho": [
+            0.5831532123238595,
+            0.44283198962098047,
+            0.419446303406009,
+            0.4796838838628234,
+            0.381019656019656
+          ],
+          "fisher_mean_rho": 0.4642883025025158,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9929824561403509,
+          "endpoint_delta_information_per_cost": 1.702978378753767,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.36502463054187184,
+          "endpoint_delta_information_per_cost": 35.69414583873253,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 2.7,
+        "C1": 0.41624999999999995,
+        "v1": {
+          "per_session_rho": [
+            0.5807797946023406,
+            0.44227597071633773,
+            0.4133880455073791,
+            0.4849305701662108,
+            0.3882063882063882
+          ],
+          "fisher_mean_rho": 0.46486264089241724,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9929824561403509,
+          "endpoint_delta_information_per_cost": 1.6285724398000034,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.45369458128078805,
+          "endpoint_delta_information_per_cost": 36.00460389808249,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 2.7,
+        "C1": 0.46249999999999997,
+        "v1": {
+          "per_session_rho": [
+            0.5729251253881061,
+            0.43716059679362435,
+            0.4236201613187278,
+            0.48322112350094665,
+            0.38513513513513514
+          ],
+          "fisher_mean_rho": 0.46304949215383834,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9929824561403509,
+          "endpoint_delta_information_per_cost": 1.5581804232396455,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.47438423645320177,
+          "endpoint_delta_information_per_cost": 36.032390293656476,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 2.7,
+        "C1": 0.5087499999999999,
+        "v1": {
+          "per_session_rho": [
+            0.5670736804394554,
+            0.439292002594755,
+            0.42657884540875635,
+            0.49072953923837576,
+            0.40374692874692875
+          ],
+          "fisher_mean_rho": 0.4676665536593279,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9929824561403509,
+          "endpoint_delta_information_per_cost": 1.4921345105495054,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.4842364532019703,
+          "endpoint_delta_information_per_cost": 35.862772146169505,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 2.7,
+        "C1": 0.5549999999999999,
+        "v1": {
+          "per_session_rho": [
+            0.5586278958681634,
+            0.43841163932907057,
+            0.4298897537952169,
+            0.4953581948243214,
+            0.4086346086346086
+          ],
+          "fisher_mean_rho": 0.46806809839337926,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9912280701754386,
+          "endpoint_delta_information_per_cost": 1.4304297301221793,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.6389162561576353,
+          "endpoint_delta_information_per_cost": 35.55485865412166,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 2.7,
+        "C1": 0.60125,
+        "v1": {
+          "per_session_rho": [
+            0.5564395748746119,
+            0.4299601519785007,
+            0.41801979500545955,
+            0.4971465390279822,
+            0.4191470691470691
+          ],
+          "fisher_mean_rho": 0.4660347516825151,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9912280701754386,
+          "endpoint_delta_information_per_cost": 1.3728926027079744,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.7187192118226599,
+          "endpoint_delta_information_per_cost": 35.150367019530066,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 2.7,
+        "C1": 0.6475,
+        "v1": {
+          "per_session_rho": [
+            0.551883807021734,
+            0.43233249930497636,
+            0.4190060230354691,
+            0.5107958131706289,
+            0.43432783432783434
+          ],
+          "fisher_mean_rho": 0.4714021933080903,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9912280701754386,
+          "endpoint_delta_information_per_cost": 1.319271362947351,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.733990147783251,
+          "endpoint_delta_information_per_cost": 34.67917019318875,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 2.7,
+        "C1": 0.6937499999999999,
+        "v1": {
+          "per_session_rho": [
+            0.5491461667064724,
+            0.4325919747938097,
+            0.41703356697545,
+            0.5168314748579843,
+            0.4379606879606879
+          ],
+          "fisher_mean_rho": 0.47244188500512885,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9912280701754386,
+          "endpoint_delta_information_per_cost": 1.2692846901189663,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.7492610837438421,
+          "endpoint_delta_information_per_cost": 34.162909196113404,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 2.7,
+        "C1": 0.74,
+        "v1": {
+          "per_session_rho": [
+            0.5473071411511822,
+            0.43347233805949403,
+            0.4174562361311684,
+            0.5210656427519461,
+            0.44648122148122144
+          ],
+          "fisher_mean_rho": 0.47482363661470706,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9912280701754386,
+          "endpoint_delta_information_per_cost": 1.2226478883402698,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.7551724137931033,
+          "endpoint_delta_information_per_cost": 33.61740340704179,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 3.0,
+        "C1": 0.185,
+        "v1": {
+          "per_session_rho": [
+            0.5938858371148794,
+            0.45658419052914473,
+            0.41020041562466986,
+            0.44519250999368815,
+            0.39695507195507196
+          ],
+          "fisher_mean_rho": 0.4638777572443911,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9894736842105263,
+          "endpoint_delta_information_per_cost": 1.8063896918887894,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.24236453201970437,
+          "endpoint_delta_information_per_cost": 23.253918516840407,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 3.0,
+        "C1": 0.23124999999999998,
+        "v1": {
+          "per_session_rho": [
+            0.5844429185574397,
+            0.4417662867204151,
+            0.41648761931598055,
+            0.44997896065642745,
+            0.39255879255879256
+          ],
+          "fisher_mean_rho": 0.4599970284548896,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9912280701754386,
+          "endpoint_delta_information_per_cost": 1.768569947793884,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.24975369458128074,
+          "endpoint_delta_information_per_cost": 26.86973700159897,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 3.0,
+        "C1": 0.27749999999999997,
+        "v1": {
+          "per_session_rho": [
+            0.589992834965369,
+            0.44331387267167083,
+            0.42363777253354945,
+            0.4505706921944035,
+            0.3973060723060723
+          ],
+          "fisher_mean_rho": 0.4639997238096601,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9912280701754386,
+          "endpoint_delta_information_per_cost": 1.7135591731360988,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.25172413793103443,
+          "endpoint_delta_information_per_cost": 29.215235917928204,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 3.0,
+        "C1": 0.32375,
+        "v1": {
+          "per_session_rho": [
+            0.5896524958203965,
+            0.4416458159577426,
+            0.4113275333732521,
+            0.4587365874184725,
+            0.3856704106704107
+          ],
+          "fisher_mean_rho": 0.46070489033375256,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9929824561403509,
+          "endpoint_delta_information_per_cost": 1.6517371340086764,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.2581280788177339,
+          "endpoint_delta_information_per_cost": 30.71762979768357,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 3.0,
+        "C1": 0.37,
+        "v1": {
+          "per_session_rho": [
+            0.5858221877239073,
+            0.4363080344731721,
+            0.41287732027755286,
+            0.4666000420786871,
+            0.382028782028782
+          ],
+          "fisher_mean_rho": 0.45993847127995174,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9929824561403509,
+          "endpoint_delta_information_per_cost": 1.588286397239881,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.3527093596059112,
+          "endpoint_delta_information_per_cost": 31.643693731003466,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 3.0,
+        "C1": 0.41624999999999995,
+        "v1": {
+          "per_session_rho": [
+            0.581714234535467,
+            0.4431841349272542,
+            0.41914691275404187,
+            0.4775142015569113,
+            0.3847490347490347
+          ],
+          "fisher_mean_rho": 0.464202458886712,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9929824561403509,
+          "endpoint_delta_information_per_cost": 1.5258402668555229,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.3655172413793103,
+          "endpoint_delta_information_per_cost": 32.1669804723861,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 3.0,
+        "C1": 0.46249999999999997,
+        "v1": {
+          "per_session_rho": [
+            0.5807797946023406,
+            0.44227597071633773,
+            0.4133880455073791,
+            0.4849305701662108,
+            0.3882063882063882
+          ],
+          "fisher_mean_rho": 0.46486264089241724,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9929824561403509,
+          "endpoint_delta_information_per_cost": 1.4657151958200032,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.45369458128078805,
+          "endpoint_delta_information_per_cost": 32.40414350827426,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 3.0,
+        "C1": 0.5087499999999999,
+        "v1": {
+          "per_session_rho": [
+            0.5750746357774064,
+            0.4396163469557966,
+            0.421859039836568,
+            0.4827477382705659,
+            0.386951561951562
+          ],
+          "fisher_mean_rho": 0.46393179572490123,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9929824561403509,
+          "endpoint_delta_information_per_cost": 1.4085235310335489,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.47438423645320177,
+          "endpoint_delta_information_per_cost": 32.43569456706022,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 3.0,
+        "C1": 0.5549999999999999,
+        "v1": {
+          "per_session_rho": [
+            0.5702770480057321,
+            0.4354276712074877,
+            0.42356732767426303,
+            0.48424679150010513,
+            0.4002369252369252
+          ],
+          "fisher_mean_rho": 0.46509846818416484,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9929824561403509,
+          "endpoint_delta_information_per_cost": 1.3544937437625908,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.4842364532019703,
+          "endpoint_delta_information_per_cost": 32.318421030590656,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 3.0,
+        "C1": 0.60125,
+        "v1": {
+          "per_session_rho": [
+            0.5607953188440411,
+            0.43769808173477903,
+            0.4258567856010708,
+            0.49395118872291177,
+            0.40861705861705855
+          ],
+          "fisher_mean_rho": 0.46735756152850466,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9912280701754386,
+          "endpoint_delta_information_per_cost": 1.3036442091078613,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.52807881773399,
+          "endpoint_delta_information_per_cost": 32.09310242857855,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 3.0,
+        "C1": 0.6475,
+        "v1": {
+          "per_session_rho": [
+            0.5564843563410556,
+            0.4332128625706608,
+            0.422739600577648,
+            0.4984877971807279,
+            0.42000702000702
+          ],
+          "fisher_mean_rho": 0.4680085464962552,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9912280701754386,
+          "endpoint_delta_information_per_cost": 1.2558801583605563,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.7133004926108373,
+          "endpoint_delta_information_per_cost": 31.789462333546783,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 3.0,
+        "C1": 0.6937499999999999,
+        "v1": {
+          "per_session_rho": [
+            0.551871865297349,
+            0.43005282179594106,
+            0.4176675707090276,
+            0.5038528297917104,
+            0.42359599859599856
+          ],
+          "fisher_mean_rho": 0.46720065312595327,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9912280701754386,
+          "endpoint_delta_information_per_cost": 1.2110487953438476,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.7300492610837437,
+          "endpoint_delta_information_per_cost": 31.429434671254718,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 3.0,
+        "C1": 0.74,
+        "v1": {
+          "per_session_rho": [
+            0.5513434439933127,
+            0.436687980724678,
+            0.41669895389383965,
+            0.5129523458868083,
+            0.43490698490698493
+          ],
+          "fisher_mean_rho": 0.47224699323497443,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9912280701754386,
+          "endpoint_delta_information_per_cost": 1.1689709425533397,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.7389162561576353,
+          "endpoint_delta_information_per_cost": 31.029369943479587,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 3.3,
+        "C1": 0.185,
+        "v1": {
+          "per_session_rho": [
+            0.5941664676379269,
+            0.4659623760541193,
+            0.4219823183403192,
+            0.4442720387123922,
+            0.3946033696033696
+          ],
+          "fisher_mean_rho": 0.4674270802860989,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9894736842105263,
+          "endpoint_delta_information_per_cost": 1.6474694654969393,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.2280788177339901,
+          "endpoint_delta_information_per_cost": 19.54271999579776,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 3.3,
+        "C1": 0.23124999999999998,
+        "v1": {
+          "per_session_rho": [
+            0.5901868879866253,
+            0.4468538596978965,
+            0.424007608044803,
+            0.44583683989059536,
+            0.39567392067392065
+          ],
+          "fisher_mean_rho": 0.463576276465427,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9912280701754386,
+          "endpoint_delta_information_per_cost": 1.626205112104551,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.24975369458128074,
+          "endpoint_delta_information_per_cost": 23.107244620882994,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 3.3,
+        "C1": 0.27749999999999997,
+        "v1": {
+          "per_session_rho": [
+            0.5861356579890137,
+            0.445148735056992,
+            0.4156070585749005,
+            0.4506101409636019,
+            0.3957879957879958
+          ],
+          "fisher_mean_rho": 0.46162515106247193,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9912280701754386,
+          "endpoint_delta_information_per_cost": 1.5862763418373822,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.24975369458128074,
+          "endpoint_delta_information_per_cost": 25.511656376701588,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 3.3,
+        "C1": 0.32375,
+        "v1": {
+          "per_session_rho": [
+            0.5914616670647243,
+            0.4471226021684738,
+            0.41849529780564265,
+            0.4525825794235219,
+            0.38487188487188484
+          ],
+          "fisher_mean_rho": 0.4622092091976289,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9929824561403509,
+          "endpoint_delta_information_per_cost": 1.5377439171381435,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.25172413793103443,
+          "endpoint_delta_information_per_cost": 27.12954806874592,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 3.3,
+        "C1": 0.37,
+        "v1": {
+          "per_session_rho": [
+            0.5856370909959399,
+            0.43722546566583265,
+            0.41476172026346375,
+            0.462983904902167,
+            0.38270445770445766
+          ],
+          "fisher_mean_rho": 0.45982878609728567,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9929824561403509,
+          "endpoint_delta_information_per_cost": 1.4858639203571935,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.2581280788177339,
+          "endpoint_delta_information_per_cost": 28.198848278475587,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 3.3,
+        "C1": 0.41624999999999995,
+        "v1": {
+          "per_session_rho": [
+            0.586126701695725,
+            0.43707719395792793,
+            0.41344087915184397,
+            0.4681385440774248,
+            0.38279220779220774
+          ],
+          "fisher_mean_rho": 0.4607196944411704,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9929824561403509,
+          "endpoint_delta_information_per_cost": 1.4334603698100756,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.35911330049261075,
+          "endpoint_delta_information_per_cost": 28.87706420164617,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 3.3,
+        "C1": 0.46249999999999997,
+        "v1": {
+          "per_session_rho": [
+            0.5811708860759495,
+            0.44352701325178395,
+            0.4184072417315347,
+            0.4777903429413002,
+            0.3875219375219375
+          ],
+          "fisher_mean_rho": 0.46456725639622776,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9929824561403509,
+          "endpoint_delta_information_per_cost": 1.3820594961091401,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.37339901477832504,
+          "endpoint_delta_information_per_cost": 29.271764850392895,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 3.3,
+        "C1": 0.5087499999999999,
+        "v1": {
+          "per_session_rho": [
+            0.5807797946023406,
+            0.44227597071633773,
+            0.4133880455073791,
+            0.4849305701662108,
+            0.3882063882063882
+          ],
+          "fisher_mean_rho": 0.46486264089241724,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9929824561403509,
+          "endpoint_delta_information_per_cost": 1.3324683598363665,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.45369458128078805,
+          "endpoint_delta_information_per_cost": 29.458312280249324,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 3.3,
+        "C1": 0.5549999999999999,
+        "v1": {
+          "per_session_rho": [
+            0.5746954860281825,
+            0.43879158558057646,
+            0.4245359444894509,
+            0.4817615190406058,
+            0.3879080379080379
+          ],
+          "fisher_mean_rho": 0.46416923943128463,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9929824561403509,
+          "endpoint_delta_information_per_cost": 1.2850851493543107,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.47438423645320177,
+          "endpoint_delta_information_per_cost": 29.490633037013172,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 3.3,
+        "C1": 0.60125,
+        "v1": {
+          "per_session_rho": [
+            0.5701427036064008,
+            0.4353720693170235,
+            0.4239723856151598,
+            0.48045970965705864,
+            0.39500702000702
+          ],
+          "fisher_mean_rho": 0.463384942734819,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9929824561403509,
+          "endpoint_delta_information_per_cost": 1.2400721875956833,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.48177339901477817,
+          "endpoint_delta_information_per_cost": 29.408003962708598,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 3.3,
+        "C1": 0.6475,
+        "v1": {
+          "per_session_rho": [
+            0.5650435872940053,
+            0.43724399962932076,
+            0.4297840865062873,
+            0.49070324005891014,
+            0.40734468234468235
+          ],
+          "fisher_mean_rho": 0.4680842716260335,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9912280701754386,
+          "endpoint_delta_information_per_cost": 1.1974553457149275,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.48817733990147766,
+          "endpoint_delta_information_per_cost": 29.23946115929331,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 3.3,
+        "C1": 0.6937499999999999,
+        "v1": {
+          "per_session_rho": [
+            0.5568127537616432,
+            0.4313965341488277,
+            0.4295903631432496,
+            0.49652850831054063,
+            0.41463671463671464
+          ],
+          "fisher_mean_rho": 0.4676190017422183,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9912280701754386,
+          "endpoint_delta_information_per_cost": 1.1571824869402296,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.6694581280788175,
+          "endpoint_delta_information_per_cost": 29.006741608103876,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 3.3,
+        "C1": 0.74,
+        "v1": {
+          "per_session_rho": [
+            0.5569053021256269,
+            0.43147067000278017,
+            0.41791412771652997,
+            0.495647485798443,
+            0.4219726219726219
+          ],
+          "fisher_mean_rho": 0.46663649832369625,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9912280701754386,
+          "endpoint_delta_information_per_cost": 1.1191583856678544,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.7241379310344827,
+          "endpoint_delta_information_per_cost": 28.726291443621868,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 3.5999999999999996,
+        "C1": 0.185,
+        "v1": {
+          "per_session_rho": [
+            0.5930946978743731,
+            0.46009637661013814,
+            0.42509950336374214,
+            0.4477829791710498,
+            0.39848192348192346
+          ],
+          "fisher_mean_rho": 0.4679992384110516,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9824561403508772,
+          "endpoint_delta_information_per_cost": 1.5101041876801828,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.2157635467980295,
+          "endpoint_delta_information_per_cost": 16.500496803878477,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 3.5999999999999996,
+        "C1": 0.23124999999999998,
+        "v1": {
+          "per_session_rho": [
+            0.5926140434678768,
+            0.4567509962005375,
+            0.41349371279630875,
+            0.45017620450241946,
+            0.3979554229554229
+          ],
+          "fisher_mean_rho": 0.46538878626832,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9912280701754386,
+          "endpoint_delta_information_per_cost": 1.501659168679312,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.24729064039408863,
+          "endpoint_delta_information_per_cost": 19.97525517146004,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 3.5999999999999996,
+        "C1": 0.27749999999999997,
+        "v1": {
+          "per_session_rho": [
+            0.5844429185574397,
+            0.4417662867204151,
+            0.41648761931598055,
+            0.44997896065642745,
+            0.39255879255879256
+          ],
+          "fisher_mean_rho": 0.4599970284548896,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9912280701754386,
+          "endpoint_delta_information_per_cost": 1.473808289828237,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.24975369458128074,
+          "endpoint_delta_information_per_cost": 22.391447501332493,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 3.5999999999999996,
+        "C1": 0.32375,
+        "v1": {
+          "per_session_rho": [
+            0.5899659660855029,
+            0.44075618571031416,
+            0.42030925293226734,
+            0.45024195245108345,
+            0.39277816777816776
+          ],
+          "fisher_mean_rho": 0.461949600815533,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9912280701754386,
+          "endpoint_delta_information_per_cost": 1.436163457940974,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.25172413793103443,
+          "endpoint_delta_information_per_cost": 24.076609365794475,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 3.5999999999999996,
+        "C1": 0.37,
+        "v1": {
+          "per_session_rho": [
+            0.5899211846190591,
+            0.4458530256695395,
+            0.4145856081152479,
+            0.4570139911634757,
+            0.38845208845208845
+          ],
+          "fisher_mean_rho": 0.4623844652607801,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9929824561403509,
+          "endpoint_delta_information_per_cost": 1.393926665982741,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.2571428571428571,
+          "endpoint_delta_information_per_cost": 25.243046459723978,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 3.5999999999999996,
+        "C1": 0.41624999999999995,
+        "v1": {
+          "per_session_rho": [
+            0.5891121327919752,
+            0.43724399962932076,
+            0.4115036455214681,
+            0.47029507679360394,
+            0.38454720954720956
+          ],
+          "fisher_mean_rho": 0.4618619558916721,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9929824561403509,
+          "endpoint_delta_information_per_cost": 1.3500080736442972,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.2669950738916256,
+          "endpoint_delta_information_per_cost": 26.033498197701064,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 3.5999999999999996,
+        "C1": 0.46249999999999997,
+        "v1": {
+          "per_session_rho": [
+            0.5876940530212563,
+            0.43708646093967196,
+            0.41307104364059044,
+            0.47625184094256257,
+            0.3839154089154089
+          ],
+          "fisher_mean_rho": 0.46287767182596706,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9929824561403509,
+          "endpoint_delta_information_per_cost": 1.306062422795113,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.35911330049261075,
+          "endpoint_delta_information_per_cost": 26.546825497215355,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 3.5999999999999996,
+        "C1": 0.5087499999999999,
+        "v1": {
+          "per_session_rho": [
+            0.581176856938142,
+            0.4409507923269392,
+            0.4200979183544082,
+            0.4786187670944666,
+            0.38736398736398736
+          ],
+          "fisher_mean_rho": 0.4645273976005449,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9929824561403509,
+          "endpoint_delta_information_per_cost": 1.263029345627165,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.40147783251231517,
+          "endpoint_delta_information_per_cost": 26.853198276977807,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 3.5999999999999996,
+        "C1": 0.5549999999999999,
+        "v1": {
+          "per_session_rho": [
+            0.5807797946023406,
+            0.44227597071633773,
+            0.4133880455073791,
+            0.4849305701662108,
+            0.3882063882063882
+          ],
+          "fisher_mean_rho": 0.46486264089241724,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9929824561403509,
+          "endpoint_delta_information_per_cost": 1.2214293298500027,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.45369458128078805,
+          "endpoint_delta_information_per_cost": 27.00345292356189,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 3.5999999999999996,
+        "C1": 0.60125,
+        "v1": {
+          "per_session_rho": [
+            0.57454621447337,
+            0.4395329441201001,
+            0.42501144728963414,
+            0.4816957710919419,
+            0.3847490347490347
+          ],
+          "fisher_mean_rho": 0.4637732669732624,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9929824561403509,
+          "endpoint_delta_information_per_cost": 1.1815323222438874,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.47438423645320177,
+          "endpoint_delta_information_per_cost": 27.035061488818975,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 3.5999999999999996,
+        "C1": 0.6475,
+        "v1": {
+          "per_session_rho": [
+            0.5705457368043946,
+            0.43823556667593366,
+            0.4226515445035399,
+            0.4826293919629707,
+            0.3934889434889435
+          ],
+          "fisher_mean_rho": 0.46394293937903547,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9929824561403509,
+          "endpoint_delta_information_per_cost": 1.1434568239988039,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.48177339901477817,
+          "endpoint_delta_information_per_cost": 26.97605401882569,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 3.5999999999999996,
+        "C1": 0.6937499999999999,
+        "v1": {
+          "per_session_rho": [
+            0.567593145450203,
+            0.438495042164767,
+            0.42587439681589245,
+            0.4892436355985693,
+            0.40369427869427865
+          ],
+          "fisher_mean_rho": 0.4671819864105744,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9929824561403509,
+          "endpoint_delta_information_per_cost": 1.1072295912553596,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.48817733990147766,
+          "endpoint_delta_information_per_cost": 26.84766262603569,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 3.5999999999999996,
+        "C1": 0.74,
+        "v1": {
+          "per_session_rho": [
+            0.5586278958681634,
+            0.43841163932907057,
+            0.4298897537952169,
+            0.4953581948243214,
+            0.4086346086346086
+          ],
+          "fisher_mean_rho": 0.46806809839337926,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9912280701754386,
+          "endpoint_delta_information_per_cost": 1.0728222975916346,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.6389162561576353,
+          "endpoint_delta_information_per_cost": 26.666143990591255,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 3.8999999999999995,
+        "C1": 0.185,
+        "v1": {
+          "per_session_rho": [
+            0.5956024599952233,
+            0.46857566490594016,
+            0.42175337254763845,
+            0.4433647170208289,
+            0.40280800280800283
+          ],
+          "fisher_mean_rho": 0.4695988710806333,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9824561403508772,
+          "endpoint_delta_information_per_cost": 1.3904226360176393,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.10788177339901475,
+          "endpoint_delta_information_per_cost": 13.979363245427365,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 3.8999999999999995,
+        "C1": 0.23124999999999998,
+        "v1": {
+          "per_session_rho": [
+            0.5947098160974446,
+            0.4599017699935131,
+            0.4137402698038112,
+            0.44523195876288657,
+            0.3893822393822393
+          ],
+          "fisher_mean_rho": 0.46400777412826544,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9894736842105263,
+          "endpoint_delta_information_per_cost": 1.3919544744565013,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.23349753694581274,
+          "endpoint_delta_information_per_cost": 17.34208686300675,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 3.8999999999999995,
+        "C1": 0.27749999999999997,
+        "v1": {
+          "per_session_rho": [
+            0.5863088129925962,
+            0.4493096098600686,
+            0.4189179669613611,
+            0.4482563644014307,
+            0.3976131976131976
+          ],
+          "fisher_mean_rho": 0.4629917579725379,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9912280701754386,
+          "endpoint_delta_information_per_cost": 1.373836679919569,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.24975369458128074,
+          "endpoint_delta_information_per_cost": 19.738657974297567,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 3.8999999999999995,
+        "C1": 0.32375,
+        "v1": {
+          "per_session_rho": [
+            0.5860878910914736,
+            0.4470206653692892,
+            0.42210559684407034,
+            0.449216284451925,
+            0.3961653211653211
+          ],
+          "fisher_mean_rho": 0.46301610230086865,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9912280701754386,
+          "endpoint_delta_information_per_cost": 1.345167585307775,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.24975369458128074,
+          "endpoint_delta_information_per_cost": 21.45708103326284,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 3.8999999999999995,
+        "C1": 0.37,
+        "v1": {
+          "per_session_rho": [
+            0.5875059708621926,
+            0.44680752478917624,
+            0.4218766510513896,
+            0.4513465179886387,
+            0.3982274482274482
+          ],
+          "fisher_mean_rho": 0.4640741854973499,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9912280701754386,
+          "endpoint_delta_information_per_cost": 1.3110152556808852,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.25172413793103443,
+          "endpoint_delta_information_per_cost": 22.68704277507681,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 3.8999999999999995,
+        "C1": 0.41624999999999995,
+        "v1": {
+          "per_session_rho": [
+            0.5912855266300454,
+            0.44115466592530816,
+            0.4158183931527598,
+            0.45469966337050277,
+            0.38774131274131274
+          ],
+          "fisher_mean_rho": 0.46143698889717694,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9929824561403509,
+          "endpoint_delta_information_per_cost": 1.2743050657820987,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.2581280788177339,
+          "endpoint_delta_information_per_cost": 23.55786937285219,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 3.8999999999999995,
+        "C1": 0.46249999999999997,
+        "v1": {
+          "per_session_rho": [
+            0.5874671602579412,
+            0.4327958483921787,
+            0.4116621464548625,
+            0.4658768146433831,
+            0.3836609336609336
+          ],
+          "fisher_mean_rho": 0.4595761295411053,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9929824561403509,
+          "endpoint_delta_information_per_cost": 1.2367625870055536,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.3438423645320196,
+          "endpoint_delta_information_per_cost": 24.160264365202284,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 3.8999999999999995,
+        "C1": 0.5087499999999999,
+        "v1": {
+          "per_session_rho": [
+            0.5857415810843086,
+            0.4355296080066723,
+            0.4099890810468107,
+            0.4734641279192089,
+            0.3848894348894349
+          ],
+          "fisher_mean_rho": 0.46113671146615526,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9929824561403509,
+          "endpoint_delta_information_per_cost": 1.1994145261771707,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.35911330049261075,
+          "endpoint_delta_information_per_cost": 24.559356962174768,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 3.8999999999999995,
+        "C1": 0.5549999999999999,
+        "v1": {
+          "per_session_rho": [
+            0.5801438977788393,
+            0.44322120285423044,
+            0.41997463985065697,
+            0.4781453818640858,
+            0.3885135135135135
+          ],
+          "fisher_mean_rho": 0.46481800075965823,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9929824561403509,
+          "endpoint_delta_information_per_cost": 1.1628681303664417,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.44088669950738907,
+          "endpoint_delta_information_per_cost": 24.80284755567364,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 3.8999999999999995,
+        "C1": 0.60125,
+        "v1": {
+          "per_session_rho": [
+            0.5807797946023406,
+            0.44227597071633773,
+            0.4133880455073791,
+            0.4849305701662108,
+            0.3882063882063882
+          ],
+          "fisher_mean_rho": 0.46486264089241724,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9929824561403509,
+          "endpoint_delta_information_per_cost": 1.1274732275538486,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.45369458128078805,
+          "endpoint_delta_information_per_cost": 24.92626423713405,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 3.8999999999999995,
+        "C1": 0.6475,
+        "v1": {
+          "per_session_rho": [
+            0.5761464055409602,
+            0.43614122880177936,
+            0.4259800641048221,
+            0.48320797391121395,
+            0.38354685854685855
+          ],
+          "fisher_mean_rho": 0.46376373755720607,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9929824561403509,
+          "endpoint_delta_information_per_cost": 1.0934192169776173,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.4665024630541871,
+          "endpoint_delta_information_per_cost": 24.956452853510754,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 3.8999999999999995,
+        "C1": 0.6937499999999999,
+        "v1": {
+          "per_session_rho": [
+            0.5731251492715548,
+            0.43582615142248177,
+            0.42228170899228634,
+            0.4818404165790027,
+            0.3929097929097929
+          ],
+          "fisher_mean_rho": 0.46373748752801325,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9929824561403509,
+          "endpoint_delta_information_per_cost": 1.0607946299942563,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.48177339901477817,
+          "endpoint_delta_information_per_cost": 24.913952016796035,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 3.8999999999999995,
+        "C1": 0.74,
+        "v1": {
+          "per_session_rho": [
+            0.565351086696919,
+            0.43687332035955895,
+            0.4248529463562397,
+            0.49342520513359983,
+            0.4045893295893296
+          ],
+          "fisher_mean_rho": 0.467186288275507,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9929824561403509,
+          "endpoint_delta_information_per_cost": 1.0296244691556837,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.48817733990147766,
+          "endpoint_delta_information_per_cost": 24.814644481937513,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 4.2,
+        "C1": 0.185,
+        "v1": {
+          "per_session_rho": [
+            0.592366252686888,
+            0.47872300991567046,
+            0.4241837201930189,
+            0.44535030507048173,
+            0.40490522990522987
+          ],
+          "fisher_mean_rho": 0.47209287271808165,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9824561403508772,
+          "endpoint_delta_information_per_cost": 1.2854071792831863,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.08669950738916254,
+          "endpoint_delta_information_per_cost": 11.870152277804152,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 4.2,
+        "C1": 0.23124999999999998,
+        "v1": {
+          "per_session_rho": [
+            0.592605087174588,
+            0.4647298674821611,
+            0.42108414638441766,
+            0.4477566799915842,
+            0.396007371007371
+          ],
+          "fisher_mean_rho": 0.467573781407829,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9894736842105263,
+          "endpoint_delta_information_per_cost": 1.2947283153457343,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.2280788177339901,
+          "endpoint_delta_information_per_cost": 15.108934491204437,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 4.2,
+        "C1": 0.27749999999999997,
+        "v1": {
+          "per_session_rho": [
+            0.592425961308813,
+            0.45444351774627006,
+            0.41324715578880644,
+            0.44909793814432986,
+            0.3957792207792208
+          ],
+          "fisher_mean_rho": 0.46422325544325765,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9912280701754386,
+          "endpoint_delta_information_per_cost": 1.2844939804922078,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.24729064039408863,
+          "endpoint_delta_information_per_cost": 17.465094176135125,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 4.2,
+        "C1": 0.32375,
+        "v1": {
+          "per_session_rho": [
+            0.5844429185574397,
+            0.4417662867204151,
+            0.41648761931598055,
+            0.44997896065642745,
+            0.39255879255879256
+          ],
+          "fisher_mean_rho": 0.4599970284548896,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9912280701754386,
+          "endpoint_delta_information_per_cost": 1.2632642484242027,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.24975369458128074,
+          "endpoint_delta_information_per_cost": 19.192669286856407,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 4.2,
+        "C1": 0.37,
+        "v1": {
+          "per_session_rho": [
+            0.5881508239789826,
+            0.43971828375498107,
+            0.4154485576415062,
+            0.45100462865558594,
+            0.39531414531414527
+          ],
+          "fisher_mean_rho": 0.46100562376938226,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9912280701754386,
+          "endpoint_delta_information_per_cost": 1.235924875124422,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.24975369458128074,
+          "endpoint_delta_information_per_cost": 20.46143513163699,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 4.2,
+        "C1": 0.41624999999999995,
+        "v1": {
+          "per_session_rho": [
+            0.5912288034392167,
+            0.440728384765082,
+            0.41990419499137055,
+            0.4584604460340837,
+            0.38334503334503334
+          ],
+          "fisher_mean_rho": 0.4620540176474325,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9929824561403509,
+          "endpoint_delta_information_per_cost": 1.2053686060429203,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.25418719211822655,
+          "endpoint_delta_information_per_cost": 21.388625757421618,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 4.2,
+        "C1": 0.46249999999999997,
+        "v1": {
+          "per_session_rho": [
+            0.5862998566993075,
+            0.4408395885460106,
+            0.4159768940861541,
+            0.4605643803913318,
+            0.38434538434538434
+          ],
+          "fisher_mean_rho": 0.4607435907943917,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9929824561403509,
+          "endpoint_delta_information_per_cost": 1.1733508187285797,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.2581280788177339,
+          "endpoint_delta_information_per_cost": 22.057406227526755,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 4.2,
+        "C1": 0.5087499999999999,
+        "v1": {
+          "per_session_rho": [
+            0.5848160974444709,
+            0.43577981651376146,
+            0.41145081187700333,
+            0.4674942141805175,
+            0.38074763074763074
+          ],
+          "fisher_mean_rho": 0.459266970706771,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9929824561403509,
+          "endpoint_delta_information_per_cost": 1.1409518271391956,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.3527093596059112,
+          "endpoint_delta_information_per_cost": 22.528118669665897,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 4.2,
+        "C1": 0.5549999999999999,
+        "v1": {
+          "per_session_rho": [
+            0.5837502985431097,
+            0.4381428968584932,
+            0.40946074460216275,
+            0.4772906585314538,
+            0.3823885573885573
+          ],
+          "fisher_mean_rho": 0.4613854770749932,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9929824561403509,
+          "endpoint_delta_information_per_cost": 1.108838846617842,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.36502463054187184,
+          "endpoint_delta_information_per_cost": 22.845389191135837,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 4.2,
+        "C1": 0.60125,
+        "v1": {
+          "per_session_rho": [
+            0.5805081203725818,
+            0.441719951811695,
+            0.419622415554225,
+            0.47675152535240894,
+            0.3895138645138645
+          ],
+          "fisher_mean_rho": 0.4644460459705519,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9929824561403509,
+          "endpoint_delta_information_per_cost": 1.077420268416498,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.44088669950738907,
+          "endpoint_delta_information_per_cost": 23.042763893188134,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 4.2,
+        "C1": 0.6475,
+        "v1": {
+          "per_session_rho": [
+            0.5807797946023406,
+            0.44227597071633773,
+            0.4133880455073791,
+            0.4849305701662108,
+            0.3882063882063882
+          ],
+          "fisher_mean_rho": 0.46486264089241724,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9929824561403509,
+          "endpoint_delta_information_per_cost": 1.0469394255857165,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.45369458128078805,
+          "endpoint_delta_information_per_cost": 23.14581679162447,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 4.2,
+        "C1": 0.6937499999999999,
+        "v1": {
+          "per_session_rho": [
+            0.5763255314067351,
+            0.435483273097952,
+            0.4245359444894509,
+            0.48372080791079314,
+            0.38436293436293434
+          ],
+          "fisher_mean_rho": 0.46365689704629165,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9929824561403509,
+          "endpoint_delta_information_per_cost": 1.0175330827238873,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.4665024630541871,
+          "endpoint_delta_information_per_cost": 23.174283377720844,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 4.2,
+        "C1": 0.74,
+        "v1": {
+          "per_session_rho": [
+            0.5748656556006688,
+            0.43381521638402376,
+            0.4243422211264134,
+            0.4845097832947612,
+            0.3912337662337662
+          ],
+          "fisher_mean_rho": 0.4643853198349447,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9929824561403509,
+          "endpoint_delta_information_per_cost": 0.9892687106056579,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.4793103448275861,
+          "endpoint_delta_information_per_cost": 23.143556091580134,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 4.5,
+        "C1": 0.185,
+        "v1": {
+          "per_session_rho": [
+            0.594548602818247,
+            0.47576684273931985,
+            0.4250818921489205,
+            0.4441273932253313,
+            0.4007020007020007
+          ],
+          "fisher_mean_rho": 0.47117453784778335,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9824561403508772,
+          "endpoint_delta_information_per_cost": 1.1926732555491908,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.06305418719211821,
+          "endpoint_delta_information_per_cost": 10.090792217210662,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 4.5,
+        "C1": 0.23124999999999998,
+        "v1": {
+          "per_session_rho": [
+            0.5930946978743731,
+            0.46009637661013814,
+            0.42509950336374214,
+            0.4477829791710498,
+            0.39848192348192346
+          ],
+          "fisher_mean_rho": 0.4679992384110516,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9824561403508772,
+          "endpoint_delta_information_per_cost": 1.2080833501441464,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.2157635467980295,
+          "endpoint_delta_information_per_cost": 13.20039744310278,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 4.5,
+        "C1": 0.27749999999999997,
+        "v1": {
+          "per_session_rho": [
+            0.5938858371148794,
+            0.45658419052914473,
+            0.41020041562466986,
+            0.44519250999368815,
+            0.39695507195507196
+          ],
+          "fisher_mean_rho": 0.4638777572443911,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9894736842105263,
+          "endpoint_delta_information_per_cost": 1.2042597945925264,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.24236453201970437,
+          "endpoint_delta_information_per_cost": 15.502612344560276,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 4.5,
+        "C1": 0.32375,
+        "v1": {
+          "per_session_rho": [
+            0.5886882015763076,
+            0.4432860717264387,
+            0.42326793702229587,
+            0.4464154218388386,
+            0.39665672165672167
+          ],
+          "fisher_mean_rho": 0.4626715087588221,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9912280701754386,
+          "endpoint_delta_information_per_cost": 1.1892241728078479,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.24975369458128074,
+          "endpoint_delta_information_per_cost": 17.222228162341835,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 4.5,
+        "C1": 0.37,
+        "v1": {
+          "per_session_rho": [
+            0.5862550752328637,
+            0.44763228616439626,
+            0.424007608044803,
+            0.45304281506416993,
+            0.39459459459459456
+          ],
+          "fisher_mean_rho": 0.4640020254825998,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9912280701754386,
+          "endpoint_delta_information_per_cost": 1.1676524130841153,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.24975369458128074,
+          "endpoint_delta_information_per_cost": 18.51150611738239,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 4.5,
+        "C1": 0.41624999999999995,
+        "v1": {
+          "per_session_rho": [
+            0.589992834965369,
+            0.44331387267167083,
+            0.42363777253354945,
+            0.4505706921944035,
+            0.3973060723060723
+          ],
+          "fisher_mean_rho": 0.4639997238096601,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9912280701754386,
+          "endpoint_delta_information_per_cost": 1.1423727820907321,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.25172413793103443,
+          "endpoint_delta_information_per_cost": 19.476823945285467,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 4.5,
+        "C1": 0.46249999999999997,
+        "v1": {
+          "per_session_rho": [
+            0.5899211846190591,
+            0.4458530256695395,
+            0.4145856081152479,
+            0.4570139911634757,
+            0.38845208845208845
+          ],
+          "fisher_mean_rho": 0.4623844652607801,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9929824561403509,
+          "endpoint_delta_information_per_cost": 1.1151413327861923,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.2571428571428571,
+          "endpoint_delta_information_per_cost": 20.194437167779185,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 4.5,
+        "C1": 0.5087499999999999,
+        "v1": {
+          "per_session_rho": [
+            0.5858430857415812,
+            0.436882587341303,
+            0.41344087915184397,
+            0.463509888491479,
+            0.3839154089154089
+          ],
+          "fisher_mean_rho": 0.45988946211879544,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9929824561403509,
+          "endpoint_delta_information_per_cost": 1.0870673042626102,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.2581280788177339,
+          "endpoint_delta_information_per_cost": 20.72020289490633,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 4.5,
+        "C1": 0.5549999999999999,
+        "v1": {
+          "per_session_rho": [
+            0.5858221877239073,
+            0.4363080344731721,
+            0.41287732027755286,
+            0.4666000420786871,
+            0.382028782028782
+          ],
+          "fisher_mean_rho": 0.45993847127995174,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9929824561403509,
+          "endpoint_delta_information_per_cost": 1.0588575981599204,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.3527093596059112,
+          "endpoint_delta_information_per_cost": 21.095795820668986,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 4.5,
+        "C1": 0.60125,
+        "v1": {
+          "per_session_rho": [
+            0.5862520898017675,
+            0.44288759151144474,
+            0.4127716529886232,
+            0.4800915211445403,
+            0.3806511056511056
+          ],
+          "fisher_mean_rho": 0.46378673532744896,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9929824561403509,
+          "endpoint_delta_information_per_cost": 1.0309627067412273,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.36502463054187184,
+          "endpoint_delta_information_per_cost": 21.35280432143617,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 4.5,
+        "C1": 0.6475,
+        "v1": {
+          "per_session_rho": [
+            0.582991999044662,
+            0.44213696599017704,
+            0.4173505688422388,
+            0.47585735325057854,
+            0.3861179361179361
+          ],
+          "fisher_mean_rho": 0.4638756620231023,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9929824561403509,
+          "endpoint_delta_information_per_cost": 1.0036665856513327,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.447783251231527,
+          "endpoint_delta_information_per_cost": 21.51550136436833,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 4.5,
+        "C1": 0.6937499999999999,
+        "v1": {
+          "per_session_rho": [
+            0.5807797946023406,
+            0.44227597071633773,
+            0.4133880455073791,
+            0.4849305701662108,
+            0.3882063882063882
+          ],
+          "fisher_mean_rho": 0.46486264089241724,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9929824561403509,
+          "endpoint_delta_information_per_cost": 0.9771434638800022,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.45369458128078805,
+          "endpoint_delta_information_per_cost": 21.602762338849505,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 4.5,
+        "C1": 0.74,
+        "v1": {
+          "per_session_rho": [
+            0.5772002627179365,
+            0.4355296080066723,
+            0.423215103377831,
+            0.4844308857563644,
+            0.38408213408213404
+          ],
+          "fisher_mean_rho": 0.46371275254891775,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9929824561403509,
+          "endpoint_delta_information_per_cost": 0.9514945439744562,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.4665024630541871,
+          "endpoint_delta_information_per_cost": 21.62941942503362,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 4.8,
+        "C1": 0.185,
+        "v1": {
+          "per_session_rho": [
+            0.5954442321471222,
+            0.47067926976183866,
+            0.42134831460674166,
+            0.44164212076583204,
+            0.402035802035802
+          ],
+          "fisher_mean_rho": 0.46942699661595233,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9824561403508772,
+          "endpoint_delta_information_per_cost": 1.110313511892535,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.031034482758620686,
+          "endpoint_delta_information_per_cost": 8.578585886237029,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 4.8,
+        "C1": 0.23124999999999998,
+        "v1": {
+          "per_session_rho": [
+            0.5973220683066635,
+            0.4689000092669818,
+            0.4203973090063753,
+            0.4448769198401009,
+            0.39796419796419796
+          ],
+          "fisher_mean_rho": 0.46921711666073723,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9824561403508772,
+          "endpoint_delta_information_per_cost": 1.130479505183115,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.12216748768472901,
+          "endpoint_delta_information_per_cost": 11.558074074054822,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 4.8,
+        "C1": 0.27749999999999997,
+        "v1": {
+          "per_session_rho": [
+            0.5945784571292095,
+            0.462691131498471,
+            0.4202211968581594,
+            0.44467967599410896,
+            0.3909617409617409
+          ],
+          "fisher_mean_rho": 0.46594526951213977,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9894736842105263,
+          "endpoint_delta_information_per_cost": 1.131884448606849,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.23349753694581274,
+          "endpoint_delta_information_per_cost": 13.797824768612443,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 4.8,
+        "C1": 0.32375,
+        "v1": {
+          "per_session_rho": [
+            0.5925961308812993,
+            0.4485126494300807,
+            0.4178612940720652,
+            0.449019040605933,
+            0.3997981747981748
+          ],
+          "fisher_mean_rho": 0.46470414077317473,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9912280701754386,
+          "endpoint_delta_information_per_cost": 1.1220258670933427,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.24876847290640386,
+          "endpoint_delta_information_per_cost": 15.497378860123732,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 4.8,
+        "C1": 0.37,
+        "v1": {
+          "per_session_rho": [
+            0.5844429185574397,
+            0.4417662867204151,
+            0.41648761931598055,
+            0.44997896065642745,
+            0.39255879255879256
+          ],
+          "fisher_mean_rho": 0.4599970284548896,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9912280701754386,
+          "endpoint_delta_information_per_cost": 1.1053562173711777,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.24975369458128074,
+          "endpoint_delta_information_per_cost": 16.793585625999356,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 4.8,
+        "C1": 0.41624999999999995,
+        "v1": {
+          "per_session_rho": [
+            0.5885747551946502,
+            0.44369381892317683,
+            0.4178965165017084,
+            0.4472175468125394,
+            0.3932344682344682
+          ],
+          "fisher_mean_rho": 0.4612171790863875,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9912280701754386,
+          "endpoint_delta_information_per_cost": 1.0846186064305625,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.24975369458128074,
+          "endpoint_delta_information_per_cost": 17.783095998894055,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 4.8,
+        "C1": 0.46249999999999997,
+        "v1": {
+          "per_session_rho": [
+            0.5873835681872462,
+            0.4429802613288852,
+            0.41872424359832344,
+            0.4484141594782243,
+            0.3867760617760617
+          ],
+          "fisher_mean_rho": 0.4599840893198424,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9929824561403509,
+          "endpoint_delta_information_per_cost": 1.0615491984114227,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.25172413793103443,
+          "endpoint_delta_information_per_cost": 18.535863817481104,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 4.8,
+        "C1": 0.5087499999999999,
+        "v1": {
+          "per_session_rho": [
+            0.5915840697396705,
+            0.4419516263552961,
+            0.4157127258638301,
+            0.45348990111508514,
+            0.3879343629343629
+          ],
+          "fisher_mean_rho": 0.4614408594939268,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9929824561403509,
+          "endpoint_delta_information_per_cost": 1.0372679507022649,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.2581280788177339,
+          "endpoint_delta_information_per_cost": 19.103580129257686,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 4.8,
+        "C1": 0.5549999999999999,
+        "v1": {
+          "per_session_rho": [
+            0.5891121327919752,
+            0.43724399962932076,
+            0.4115036455214681,
+            0.47029507679360394,
+            0.38454720954720956
+          ],
+          "fisher_mean_rho": 0.4618619558916721,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9929824561403509,
+          "endpoint_delta_information_per_cost": 1.012506055233223,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.2669950738916256,
+          "endpoint_delta_information_per_cost": 19.525123648275795,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 4.8,
+        "C1": 0.60125,
+        "v1": {
+          "per_session_rho": [
+            0.5860908765225699,
+            0.4369659901769994,
+            0.4095664118910924,
+            0.46865137807700397,
+            0.38228325728325724
+          ],
+          "fisher_mean_rho": 0.4599638316991206,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9929824561403509,
+          "endpoint_delta_information_per_cost": 0.9877433441051491,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.35911330049261075,
+          "endpoint_delta_information_per_cost": 19.83018684790356,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 4.8,
+        "C1": 0.6475,
+        "v1": {
+          "per_session_rho": [
+            0.5853654167661811,
+            0.44168288388471877,
+            0.4134761015814871,
+            0.4758179044813801,
+            0.3781063531063531
+          ],
+          "fisher_mean_rho": 0.46213530429364713,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9929824561403509,
+          "endpoint_delta_information_per_cost": 0.96329390579866,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.36502463054187184,
+          "endpoint_delta_information_per_cost": 20.041749910777963,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 4.8,
+        "C1": 0.6937499999999999,
+        "v1": {
+          "per_session_rho": [
+            0.5808006926200143,
+            0.4431192660550459,
+            0.4169807333309853,
+            0.47746160319798014,
+            0.3858985608985609
+          ],
+          "fisher_mean_rho": 0.46376245997332277,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9929824561403509,
+          "endpoint_delta_information_per_cost": 0.9393608318137721,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.447783251231527,
+          "endpoint_delta_information_per_cost": 20.17780625511287,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      },
+      {
+        "C0": 4.8,
+        "C1": 0.74,
+        "v1": {
+          "per_session_rho": [
+            0.5807797946023406,
+            0.44227597071633773,
+            0.4133880455073791,
+            0.4849305701662108,
+            0.3882063882063882
+          ],
+          "fisher_mean_rho": 0.46486264089241724,
+          "sessions_positive": 5
+        },
+        "lif": {
+          "spearman_time_vs_information_per_cost": 0.9929824561403509,
+          "endpoint_delta_information_per_cost": 0.916071997387502,
+          "spearman_cost_vs_information": -0.756140350877193
+        },
+        "network": {
+          "spearman_time_vs_information_per_cost": 0.45369458128078805,
+          "endpoint_delta_information_per_cost": 20.252589692671418,
+          "spearman_cost_vs_information": 0.8295473748822583
+        }
+      }
+    ],
+    "summary": {
+      "pairs_with_v1_positive_in_all_five_sessions": 169,
+      "v1_fisher_mean_rho_range": [
+        0.459266970706771,
+        0.5068533150225542
+      ],
+      "pairs_with_positive_LIF_endpoint_delta": 169,
+      "pairs_with_positive_network_endpoint_delta": 169,
+      "network_endpoint_delta_range": [
+        8.578585886237029,
+        81.01035877068567
+      ]
+    }
+  },
+  "alternative_monotone_costs_at_default_normalization": {
+    "affine": {
+      "v1": {
+        "per_session_rho": [
+          0.5807797946023406,
+          0.44227597071633773,
+          0.4133880455073791,
+          0.4849305701662108,
+          0.3882063882063882
+        ],
+        "fisher_mean_rho": 0.46486264089241724,
+        "sessions_positive": 5
+      },
+      "lif": {
+        "spearman_time_vs_information_per_cost": 0.9929824561403509,
+        "endpoint_delta_information_per_cost": 1.832143994775004,
+        "spearman_cost_vs_information": -0.756140350877193
+      },
+      "network": {
+        "spearman_time_vs_information_per_cost": 0.45369458128078805,
+        "endpoint_delta_information_per_cost": 40.505179385342835,
+        "spearman_cost_vs_information": 0.8295473748822583
+      }
+    },
+    "concave_sqrt": {
+      "v1": {
+        "per_session_rho": [
+          0.607574038691187,
+          0.4628208692428877,
+          0.4327603818111374,
+          0.47869766463286345,
+          0.41813794313794317
+        ],
+        "fisher_mean_rho": 0.4832343055856375,
+        "sessions_positive": 5
+      },
+      "lif": {
+        "spearman_time_vs_information_per_cost": 0.9824561403508772,
+        "endpoint_delta_information_per_cost": 1.0272713440610113,
+        "spearman_cost_vs_information": -0.756140350877193
+      },
+      "network": {
+        "spearman_time_vs_information_per_cost": 0.112807881773399,
+        "endpoint_delta_information_per_cost": 13.795673488914026,
+        "spearman_cost_vs_information": 0.8295473748822583
+      }
+    },
+    "convex_1p5": {
+      "v1": {
+        "per_session_rho": [
+          0.42115775017912593,
+          0.36074506533222134,
+          0.3591455038568561,
+          0.3797470018935408,
+          0.3434801684801685
+        ],
+        "fisher_mean_rho": 0.37317645966627233,
+        "sessions_positive": 5
+      },
+      "lif": {
+        "spearman_time_vs_information_per_cost": 0.9947368421052631,
+        "endpoint_delta_information_per_cost": 2.5612809048475462,
+        "spearman_cost_vs_information": -0.756140350877193
+      },
+      "network": {
+        "spearman_time_vs_information_per_cost": 0.8881773399014776,
+        "endpoint_delta_information_per_cost": 63.014887454027786,
+        "spearman_cost_vs_information": 0.8295473748822583
+      }
+    },
+    "saturating": {
+      "v1": {
+        "per_session_rho": [
+          0.593249940291378,
+          0.47141136131961825,
+          0.439575921947096,
+          0.506127708815485,
+          0.43497718497718496
+        ],
+        "fisher_mean_rho": 0.4914397490522741,
+        "sessions_positive": 5
+      },
+      "lif": {
+        "spearman_time_vs_information_per_cost": 0.9824561403508772,
+        "endpoint_delta_information_per_cost": 1.020857507087779,
+        "spearman_cost_vs_information": -0.756140350877193
+      },
+      "network": {
+        "spearman_time_vs_information_per_cost": 0.22463054187192114,
+        "endpoint_delta_information_per_cost": 20.50619866322672,
+        "spearman_cost_vs_information": 0.8295473748822583
+      }
+    }
+  },
+  "normalization_note": "Nonlinear signaling costs equal the default affine signaling term at the pooled median V1 firing rate. Because V1 inference also partials firing rate, stability across deterministic monotone costs is a denominator sensitivity check, not independent metabolic validation.",
+  "network_scope_note": "The recurrent metric is the 20-ms held-out population decoder's Fano information lower bound per cost. It is analyzed separately from the single-neuron matched-word Direct-Method quantity and is not placed on the calibrated Fig. 5 reference curve.",
+  "R0_scope_note": "R0 does not enter the empirical I/C ratios tested here. It only rescales the anchored analytic reference in Fig. 5; the independent min/median/max anchor scan is reported in Fig. S7."
+}

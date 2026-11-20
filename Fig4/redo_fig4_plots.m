@@ -89,8 +89,8 @@ fprintf('  -> using:             %s\n', chose);
 x_ref  = C_0 + (0.001:0.1:max(15, max(PcostE_mean)));
 r_vec  = (x_ref - C_0) / C_1;
 y1_ref = (R_0_rn / ln2) * (1 + log(r_vec));        % I_frontier  [bits/s]
-y2_ref = (R_0_rn / ln2) ./ (x_ref - C_0);          % beta = dI/dC [bits/J]
-ICE    = y1_ref ./ x_ref;                          % ICE_frontier [bits/J]
+y2_ref = (R_0_rn / ln2) ./ (x_ref - C_0);          % beta = dI/dC in proxy units
+ICE    = y1_ref ./ x_ref;                          % information per calibrated cost proxy
 
 %% --- Re-draw Figure 2 ---
 if ~exist('orange', 'var'), orange = [1 0.5 0.2]; end
@@ -112,7 +112,7 @@ plot(x_ref, ICE,    'k-',  'LineWidth', 1.4);
 for ii = 1:size(MIE_ST, 2)
     scatter(PcostE(:,ii), MIE_ST(:,ii) ./ PcostE(:,ii), 36, orange, 's', 'filled');
 end
-xlabel('Cost E [W]'); ylabel('ICE [bits/J]');
+xlabel('calibrated cost proxy'); ylabel('information / calibrated cost proxy');
 title('ICE-C   (data + frontier ICE solid + \beta dashed)');
 xlim([2 max(x_ref)]); box off;
 legend({'\beta = dI/dC', 'ICE = I/C', 'data'}, 'Location', 'best', 'FontSize', 8);

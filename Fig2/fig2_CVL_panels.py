@@ -37,8 +37,10 @@ OUT_PDF = HERE / "Fig2_panels_CD_CVL.pdf"
 OUT_NPZ = HERE / "Fig2_panels_CD_CVL_data.npz"
 
 N_V1       = 159
-DUR_SPON   = 1.5
-DUR_DRIVEN = 1.28
+MATCHED_WINDOW_S = 1.28
+DUR_SPON   = MATCHED_WINDOW_S
+DUR_DRIVEN = MATCHED_WINDOW_S
+N_BINS_MATCHED = 1280
 
 
 def vinje_gallant_S(rates_along_axis, axis):
@@ -64,7 +66,9 @@ def main():
     for i in range(n_trials_total):
         r = rasters[i, 0]
         if r.shape[1] == 1500:
-            spon_rates.append(np.asarray(r.sum(axis=1)).ravel() / DUR_SPON)
+            # Match the spontaneous integration window to the 1.28 s
+            # driven window; count CV depends on window duration.
+            spon_rates.append(np.asarray(r[:, :N_BINS_MATCHED].sum(axis=1)).ravel() / DUR_SPON)
         elif r.shape[1] == 1280:
             evk_rates.append(np.asarray(r.sum(axis=1)).ravel() / DUR_DRIVEN)
     spon = np.array(spon_rates).T   # (159, n_spon_trials)
@@ -98,7 +102,8 @@ def main():
     # --- save data for reuse ---
     np.savez(OUT_NPZ,
              mu_spon=mu_spon_v, cvL_spon=cvL_spon_v, sL_spon=sL_spon_v,
-             mu_evk=mu_evk_v,   cvL_evk=cvL_evk_v,   sL_evk=sL_evk_v)
+             mu_evk=mu_evk_v,   cvL_evk=cvL_evk_v,   sL_evk=sL_evk_v,
+             spon_window_s=MATCHED_WINDOW_S, evk_window_s=MATCHED_WINDOW_S)
     print(f"[save] {OUT_NPZ}")
 
     # --- plot panels C and D ---

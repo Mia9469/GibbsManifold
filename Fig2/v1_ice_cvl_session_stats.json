@@ -1,0 +1,112 @@
+{
+  "analysis_version": "20260907_standard_partial_spearman_original_count_rate",
+  "n_sessions": 5,
+  "n_neurons_pooled": 564,
+  "pooled_neuron_level_descriptive": {
+    "partial_rho_H_over_cost_given_FR": -0.16905779284579192,
+    "p_H": 5.542728237442703e-05,
+    "partial_rho_I_over_cost_given_FR": 0.47040258964967735,
+    "p_I": 2.425515487736842e-32,
+    "raw_rho_H_over_cost": -0.5911793379001924,
+    "raw_p_H_over_cost": 1.894701497881879e-54,
+    "raw_rho_I_over_cost": -0.011132697210421216,
+    "raw_p_I_over_cost": 0.7919274666949792
+  },
+  "per_session": [
+    {
+      "session_index": 1,
+      "session": "105l001p16.mat",
+      "n_neurons": 159,
+      "partial_rho_H_over_cost_given_FR": -0.19979442793027713,
+      "neuron_level_p_H_descriptive": 0.011840414318862989,
+      "partial_rho_I_over_cost_given_FR": 0.5719148010685795,
+      "neuron_level_p_I_descriptive": 4.194549058938493e-15,
+      "max_original_minus_filtered_rate_Hz": 3.683349609375
+    },
+    {
+      "session_index": 2,
+      "session": "106r001p26.mat",
+      "n_neurons": 109,
+      "partial_rho_H_over_cost_given_FR": -0.1245261055676945,
+      "neuron_level_p_H_descriptive": 0.199121270805657,
+      "partial_rho_I_over_cost_given_FR": 0.4325415342151923,
+      "neuron_level_p_I_descriptive": 2.9404256107265656e-06,
+      "max_original_minus_filtered_rate_Hz": 7.975341796875
+    },
+    {
+      "session_index": 3,
+      "session": "106r002p70.mat",
+      "n_neurons": 88,
+      "partial_rho_H_over_cost_given_FR": -0.09119372819742029,
+      "neuron_level_p_H_descriptive": 0.4008814812718836,
+      "partial_rho_I_over_cost_given_FR": 0.4173484921996691,
+      "neuron_level_p_I_descriptive": 5.780426705004453e-05,
+      "max_original_minus_filtered_rate_Hz": 4.212646484375
+    },
+    {
+      "session_index": 4,
+      "session": "107l002p67.mat",
+      "n_neurons": 97,
+      "partial_rho_H_over_cost_given_FR": -0.29404792300187854,
+      "neuron_level_p_H_descriptive": 0.0036385747080777734,
+      "partial_rho_I_over_cost_given_FR": 0.47305174259483695,
+      "neuron_level_p_I_descriptive": 1.1327980056407923e-06,
+      "max_original_minus_filtered_rate_Hz": 4.03662109375
+    },
+    {
+      "session_index": 5,
+      "session": "107l003p143.mat",
+      "n_neurons": 111,
+      "partial_rho_H_over_cost_given_FR": -0.23177098470895866,
+      "neuron_level_p_H_descriptive": 0.014836812993705461,
+      "partial_rho_I_over_cost_given_FR": 0.35911498929216124,
+      "neuron_level_p_I_descriptive": 0.0001168013137382419,
+      "max_original_minus_filtered_rate_Hz": 13.3662109375
+    }
+  ],
+  "session_level_H_over_cost": {
+    "n_sessions": 5,
+    "median_partial_rho": -0.19979442793027713,
+    "fisher_mean_rho": -0.18932671414683547,
+    "fisher_mean_rho_ci95_cluster_t": [
+      -0.28880800843949095,
+      -0.08580072586686015
+    ],
+    "fisher_z_t_statistic": -5.037317722223211,
+    "cluster_df": 4,
+    "fisher_z_t_p_two_sided": 0.0072958186453164885,
+    "sessions_with_positive_rho": 0,
+    "session_wilcoxon_p_two_sided": 0.0625,
+    "session_sign_test_p_two_sided": 0.0625
+  },
+  "session_level_I_over_cost": {
+    "n_sessions": 5,
+    "median_partial_rho": 0.4325415342151923,
+    "fisher_mean_rho": 0.4538550294037765,
+    "fisher_mean_rho_ci95_cluster_t": [
+      0.3470927177693937,
+      0.5490044053920385
+    ],
+    "fisher_z_t_statistic": 10.667850364385298,
+    "cluster_df": 4,
+    "fisher_z_t_p_two_sided": 0.00043734198714733366,
+    "sessions_with_positive_rho": 5,
+    "session_wilcoxon_p_two_sided": 0.0625,
+    "session_sign_test_p_two_sided": 0.0625
+  },
+  "inference_note": "Recording session is the inferential unit, conditional on independent session effects; this is not animal-level inference. Pooled neuron p-values are descriptive; primary model-based inference is the Fisher-z one-sample t test with n_sessions-1 degrees of freedom. Neuron-level partial-correlation p-values use an approximate t reference with n-3 degrees of freedom.",
+  "partial_correlation_definition": "Pearson correlation of linear rank residuals; no second ranking of residuals",
+  "rate_and_cost_definition": "FR_drv from v1_CVL_perN.mat: original trial counts divided by 1.28 s; cost=2.4+0.37*FR_drv",
+  "entropy_word_stream_note": "Existing H(W) and I((S,J);W) estimates are retained without recomputation. Their binary word stream applies a one-following-bin dead time: an accepted spike deletes a spike in the next 1-ms bin. CV, rate control, and cost instead use original trial counts. The entropy-cache FR and C are not used as the control or denominator.",
+  "provenance": {
+    "code_sha256": "c50b52b46ea634e9c554c32906d3aca3ea6384706bf25c816db58cb192ea4932",
+    "input_sha256": {
+      "unified_v1_Hrho_ICE.mat": "24a530b36a8a48846d843ac584f1e08b0dbc84d41ef630aaaf05478d1d0739b8",
+      "v1_CVL_perN.mat": "257f99dc008ed4ba3111faa0d06da2e9fdc53ea742fe7c075913c4956679fff3"
+    },
+    "numpy_version": "2.0.2",
+    "scipy_version": "1.13.1",
+    "entropy_recomputed": false,
+    "npz_sha256": "83df7135a3108e1d6b53c6bdaae97b28e4c3dc10212321e48f713c1128ca79ed"
+  }
+}

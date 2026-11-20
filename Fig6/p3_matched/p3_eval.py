@@ -11,13 +11,14 @@ Loads every JSON record produced by p3_train.py and produces:
      mean_a (smaller = sparser at the same reconstruction)?
   5. Matched-a  table: at a fixed mean_a target, what is each method's
      RE (smaller = better reconstruction at the same activation)?
-  6. A second plot ICE vs. CV showing the metabolic-efficiency / CV
+  6. A second plot RAE vs. CV showing the reconstruction--activation / CV
      relationship that motivates the CV-max method.
 
 Usage
 -----
   python p3_eval.py
   python p3_eval.py --records_dir results/records --out_dir results/eval
+  python p3_eval.py --methods null,cauchy,cvmax_v2
   python p3_eval.py --re_targets 0.05,0.07,0.10 --a_targets 0.02,0.05,0.10
 
 The matched targets default to a few percentiles of the observed RE / mean_a
@@ -79,6 +80,9 @@ def parse_args() -> argparse.Namespace:
     p = argparse.ArgumentParser(description='P3 matched-baseline aggregator')
     p.add_argument('--records_dir', type=str, default=str(RECORDS_DIR))
     p.add_argument('--out_dir',     type=str, default=str(EVAL_DIR))
+    p.add_argument('--methods', type=str, default='null,cauchy,cvmax_v2',
+                   help='Comma-separated methods to aggregate; use all to '
+                        'include the legacy cvmax-v1 records.')
     p.add_argument('--re_targets',  type=str, default='',
                    help='Comma-separated RE values for matched-RE table.  '
                         'Empty -> use 25/50/75 pct of observed RE range.')
@@ -87,7 +91,7 @@ def parse_args() -> argparse.Namespace:
                         'Empty -> 25/50/75 pct of observed mean_a range.')
     p.add_argument('--ice', type=str, default='ICE_log_a',
                    choices=['ICE_log_a', 'ICE_ent_a'],
-                   help='Which ICE definition to use for the ICE vs. CV plot.')
+                   help='Which archived score field to use for the RAE vs. CV plot.')
     return p.parse_args()
 
 
@@ -349,6 +353,24 @@ def parse_targets(arg: str, fallback: np.ndarray) -> np.ndarray:
     return np.array([float(x) for x in arg.split(',') if x], dtype=float)
 
 
+def matching_provenance(summary):
+    return {
+        'n_configurations': len(summary),
+        'n_runs': sum(r['n_seeds'] for r in summary),
+        'interpolation': (
+            'Direct linear interpolation of mean RAE against the matching variable; '
+            'not RAE calculated from an interpolated RE-activation pair.'
+        ),
+        'selection': 'Best interpolated CVM rho subcurve at each target',
+        'uncertainty': (
+            'Interpolated endpoint SDs are descriptive; they are not confidence '
+            'intervals or uncertainty estimates for selected operating points.'
+        ),
+        'scope': 'Post-hoc empirical operating curves; no Pareto-optimality or significance claim',
+        'extrapolation': 'None; inaccessible targets are null',
+    }
+
+
 # -- Plots --------------------------------------------------------------------
 def _submethod_groups(summary: list[dict]) -> dict[str, list[dict]]:
     """Split summary into one list per Pareto curve.
@@ -407,9 +429,9 @@ def plot_pareto(summary: list[dict], out_path: Path) -> None:
                     fmt='o-', ms=5, lw=1.5, capsize=2,
                     color=_color_for(sm),
                     label=_label_for(sm))
-    ax.set_xlabel(r'mean $|a|$ (sparsity, lower = sparser)')
+    ax.set_xlabel(r'Mean absolute activation $\overline{|a|}$')
     ax.set_ylabel('Reconstruction error  RE')
-    ax.set_title('P3 matched-baseline Pareto front')
+    ax.set_title('Empirical reconstruction-activation operating curves')
     ax.legend(frameon=False, loc='best', fontsize=8)
     ax.grid(alpha=0.3)
     fig.tight_layout()
@@ -429,8 +451,8 @@ def plot_ice_cv(summary: list[dict], ice_key: str, out_path: Path) -> None:
         axes[1].plot(knobs, cv, 'o-', ms=5, lw=1.5,
                      color=_color_for(sm), label=_label_for(sm))
     axes[0].set_xlabel('Population CV')
-    axes[0].set_ylabel(f'ICE  ({ice_key})')
-    axes[0].set_title('ICE vs. CV')
+    axes[0].set_ylabel(f'RAE score  ({ice_key}; legacy key)')
+    axes[0].set_title('RAE vs. CV')
     axes[0].grid(alpha=0.3); axes[0].legend(frameon=False, fontsize=7,
                                            loc='best', ncol=2)
 
@@ -447,7 +469,7 @@ def plot_ice_cv(summary: list[dict], ice_key: str, out_path: Path) -> None:
 
 def plot_ice_vs_re(summary: list[dict], ice_key: str, out_path: Path,
                    re_min: float = 0.60) -> None:
-    """ICE vs RE — the headline plot for matched-RE since ICE is the
+    """RAE vs RE -- the headline plot for matched-RE since RAE is the
     outcome metric and RE is the matching axis.
 
     The x-axis is cropped at re_min (default 0.60) to focus on the region
@@ -471,8 +493,8 @@ def plot_ice_vs_re(summary: list[dict], ice_key: str, out_path: Path,
                label='matched-RE = 0.60')
     ax.set_xlim(left=re_min)
     ax.set_xlabel('Reconstruction error  RE')
-    ax.set_ylabel(f'ICE  ({ice_key})  [bits/activation]')
-    ax.set_title('ICE vs. RE  (matched-RE comparison axis)')
+    ax.set_ylabel(f'RAE score  ({ice_key}; legacy key)')
+    ax.set_title('RAE vs. RE  (matched-RE comparison axis)')
     ax.legend(frameon=False, loc='best', fontsize=8)
     ax.grid(alpha=0.3)
     fig.tight_layout()
@@ -491,7 +513,13 @@ def main() -> int:
     if not records:
         print(f'[p3_eval] no JSON records found in {records_dir}')
         return 1
-    print(f'[p3_eval] loaded {len(records)} records from {records_dir}')
+    if args.methods != 'all':
+        selected = {m.strip() for m in args.methods.split(',') if m.strip()}
+        records = [r for r in records if r.get('method') in selected]
+    if not records:
+        print(f'[p3_eval] no records remain after --methods={args.methods}')
+        return 1
+    print(f'[p3_eval] loaded {len(records)} selected records from {records_dir}')
 
     rows = to_long_rows(records)
     write_csv(out_dir / 'p3_long.csv', rows)
@@ -499,6 +527,8 @@ def main() -> int:
 
     summary = aggregate_seeds(rows)
     write_csv(out_dir / 'p3_summary.csv', summary)
+    with open(out_dir / 'matching_provenance.json', 'w') as f:
+        json.dump(matching_provenance(summary), f, indent=2)
     print(f'[p3_eval] wrote {out_dir/"p3_summary.csv"}  ({len(summary)} rows)')
 
     # Matched-RE: at fixed RE, compare mean_a (sparser = lower)

@@ -6,10 +6,10 @@
 # Sweep design:
 #   - null     : 8 lmda values × 3 seeds = 24 runs
 #   - cauchy   : 8 alpha_s values × 3 seeds = 24 runs
-#   - cvmax    : cv_constrained mode, 2-D grid
-#                4 recon_budget × 4 cv_ratio × 3 seeds = 48 runs
 #   - cvmax_v2 : cv_constrained_v2 (gates U-update too), same grid = 48 runs
-#   Total: 144 runs
+#   Total (default current-v2 sweep): 96 runs
+#   - cvmax v1 remains available only through --methods cvmax as a legacy
+#     sensitivity and is excluded from the manuscript sweep.
 #
 # cvmax  (cv_constrained):    warmup-relative budget gate.  In practice this
 #                              gate is rarely closed (recon stays below the
@@ -32,7 +32,8 @@
 #   bash p3_sweep.sh --parallel 4    # up to 4 runs concurrently
 #   bash p3_sweep.sh --dry-run       # print commands, don't execute
 #   bash p3_sweep.sh --epochs 10     # quick smoke test
-#   bash p3_sweep.sh --methods cvmax # restrict to one method
+#   bash p3_sweep.sh --methods cvmax_v2 # restrict to one method
+#   bash p3_sweep.sh --methods all      # include legacy cvmax v1 (144 runs)
 #
 # Output
 # ------
@@ -47,7 +48,7 @@ PARALLEL=1            # how many runs to fan out at once (1 = sequential)
 DRY_RUN=0
 EPOCHS=30             # convergence diagnostic showed ep30 ≈ ep50 (<1% RE drift)
 SEEDS=(0 1 2)
-METHODS_FILTER=""     # empty = all methods
+METHODS_FILTER="null,cauchy,cvmax_v2"  # current manuscript methods
 
 # -- Sweep grids ----------------------------------------------------------
 # null:   8 L1 strengths
@@ -82,7 +83,9 @@ while [[ $# -gt 0 ]]; do
         --seeds)
             IFS=',' read -ra SEEDS <<< "$2"; shift 2 ;;
         --methods)
-            METHODS_FILTER="$2"; shift 2 ;;
+            METHODS_FILTER="$2"
+            [[ "$METHODS_FILTER" == "all" ]] && METHODS_FILTER=""
+            shift 2 ;;
         -h|--help)
             grep '^#' "$0" | sed 's/^# //' | head -n 35
             exit 0 ;;
@@ -191,7 +194,9 @@ if want_method cauchy; then
     done
 fi
 
-# Method 3: cvmax (cv_constrained, 2-D grid: recon_budget × cv_ratio).
+# Legacy sensitivity only: cvmax v1 (warmup-relative gate).  This loop is not
+# part of the default manuscript sweep; request it explicitly with
+# --methods cvmax or --methods all.
 if want_method cvmax; then
     for budget in "${RECON_BUDGETS[@]}"; do
         for cvr in "${CVRS_CVMAX[@]}"; do

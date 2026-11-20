@@ -1,0 +1,143 @@
+{
+  "seed": 20261020,
+  "budget": 480,
+  "signature": {
+    "inputs": {
+      "outputs/snn_budget_frontier_20261016/replication/seed_20261020_budget_480.json": "a4c5e397ef088949b735fd4d6d6b416166a457ce118b21d64967bb20d458e364",
+      "outputs/snn_budget_frontier_20261016/replication/seed_20261020_budget_480_weights.npz": "d46101ad9ac3e00c7a6cc25786eda93f6a9f8b0c9b758e8a742ec5dcb5c1a435",
+      "outputs/snn_budget_frontier_20261016/replication/seed_20261020_budget_480_responses.npz": "3b8a168ff84802eaecc9642e032e7c1bc36bac721deca8d1b0038155d2d1f738"
+    },
+    "protocol_sha256": "46020693449ca1aeecfb45dea58861d2b4c5cabc04bed98dceed7c13c7fbb724",
+    "code_sha256": "a118dc44ad763ee614967f03ed73c020adfe22936e37b4afb5561add765090ae",
+    "simulator_sha256": {
+      "controlled_budget.py": "5d1249d4fcba147191725852d165e51132b267b12ccd892c7b861fb5606603da",
+      "network_budget.py": "c1803b6e17da8b7de0874c34a1b040da7da50fed628f74ce5040d9be097ecf22",
+      "replicate_learning.py": "2d5805a7a6c5b163eea5aa8f3d3247142f102d838040dc684d278010c8fa18bc"
+    }
+  },
+  "stages": [
+    {
+      "stage": 0,
+      "base_rate": 479.6,
+      "bracketed": true,
+      "attempts": [
+        {
+          "command": 504.0,
+          "achieved_total_rate": 503.83125,
+          "histogram": [
+            2377,
+            818,
+            796,
+            945,
+            755,
+            735,
+            691,
+            654,
+            537,
+            433,
+            406,
+            392,
+            299,
+            308,
+            285,
+            223,
+            173,
+            161,
+            160,
+            121,
+            109,
+            117,
+            107,
+            82,
+            61,
+            54,
+            52,
+            27,
+            27,
+            21,
+            14,
+            13,
+            5,
+            4,
+            5,
+            5,
+            1,
+            1,
+            4,
+            2,
+            6,
+            4,
+            2,
+            0,
+            0,
+            0,
+            0,
+            3,
+            2,
+            2,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "stage": 4,
+      "base_rate": 480.925,
+      "bracketed": true,
+      "attempts": [
+        {
+          "command": 456.0,
+          "achieved_total_rate": 458.36875,
+          "histogram": [
+            2095,
+            1056,
+            1040,
+            990,
+            897,
+            815,
+            767,
+            567,
+            522,
+            430,
+            401,
+            316,
+            289,
+            288,
+            225,
+            234,
+            178,
+            170,
+            135,
+            92,
+            103,
+            72,
+            75,
+            56,
+            37,
+            30,
+            32,
+            12,
+            18,
+            11,
+            13,
+            5,
+            9,
+            9,
+            2,
+            1,
+            0,
+            2,
+            2,
+            1,
+            0,
+            1,
+            0,
+            0,
+            1,
+            1
+          ]
+        }
+      ]
+    }
+  ]
+}

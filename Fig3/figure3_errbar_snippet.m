@@ -21,7 +21,7 @@ cost1_sem = squeeze(std(mean(cost1_store, 1), 0, 2)) / sqrt(NReps);
 %% Compute ICE (Information Rate / Power)
 T_obs = winsize * duration / 1000;   % observation duration [s]
 MI_rate_vec = MI_vec / T_obs;        % information rate [bits/s]
-ICE_vec = MI_rate_vec ./ cost1_grand';  % [bits/J]
+ICE_vec = MI_rate_vec ./ cost1_grand';  % information per calibrated cost proxy
 
 %% Jackknife MI — leave-one-rep-out
 MI_jack  = zeros(NReps, NWindows);
@@ -106,7 +106,7 @@ title('MI = H(r) - H(r|s)');
 
 subplot(2, 2, 3)
 errorbar(timewindow, ICE_vec, ICE_sem, 'm*-', 'LineWidth', 1.5, 'CapSize', 4);
-xlabel('Time [s]'); ylabel('ICE [bits/J]');
+xlabel('Time [s]'); ylabel('information / calibrated cost proxy');
 title('Information-Cost Efficiency (ICE)');
 
 subplot(2, 2, 4)
